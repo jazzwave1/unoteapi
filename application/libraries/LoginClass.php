@@ -7,22 +7,15 @@ class LoginClass
         $this->timestamp = date('YmdHis');     
     }
     
-    public  function portal($id, $pwd)
+    public function portal($id, $pwd)
     {
-        // live code
-        //$id  = $this->input->post('id');
-        //$pwd = $this->input->post('pwd');
-
         if(! $this->_chkParam($id, $pwd))
         {
-            echo "die"; 
-            die; 
+            dieProcess();
         }
         if(! $sEnPwd = $this->_mkEncPWD($id, $pwd) ) 
         {
-            echo "die"; 
-            die; 
-
+            dieProcess();
         }
         $sFingerPrint = $this->_mkFingerPrint();
         $sTimeStamp   = $this->timestamp; 
