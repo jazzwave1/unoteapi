@@ -38,6 +38,30 @@ date_default_timezone_set('Asia/Seoul');
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// dev hostname setting ----------------------------------//
+if($_SERVER["SERVER_NAME"] == 'localhost')
+{
+  $sHostURL = 'http://localhost/~leehojun/unoteapi';
+  $sJHostURL= 'http://localhost/~leehojun/unoteapi';
+  $sStaticURL = 'http://localhost/~leehojun/unoteapi';
+  $sStatic  = 'http://localhost/~leehojun/unoteapi/static';
+  $sCookieDomain = "localhost";
+}
+else
+{
+  $sHostURL = 'http://localhost/~leehojun/unoteapi';
+  $sJHostURL= 'http://localhost/~leehojun/unoteapi';
+  $sStaticURL = 'http://localhost/~leehojun/unoteapi';
+  $sStatic  = 'http://localhost/~leehojun/unoteapi/static';
+  $sCookieDomain = "localhost";
+}
+define("HOSTURL", $sHostURL);
+define("JHOSTURL", $sJHostURL);
+define("IMGURL", $sStaticURL);
+define("SURL", $sStatic);
+define("CKDOMAIN", $sCookieDomain);
+// -------------------------------------------------------// 
+
 /**
  * Common Functions
  *
