@@ -23,6 +23,15 @@ class ibricks extends CI_Controller {
         echo "test";
         print_r($_POST);
     } 
+    public function logTest()
+    {
+        $this->load->library('ApilogClass');
+        $oApiLog = new ApilogClass();
+        $oApiLog->setCallLog(); 
+    }
+
+
+
 
     ////////////////////////////
     ///////// 수집 API /////////

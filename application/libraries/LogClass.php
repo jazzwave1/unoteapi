@@ -1,5 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');ㅊ
-
+<?php  
 class LogClass
 {
     public function __construct()
