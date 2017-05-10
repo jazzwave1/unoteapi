@@ -46,6 +46,8 @@ if($_SERVER["SERVER_NAME"] == 'localhost')
   $sStaticURL = 'http://localhost/~leehojun/unoteapi';
   $sStatic  = 'http://localhost/~leehojun/unoteapi/static';
   $sCookieDomain = "localhost";
+  
+  $sIBricksURL = 'http://localhost/~leehojun/unoteapi';
 }
 else
 {
@@ -54,12 +56,19 @@ else
   $sStaticURL = 'http://localhost/~leehojun/unoteapi';
   $sStatic  = 'http://localhost/~leehojun/unoteapi/static';
   $sCookieDomain = "localhost";
+  
+  $sIBricksURL = 'http://localhost/~leehojun/unoteapi';
 }
 define("HOSTURL", $sHostURL);
 define("JHOSTURL", $sJHostURL);
 define("IMGURL", $sStaticURL);
 define("SURL", $sStatic);
 define("CKDOMAIN", $sCookieDomain);
+
+
+// IBricks 윤문수집 관련 URL
+define("IBRICKS", $sIBricksURL);
+
 // -------------------------------------------------------// 
 
 /**

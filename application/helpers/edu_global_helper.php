@@ -50,7 +50,7 @@ function getCookieInfo()
 {
     $CI = & get_instance();
     $CI->load->helper('cookie');
-    return  get_cookie('codingclub_MemberInfo');
+    return  get_cookie('eduniety_membership');
 }
 function setDateFormat($sDate, $type)
 {
