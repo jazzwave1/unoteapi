@@ -5,7 +5,6 @@ class Common_dao extends CI_Model
     {
         parent::__construct();
     }
-
     public function chkParam( $aConfig , $aParam, $aNull=array() )
     {
         $chkParam = true;
