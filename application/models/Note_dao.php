@@ -5,7 +5,7 @@ class Note_dao extends Common_dao
 {
     public function __construct()
     {
-        $this->load->database('default', TRUE);
+        $this->db = $this->load->database('dev_aws', TRUE);
         $aQueryInfo = edu_get_config('query', 'query');
         $this->queryInfoNote = $aQueryInfo['note'];
         $this->queryInfoAccount = $aQueryInfo['account'];

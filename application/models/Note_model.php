@@ -14,7 +14,7 @@ class Note_model extends CI_model
         $aAccountInfo = $this->note_dao->getAccountInfo($aInput);
 
         if( count($aAccountInfo) > 0 )
-            return true;
+            return $aAccountInfo;
 
         return false;
     }
