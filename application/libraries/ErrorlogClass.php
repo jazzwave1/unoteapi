@@ -5,13 +5,19 @@ class ErrorlogClass extends LogClass
 {
     public function __construct()
     {
-    
+	    $this->aErrorCodeInfo = edu_get_config('code', 'error_code');
     }
 
-    public function setCallLog()
+    public function setErrorLog($file,$code)
     {
-        echo "set Api Call Log ";
-        die;
-    } 
+        // log file write
 
+        
+    	$aRet = array(
+    			'code' => $code
+    			,'msg' => $this->aErrorCodeInfo[$code]
+    		);
+
+    	return $aRet;
+    } 
 }

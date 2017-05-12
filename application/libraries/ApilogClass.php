@@ -8,10 +8,10 @@ class ApilogClass extends LogClass
     
     }
 
-    public function setErrorLog()
+    public function setCallLog()
     {
-        echo "set Error Call Log ";
+        echo "set Api Call Log ";
         die;
     } 
-
+    
 }
