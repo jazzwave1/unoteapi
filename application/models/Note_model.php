@@ -13,7 +13,7 @@ class Note_model extends CI_model
         $aInput = array('usn'=>$usn);
         $aAccountInfo = $this->note_dao->getAccountInfo($aInput);
 
-        if( count($aAccountInfo) > 0 )
+        if( is_array($aAccountInfo) && count($aAccountInfo) > 0 )
             return $aAccountInfo;
 
         return false;
@@ -26,7 +26,7 @@ class Note_model extends CI_model
         $aInput = array('n_idx'=>$n_idx);
         $aNoteInfo = $this->note_dao->getNoteInfo($aInput);
 
-        if( count($aNoteInfo) > 0 )
+        if( is_array($aNoteInfo) && count($aNoteInfo) > 0 )
             return true;
 
         return false;
@@ -46,12 +46,12 @@ class Note_model extends CI_model
         return $aRes;
     }
 
-    public function insertNote($aData)
+    public function insertNote($aNoteData)
     {
         $aInput = array(
-            'n_idx'    => $aData['n_idx']
-            ,'usn'     => $aData['usn']
-            ,'title'   => $aData['title']
+            'n_idx'    => $aNoteData['n_idx']
+            ,'usn'     => $aNoteData['usn']
+            ,'title'   => $aNoteData['title']
             ,'regdate' => date("Y-m-d H:i:s")
         );
 
@@ -61,11 +61,13 @@ class Note_model extends CI_model
             return false;
     }
 
-    public function updateNote($aData)
+    public function updateNote($aNoteData)
     {
         $aInput = array(
-            'title'   => $aData['title']
-            ,'footer' => $aData['footer']
+            'n_idx'    => $aNoteData['n_idx']
+            ,'usn'     => $aNoteData['usn']
+            ,'title'   => $aNoteData['title']
+            ,'regdate' => date("Y-m-d H:i:s")
         );
 
         if( $this->note_dao->updateNote($aInput) )

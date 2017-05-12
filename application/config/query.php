@@ -17,7 +17,7 @@ $config['query'] = array(
     )
     ,'note' => array(
         'getNoteInfo' => array(
-            'query' => 'SELECT n_idx, usn, title, regdate, account_usn
+            'query' => 'SELECT n_idx, usn, title, regdate
                           FROM note
                          WHERE n_idx = ?'
             ,'data' => array('n_idx')
@@ -41,10 +41,10 @@ $config['query'] = array(
         )
         ,'updateNote' => array(
             'query' => 'UPDATE note
-                           SET header = ?,
-                               footer = ?
+                           SET title = ?,
+                               regdate = ?
                          WHERE n_idx = ?'
-            ,'data' => array('header', 'footer')
+            ,'data' => array('title', 'regdate','n_idx')
             ,'btype'=> 'ssi'
             ,'null' => array()
         )

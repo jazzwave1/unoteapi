@@ -6,6 +6,9 @@ class Note extends CI_Controller {
     {
         parent::__construct();
 
+        $this->load->library('ErrorlogClass');
+        $this->oErrorLog = new ErrorlogClass();
+
         $this->load->model('note_model');
     }
 
@@ -22,8 +25,6 @@ class Note extends CI_Controller {
         response_json(array('code'=>1, 'msg'=>'OK', 'data'=>$aAccountInfo));
         die; 
     }
-
-        
 
     public function writeNote($usn, $n_idx)
     {
@@ -43,24 +44,53 @@ class Note extends CI_Controller {
         {
             $this->_editNote();
         }
-        
+
         // json return
 
     }
-    public function saveNote($sType, $aData)
+
+    public function errorlogTest()
     {
+        response_json($this->oErrorLog->setErrorLog('/Note/errorlogTest', 999));
+    }
+
+
+    public function saveNote($sType='reg')
+    {
+        // dumy data
+        // 추후 note data는 post로 받음
+        $aNoteData = array(
+            'n_idx'    => 2
+            ,'usn'     => 1
+            ,'title'   => 'test note 2 - edit'
+            ,'regdate' => date("Y-m-d H:i:s")
+        );
+
         if($sType == 'reg')
         {
-            // insert
-            $this->note_model->insertNote($aData);
+            // insertNote
+            // 추후 note_display, note_sentence table 추가 필요
+            if($this->note_model->insertNote($aNoteData))
+            {
+                response_json($this->oErrorLog->setErrorLog('/Note/saveNote/reg', 1));
+                die;
+            }
+
         }
         else if($sType == 'edit')
         {
-            if($this->_isNote($aData['n_idx']))
+            if($this->_isNote($aNoteData['n_idx']))
             {
                 // update
-                $this->note_model->updateNote($aData);
+                if($this->note_model->updateNote($aNoteData))
+                {
+                    response_json($this->oErrorLog->setErrorLog('/Note/saveNote/edit', 1));
+                    die;
+                }
             }
+
+            response_json($this->oErrorLog->setErrorLog('/Note/deleteNote', 301));
+            die;
         }
     }
     public function deleteNote($n_idx='')
@@ -68,8 +98,18 @@ class Note extends CI_Controller {
         if($this->_isNote($n_idx))
         {
             // delete
-            $this->note_model->deleteNote($n_idx);
+            if($this->note_model->deleteNote($n_idx))
+            {
+                response_json($this->oErrorLog->setErrorLog('/Note/deleteNote', 1));
+                die;
+            }
+
+            response_json($this->oErrorLog->setErrorLog('/Note/deleteNote', 901));
+            die;
         }
+
+        response_json($this->oErrorLog->setErrorLog('/Note/deleteNote', 301));
+        die;
     }
 
     private function _isAccount($usn=0)
@@ -88,7 +128,7 @@ class Note extends CI_Controller {
         // note data
         $aRes = $this->note_model->getNoteInfo();
 
-        return $aRes;
+        return response_json($aRes);
     }
 
 
