@@ -13,6 +13,8 @@ function dieProcess()
 }
 function sendCURLPost($url,$params)
 {
+    if(!$url) return false;
+
     $postData = '';
     
     foreach($params as $k => $v) 
@@ -33,5 +35,4 @@ function sendCURLPost($url,$params)
                                                               
     curl_close($ch);
     return $output;
-
 }
