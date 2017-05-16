@@ -15,8 +15,12 @@ class ibricks extends CI_Controller {
             "age" => "39",
             "location" => "Seoul"
         );
-            
-        echo sendCURLPost("http://localhost/~hojunlee/unoteapi/ibricks/test2",$params); 
+
+        $this->load->library('ErrorlogClass');
+        $oErrorLog = new ErrorlogClass(); 
+        $oErrorLog->setDebugLog($params); 
+
+        //echo sendCURLPost("http://localhost/~hojunlee/unoteapi/ibricks/test2",$params); 
     }
     public function test2()
     {
@@ -29,9 +33,6 @@ class ibricks extends CI_Controller {
         $oApiLog = new ApilogClass();
         $oApiLog->setCallLog(); 
     }
-
-
-
 
     ////////////////////////////
     ///////// 수집 API /////////

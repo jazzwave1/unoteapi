@@ -6,18 +6,36 @@ class ErrorlogClass extends LogClass
     public function __construct()
     {
 	    $this->aErrorCodeInfo = edu_get_config('code', 'error_code');
+        
     }
 
-    public function setErrorLog($file,$code)
+    public function setErrorLog($aLogInfo, $type='file')
     {
-        // log file write
-
-        
     	$aRet = array(
-    			'code' => $code
-    			,'msg' => $this->aErrorCodeInfo[$code]
-    		);
+    			 'file' => $aLogInfo['file']
+    			,'code' => $aLogInfo['code']
+    			,'msg'  => $this->aErrorCodeInfo[$aLogInfo['code']]
+        );
+        
+        if(DEBUG)
+        {
+            // set debug file
+        } 
 
-    	return $aRet;
+        $this->_setErrorFileLog($aRet); 
+        return $aRet;
+    }
+    private function _setErrorFileLog($aLogInfo)
+    {
+        $fp = $this->logOpen();
+
+        fwrite($fp, "\n##################### ".$aLogInfo['file']." Start ####################\n");
+        fwrite($fp, "debug time : ");
+        fwrite($fp, print_r(date("Y-m-d H:i:s"), true));
+        fwrite($fp, "\n");
+        fwrite($fp, print_r($aLogInfo, true));
+        fwrite($fp, "\n##################### ".$aLogInfo['file']." End ######################\n");
+
+        return; 
     } 
 }
