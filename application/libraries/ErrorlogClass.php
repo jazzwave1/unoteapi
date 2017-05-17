@@ -12,11 +12,12 @@ class ErrorlogClass extends LogClass
     public function setErrorLog($aLogInfo, $type='file')
     {
     	$aRet = array(
-    			 'file' => $aLogInfo['file']
-    			,'code' => $aLogInfo['code']
-    			,'msg'  => $this->aErrorCodeInfo[$aLogInfo['code']]
+    			 'file'   => $aLogInfo['file']
+    			,'code'   => $aLogInfo['code']
+    			,'msg'    => $this->aErrorCodeInfo[$aLogInfo['code']]
+    			,'aInput' => $aLogInfo['aInput']
         );
-        
+                
         if(DEBUG)
         {
             // set debug file

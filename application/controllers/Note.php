@@ -18,8 +18,9 @@ class Note extends CI_Controller {
         if(!$aAccountInfo = $this->_isAccount($usn))
         {
             $aErrorLog = array(
-                 'file' =>'/Note/testAPI'
-                ,'code' => 999
+                 'file'   =>'/Note/testAPI'
+                ,'code'   => 999
+                ,'aInput' => array($usn , $n_idx)
             );
             response_json($this->oErrorLog->setErrorLog($aErrorLog));
             die;
@@ -57,6 +58,7 @@ class Note extends CI_Controller {
         $aErrorLog = array(
              'file' =>'/Note/errorlogTest'
             ,'code' => 999
+            ,'aInput' => array('test', 'value') 
         );
         response_json($this->oErrorLog->setErrorLog($aErrorLog));
     }
@@ -99,6 +101,7 @@ class Note extends CI_Controller {
             $aErrorLog = array(
                  'file' =>'/Note/saveNote | edit'
                 ,'code' => 301 
+                ,'aInput' => $aNoteData 
             );
             response_json($this->oErrorLog->setErrorLog($aErrorLog));
             die;
@@ -117,6 +120,7 @@ class Note extends CI_Controller {
             $aErrorLog = array(
                 'file' =>'/Note/deleteNote'
                 ,'code' => 901 
+                ,'aInput' => array($n_idx) 
             );
             response_json($this->oErrorLog->setErrorLog($aErrorLog));
             die;
@@ -125,6 +129,7 @@ class Note extends CI_Controller {
         $aErrorLog = array(
             'file' =>'/Note/deleteNote'
             ,'code' => 301 
+            ,'aInput' => array($n_idx) 
         );
         response_json($this->oErrorLog->setErrorLog($aErrorLog));
         die;

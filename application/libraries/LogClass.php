@@ -1,6 +1,6 @@
 <?php  
 
-define ("DEBUG" , false);
+define ("DEBUG" , true);
 define ("LOGFILE" , APPPATH.'logs/unoteapi_log.php');
 
 class LogClass
