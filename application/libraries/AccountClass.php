@@ -28,20 +28,11 @@ class AccountClass {
         $oAccModel = edu_get_instance('account_model', 'model');
         $aAccInfo = $oAccModel->account_model->getAccountInfo($account_id);
 
-        // echo "<pre>aAccountInfo : ";
-        // print_r($aAccountInfo);
-        // echo "</pre>";
-        // die();
-
         // Account Info가 없을 경우
         if(!$aAccInfo)
         {
             // Eduniety Member Info 가져오기
             $oEduMemInfo = $this->_getEduMemInfo($account_id);
-            // echo "<pre>";
-            // print_r($oEduMemInfo);
-            // echo "</pre>";
-            // die();
 
             if(!$oEduMemInfo)
             {
