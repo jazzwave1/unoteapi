@@ -6,19 +6,6 @@ class Note_model extends CI_model
         $this->load->model('note_dao');
     }
 
-    public function isAccount($usn)
-    {
-        if(!$usn) return false;
-
-        $aInput = array('usn'=>$usn);
-        $aAccountInfo = $this->note_dao->getAccountInfo($aInput);
-
-        if( is_array($aAccountInfo) && count($aAccountInfo) > 0 )
-            return $aAccountInfo;
-
-        return false;
-    }
-
     public function isNote($n_idx)
     {
         if(!$n_idx) return false;
@@ -32,16 +19,15 @@ class Note_model extends CI_model
         return false;
     }
 
-    public function getNoteInfo($n_idx)
+    public function getNoteInfo($usn)
     {
-        if(!$n_idx) return false;
+        if(!$usn) return false;
 
         $aRes = array();
 
-        $aInput = array('n_idx'=>$n_idx);
+        $aInput = array('usn'=>$usn);
 
-        $aRes['note']         = $this->note_dao->getNoteInfo($aInput);
-        $aRes['note_display'] = $this->note_dao->getNoteDisplayInfo($aInput);
+        $aRes = $this->note_dao->getNoteInfo($aInput);
 
         return $aRes;
     }
