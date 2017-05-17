@@ -64,6 +64,29 @@ class LogClass
         fwrite($logFile, "[" .$timestamp. "] " .$message. "\n");
         return;
     }
+
+    public function sendMail($to, $subject, $message)
+    {
+        $aSender = $this->_getMailSenderInfo();
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=UTF-8';
+
+        // Additional headers
+        //$headers[] = 'To: '.$to;
+        $headers[] = 'From: '.$aSender['from']['name'].'<'.$aSender['from']['mail'].'>';
+
+        $subject = "=?UTF-8?B?".base64_encode($subject)."?="; 
+        mail($to, $subject, $message, implode("\r\n", $headers));
+
+    }    
     
-    
+    private function _getMailSenderInfo()
+    {
+        $aInfo = array(
+             'from' => array( 'mail'=>'hjlee@eduniety.net', 'name'=>'HoJun Lee')
+            ,'cc'   => ''
+            ,'bcc'  => ''
+        );
+        return $aInfo;
+    }
 }
