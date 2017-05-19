@@ -9,18 +9,19 @@ class Note extends CI_Controller {
         $this->load->library('ErrorlogClass');
         $this->oErrorLog = new ErrorlogClass();
 
+        $this->load->model('account_model');
         $this->load->model('note_model');
     }
 
-    public function testAPI($usn,$n_idx)
+    public function testAPI($account_id,$n_idx)
     {
         // get DB data
-        if(!$aAccountInfo = $this->_isAccount($usn))
+        if(!$aAccountInfo = $this->_isAccount($account_id))
         {
             $aErrorLog = array(
                  'file'   =>'/Note/testAPI'
                 ,'code'   => 999
-                ,'aInput' => array($usn , $n_idx)
+                ,'aInput' => array($account_id , $n_idx)
             );
             response_json($this->oErrorLog->setErrorLog($aErrorLog));
             die;
@@ -30,10 +31,10 @@ class Note extends CI_Controller {
         die; 
     }
 
-    public function writeNote($usn, $n_idx)
+    public function writeNote($account_id, $n_idx)
     {
-        // usn check
-        if(!$this->_isAccount($usn))
+        // account_id check
+        if(!$this->_isAccount($account_id))
         {
             echo "alert('유저 정보 없음');";
             die;
@@ -135,9 +136,9 @@ class Note extends CI_Controller {
         die;
     }
 
-    private function _isAccount($usn=0)
+    private function _isAccount($account_id=0)
     {
-        return $this->note_model->isAccount($usn);
+        return $this->account_model->isAccount($account_id);
     }
     private function _isNote($n_idx=0)
     {

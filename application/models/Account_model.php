@@ -6,12 +6,12 @@ class Account_model extends CI_model{
         $this->account_dao = edu_get_instance('account_dao', 'model');
     }
 
-    public function isAccount($usn)
+    public function isAccount($account_id)
     {
-        if(!$usn) return false;
+        if(!$account_id) return false;
 
-        $aInput = array('usn'=>$usn);
-        $aAccountInfo = $this->note_dao->getAccountInfo($aInput);
+        $aInput = array('account_id'=>$account_id);
+        $aAccountInfo = $this->account_dao->getAccountInfo($aInput);
 
         if( is_array($aAccountInfo) && count($aAccountInfo) > 0 )
             return $aAccountInfo;
