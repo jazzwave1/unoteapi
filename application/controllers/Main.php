@@ -10,35 +10,34 @@ class Main extends CI_Controller{
     public function index()
     {
         // id check
-        if( $account_id = $this->_isLogin() )
-        {
-            // get account info
-            $acc  = edu_get_instance('AccountClass');
-            $oAcc = new $acc($account_id);
-
-            // set cookie
-            $coo  = edu_get_instance('CookieClass');
-            $oCoo = new $coo();
-            $oCoo->setCookie( (array) $oAcc->oAccInfo);
-
-            // get note info
-            $usn = $oAcc->oAccInfo->usn;
-            $note  = edu_get_instance('NoteClass');
-            $oNote = new $note($usn);
-
-            $data = array();
-            $aUserInfo = array(
-                    'oAccountInfo'   => $oAcc->oAccInfo
-                   ,'oNoteInfo'      => $oNote->oNoteInfo
-                );
-            $data['aUserInfo'] = $aUserInfo;
-
-            $this->load->view('main/dashboard', $data);
-        }
-        else
+        if(! $account_id = $this->_isLogin() )
         {
             alert('로그인 후 이용하세요.','/login');
+            die;
         }
+
+        // get account info
+        $acc  = edu_get_instance('AccountClass');
+        $oAcc = new $acc($account_id);
+
+        // set cookie
+        $coo  = edu_get_instance('CookieClass');
+        $oCoo = new $coo();
+        $oCoo->setCookie( (array) $oAcc->oAccInfo);
+
+        // get note info
+        $usn = $oAcc->oAccInfo->usn;
+        $note  = edu_get_instance('NoteClass');
+        $oNote = new $note($usn);
+
+        $data = array();
+        $aUserInfo = array(
+                'oAccountInfo'   => $oAcc->oAccInfo
+               ,'oNoteInfo'      => $oNote->oNoteInfo
+            );
+        $data['aUserInfo'] = $aUserInfo;
+
+        $this->load->view('main/dashboard', $data);
     }
 
 
