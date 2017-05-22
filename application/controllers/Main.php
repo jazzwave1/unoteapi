@@ -16,6 +16,11 @@ class Main extends CI_Controller{
             $acc  = edu_get_instance('AccountClass');
             $oAcc = new $acc($account_id);
 
+            // set cookie
+            $coo  = edu_get_instance('CookieClass');
+            $oCoo = new $coo();
+            $oCoo->setCookie( (array) $oAcc->oAccInfo);
+
             // get note info
             $usn = $oAcc->oAccInfo->usn;
             $note  = edu_get_instance('NoteClass');
