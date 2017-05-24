@@ -6,7 +6,7 @@ class Account_dao extends Common_dao
     public function __construct()
     {
         $this->db = $this->load->database('dev_aws', TRUE);
-        $this->edu_db = $this->load->database('dev_edu', true);
+        // $this->edu_db = $this->load->database('dev_edu', TRUE);
         $aQueryInfo = edu_get_config('query', 'query');
         $this->queryInfoAccount = $aQueryInfo['account'];
     }
@@ -25,11 +25,28 @@ class Account_dao extends Common_dao
 
     public function getEduMemInfo($account_id)
     {
-        $aInput = array('newid'=>$account_id);
-        $aConfig = $this->queryInfoAccount['getEduMemInfo'];
+        // test code
+        $aRet = array(
+                'newid' => 'test1'
+                ,'name' => '테스트'
+                ,'email1' => ''
+                ,'email2' => ''
+                ,'BengSch' => ''
+                ,'OffSch' => ''
+                ,'mobile1' => ''
+                ,'mobile2' => ''
+                ,'mobile3' => ''
+                ,'post' => ''
+                ,'addr' => ''
+                ,'addrdetail' => ''
+            );
+        return $aRet;
 
-        return $this->actModelFucFromDB($aConfig, $aInput, $this->edu_db);
+        // test code 제거 시 아래 기존 코드 주석제거
+        // $aInput = array('newid'=>$account_id);
+        // $aConfig = $this->queryInfoAccount['getEduMemInfo'];
 
+        // return $this->actModelFucFromDB($aConfig, $aInput, $this->edu_db);
     }
 
 }

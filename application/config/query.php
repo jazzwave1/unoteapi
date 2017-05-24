@@ -72,4 +72,14 @@ $config['query'] = array(
             ,'null' => array()
         )
     )
+    ,'crawling' => array(
+        'getCrawlingInfo' => array(
+            'query' => 'SELECT account, action, datastring
+                          FROM ibricks
+                         WHERE account = ?'
+            ,'data' => array('account')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
+    )
 );
