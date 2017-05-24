@@ -37,6 +37,11 @@ class Main extends CI_Controller{
             );
         $data['aUserInfo'] = $aUserInfo;
 
+        // test code
+        echo "<!--";
+        print_r($data);
+        echo "-->";
+
         $this->load->view('main/dashboard', $data);
     }
 
