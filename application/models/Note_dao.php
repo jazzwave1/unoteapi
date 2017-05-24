@@ -11,12 +11,6 @@ class Note_dao extends Common_dao
         $this->queryInfoAccount = $aQueryInfo['account'];
     }
 
-    public function getAccountInfo($aParam=array())
-    {
-        $aConfig = $this->queryInfoAccount['getAccountInfo'];
-        return $this->actModelFuc($aConfig, $aParam);
-    }
-
     public function getNoteInfo($aParam=array())
     {
         $aConfig = $this->queryInfoNote['getNoteInfo'];

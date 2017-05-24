@@ -15,13 +15,42 @@ class ibricks extends CI_Controller {
             "age" => "39",
             "location" => "Seoul"
         );
-            
-        echo sendCURLPost("http://localhost/~hojunlee/unoteapi/ibricks/test2",$params); 
+
+        $this->load->library('ErrorlogClass');
+        $oErrorLog = new ErrorlogClass(); 
+        $oErrorLog->setDebugLog($params); 
+
+        //echo sendCURLPost("http://localhost/~hojunlee/unoteapi/ibricks/test2",$params); 
     }
     public function test2()
     {
         echo "test";
         print_r($_POST);
+    }
+    public function sendReportTest()
+    {
+        echo "Send Mail Test<br>"; 
+
+        $this->load->library('ReportClass');
+        $oReport = new ReportClass(); 
+        
+        $type = 'default'; 
+        $to = "GIC@eduniety.net";
+        $subject = "[Eduniety Report] 테스트 메일입니다.";
+        $aMassageInfo = array(
+            'msg'=> '이 메일은 테스트를 위해 발송합니다.'
+        );
+
+        echo "<pre>";
+        print_r($type);
+        echo "<br>"; 
+        print_r($to); 
+        echo "<br>"; 
+        print_r($subject);
+        echo "<br>"; 
+        print_r($aMassageInfo);
+        
+        $oReport->sendMailReport($to, $subject, $aMassageInfo, $type); 
     } 
     public function logTest()
     {
@@ -29,9 +58,6 @@ class ibricks extends CI_Controller {
         $oApiLog = new ApilogClass();
         $oApiLog->setCallLog(); 
     }
-
-
-
 
     ////////////////////////////
     ///////// 수집 API /////////

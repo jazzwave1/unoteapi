@@ -9,9 +9,24 @@ $config['query'] = array(
         'getAccountInfo' => array(
             'query' => 'SELECT usn, account_id, account_pwd, map_oauth, map_account, regdate
                           FROM account
-                         WHERE usn = ?'
-            ,'data' => array('usn')
-            ,'btype'=> 'i'
+                         WHERE account_id = ?'
+            ,'data' => array('account_id')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
+        ,'setAccountInfo' => array(
+            'query' => 'INSERT INTO account ( account_id, regdate )
+                        VALUES (?,?)'
+            ,'data' => array('account_id', 'regdate')
+            ,'btype'=> 'ss'
+            ,'null' => array()
+        )
+        ,'getEduMemInfo' => array(
+            'query' => 'SELECT newid, name, email1, email2, BengSch, OffSch, mobile1, mobile2, mobile3, post, addr, addrdetail
+                          FROM member
+                         WHERE newid = ?'
+            ,'data' => array('newid')
+            ,'btype'=> 's'
             ,'null' => array()
         )
     )
@@ -19,8 +34,8 @@ $config['query'] = array(
         'getNoteInfo' => array(
             'query' => 'SELECT n_idx, usn, title, regdate
                           FROM note
-                         WHERE n_idx = ?'
-            ,'data' => array('n_idx')
+                         WHERE usn = ?'
+            ,'data' => array('usn')
             ,'btype'=> 'i'
             ,'null' => array()
         )
@@ -54,6 +69,16 @@ $config['query'] = array(
                          WHERE n_idx = ?"
             ,'data' => array('n_idx')
             ,'btype'=> 'i'
+            ,'null' => array()
+        )
+    )
+    ,'crawling' => array(
+        'getCrawlingInfo' => array(
+            'query' => 'SELECT account, action, datastring
+                          FROM ibricks
+                         WHERE account = ?'
+            ,'data' => array('account')
+            ,'btype'=> 's'
             ,'null' => array()
         )
     )
