@@ -6,4 +6,8 @@ class MSGQClass {
     {
     }
 
+    public static function setMsgQ()
+    {
+    
+    }
 }
