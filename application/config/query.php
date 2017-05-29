@@ -82,4 +82,32 @@ $config['query'] = array(
             ,'null' => array()
         )
     )
+    ,'msgq' => array(
+        'getMSGQ' => array(
+            'query' => 'SELECT g_idx, account, state, regdate, completedate
+                          FROM msgq 
+                         WHERE g_idx = ?
+                           AND account = ?'
+            ,'data' => array('g_idx', 'account')
+            ,'btype'=> 'is'
+            ,'null' => array()
+        )
+        ,'setMSGQ' => array(
+            'query' => 'INSERT INTO msgq ( account, state, regdate )
+                        VALUES (?,?,?)'
+            ,'data' => array('account','state','regdate')
+            ,'btype'=> 'sss'
+            ,'null' => array()
+        )
+        ,'updateMSGQ' => array(
+            'query' => 'UPDATE msgq 
+                           set state = ? ,
+                               completedate = ? 
+                         where q_idx = ?
+                           and account = ?'
+            ,'data' => array('state','completedate','q_idx','account')
+            ,'btype'=> 'ssss'
+            ,'null' => array()
+        )
+    )
 );
