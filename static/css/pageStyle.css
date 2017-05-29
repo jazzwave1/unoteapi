@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/*main_banner*/
+.bannerWrap{ width: 100%; height: 500px; background: #17330f; }
+        
+/*main_contents*/
+.contents{ width: 100%; min-width: 1290px; padding: 0; margin: 0 auto;}
+.mainWrap{ width: 100%; text-align: center;}
+.main{padding: 50px 0;}
+.main .tit{ font-family: 'Love Ya Like A Sister', cursive; color: #4f4f4f; font-size: 24px; font-weight: bold; padding-bottom: 40px;}
+.main>div{ display: inline-block; width: 300px; height: 300px; line-height: 300px; background: #ccc; font-size: 14px; font-weight: bold; color: #4f4f4f; margin: 0 20px;}
+
+/*myText_*/
+.myText{display: block; border-left: 1px solid #e9e9e9; text-align: center; padding: 0 40px;}
+.subTit{text-align: left; padding: 20px 0;}
+.subTit h2{font-size: 18px;}
+/*myText_cafe_list*/
+.cafeList{clear: both;}
+.cafeList .tableWrap{margin-bottom: 25px;}
+.cafeList table{width: 100%;}
+.cafeList table th,.cafeList table td{height: 35px; line-height: 35px; border: 1px solid #c0c0c0;}
+.cafeList table td.tit{text-align: left;padding-left: 20px;}
+.pageNum ul li{display: inline-block;height: 22px;line-height: 22px;}
+.pageNum ul li a{display: block;padding: 0 6px;}
+.pageNum ul li a.on{background: #888;color:#fff;}
