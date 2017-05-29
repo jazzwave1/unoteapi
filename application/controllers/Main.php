@@ -9,10 +9,7 @@ class Main extends CI_Controller{
 
     public function index()
     {
-        echo "dddd";
-
-        die;
-
+        
         // id check
         if(! $account_id = $this->_isLogin() )
         {
@@ -24,7 +21,6 @@ class Main extends CI_Controller{
         $acc  = edu_get_instance('AccountClass');
         $oAcc = new $acc($account_id);
 
-        // set cookie
         $coo  = edu_get_instance('CookieClass');
         $oCoo = new $coo();
         $oCoo->setCookie( (array) $oAcc->oAccInfo);

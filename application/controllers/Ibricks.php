@@ -7,6 +7,7 @@ class ibricks extends CI_Controller {
     {
         parent::__construct();
        
+        $this->load->library('MSGQClass');
     }
     public function test()
     {
@@ -30,7 +31,12 @@ class ibricks extends CI_Controller {
         $oApiLog->setCallLog(); 
     }
 
+    public function testStatic()
+    {
+        
+        MSGQClass::setMsgQ();
 
+    }
 
 
     ////////////////////////////

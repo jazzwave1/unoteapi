@@ -55,42 +55,18 @@
                         </tr>
                         </thead>
                         <tbody>
+<?php
+foreach ($mytext as $key => $obj) {
+?>
                         <tr>
-                            <td>1</td>
-                            <td>네이버카페</td>
-                            <td class="tit"><a href="javascript:;"> test note 1</a></td>
-                            <td>2016-07-27</td>
+                            <td><?=$key+1?></td>
+                            <td><?=$obj->datastring->source?></td>
+                            <td class="tit"><a href="javascript:;"><?=$obj->datastring->title?></a></td>
+                            <td><?=$obj->datastring->reg_date?></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>네이버카페</td>
-                            <td class="tit"><a href="javascript:;"> test note 2</a></td>
-                            <td>2016-06-28</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>네이버카페</td>
-                            <td class="tit"><a href="javascript:;"> test note 3</a></td>
-                            <td>2016-04-01</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>다음카페</td>
-                            <td class="tit"><a href="javascript:;"> test note 4</a></td>
-                            <td>2016-02-22</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>네이버카페</td>
-                            <td class="tit"><a href="javascript:;"> test note 5</a></td>
-                            <td>2016-02-04</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>티스토리</td>
-                            <td class="tit"><a href="javascript:;"> test note 6</a></td>
-                            <td>2016-02-04</td>
-                        </tr>
+<?php
+}
+?>
                         </tbody>
                     </table>
                 </div>

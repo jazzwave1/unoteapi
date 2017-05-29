@@ -6,7 +6,10 @@ class LoginClass
     {
         $this->timestamp = date('YmdHis');     
     }
-    
+    public function test()
+    {
+
+    }
     public function portal($id, $pwd)
     {
         if(! $this->_chkParam($id, $pwd))
