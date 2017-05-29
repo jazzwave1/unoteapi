@@ -30,6 +30,10 @@ class Mytext extends CI_Controller{
         $data = array();
         $data['mytext'] = $aCrawlingData;
 
+        foreach ($data['mytext'] as $sKey => $oMytext) {
+            $data['mytext'][$sKey]->datastring = json_decode($oMytext->datastring);
+        }
+
         // test code
         echo "<!--";
         print_r($data);
