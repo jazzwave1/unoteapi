@@ -5,7 +5,7 @@ class Account_dao extends Common_dao
 {
     public function __construct()
     {
-        $this->db = $this->load->database('dev_aws', TRUE);
+        $this->db = $this->load->database('membership', TRUE);
         // $this->edu_db = $this->load->database('dev_edu', TRUE);
         $aQueryInfo = edu_get_config('query', 'query');
         $this->queryInfoAccount = $aQueryInfo['account'];
