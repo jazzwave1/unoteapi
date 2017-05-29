@@ -4,11 +4,15 @@ class Main extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
-        $this->account_model = edu_get_instance('account_model', 'model'); 
+     //   $this->account_model = edu_get_instance('account_model', 'model');
     }
 
     public function index()
     {
+        echo "dddd";
+
+        die;
+
         // id check
         if(! $account_id = $this->_isLogin() )
         {
