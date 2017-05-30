@@ -1,14 +1,21 @@
 @charset "utf-8";
 
+.wrap{position: relative;}
 /*main_banner*/
 .bannerWrap{ width: 100%; height: 500px; background: #17330f; }
-        
+
 /*main_contents*/
 .contents{ width: 100%; min-width: 1290px; padding: 0; margin: 0 auto;}
 .mainWrap{ width: 100%; text-align: center;}
 .main{padding: 50px 0;}
-.main .tit{ font-family: 'Love Ya Like A Sister', cursive; color: #4f4f4f; font-size: 24px; font-weight: bold; padding-bottom: 40px;}
-.main>div{ display: inline-block; width: 300px; height: 300px; line-height: 300px; background: #ccc; font-size: 14px; font-weight: bold; color: #4f4f4f; margin: 0 20px;}
+.mainHeader{ position: relative; width: 1200px; margin: 0 auto;}
+.mainHeader .tit{ font-family: 'Love Ya Like A Sister', cursive; color: #4f4f4f; font-size: 24px; font-weight: bold; padding-bottom: 40px;}
+.mainHeader .crawling{ position: absolute; right: 110px; top: 0px; padding: 10px; background:#17330f;color: #fff; cursor: pointer;}
+.main .myfile{width: 100%; text-align: center; margin: 0 auto; padding-bottom: 20px;}
+.main .myfile ul{width: 1200px; margin: 0 auto;}
+.main .myfile li{ display: inline-block; width: 300px; height: 300px; line-height: 300px; background: #ccc; font-size: 14px; font-weight: bold; color: #4f4f4f; margin: 0 20px 20px;}
+.new{width: 70px; height: 70px; line-height: 70px; margin: 0 auto; border-radius: 50%; background: #17330f; color: #fff; }
+
 
 /*myText_*/
 .myText{display: block; border-left: 1px solid #e9e9e9; text-align: center; padding: 0 40px;}
@@ -23,3 +30,23 @@
 .pageNum ul li{display: inline-block;height: 22px;line-height: 22px;}
 .pageNum ul li a{display: block;padding: 0 6px;}
 .pageNum ul li a.on{background: #888;color:#fff;}
+
+
+.wrap .popupWrap{position: absolute; left:0; top:0; z-index: 100;}
+
+.popupWrap{width: 500px; height: 500px; background: #ccc;}
+.popupWrap .cafeTap{width: 100%; height: 50px; line-height: 50px; border-bottom: 1px solid #000;}
+.popupWrap .cafeTap li{float: left; width: 33.1%; text-align: center; border-left:1px solid #000;}
+.popupWrap .cafeTap li:first-child{border: 0px;}
+
+.login{text-align: center; padding-top: 100px;}
+
+.login p{height: 40px; line-height: 40px;}
+.login p label{display: inline-block; width: 30px; text-align: center; font-size: 14px; font-weight: bold;}
+.login p input{display: inline-block; width: 180px; height: 30px; line-height: 30px; margin-top: 5px; border-radius: 5px; background: #eee; padding-left: 20px;}
+.login .notice{padding: 10px; color: firebrick}
+.login .btn input{ display: inline-block; width: 100px; padding: 10px 0; border-radius: 5px; margin: 0 5px}
+.cafeTap li:first-child{background:#17330f }
+.login1,.login2{display: none;}
+
+.popupWrap{display: none;}

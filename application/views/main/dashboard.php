@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="dimmed"></div>
-<div>
+<div class="wrap">
     <!--header-->
     <div class="header">
         <div class="hTop">
@@ -45,12 +45,23 @@
     <div class="contents">
         <div class="mainWrap">
             <div class="main">
-                <p class="tit">My Library</p>
-                <div class="new">새문서</div>
-                <div class="open">불러오기</div>
-                <div class="crawling">
-                    <a href="">카페 글 가져오기</a>
+                <div class="mainHeader">
+                    <p class="tit">My Library</p>
+                    <div class="crawling">
+                        수집하기
+                    </div>
                 </div>
+                <div class="myfile">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="new">새문서</div>
             </div>
         </div>
     </div>
@@ -58,8 +69,93 @@
     <!--footer-->
     <div class="footer">footer</div>
     <!--//footer-->
+    <!--popup-->
+    <div class="popupWrap">
+        <div class="popup0">
+            <ul class="cafeTap">
+                <li>다음</li>
+                <li>네이버</li>
+                <li>구글</li>
+            </ul>
+            <div>
+                <!--다음-->
+                <div class="login login0">
+                    <form>
+                        <p>
+                            <label for="userID">ID</label>:
+                            <input type="text" id="userID" name="id">
+                        </p>
+                        <p>
+                            <label for="userPW">PW</label>:
+                            <input type="password" id="userPW" name="password">
+                        </p>
+                        <div class="notice">*다음 아이디 또는 비밀번호가 일치하지 않습니다.</div>
+                        <div class="btn">
+                            <input type="submit" value="확인">
+                            <input class="cancelBtn" type="button" value="취소">
+                        </div>
+                    </form>
+                </div>
+                <!--네이버-->
+                <div class="login login1">
+                    <form>
+                        <p>
+                            <label for="userID">ID</label>:
+                            <input type="text" id="userID" name="id">
+                        </p>
+                        <p>
+                            <label for="userPW">PW</label>:
+                            <input type="password" id="userPW" name="password">
+                        </p>
+                        <div class="notice">*네이버 아이디 또는 비밀번호가 일치하지 않습니다.</div>
+                        <div class="btn">
+                            <input type="submit" value="확인">
+                            <input class="cancelBtn" type="button" value="취소">
+                        </div>
+                    </form>
+                </div>
+                <!--구글-->
+                <div class="login login2">
+                    <form>
+                        <p>
+                            <label for="userID">ID</label>:
+                            <input type="text" id="userID" name="id">
+                        </p>
+                        <p>
+                            <label for="userPW">PW</label>:
+                            <input type="password" id="userPW" name="password">
+                        </p>
+                        <div class="notice">*구글 아이디 또는 비밀번호가 일치하지 않습니다.</div>
+                        <div class="btn">
+                            <input type="submit" value="확인">
+                            <input class="cancelBtn" type="button" value="취소">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script type="text/javascript" src="static/js/libs/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="static/js/libs/jquery-ui.js"></script>
+<script>
+    $(".crawling").on("click",function(){
+        $(".popupWrap").show();
+    });
+
+    $(".cancelBtn").on("click",function(){
+        $(".popupWrap").hide();
+    });
+
+    $(".login0").show();
+    $(".cafeTap li").on("click",function(){
+        $(this).siblings("li").css({background:"#ccc"});
+        $(this).css({background:"#17330f"});
+
+        var listIndex = $(this).index();
+        $(".login").hide();
+        $(".login"+listIndex).show();
+    });
+</script>
 </body>
 </html>
