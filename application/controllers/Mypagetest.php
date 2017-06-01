@@ -4,7 +4,6 @@ class Mypagetest extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
-        // $this->account_model = edu_get_instance('account_model', 'model'); 
         $this->load->library('MSGQClass'); 
     }
 
@@ -23,10 +22,13 @@ class Mypagetest extends CI_Controller{
     //////////////////////////////// 
     public function setCrawling()
     {
-        $account_id  = $this->input->post("user_id"); 
-        $account_pwd = $this->input->post("pwd"); 
+        $user_id  = $this->input->post("user_id"); 
+        $user_pwd = $this->input->post("pwd"); 
         
-        if(!$account_id || !$account_pwd)
+        $usn = $this->input->post("usn"); 
+        $siteid = $this->input->post("siteid"); 
+        
+        if(!$user_id || !$user_pwd || !$usn|| !$siteid)
         {
             $rtn = array(
                  'code' => 999
@@ -35,12 +37,12 @@ class Mypagetest extends CI_Controller{
             response_json($rtn);
         }
         
-        $q_idx = MSGQClass::setMsgQ($account_id);
+        $q_idx = MSGQClass::setMsgQ($usn);
 
-        if($this->_callIbricksCrawMyPost($account_id, $account_pwd, $q_idx))
+        if($this->_callIbricksCrawMyPost($user_id, $user_pwd, $q_idx, $usn, $siteid))
         {
             $state = "ING";
-            MSGQClass::updateMsgQ($account_id, $q_idx, $state); 
+            MSGQClass::updateMsgQ($usn, $q_idx, $state); 
             
             $rtn = array(
                  'code' => 1 
@@ -90,9 +92,12 @@ class Mypagetest extends CI_Controller{
         die;
     }
     
-    private function _callIbricksCrawMyPost($account_id, $account_pwd, $q_idx)
+    private function _callIbricksCrawMyPost($user_id, $user_pwd, $q_idx, $usn, $siteid)
     {
         return true;   
+    
+        $this->load->library('IbricksClass'); 
+        IbricksClass::crawlMyPost($user_id, $user_pwd, $usn, $siteid, $q_idx );
     } 
      
 }

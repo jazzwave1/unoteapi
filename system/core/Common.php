@@ -47,7 +47,7 @@ if($_SERVER["SERVER_NAME"] == 'localhost')
   $sStatic  = 'http://localhost/~leehojun/unoteapi/static';
   $sCookieDomain = "localhost";
   
-  $sIBricksURL = 'http://localhost/~leehojun/unoteapi';
+  $sIBricksURL = 'http://210.91.70.136:11000';
 }
 else
 {
@@ -57,7 +57,7 @@ else
   $sStatic  = 'http://localhost/~leehojun/unoteapi/static';
   $sCookieDomain = "localhost";
   
-  $sIBricksURL = 'http://localhost/~leehojun/unoteapi';
+  $sIBricksURL = 'http://210.91.70.136:11000';
 }
 define("HOSTURL", $sHostURL);
 define("JHOSTURL", $sJHostURL);

@@ -36,3 +36,28 @@ function sendCURLPost($url,$params)
     curl_close($ch);
     return $output;
 }
+
+function sendCURLGet($url,$params)
+{
+    if(!$url) return false;
+
+    $postData = '';
+    
+    foreach($params as $k => $v) 
+    { 
+        $postData .= $k . '='.$v.'&'; 
+    }
+    $postData = rtrim($postData, '&');
+
+    $url .= "?".$postData;
+
+    $ch = curl_init();  
+                                
+    curl_setopt($ch, CURLOPT_URL,$url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+                                                         
+    $output=curl_exec($ch);
+                                                              
+    curl_close($ch);
+    return $output;
+}
