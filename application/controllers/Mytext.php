@@ -41,5 +41,26 @@ class Mytext extends CI_Controller{
 
         $this->load->view('mytext/list', $data);
     }
+    public function crawlinglist()
+    {
+        // test code
+        $account = $this->_getAccount();
 
+        edu_get_instance('MSGQClass');
+        $aList = MSGQClass::getMsgQList($account); 
+
+        // test code
+        // echo "<pre>"; 
+        // print_r($aList);
+        
+        $data = array();
+        $data['aList'] = $aList;
+        
+        $this->load->view('mytext/listMsgq', $data);
+    }
+
+    private function _getAccount()
+    {
+        return "jazzwave14";
+    }
 }

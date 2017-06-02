@@ -30,4 +30,11 @@ class MSGQClass {
         return $msgq_model->updateMsgQ($account, $q_idx, $state);
     }
 
+    public static function getMsgQList($account)
+    {
+        if(!$account) return false;
+        
+        $msgq_model = edu_get_instance('msgq_model', 'model');
+        return $msgq_model->getMsgQLIst($account);
+    }
 }

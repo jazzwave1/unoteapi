@@ -6,13 +6,13 @@ class Msgq_model extends CI_model{
         $this->msgq_dao = edu_get_instance('msgq_dao', 'model');
     }
 
-    public function getMsgQ($g_idx, $account)
+    public function getMsgQ($q_idx, $account)
     {
-        if(!$g_idx || !$account) return false;
+        if(!$q_idx || !$account) return false;
 
         $aInput = array(
              'account' => $account
-            ,'g_idx'   => $g_idx
+            ,'q_idx'   => $q_idx
         );
         $aMsgqInfo = $this->msgq_dao->getMsgQ($aInput);
 
@@ -21,7 +21,6 @@ class Msgq_model extends CI_model{
 
         return false;
     }
-
     public function setMsgQ($account)
     {
         if(!$account) return false;
@@ -40,5 +39,17 @@ class Msgq_model extends CI_model{
         );
 
         return ($this->msgq_dao->updateMsgQ($aInput));
+    }
+    public function getMsgQList($account)
+    {
+        if(!$account) return false;
+
+        $aInput = array( 'account' => $account );
+        $aMsgqInfo = $this->msgq_dao->getMsgQList($aInput);
+
+        if( is_array($aMsgqInfo) && count($aMsgqInfo) > 0 )
+            return $aMsgqInfo;
+
+        return false;
     }
 }

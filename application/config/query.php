@@ -84,11 +84,11 @@ $config['query'] = array(
     )
     ,'msgq' => array(
         'getMSGQ' => array(
-            'query' => 'SELECT g_idx, account, state, regdate, completedate
+            'query' => 'SELECT q_idx, account, state, regdate, completedate
                           FROM msgq 
-                         WHERE g_idx = ?
+                         WHERE q_idx = ?
                            AND account = ?'
-            ,'data' => array('g_idx', 'account')
+            ,'data' => array('q_idx', 'account')
             ,'btype'=> 'is'
             ,'null' => array()
         )
@@ -109,5 +109,14 @@ $config['query'] = array(
             ,'btype'=> 'ssss'
             ,'null' => array()
         )
+        ,'getMSGQList' => array(
+            'query' => 'SELECT q_idx, account, state, regdate, completedate
+                          FROM msgq 
+                         WHERE account = ?'
+            ,'data' => array('account')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
+
     )
 );

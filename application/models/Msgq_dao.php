@@ -32,4 +32,11 @@ class Msgq_dao extends Common_dao
         $aConfig = $this->queryInfoMsgq['updateMSGQ'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    public function getMsgQList($aParam=array())
+    {
+        $aConfig = $this->queryInfoMsgq['getMSGQList'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+
+
 }
