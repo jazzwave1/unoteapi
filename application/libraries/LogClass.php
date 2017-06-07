@@ -25,6 +25,21 @@ class LogClass
         return;
     }
 
+    public function viewTailLog()
+    {
+        $handle = popen("tail -f /Users/hojunlee/Sites/unoteapi/application/logs/unoteapi_log.php 2>&1", 'r');
+        
+        while(!feof($handle)) {
+            $buffer = fgets($handle);
+            echo "$buffer<br/>\n";
+            ob_flush();
+            flush();
+        }
+        pclose($handle);
+    }
+
+
+
     private function _setTailLog($aLogInfo)
     {
         $sDebugFile = APPPATH.'logs/debug.php';
