@@ -60,7 +60,13 @@ foreach ($aList as $key => $obj) {
 ?>
                         <tr>
                             <td><?=$obj->q_idx?></td>
-                            <td><?=$obj->state?></td>
+                            <td>
+                                <?php if(strtoupper($obj->state) == 'REQ') {?>
+                                <a href="">재 요청</a>
+                                <?php }else{ ?>
+                                <?=$obj->state?>
+                                <?php } ?>
+                            </td>
                             <td class="tit"><?=$obj->regdate?></td>
                             <td><?=$obj->completedate?></td>
                         </tr>

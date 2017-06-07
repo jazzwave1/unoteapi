@@ -5,6 +5,8 @@ class Addon extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('MSGQClass');
+        $this->load->library('IbricksClass');
     }
 
     /*
@@ -16,7 +18,7 @@ class Addon extends CI_Controller {
     {
         // test code
         // dumy data
-        $sStr='안되요';
+//        $sStr='안되요';
 
         $aSpellRes = $this->_getSpellCheck($sStr, $sType);
 
@@ -45,13 +47,40 @@ class Addon extends CI_Controller {
 
     private function _getSpellCheck($sStr, $sType)
     {
+        if(!$sStr || !$sType) 
+        {
+            // 알맞은 리턴 정의 부탁 드립니다.
+            response_json(array('code'=>999, 'msg'=>'input param check')); 
+            die;
+        }
+
+        switch($sType)
+        {
+            case "in" :
+                $sResultJson = IbricksClass::spellCheckFromString($sStr);
+                $aResultJson = json_decode($sResultJson);
+                break;
+            case "docID" :
+                $sResultJson = IbricksClass::spellCheckFromDoc($sStr);
+                $aResultJson = json_decode($sResultJson);
+            default :
+                break;
+        }
+
+        // test code
+        echo "<pre>";
+        print_r($aResultJson);
+
+
+        // aResultJson 의 내용을 아래에 맞게 정의 부탁 드립니다. 
         $aSpellRes = array();
         $aSpellRes[] = (object) array(
             'candidate' => "'안 돼요' 와 '안 되요'",
             'desc' => "'안되다'의 어간 '안되-' 뒤에 어미 '-어'가 붙은 '안되어'가 줄면, '안돼'의 형태가 됩니다. 따라서 '무엇이 안돼요.'와 같이 적습니다."
             );
-
-        return $aSpellRes;
+        print_r($aSpellRes); 
+        die;
+        //return $aSpellRes;
     }
     private function _getBeautifySentence($in)
     {

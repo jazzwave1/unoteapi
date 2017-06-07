@@ -62,7 +62,7 @@ class IbricksClass {
         );
 
         // result 결과를 처리 하는 부분은 추가적으로 확인 해야 함
-        echo sendCURLPost($sURL, $params); 
+        return sendCURLGet($sURL, $params); 
     } 
 
     ////////////////////////////

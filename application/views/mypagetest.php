@@ -9,6 +9,7 @@
 
 
 <script>
+
 function bSend(){
     var user_id = $.trim($('#user_id').val()) ;
     var pwd     = $.trim($('#pwd').val()) ;
