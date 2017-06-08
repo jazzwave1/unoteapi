@@ -42,12 +42,12 @@ class IbricksClass {
     //////////////////////////////
     ///////// 맞춤법 API /////////
     //////////////////////////////
-    public static function spellCheckFromString($sSting)
+    public static function spellCheckFromString($sStr)
     {
         $sURL = IBRICKS."/spellCheck"; 
 
         $params = array(
-             "in" => $sSting
+             "in" => $sStr
         );
 
         // result 결과를 처리 하는 부분은 추가적으로 확인 해야 함
