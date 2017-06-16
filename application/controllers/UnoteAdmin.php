@@ -18,7 +18,7 @@ class UnoteAdmin extends CI_Controller {
                 ,'title_class' => 'fa fa-search' 
                 ,'active'      => true
                 ,'child'       => array( 
-                     array('link' => HOSTURL.'/unoteadmin/UnoteDashboard', 'title' => 'DashBoard')
+                     array('link' => HOSTURL.'/UnoteAdmin/UnoteDashboard', 'title' => 'DashBoard')
                     ,array('link' => HOSTURL.'/unoteadmin/userlist', 'title' => '프로그램별 검색')
                 )
             )
@@ -27,8 +27,8 @@ class UnoteAdmin extends CI_Controller {
                 ,'title_class' => 'fa fa-list' 
                 ,'active'      => false
                 ,'child'       => array( 
-                    array('link' => HOSTURL.'/unoteadmin/ApiTestIbSpellCheck', 'title' => '맞춤법검사')
-                   ,array('link' => HOSTURL.'/unoteadmin/ApiTestIbBeautifySentence', 'title' => '윤문추천')
+                    array('link' => HOSTURL.'/UnoteAdmin/ApiTestIbSpellCheck', 'title' => '맞춤법검사')
+                   ,array('link' => HOSTURL.'/UnoteAdmin/ApiTestIbBeautifySentence', 'title' => '윤문추천')
                 )
             )
         );  
