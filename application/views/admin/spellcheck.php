@@ -27,7 +27,7 @@
   $(function(){
     $('#bSend').click(function(){
         $.post(
-          "<?=HOSTURL?>/unoteadmin/RpcIbSpellCheck/"+$('#sStr').val()
+          "<?=HOSTURL?>/UnoteAdmin/RpcIbSpellCheck/"+$('#sStr').val()
           ,{
                "sStr" : $('#sStr').val() 
            }
