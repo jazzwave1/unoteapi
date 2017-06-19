@@ -6,7 +6,7 @@ class Note extends CI_Controller {
     {
         parent::__construct();
 
-        $this->load->library('ErrorlogClass');
+        $this->load->library('log/ErrorlogClass');
         $this->oErrorLog = new ErrorlogClass();
 
         $this->load->model('account_model');
