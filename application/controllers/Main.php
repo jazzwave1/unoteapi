@@ -21,10 +21,6 @@ class Main extends CI_Controller{
         $acc  = edu_get_instance('AccountClass');
         $oAcc = new $acc($account_id);
 
-        $coo  = edu_get_instance('CookieClass');
-        $oCoo = new $coo();
-        $oCoo->setCookie( (array) $oAcc->oAccInfo);
-
         // get note info
         $usn = $oAcc->oAccInfo->usn;
         $note  = edu_get_instance('NoteClass');
@@ -48,15 +44,13 @@ class Main extends CI_Controller{
 
     private function _isLogin()
     {
-        // test code
-        return $account_id = '1111';
+        edu_get_instance('LoginClass');
+        $oMemberInfo = LoginClass::isLogin();
+        
+        if($oMemberInfo->usn)
+            return $oMemberInfo->account;
 
-        // session 추가 필요
-
-        if(!$account_id)
-            return false;
-
-        return $account_id;
+        return false;
     }
 
 }

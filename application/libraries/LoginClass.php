@@ -5,6 +5,7 @@ class LoginClass
     public function __construct()
     {
         $this->timestamp = date('YmdHis');     
+        $this->account_dao = edu_get_instance('account_dao', 'model');
     }
     public function test()
     {
@@ -74,4 +75,70 @@ class LoginClass
     } 
 
 
+    public function getEduMemberInfo($account_id)
+    {
+        if(!$account_id) return false;
+        
+        print_r( $this->account_dao->getEduMemInfo($account_id) );
+    }
+
+    public static function isLogin()
+    {
+        edu_get_instance('CookieClass');
+        
+        if($sMemberInfo = CookieClass::getCookieInfo())
+        {
+            $aMemberInfo = json_decode($sMemberInfo);
+            return $aMemberInfo;
+        }
+
+        return false;
+    }
+    
+    /////////////////////////////////////
+    // 로그인 프로세스 
+    /*
+     * 쿠키를 기반으로 로그인 프로세스를 태웁니다. 
+     * 
+     * */
+    public static function loginprocess($account_id, $site)
+    {
+        $bRtn = false;
+
+        switch($site)
+        {
+            case "eduniety" :
+                $bRtn = SELF::_proEduLogin($account_id); 
+                break;
+            case "facebook" :
+                $bRtn = SELF::_proFaceBookLogin($account_id); 
+                break;
+            default :
+                break;
+        }
+        return $bRtn;
+    }
+    private static function _proEduLogin($account_id)
+    {
+        // chk eduniety membership
+        // 이부분은 에듀니티에서 어떻게 처리 할지 고민중
+
+        // New Account Class
+        $acc = edu_get_instance('AccountClass');
+        $oAcc = new $acc($account_id); 
+        
+        // set Cookie ( unote )
+        edu_get_instance('CookieClass');
+        CookieClass::setCookieInfo($oAcc->oAccInfo->usn, 'eduniety', $account_id);   
+
+        return true;
+    }
+    private static function _proFaceBookLogin($account_id)
+    {
+        // chk facebook cookie
+
+        // New Account Class
+        
+        // set Cookie ( unote )
+    }
 }

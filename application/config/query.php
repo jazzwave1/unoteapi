@@ -21,14 +21,6 @@ $config['query'] = array(
             ,'btype'=> 'ss'
             ,'null' => array()
         )
-        ,'getEduMemInfo' => array(
-            'query' => 'SELECT newid, name, email1, email2, BengSch, OffSch, mobile1, mobile2, mobile3, post, addr, addrdetail
-                          FROM member
-                         WHERE newid = ?'
-            ,'data' => array('newid')
-            ,'btype'=> 's'
-            ,'null' => array()
-        )
     )
     ,'note' => array(
         'getNoteInfo' => array(
@@ -114,6 +106,19 @@ $config['query'] = array(
                           FROM msgq 
                          WHERE account = ?'
             ,'data' => array('account')
+            ,'btype'=> 's'
+            ,'null' => array()
+        )
+
+    )
+
+
+    ,'edumember' => array(
+        'getMemberInfo' => array(
+            'query' => 'SELECT mb_id, mb_name 
+                          FROM edu_member 
+                         WHERE trim(mb_id) = ?'
+            ,'data' => array('mb_id')
             ,'btype'=> 's'
             ,'null' => array()
         )
