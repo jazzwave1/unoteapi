@@ -7,10 +7,10 @@
 $config['query'] = array(
     'account' => array(
         'getAccountInfo' => array(
-            'query' => 'SELECT usn, account_id, account_pwd, map_oauth, map_account, regdate
+            'query' => 'SELECT usn, account, accessToken, oauth, regdate
                           FROM account
-                         WHERE account_id = ?'
-            ,'data' => array('account_id')
+                         WHERE account = ?'
+            ,'data' => array('account')
             ,'btype'=> 's'
             ,'null' => array()
         )

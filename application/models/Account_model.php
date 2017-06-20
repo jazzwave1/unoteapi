@@ -23,7 +23,7 @@ class Account_model extends CI_model{
     {
         if(!$account_id) return false;
 
-        $aInput = array('account_id'=>$account_id);
+        $aInput = array('account' => $account_id);
         $aAccountInfo = $this->account_dao->getAccountInfo($aInput);
 
         if( is_array($aAccountInfo) && count($aAccountInfo) > 0 )
@@ -37,7 +37,7 @@ class Account_model extends CI_model{
         if (!$account_id || !$regdate) return false;
 
         $aInput = array(
-            'account_id' => $account_id
+             'account' => $account_id
             ,'regdate' => $regdate
         );
         return $this->account_dao->setAccountInfo($aInput);
