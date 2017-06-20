@@ -1,12 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require_once(APPPATH.'libraries/LogClass.php'); 
+require_once(APPPATH.'libraries/log/LogClass.php');
 
-class ErrorlogClass extends LogClass 
+class ErrorlogClass extends LogClass
 {
     public function __construct()
     {
 	    $this->aErrorCodeInfo = edu_get_config('code', 'error_code');
-        
+
     }
 
     public function setErrorLog($aLogInfo, $type='file')
@@ -17,13 +17,13 @@ class ErrorlogClass extends LogClass
     			,'msg'    => $this->aErrorCodeInfo[$aLogInfo['code']]
     			,'aInput' => $aLogInfo['aInput']
         );
-                
+
         if(DEBUG)
         {
             // set debug file
-        } 
+        }
 
-        $this->_setErrorFileLog($aRet); 
+        $this->_setErrorFileLog($aRet);
         return $aRet;
     }
     private function _setErrorFileLog($aLogInfo)
@@ -37,6 +37,6 @@ class ErrorlogClass extends LogClass
         fwrite($fp, print_r($aLogInfo, true));
         fwrite($fp, "\n##################### ".$aLogInfo['file']." End ######################\n");
 
-        return; 
-    } 
+        return;
+    }
 }

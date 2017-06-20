@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>myText</title>
+    <title>myNote</title>
     <link rel="stylesheet" href="static/css/reset.css">
     <link rel="stylesheet" href="static/css/common.css">
     <link rel="stylesheet" href="static/css/pageStyle.css">
@@ -56,7 +56,7 @@
                         </thead>
                         <tbody>
 <?php
-foreach ($mytext as $key => $obj) {
+foreach ($mynote as $key => $obj) {
 ?>
                         <tr>
                             <td><?=$key+1?></td>

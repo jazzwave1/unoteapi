@@ -27,7 +27,7 @@ class ibricks extends CI_Controller {
     } 
     public function logTest()
     {
-        $this->load->library('ApilogClass');
+        $this->load->library('log/ApilogClass');
         $oApiLog = new ApilogClass();
         $oApiLog->setCallLog(); 
     }

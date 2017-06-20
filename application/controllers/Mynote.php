@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Mytext extends CI_Controller{
+class Mynote extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
@@ -9,7 +9,7 @@ class Mytext extends CI_Controller{
 
     public function index()
     {
-        // testcode
+        // test code
         $usn = 1;
 
         // usn check
@@ -28,18 +28,37 @@ class Mytext extends CI_Controller{
         // test code
         // dumy data
         $data = array();
-        $data['mytext'] = $aCrawlingData;
+        $data['mynote'] = $aCrawlingData;
 
-        foreach ($data['mytext'] as $sKey => $oMytext) {
-            $data['mytext'][$sKey]->datastring = json_decode($oMytext->datastring);
+        foreach ($data['mynote'] as $sKey => $oMynote) {
+            $data['mynote'][$sKey]->datastring = json_decode($oMynote->datastring);
+            $data['mynote'][$sKey]->datastring->summary = iconv_substr($data['mynote'][$sKey]->datastring->contents, 0 ,50).'...';
         }
 
         // test code
-        echo "<!--";
+        // echo "<!--";
+        echo "<pre>";
         print_r($data);
-        echo "-->";
+        echo "</pre>";
+        // echo "-->";
 
-        $this->load->view('mytext/list', $data);
+        $this->load->view('mynote/list', $data);
+    }
+    public function detail($n_idx)
+    {
+        // test code
+        $n_idx = 1;
+
+        // n_idx check
+        if(! $n_idx )
+        {
+            alert('노트 정보를 찾을 수 없습니다. 잠시 후 다시 시도하세요.','/mynote');
+            die;
+        }
+
+        $data = array();
+
+        $this->load->view('mynote/detail', $data);
     }
     public function crawlinglist()
     {
@@ -56,7 +75,7 @@ class Mytext extends CI_Controller{
         $data = array();
         $data['aList'] = $aList;
         
-        $this->load->view('mytext/listMsgq', $data);
+        $this->load->view('mynote/listMsgq', $data);
     }
 
     private function _getAccount()
