@@ -7,10 +7,6 @@ class LoginClass
         $this->timestamp = date('YmdHis');     
         $this->account_dao = edu_get_instance('account_dao', 'model');
     }
-    public function test()
-    {
-
-    }
     public function portal($id, $pwd)
     {
         if(! $this->_chkParam($id, $pwd))
@@ -53,13 +49,10 @@ class LoginClass
 
     //return $enc_pwd;
     }
-
-
     private function _mkFingerPrint()
     {
         return md5($this->_getKey1().$this->timestamp.$this->_getKey2()); 
     }
-
     private function _getKey1()
     {
         return "eduniety";
@@ -74,14 +67,12 @@ class LoginClass
         return $key;
     } 
 
-
     public function getEduMemberInfo($account_id)
     {
         if(!$account_id) return false;
         
         print_r( $this->account_dao->getEduMemInfo($account_id) );
     }
-
     public static function isLogin()
     {
         edu_get_instance('CookieClass');
@@ -101,7 +92,7 @@ class LoginClass
      * 쿠키를 기반으로 로그인 프로세스를 태웁니다. 
      * 
      * */
-    public static function loginprocess($account_id, $site)
+    public static function loginprocess($account_id, $site, $accessToken)
     {
         $bRtn = false;
 
@@ -111,7 +102,7 @@ class LoginClass
                 $bRtn = SELF::_proEduLogin($account_id); 
                 break;
             case "facebook" :
-                $bRtn = SELF::_proFaceBookLogin($account_id); 
+                $bRtn = SELF::_proFaceBookLogin($account_id, $accessToken); 
                 break;
             default :
                 break;
@@ -125,7 +116,7 @@ class LoginClass
 
         // New Account Class
         $acc = edu_get_instance('AccountClass');
-        $oAcc = new $acc($account_id); 
+        $oAcc = new $acc($account_id, 'eduniety'); 
         
         // set Cookie ( unote )
         edu_get_instance('CookieClass');
@@ -135,10 +126,13 @@ class LoginClass
     }
     private static function _proFaceBookLogin($account_id)
     {
-        // chk facebook cookie
-
         // New Account Class
+        $acc = edu_get_instance('AccountClass');
+        $oAcc = new $acc($account_id, 'facebook', $accessToken); 
         
         // set Cookie ( unote )
+        edu_get_instance('CookieClass');
+        CookieClass::setCookieInfo($oAcc->oAccInfo->usn, 'eduniety', $account_id);   
     }
+    
 }

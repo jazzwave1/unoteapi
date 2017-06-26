@@ -15,10 +15,10 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'setAccountInfo' => array(
-            'query' => 'INSERT INTO account ( account_id, regdate )
-                        VALUES (?,?)'
-            ,'data' => array('account_id', 'regdate')
-            ,'btype'=> 'ss'
+            'query' => 'INSERT INTO account ( account, oauth, regdate , accessToken)
+                        VALUES (?,?,?,?)'
+            ,'data' => array('account', 'oauth', 'regdate', 'accessToken')
+            ,'btype'=> 'ssss'
             ,'null' => array()
         )
     )

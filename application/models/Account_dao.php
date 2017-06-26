@@ -27,23 +27,6 @@ class Account_dao extends Common_dao
 
     public function getEduMemInfo($account_id)
     {
-        // test code
-//      $aRet = array(
-//              'newid' => 'test1'
-//              ,'name' => '테스트'
-//              ,'email1' => ''
-//              ,'email2' => ''
-//              ,'BengSch' => ''
-//              ,'OffSch' => ''
-//              ,'mobile1' => ''
-//              ,'mobile2' => ''
-//              ,'mobile3' => ''
-//              ,'post' => ''
-//              ,'addr' => ''
-//              ,'addrdetail' => ''
-//          );
-//      return $aRet;
-
         $aInput = array('mb_id'=>$account_id);
         $aConfig = $this->queryInfoEdu['getMemberInfo'];
 

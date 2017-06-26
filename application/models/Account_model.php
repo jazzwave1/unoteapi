@@ -32,13 +32,15 @@ class Account_model extends CI_model{
         return false;
     }
 
-    public function setAccountInfo($account_id, $regdate)
+    public function setAccountInfo($account_id, $regdate, $site, $accessToken='')
     {
-        if (!$account_id || !$regdate) return false;
+        if (!$account_id || !$regdate || !$site) return false;
 
         $aInput = array(
              'account' => $account_id
+            ,'oauth'   => $site
             ,'regdate' => $regdate
+            ,'accessToken' => $accessToken
         );
         return $this->account_dao->setAccountInfo($aInput);
     }
