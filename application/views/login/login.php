@@ -44,7 +44,7 @@
           }
         );
     });
-
+/*
     $('#bSend').click(function(){
         $.post(
           "<?=HOSTURL?>/Login/RpcLogin"
@@ -62,8 +62,7 @@
                 } 
           }
         );
-   
-
     });
+ */
   });
 </script>
