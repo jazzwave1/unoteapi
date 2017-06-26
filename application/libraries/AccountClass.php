@@ -19,30 +19,60 @@ class AccountClass {
 
         $this->oAccInfo = $this->_getAccountInfo($this->account_id);
     }
+    public function  __construct2($account_id, $site)
+    {
+        if(!$account_id) return false;
+        if(!$site) return false;
+        
+        $this->account_id = $account_id;
+        $this->site = $site;
+
+        $this->oAccInfo = $this->_getAccountInfo($this->account_id, $this->site);
+    }
+    public function  __construct3($account_id, $site, $accessToken)
+    {
+        if(!$account_id) return false;
+        if(!$site) return false;
+        
+        $this->account_id = $account_id;
+        $this->site = $site;
+        $this->accessToken = $accessToken;
+
+        $this->oAccInfo = $this->_getAccountInfo($account_id, $site, $accessToken);
+    }
+
 
     public function index()
     {
     }
-    private function _getAccountInfo($account_id)
+    private function _getAccountInfo($account_id, $site='', $accessToken='')
     {
         $oAccModel = edu_get_instance('account_model', 'model');
         $aAccInfo = $oAccModel->account_model->getAccountInfo($account_id);
 
         // Account Info가 없을 경우
+        // oAuth 별로 따로 만들어 주어야합니다
         if(!$aAccInfo)
         {
-            // Eduniety Member Info 가져오기
-            $oEduMemInfo = $this->_getEduMemInfo($account_id);
-
+            // get Member Info 
+            if($site=='eduniety') $oEduMemInfo = $this->_getEduMemInfo($account_id);
+            if($site=='facebook') $oEduMemInfo = $this->_getFBMemInfo($account_id, $accessToken);
+             
             if(!$oEduMemInfo)
             {
                 alert('회원 전용 서비스 입니다. 가입 후 이용하세요.','/join');
             }
 
             // set account info
-            $account_id     = trim($oEduMemInfo->newid);
-            $regdate        = date('Y-m-d H:i:s');
-            $oAccModel->setAccountInfo($account_id, $regdate);
+            $account_id = trim($oEduMemInfo->mb_id);
+            $regdate    = date('Y-m-d H:i:s');
+
+            if($site=='facebook')
+                $accessToken = $oEduMemInfo->mb_id;
+            else 
+                $accessToken = '';
+            
+            $oAccModel->setAccountInfo($account_id, $regdate, $site, $accessToken);
 
             // get account info
             $aAccInfo = $oAccModel->account_model->getAccountInfo($account_id);
@@ -54,5 +84,13 @@ class AccountClass {
     {
         $oAccModel = edu_get_instance('account_model', 'model');
         return $oAccModel->account_model->getEduMemInfo($account_id);
+    }
+    private function _getFBMemInfo($account_id, $accessToken)
+    {
+        $aRtn = array(
+            'mb_id' => $account_id
+            ,'accessToken' => $accessToken
+        );
+        return $aRtn; 
     }
 }

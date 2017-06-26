@@ -35,13 +35,23 @@ class Login extends CI_Controller {
     // RPC 
     public function RpcLogin()
     {
+        // facebook login 
+        // login page post input param
+        // userID, accessToken
+        // 클라이언트 페이지에서 해당 정보를 가지고 와서 로그인 시도를 다시함
+
         // eduniety test login process
         edu_get_instance('LoginClass');
-        
+
+        // param setting  
         $account_id = $this->input->post('user_id'); 
         $site = $this->input->post('site'); 
+        $accessToken  = $this->input->post('accessToken'); 
         
-        if( LoginClass::loginprocess($account_id, $site) )
+        if(!$site) $site = 'eduniety'; 
+        if(!$accessToken) $accessToken = ''; 
+
+        if( LoginClass::loginprocess($account_id, $site, $accessToken) )
             $rtn = array('code'=>'1', 'msg'=>'OK');
         else
             $rtn = array('code'=>'999', 'msg'=>'fail');
