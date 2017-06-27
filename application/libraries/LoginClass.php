@@ -133,6 +133,8 @@ class LoginClass
         // set Cookie ( unote )
         edu_get_instance('CookieClass');
         CookieClass::setCookieInfo($oAcc->oAccInfo->usn, 'eduniety', $account_id);   
+
+        return true;
     }
     
 }
