@@ -18,7 +18,7 @@ class Login extends CI_Controller {
         if(LoginClass::isLogin())
         {
             // go~ my list page
-            header('Location: http://localhost/~hojunlee/unoteapi/main');
+            header('Location: /unoteapi/main');
         }
         else
         {
