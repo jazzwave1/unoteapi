@@ -91,6 +91,6 @@ class AccountClass {
             'mb_id' => $account_id
             ,'accessToken' => $accessToken
         );
-        return $aRtn; 
+        return (object)$aRtn; 
     }
 }

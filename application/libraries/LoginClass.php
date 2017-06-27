@@ -124,7 +124,7 @@ class LoginClass
 
         return true;
     }
-    private static function _proFaceBookLogin($account_id)
+    private static function _proFaceBookLogin($account_id, $accessToken)
     {
         // New Account Class
         $acc = edu_get_instance('AccountClass');
