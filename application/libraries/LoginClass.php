@@ -104,6 +104,9 @@ class LoginClass
             case "facebook" :
                 $bRtn = SELF::_proFaceBookLogin($account_id, $accessToken); 
                 break;
+            case "naver" :
+                $bRtn = SELF::_proNaverLogin($account_id, $accessToken); 
+                break;
             default :
                 break;
         }
@@ -136,5 +139,16 @@ class LoginClass
 
         return true;
     }
-    
+    private static function _proNaverLogin($account_id, $accessToken)
+    {
+        // New Account Class
+        $acc = edu_get_instance('AccountClass');
+        $oAcc = new $acc($account_id, 'naver', $accessToken); 
+        
+        // set Cookie ( unote )
+        edu_get_instance('CookieClass');
+        CookieClass::setCookieInfo($oAcc->oAccInfo->usn, 'eduniety', $account_id);   
+
+        return true;
+    }
 }
