@@ -40,10 +40,10 @@
                                 <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState();"></div>
                             </li>
 
-                            <li class="nBtn"><a href="javascript:;">naver</a></li>
-                            <li class="kBtn"><a href="javascript:;">kakao</a></li>
+                            <li class="nBtn"><a href="javascript:alert('준비중입니다');">naver</a></li>
+                            <li class="kBtn"><a href="javascript:alert('준비중입니다');">kakao</a></li>
                         </ul>
-                        <div class="findSns"><a href="javascript:;">계정찾기</a></div>
+                        <!--div class="findSns"><a href="javascript:;">계정찾기</a></div-->
                     </div>
                     <!--//sns계정 로그인-->
                     <!--에듀니티계정 로그인-->
@@ -66,12 +66,12 @@
                                 </p>
                             </fieldset>
                             <div class="loginChk">
-                                <span class="optionLogin">
+                                <!--span class="optionLogin">
                                     <input type="checkbox" name="save" id="saveLogin">
                                     <label for="saveLogin">로그인 상태 유지</label>
-                                </span>
-                                <span><a href="javascript:;" class="membership">회원가입</a></span>
-                                <span><a href="javascript:;" class="findInfo">아이디/비밀번호 찾기</a></span>
+                                </span-->
+                                <span><a href="http://portal.eduniety.net/html/member/account" class="membership">회원가입</a></span>
+                                <span><a href="http://portal.eduniety.net/html/member/find-id" class="findInfo">아이디 찾기</a></span>
                             </div>
                         </form>
                     </div>
@@ -105,26 +105,6 @@
               }
             );
         });
-    /*
-        $('#bSend').click(function(){
-            $.post(
-              "<?=HOSTURL?>/Login/RpcLogin"
-              ,{
-                   "site" : 'Facebook' 
-               }
-              ,function(data, status) {
-                    if (status == "success" && data.code == 1)
-                    {
-                        window.location.href="<?=HOSTURL?>/Main";
-                    }
-                    else
-                    {
-                        alert(data.msg);
-                    } 
-              }
-            );
-        });
-     */
       });
     </script>
 </body>
