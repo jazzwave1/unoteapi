@@ -56,9 +56,23 @@ class Login extends CI_Controller {
             $rtn = array('code'=>'1', 'msg'=>'OK');
         else
             $rtn = array('code'=>'999', 'msg'=>'fail');
-        
-        response_json($rtn); 
-        die;
+
+        if( $site == 'eduniety')
+        {
+            response_json($rtn);
+            die;
+        }
+        else
+        {
+            if($rtn['code'] == 1)
+            {
+                header('Location: '.HOSTURL.'/main');
+            }
+            else
+            {
+                header('Location: '.HOSTURL.'/Login');
+            }
+        }
     }
 
 
