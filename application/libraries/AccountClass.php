@@ -57,6 +57,7 @@ class AccountClass {
             // get Member Info 
             if($site=='eduniety') $oEduMemInfo = $this->_getEduMemInfo($account_id);
             if($site=='facebook') $oEduMemInfo = $this->_getFBMemInfo($account_id, $accessToken);
+            if($site=='naver')    $oEduMemInfo = $this->_getNMemInfo($account_id, $accessToken);
              
             if(!$oEduMemInfo)
             {
@@ -68,7 +69,9 @@ class AccountClass {
             $regdate    = date('Y-m-d H:i:s');
 
             if($site=='facebook')
-                $accessToken = $oEduMemInfo->mb_id;
+                $accessToken = $oEduMemInfo->accessToken;
+            else if($site=='naver')
+                $accessToken = $oEduMemInfo->accessToken;
             else 
                 $accessToken = '';
             
@@ -86,6 +89,14 @@ class AccountClass {
         return $oAccModel->account_model->getEduMemInfo($account_id);
     }
     private function _getFBMemInfo($account_id, $accessToken)
+    {
+        $aRtn = array(
+            'mb_id' => $account_id
+            ,'accessToken' => $accessToken
+        );
+        return (object)$aRtn; 
+    }
+    private function _getNMemInfo($account_id, $accessToken)
     {
         $aRtn = array(
             'mb_id' => $account_id
