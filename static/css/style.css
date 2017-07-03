@@ -1,188 +1,414 @@
-@charset "utf-8";
-html,
-body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
+
+/*login*/
+
+.loginWrap {
+    /* Set rules to fill background */
+    min-height: 100%;
+    /*min-width: 768px;*/
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    /* Set up positioning */
+    /* position: fixed;
+  top: 0;
+  left: 0;*/
+    background: url(../images/bg_login3.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.loginWrap #header{background: none;}
+.loginWrap .inner {
+    width: 768px;
+    padding-top: 130px;
+    margin: 0 auto;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    margin: 0;
-    font-family: Lato, sans-serif;
-    color: #222;
-    font-size: 0.9em;
+.login .tit {
+    font-family: 'tvN_Bold';
+    font-size: 80px;
+    letter-spacing: 20px
 }
-
-.header {
-    flex: 0 0 60px;
-    background: #eee;
-    display: flex;
-    flex-direction: row;
+.login .tit i{
+    font-size: 50px;
+    
 }
-
-.header .hbox1 {
-    flex: 0 0 60px;
-    background: #5CAB7D;
+.login .stit {
+    font-family: 'tvN_Bold';
+    font-size: 32px;
+    padding-bottom: 50px;
 }
-
-.header .hbox1 h1 {
-    font-size: 18px;
-    line-height: 60px;
+.snsLogin,
+.eduniLogin {
+    float: left;
+    width: 50%;
     text-align: center;
 }
 
-.header .hbox2 {
-    flex: 1 0 auto;
-    background: white;
+.snsLogin ul {
+    padding-top: 50px;
 }
-.fileName{
-    height: 60px;
-    line-height: 60px;
-    padding-left: 10px;
+
+.snsLogin ul li {
+    display: inline-block;
+    width: 200px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.snsLogin ul li a {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.snsLogin ul li.fBtn {
+    background: #3b5998;
+}
+
+.snsLogin ul li.nBtn {
+    background: #3eaf0e;
+}
+
+.snsLogin ul li.kBtn {
+    background: #f9e000;
+}
+
+.snsLogin .findSns a {
+    /*font-family: 'tvN_Bold';*/
+    font-size: 12px;
+    color: #4f4f4f;
+    letter-spacing: 2px;
+    text-decoration: underline;
+}
+
+.eduniLogin .eduni {
+    font-family: 'tvN_Bold';
+    font-size: 24px;
+    color: #4f4f4f;
+    letter-spacing: 2px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.eduniLogin form fieldset input {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.eduniLogin .formBtn {
+    width: 200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: darkgreen;
+}
+
+.eduniLogin .formBtn a {
+    color: #fff;
+}
+
+.eduniLogin .notice {
+    display: none;
+    padding: 10px;
+    color: firebrick;
+}
+
+.loginChk {
+    /*font-family: 'tvN_Bold';*/
+    font-size: 12px;
+}
+
+.loginChk span {
+    padding: 0 5px;
+}
+
+/*myNoteList_style*/
+.myNoteHeader .userInfo {
+   /* background-color: #f7d767;*/
+    padding: 40px 0 20px;
+}
+
+.myNoteHeader .userInfo .pic {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.myNoteHeader .userInfo .pic img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.myNoteHeader .userInfo .name {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.myNoteHeader .userInfo .name span {
+    font-size: 18px;
+}
+
+.myNoteHeader .userInfo .note .updateNote {
+    padding-bottom: 15px;
+}
+
+.myNoteHeader .userInfo .note .updateNote p {
+    font-weight: bold;
+    display: inline-block;
+}
+
+.myNoteHeader .userInfo .note .updateNote p:first-child {
+    padding-right: 10px;
+    margin-right: 5px;
+    border-right: 1px solid #ccc;
+}
+
+.myNoteHeader .userInfo .note .updateNote span {
+    color: darkblue;
+    font-style: italic;
+}
+.myNoteHeader .userInfo .note .profilTxt{
+    display: inline-block;
+   /* background-color: #eee;*/
+} 
+.noteInner {
+    width: 768px;
+    margin: 0 auto;
+}
+.myNoteNav {
+    height: 49px;
+    line-height: 49px;
+    /*background-color: #f7d767;*/
+    border-bottom: 1px solid #ccc;
+}
+
+.myNoteNav ul li {
+    text-align: left;
+}
+
+.myNoteNav ul li a {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    border-bottom: 2px solid #008a77;
     font-size: 14px;
     font-weight: bold;
 }
-.header .hbox3 {
-    flex: 0 0 500px;
-    background: #ccc;
+
+.myNoteList {
+    background-color: #fff;
+    padding: 20px;
 }
-.addOnList{
-    display: flex;
-    flex-direction: row;
+
+.myNoteList ul li {
+    text-align: left;
 }
-.addOnList li{
-    width: 33.3%;
-    height: 60px;
-    line-height: 60px;
+
+.postDefault {
     text-align: center;
-    border: 1px solid #fff;
-}
-.addOnList li:first-child{
-    background: #5CAB7D;
-}
-.main {
-    flex: 1 0 auto;
-    display: flex;
+    font-size: 18px;
+    padding-top: 20px;
 }
 
-.aside {
-    flex: 0 0 60px;
-    display: flex;
-    flex-direction: column;
-    
-    justify-content: flex-start;
-    align-items: center;
-    
-    background-color: #f2f2f2;
-    
-}
-
-.aside ul {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-.aside ul li {
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
-    list-style: none;
-}
-.aside ul li:first-child{
-    background:#5CAB7D;
-}
-.tool {
-    flex: 0 0 240px;
-    background: #D8E6E7;
-}
-.toolList{
-    display: none;
-}
-.toolList .list{
+.postDefault .newBtn2 a {
+    display: inline-block;
+    color: #ccc;
+    font-size: 12px;
     padding: 10px;
-    border-bottom: 1px solid #fff;
 }
-.toolList .subTit{
-    padding: 10px;
+.myNoteList ul{
+    width: 100%;
+}
+.myNoteList li.post{
+    height: 120px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
     border-bottom: 1px solid #ccc;
 }
-.toolList .subList{
-    padding: 10px;
+.post1{
+    width: 100%;
+    /*height: 50px;
+    line-height: 50px;*/
+    border-top:1px solid #ccc;
+    border-left:2px solid darkcyan;
+    border-right:1px solid #ccc;
+    /*background: #ccc;*/
+    /*border-left: 3px solid darkcyan;*/
 }
-.toolList .subList li{
-    padding: 10px;
+.post1 .left{width: 20%;}
+.post1 a{display: block;}
+.post1 div{float: left;}
+.post1 .postNum{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    background-color: aliceblue;
 }
-.content {
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: row;
+.post1 .postThum1{
+    width: 70px;
+    height: 50px;
 }
-
-.editor {
-    flex: 1 0 auto;
-    background: #C5E99B;
-}
-
-.addOnWrap {
-    flex: 0 0 500px;
-}
-.addOnWrap .addOn{
-    display: none;
-    height: 100%;
-}
-.addOn0{
-    background: #FFEEE4;
-}
-.addOn1{
-    background: #E0E3DA;
-}
-.addOn2{
-    background: #FBFFB9;
-}
-.footer {
-    
-    flex: 0 0 60px;
+.post1 .postThum1 img{
+    width: 100%;
+    height: 50px;
     overflow: hidden;
-
-    background-color: #c9d6de;
 }
-.editor_footer{
-    display: flex;
-    flex-direction: row;
+.post1 .postTit{
+    width: 50%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: bold;
 }
-.editor_footer>div{
-    height: 60px;
-    line-height: 60px;
-}
-.pageWrap{
-    flex: 0 0 300px;
+.post1 .postDate{
+    width: 20%;
+    height: 50px;
+    line-height: 50px;
     text-align: center;
 }
-.pageWrap div{
-    display: inline-block;
-    width: 50px;
+.post1 .bookmark{
+    width: 10%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
 }
+.subPost1{
+    border-top:1px solid #ccc;
+    
+    display: none;
+    position: relative;
+}
+.subPost1 .sinner{ padding: 10px 20px 50px 50px; }
+.subPost1 .subBtn{position: absolute; right: 10px; bottom:0;}
+.subPost1Txt{text-align: justify;}
+.subBtn ul{}
+.subBtn ul li{ float: left; padding: 10px;}
+.subBtn ul li a{font-size: 16px;}
 
-.pageWrap div span{
-    padding: 10px;
-    border: 1px solid #fff;
-    border-radius: 3px;
-}
-.saveBtnWrap{
-    flex: 1 0 auto;
+
+
+.postBtn{
+    height: 50px;
+    line-height: 50px;
     text-align: right;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+.postBtn div{
+    float: left;
+}
+.postBtn i{
+    font-size: 18px;
+}
+.postBtn .search{
+    text-align: left;
+    width: 90%;
+}
+.postBtn .search .searchForm{
+    position: relative;
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    
+}
+.postBtn .search .searchForm input#search{
+  width: 300px;
+  padding: 10px;
+  background: #fff;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #63717f;
+  padding-left: 45px;
+  
+  border: 1px solid #eee;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+    
+    -webkit-transition: background .55s ease;
+-moz-transition: background .55s ease;
+-ms-transition: background .55s ease;
+-o-transition: background .55s ease;
+transition: background .55s ease;
+}
+.postBtn .search .searchForm input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.postBtn .search .searchForm input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.postBtn .search .searchForm input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.postBtn .search .searchForm input#search:-ms-input-placeholder {  
+   color: #65737e;  
+}
+.postBtn .search .searchForm .icon{
+  position: absolute;
+  margin-top: -2px;
+  margin-left: 15px;
+  /*top: 50%;
+  
+  margin-top: 17px;*/
+  vertical-align: middle;
+  z-index: 1;
+  color: #4f5b66;
+}
+.postBtn .search .searchForm input#search:hover, .postBtn .search .searchForm input#search:focus, .postBtn .search .searchForm input#search:active{
+    outline:none;
+    background: #ffffff;
+  }
+.postBtn .delete{
+    text-align: center;
+    width: 10%;
+}
+.post .postWrap{float: left;}
+.post .center{position: relative; width: 70%; height: 100%}
+.post .left{width: 20%; height: 100%; text-align: left;}
+.post .right{width: 10%; height: 100%; text-align: center; line-height: 120px;}
+.post .postWrap .postThum{width: 120px; height: 120px;}
+.post .postWrap .postThum img{width: 100%;}
+.post .postWrap .postTit{font-size: 18px; font-weight: bold; padding-bottom: 10px;}
+.post .postWrap .postSub{
+    display: -webkit-box;
+    /*max-height: px;*/
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}
+.post .postWrap .postDate{
+    position: absolute;
+    bottom: 0;
+    color: #ccc;
+    font-weight: bold;
+}
+.post .postWrap .deleteBtn i:hover{
+    color: darkred;
 }
 
-.saveBtnWrap div{
-    padding-right: 20px;
+.post .postWrap .deleteBtn{
+    font-size: 18px;
 }
-.saveBtnWrap div span{
-    padding: 10px 20px;
-    border: 1px solid #fff;
-    border-radius: 3px;
+.pageNum{
+    padding-bottom: 30px;
 }
+.pageNum ul{height: 25px; line-height: 25px;}
+.pageNum ul li{display: inline-block; vertical-align: middle; padding: 0 5px;}
+.pageNum ul li a{color: #ccc; font-size: 14px; font-weight: bold;}
+.pageNum ul li a.on{color: darkcyan; font-size: 16px;}

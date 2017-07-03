@@ -1,27 +1,191 @@
 @charset "utf-8";
-/*header*/
-.header{ position: relative; margin: 0 auto; padding: 0; text-align: center;font-size: 12px; z-index: 98; }
-.header .hTop{ width: 100%; height: 50px; background: #fff; border-bottom: 3px solid #4f4f4f; }
-/*.header .hDown{display: none; position: fixed; left:0; top: 53px; width: 100%; height: 50px; background: #FFF0A5; z-index: 110;}*/
+/* Reset */
+html,body{width:100%;height:100%}
+html{overflow-y:scroll;font-size:10px}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,button{margin:0;padding:0}
+body,h1,h2,h3,h4,input,button{font-family:Malgun Gothic,'맑은고딕',Helvetica,AppleSDGothicNeo,sans-serif;font-size:12px;color:#555}
+body{background-color:#fff;text-align:center;*word-break:break-all;-ms-word-break:break-all}
+img,fieldset,iframe{border:0 none}
+li{list-style:none}
+input,select,button{vertical-align:middle}
+img{vertical-align:top}
+i,em,address{font-style:normal}
+label,button{cursor:pointer}
+button{margin:0;padding:0}
+a{color:#222;text-decoration:none}
+a:hover{color:#000;text-decoration:none}
+button *{position:relative}
+button img{left:-3px;*left:auto}
+html:first-child select{height:20px;padding-right:6px}
+option{padding-right:6px}
+hr{display:none}
+legend{*width:0;display: none;}
+table{border-collapse:collapse;border-spacing:0}
+input::-ms-clear{display:none}
+input {outline: none;border: 0px;}
+*:focus {outline: none;}
+/* Hidden */
+.blind {position:absolute;left:0;top:-9999em}
+.hide{display: none;}
+/* Clearfix */
+.clearfix {*zoom:1}
+.clearfix:after {content:'';display:block;clear:both}
 
-.header .home{ position: absolute; left: 0; top:0; width: 60px;}
-.header .home a{ display: block; width: 30px; padding: 10px 15px;}
-.header .home img{ width: 100%;}
+/*guide_style*/
+@font-face {
+    font-family: 'tvN_Bold';
+    src: url('../fonts/tvN_Bold.ttf');
+}
 
-.header .logo{text-align: center;}
-.header .logo div{ font-size: 20px; font-weight: bold; letter-spacing: 2px; vertical-align: middle; line-height: 50px; font-family: 'Love Ya Like A Sister', cursive; /*background: #17330f;*/}
+@font-face {
+    font-family: 'tvN_Medium';
+    src: url('../fonts/tvN_Medium.ttf');
+}
+/*.dimmed{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}*/
+#wrap{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#header {
+    position: fixed; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 60px;
+    line-height: 60px;
+    box-shadow: 1px 1px 1px  #888888;
+    background-color: #fdd66d;
+    /*background-color: cadetblue;*/
+    /*background-image: linear-gradient( 135deg, #5EFCE8 0%, #736EFE 100%);*/
+    z-index: 100;
+    /*border-bottom:1px solid #ccc;*/
+}
+#header .hinner{
+    position: relative;
+    width: 100%;
+}
+#header div{float: left;}
+#header .hleft{width: 200px;}
+#header .hleft h1 {
+    /*font-family: 'tvN_Bold';*/
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 24px;
+    padding-left: 50px;
+}
+#header .hcenter{
+    position: absolute;
+    top:0;
+    left: 50%;
+    margin-left: -384px;
+    width: 768px;
+    
+    
+}
+/*#header .categTit{padding: 0 10px; font-weight: bold; font-size: 24px; text-transform: uppercase; border-bottom: 3px solid skyblue; height: 58px; line-height: 58px;}*/
+#header .hleft .menubar{position: absolute; left: 20px;}
 
-.header .logo img{ float:left; width: 30px; height: 30px; vertical-align: middle; padding: 10px 15px 5px 10px;}
-.header .logo strong{ color: #17330f; font-size: 35px; font-style: italic; padding-right: 5px} 
-.header .logo span{ letter-spacing: 3px}
-.header .userWrap{ position: absolute; right: 10px; top:5px; font-weight: bold;}
-.header .userWrap .logOut{ padding-top: 5px}
-.header .userWrap .logOut div{ padding: 5px 20px; background: #17330f; color: #fff; cursor: pointer;  border-radius: 5px;}
-.header .userWrap .logIn{ display:none;}
-.header .userWrap div{ display: inline-block; vertical-align: middle; padding-left: 5px;}
-.header .userWrap div img{ vertical-align: middle;}
-.header .userWrap .userBtn{ width: 20px; height: 30px; padding-top: 10px;}
-.header .userWrap .userBtn img{ width: 100%;}
+/*navBar_style*/
+#navBar .navList li span{display: none;}
+#navBar .navList li{float: left; width: 60px; height: 60px; line-height: 60px; /*border-right: 1px solid #fff;*/}
+#navBar .navList li a{display: block; background-color: transparent}
+#navBar .navList li.on a{background-color: #f7d767;}
+#navBar .navList li.on a i{color: #4f4f4f;}
+#navBar .navList li a i{color: #fff; vertical-align: middle; width: 30px;}
+#header .hright{
+    float: right;
+    padding-right: 20px;
+}
+#header .hright div
+    height: 59px;
+    line-height: 59px;
+}
+#header .hright .userInfo{
+  
+}
+#header .hright .userInfo .pic{
+    width: 40px;
+    height: 40px;
+    padding-top: 10px; 
+    padding-right: 5px;
+}
+#header .hright .userInfo .pic img{
+    width: 100%;
+    border-radius: 50%;
+}
+#header .hright .userInfo .name{
+    padding-right: 20px;
+}
+#header .hright .userInfo .name a{
+    display: block;
+    color: #fff;
+}
+#header .hright .userInfo .name span{
+    font-weight: bold;
+    font-size: 14px;
+}
+#header .hright .notice,#header .hright .search{
+    width: 30px;
+    height: 100%;
+    /*background-color: #ccc;*/
+}
+#header .hright .notice a, #header .hright .search a{
+    display: block;
+}
+#header .hright .notice a i,#header .hright .search a i{
+    color: #fff;
+}
 
-/*footer*/
-.footer{ width: 100%; height: 50px; line-height: 50px; font-family: 'Love Ya Like A Sister', cursive; font-size: 15px; text-align: center; background: #EEE; margin:0 auto; padding: 0; margin-top: 20px;}
+
+#contents .conInner{
+    width: 100%;
+    padding-top: 60px;  
+}
+
+
+/*layer popup*/
+
+[class^="pop-wrap"] {
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    background: #fff;
+    z-index: 10001;
+    border: 1px solid #896e4a;
+}
+.pop-header {
+    position: relative;
+    padding-left: 25px;
+    color: #000;
+    font-size: 22px;
+}
+.pop-header .btnp-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+.pop-cont {
+    padding: 25px;
+}
+.pop-msg{
+    padding: 20px 0;
+}
+.pop-btn{
+    padding: 10px 0;
+}
+.pop-btn a{padding: 10px 20px;}
+.layer-scroll {
+    overflow:hidden;
+}
