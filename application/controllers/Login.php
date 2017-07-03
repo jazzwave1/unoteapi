@@ -18,7 +18,7 @@ class Login extends CI_Controller {
         if(LoginClass::isLogin())
         {
             // go~ my list page
-            header('Location: /unoteapi/main');
+            header('Location: '.HOSTURL.'/main');
         }
         else
         {
@@ -47,6 +47,7 @@ class Login extends CI_Controller {
         $account_id = $this->input->post('user_id'); 
         $site = $this->input->post('site'); 
         $accessToken  = $this->input->post('accessToken'); 
+
         
         if(!$site) $site = 'eduniety'; 
         if(!$accessToken) $accessToken = ''; 

@@ -114,13 +114,15 @@ class LoginClass
     }
     private static function _proEduLogin($account_id)
     {
+        if(!$account_id) return false;
+        
         // chk eduniety membership
         // 이부분은 에듀니티에서 어떻게 처리 할지 고민중
 
         // New Account Class
         $acc = edu_get_instance('AccountClass');
         $oAcc = new $acc($account_id, 'eduniety'); 
-        
+
         // set Cookie ( unote )
         edu_get_instance('CookieClass');
         CookieClass::setCookieInfo($oAcc->oAccInfo->usn, 'eduniety', $account_id);   
