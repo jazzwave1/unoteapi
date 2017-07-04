@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>크롤링로봇</title>
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/bucketstyle.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="wrap">
+        <!--header-->
+        <div id="header">
+            <div class="hleft">
+                <a href="#" class="menubar"><i class="fa fa-bars"></i></a>
+                <h1><a href="main.html">Gldong</a></h1>
+            </div>
+            <div class="hcenter"></div>
+            <div class="hright">
+                <!--userInfo-->
+                <div class="userInfo">
+                    <div class="pic"><img src="images/jiyun.jpg"></div>
+                    <div class="name"><a href="#"><span>김지윤</span> 님 <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
+                </div>
+                <!--//userInfo-->
+                <!--notice-->
+                <div class="notice">
+                    <a href="#"><i class="fa fa-bell-o" aria-hidden="true"></i></a>
+                </div>
+                <!--//notice-->
+                <!--search-->
+                <div class="search">
+                    <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                </div>
+                <!--//search-->
+            </div>
+        </div>
+        <!--//header-->
+        <div id="contents">
+            <div class="conInner">
+                <!--navBar-->
+                <div id="navBar" class="full-left-nav">
+                    <div class="binner navList">
+                        <div class="bankItem">
+                            <p class="bankItemTit">내 노트</p>
+                            <ul class="bankItemList bankItemList0">
+                                <li>
+                                    <a href="#"><i class="fa fa-book" aria-hidden="true"></i>내노트<span class="num">20</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bankItem">
+                            <p class="bankItemTit ">글감 관리</p>
+                            <ul class="bankItemList bankItemList0">
+                                <li>
+                                    <a href="#"><i class="fa fa-list" aria-hidden="true"></i>글감리스트 <span class="num">20</span></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-bookmark" aria-hidden="true"></i>북마크 <span class="num">100</span></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i>휴지통 <span class="num">5</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bankItem">
+                            <p class="bankItemTit">글감 수집</p>
+                            <ul class="bankItemList bankItemList2">
+                                <li><a href="#cReqPop" data-popup="#cReqPop" class="layer-popup">글감수집하기</a></li>
+                                <li><a href="#">파일에서 가져오기</a></li>
+                            </ul>
+                        </div>
+                        <div class="bankItem">
+                            <p class="bankItemTit">글감 카테고리 <span class="addCateg"><i class="fa fa-plus" aria-hidden="true"></i></span></p>
+                            <ul class="bankItemList bankItemList1">
+                                <li><a href="#">Book1.<span>교육정보화</span></a></li>
+                                <li><a href="#">Book2.<span>리터러시</span></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <!--//navBar-->
+                <!--글감수집-->
+                <div id="cList">
+                    <div class="c-inner">
+                        <div class="c-list-tit">
+                            <p>글감수집 현황</p>
+                        </div>
+                        <div class="c-table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="">대상처</th>
+                                        <th class="">대상까페</th>
+                                        <th class="">게시판명</th>
+                                        <th class="">요청일</th>
+                                        <th class="">완료일</th>
+                                        <th class="">수집양</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="chk">
+                                            <div class="chkList">
+                                                <input type="checkbox" id="chklist" name="delete" value="chklist">
+                                                <label class="hide" for="chklist">수집글 삭제하기</label>
+                                            </div>
+                                            <div class="">다음까페</div>
+                                        </td>
+                                        <td><a href="javascript:;">프로젝트 학습 정보공유</a></td>
+                                        <td>나의 프로젝트 학습</td>
+                                        <td>17.05.01 13:20</td>
+                                        <td>17.05.01 13:30</td>
+                                        <td>123/123</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="chk">
+                                            <div class="chkList">
+                                                <input type="checkbox" id="chklist" name="delete" value="chklist">
+                                                <label class="hide" for="chklist">수집글 삭제하기</label>
+                                            </div>
+                                            <div class="">네이버블로그</div>
+                                        </td>
+                                        <td><a href="javascript:;">시나리오 기반 학습</a></td>
+                                        <td>아웃도어학습 시나리오</td>
+                                        <td>17.04.01 13:20</td>
+                                        <td>17.04.01 13:30</td>
+                                        <td>123/123</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="chk">
+                                            <div class="chkList">
+                                                <input type="checkbox" id="chklist" name="delete" value="chklist">
+                                                <label class="hide" for="chklist">수집글 삭제하기</label>
+                                            </div>
+                                            <div class="">다음까페</div>
+                                        </td>
+                                        <td><a href="javascript:;">프로젝트 학습 정보공유</a></td>
+                                        <td>나의 프로젝트 학습</td>
+                                        <td>17.05.01 13:20</td>
+                                        <td>17.05.01 13:30</td>
+                                        <td>123/123</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="chk">
+                                            <div class="chkList">
+                                                <input type="checkbox" id="chklist" name="delete" value="chklist">
+                                                <label class="hide" for="chklist">수집글 삭제하기</label>
+                                            </div>
+                                            <div class="">네이버블로그</div>
+                                        </td>
+                                        <td><a href="javascript:;">시나리오 기반 학습</a></td>
+                                        <td>아웃도어학습 시나리오</td>
+                                        <td>17.04.01 13:20</td>
+                                        <td>17.04.01 13:30</td>
+                                        <td>123/123</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="chk">
+                                            <div class="chkList">
+                                                <input type="checkbox" id="chklist" name="delete" value="chklist">
+                                                <label class="hide" for="chklist">수집글 삭제하기</label>
+                                            </div>
+                                            <div class="">다음까페</div>
+                                        </td>
+                                        <td><a href="javascript:;">프로젝트 학습 정보공유</a></td>
+                                        <td>나의 프로젝트 학습</td>
+                                        <td>17.05.01 13:20</td>
+                                        <td>17.05.01 13:30</td>
+                                        <td>123/123</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="chk">
+                                            <div class="chkList">
+                                                <input type="checkbox" id="chklist" name="delete" value="chklist">
+                                                <label class="hide" for="chklist">수집글 삭제하기</label>
+                                            </div>
+                                            <div class="">다음까페</div>
+                                        </td>
+                                        <td><a href="javascript:;">프로젝트 학습 정보공유</a></td>
+                                        <td>나의 프로젝트 학습</td>
+                                        <td>17.05.01 13:20</td>
+                                        <td>17.05.01 13:30</td>
+                                        <td>123/123</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="c-page_num">
+                            <ul>
+                                <li class="arrow">
+                                    <a href="javascript:;"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                                </li>
+                                <li><a href="javascript:;" class="on">1</a></li>
+                                <li><a href="javascript:;">2</a></li>
+                                <li><a href="javascript:;">3</a></li>
+                                <li class="arrow">
+                                    <a href="javascript:;"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--//글감수집-->
+            </div>
+        </div>
+    </div>
+    <!--layer-popup-->
+    <div class="pop-wrap" id="cReqPop" style="display:none">
+        <div>
+            <div class="pop-header">
+                <span>크롤링 로봇 수집 설정</span>
+                <a href="#none" class="btnp-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </div>
+            <div class="pop-box">
+                <div class="pop-cont">
+                    <ul class="sns-tab clearfix">
+                        <li class="on"><a href="#">naver</a></li>
+                        <li><a href="#">daum</a></li>
+                        <li><a href="#">facebook</a></li>
+                    </ul>
+                    <!--수집 대상 선택 및 로그인 화면-->
+                    <div>
+                        <div class="login0 pop-login">
+                            <div class="tit">
+                                네이버 카페 게시글 수집
+                            </div>
+                            <div class="notice">
+                                개인정보보호법에 의거, 아이디/패스워드는 에듀니티에서 저장하지 않습니다.
+                                <br> 번거롭더라도 수집 시, 개별 로그인이 필요합니다.
+                            </div>
+                            <div class="log-form n-log-form">
+                                <form action="" method="post">
+                                    <fieldset>
+                                        <input id="naverUserId" type="text" name="id" placeholder="아이디">
+                                        <input id="naverUserPwd" type="password" name="pwd" placeholder="비밀번호">
+                                        <p class="log-formBtn">
+                                            <a href="javascript:;">로그인</a>
+                                        </p>
+                                        <p class="log-notice">
+                                            * 아이디를 입력하세요 / * 비밀번호를 입력하세요 / * 입력정보를 확인해주세요
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="login1 pop-login">
+                            <div class="tit">
+                                다음 카페 게시글 수집
+                            </div>
+                            <div class="notice">
+                                개인정보보호법에 의거, 아이디/패스워드는 에듀니티에서 저장하지 않습니다.
+                                <br> 번거롭더라도 수집 시, 개별 로그인이 필요합니다.
+                            </div>
+                            <div class="log-form d-log-form">
+                                <form action="" method="post">
+                                    <fieldset>
+                                        <input id="naverUserId" type="text" name="id" placeholder="아이디">
+                                        <input id="naverUserPwd" type="password" name="pwd" placeholder="비밀번호">
+                                        <p class="log-formBtn">
+                                            <a href="javascript:;">로그인</a>
+                                        </p>
+                                        <p class="log-notice">
+                                            * 아이디를 입력하세요 / * 비밀번호를 입력하세요 / * 입력정보를 확인해주세요
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="login2 pop-login">
+                            <div class="tit">
+                                페이스북 게시글 수집
+                            </div>
+                            <div class="notice">
+                                개인정보보호법에 의거, 아이디/패스워드는 에듀니티에서 저장하지 않습니다.
+                                <br> 번거롭더라도 수집 시, 개별 로그인이 필요합니다.
+                            </div>
+                            <div class="log-form f-log-form">
+                                <form action="" method="post">
+                                    <fieldset>
+                                        <input id="naverUserId" type="text" name="id" placeholder="아이디">
+                                        <input id="naverUserPwd" type="password" name="pwd" placeholder="비밀번호">
+                                        <p class="log-formBtn">
+                                            <a href="javascript:;">로그인</a>
+                                        </p>
+                                        <p class="log-notice">
+                                            * 아이디를 입력하세요 / * 비밀번호를 입력하세요 / * 입력정보를 확인해주세요
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="js/popup.js"></script>
+</body>
+
+</html>

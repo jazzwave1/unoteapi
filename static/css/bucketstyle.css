@@ -1,0 +1,250 @@
+.full-left-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    /*background-color: #e9f3fd;*/
+}
+.full-left-nav .binner{
+    height: 100%;
+    border-right: 1px solid #ccc;
+    padding: 80px 20px 0;
+}
+
+.bankItem{
+    text-align: left;
+    padding-bottom: 10px;
+}
+.bankItem a{
+    display: block;
+    text-align: left;
+}
+.bankItem .bankItemTit{
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.bankItem .bankItemTit .addCateg{
+    float: right
+}
+.bankItem .bankItemList li{
+    padding: 0 0 5px 5px;
+}
+.bankItem .bankItemList li i{
+    padding-right: 5px;
+}
+.bankItem .bankItemList li .num{
+    display: inline-block;
+    background: #ccc;
+    border-radius: 5px;
+    float: right;
+    color: #fff;
+    padding: 0 5px;
+    font-size: 10px;
+}
+.bankItemList0 li.on a{
+    color: #3b8686;
+    font-weight: bold;
+}
+.bankItemList1 li a span{
+    font-weight: bold;
+    font-style: italic;
+}
+#bankSub{
+    position: absolute;
+    left: 200px;
+    top:0;
+    width: 350px;
+    height: 100%;
+    background-color: #fff;
+    border-right: 1px solid #eee;
+}
+#bankSub .bsinner{
+    padding: 60px 0 0;
+}
+.listFilter{
+    height: 20px;
+    line-height: 20px;
+    background-color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+.listFilter p:first-child{
+    font-weight: bold;
+}
+.listFilter p{
+    display: inline-block;
+}
+.listFilter p i{padding-right: 5px;}
+.listFilter p.filter{float: right}
+.listFilter span{
+    font-weight: bold;
+}
+.bankSubList{
+    
+}
+.bankSubList .on{
+    background-color:darkseagreen;
+}
+.bankSubList a{
+    display: block;
+    text-align: left;
+}
+
+/*까페글*/
+.cafeInfo{position: relative; width: 100%; height: 60px;border-top: 1px solid #eee; padding: 10px 0}
+.cafeInfo div{float: left;}
+.cafeInfo .cafeinner{padding: 0 10px;}
+.cafeInfo .cafeLogo{
+    width: 60px;
+    line-height: 60px;
+    height: 100%;
+    background-color: #eee;
+    text-align: center;
+    border-radius: 50%;
+}
+.cafeInfo .cafeTxt{
+    width: 180px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.cafeInfo .cafeTxt .tit{
+    font-weight: bold;
+    display: -webkit-box;
+    /*max-height: px;*/
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    word-wrap:break-word; 
+    
+}
+.cafeInfo .cafeTxt .date{
+    font-size: 11px;
+}
+.cafeInfo .cafeTxt p{
+}
+.cafeInfo div.deleteBtn{
+    width: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    line-height: 60px;
+}
+.cafeInfo div.deleteBtn i{
+    color: #ccc;
+    font-size: 16px;
+}
+.cafeInfo div.deleteBtn i:hover{
+    color: darkred;
+}
+
+
+/*글 전체 보여지는 영역*/
+#detailView{
+    position: absolute;
+    left: 550px;
+    text-align: left;
+   /* width: 100%;*/
+}
+.dvinner{
+    padding: 20px;
+}
+.page .p-top{
+    height: 80px;
+    border-bottom: 1px solid #ccc;
+    
+}
+.p-top .p-info{
+    float: left;
+}
+.p-top .p-info p{
+    padding-bottom: 5px;
+}
+.p-top .p-info .p-tit{
+    font-weight: bold;
+    font-size: 16px;
+}
+.p-top .p-btn{
+    float: right;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+.p-top .p-btn ul li{
+    float: left;
+    text-align: center;
+    padding-left: 15px;
+}
+.p-top .p-btn ul li:hover{
+    color: #fdd66d;
+}
+.p-inner{
+    padding: 20px 0;
+    text-align: justify;
+}
+
+
+
+/*글감수집*/
+#cList{
+    position: relative;
+    width: 100%;
+    text-align: left;
+    
+}
+.c-inner{
+    position: absolute;
+    width: 100%;
+    left: 200px;
+    
+}
+.c-list-tit{
+    padding: 20px;
+}
+.c-list-tit p{
+    font-size: 18px;
+    border-left: 3px solid #fdd66d;
+    padding-left: 5px;
+}
+.c-table-wrap{
+    padding: 20px;
+}
+.c-table-wrap table{
+    width: 100%;
+}
+.c-table-wrap table thead{
+    /*text-align: center;*/
+    border-bottom: 2px solid #fdd66d;
+}
+.c-table-wrap table th{
+    padding-bottom: 10px;
+}
+.c-table-wrap table .chk div{
+    display: inline-block;
+}
+.c-table-wrap table td{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #eee;
+}
+.c-page_num{
+    width: 100%;
+    margin: 0 auto;
+}
+.c-page_num ul{
+    text-align: center;
+}
+.c-page_num ul li{
+    display: inline-block;
+}
+.c-page_num ul li a.on{color: #fdd66d; font-weight: bold;}
+.c-page_num ul li.arrow{
+    padding: 0 10px;
+   
+}
+.c-page_num ul li.arrow i{
+     color: #eee;
+}
+.c-page_num ul li.arrow i:hover{
+    color: #fdd66d;
+}

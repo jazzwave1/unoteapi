@@ -77,11 +77,18 @@ input {outline: none;border: 0px;}
 #header div{float: left;}
 #header .hleft{width: 200px;}
 #header .hleft h1 {
+    font-family: 'Fredericka the Great', cursive;
     /*font-family: 'tvN_Bold';*/
     text-align: left;
-    text-transform: uppercase;
-    font-size: 24px;
+    /*text-transform: uppercase;*/
+    font-size: 32px;
     padding-left: 50px;
+    
+}
+#header .hleft h1 a{
+    display: block;
+    color: #4f4f4f;
+    font-weight: normal;
 }
 #header .hcenter{
     position: absolute;
@@ -96,12 +103,12 @@ input {outline: none;border: 0px;}
 #header .hleft .menubar{position: absolute; left: 20px;}
 
 /*navBar_style*/
-#navBar .navList li span{display: none;}
-#navBar .navList li{float: left; width: 60px; height: 60px; line-height: 60px; /*border-right: 1px solid #fff;*/}
+/*#navBar .navList li span{display: none;}
+#navBar .navList li{float: left; width: 60px; height: 60px; line-height: 60px; border-right: 1px solid #fff;}
 #navBar .navList li a{display: block; background-color: transparent}
 #navBar .navList li.on a{background-color: #f7d767;}
 #navBar .navList li.on a i{color: #4f4f4f;}
-#navBar .navList li a i{color: #fff; vertical-align: middle; width: 30px;}
+#navBar .navList li a i{color: #fff; vertical-align: middle; width: 30px;}*/
 #header .hright{
     float: right;
     padding-right: 20px;
@@ -167,17 +174,29 @@ input {outline: none;border: 0px;}
 }
 .pop-header {
     position: relative;
-    padding-left: 25px;
+    width: 100%;
+    height: 30px;
+    padding-top: 10px;
+   /* padding-left: 25px;*/
     color: #000;
-    font-size: 22px;
+    border-top: 3px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.pop-header span{
+   position: absolute;
+   left: 10px;
+   font-weight: bold;
+    font-size:15px; 
+}
+.pop-header i{
+    font-size: 18px;
 }
 .pop-header .btnp-close {
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: 10px;
 }
 .pop-cont {
-    padding: 25px;
+   /* padding: 25px;*/
 }
 .pop-msg{
     padding: 20px 0;
@@ -185,7 +204,83 @@ input {outline: none;border: 0px;}
 .pop-btn{
     padding: 10px 0;
 }
-.pop-btn a{padding: 10px 20px;}
+.pop-btn a{padding: 10px 10px;}
 .layer-scroll {
     overflow:hidden;
 }
+
+
+
+
+
+/*creq-popup*/
+#cReqPop{}
+.sns-tab{
+}
+.sns-tab li{
+    float: left;
+    width: 33%;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+.sns-tab li:first-child{
+    border-left: 0px;
+}
+.sns-tab li a{
+    display: block;
+     padding: 10px 0;
+}
+.sns-tab li.on{
+    background: #ccc;
+}
+.pop-login{
+    text-align: left;
+    padding: 10px;
+}
+.pop-login .tit{
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 5px;    
+}
+.pop-login .notice{
+    padding-bottom: 30px;
+}
+.pop-login .log-form{
+    text-align: center;
+    
+}
+.pop-login .log-form input{
+    display: block;
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+
+.pop-login .log-form .log-formBtn{
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    
+}
+.pop-login .log-form .log-formBtn a{
+    color: #fff;
+}
+.pop-login .n-log-form .log-formBtn{
+    background-color: forestgreen;
+}
+.pop-login .d-log-form .log-formBtn{
+    background-color: cornflowerblue;
+}
+.pop-login .f-log-form .log-formBtn{
+    background-color: darkblue;
+}
+.pop-login .log-form .log-notice{
+    padding-bottom: 20px;
+}
+
