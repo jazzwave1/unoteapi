@@ -1,15 +1,12 @@
 <?php 
-	$data = array(
-		'class' => $this->uri->segment(1)
-	);
-
-	$this->load->view('common/header', $data);
+	$this->load->view('common/header');
 ?>
 
 <?php
-	if( !in_array($data['class'], array('login')) )
+	if( !in_array($this->uri->segment(1), array('login')) )
 	{
-		$this->load->view('common/nav');
+		$this->load->view('common/gnb');
+		$this->load->view('common/lnb');
 	}
 ?>
 
