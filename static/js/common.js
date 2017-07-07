@@ -1,13 +1,6 @@
 var _dHeight = $(document).height();
 var _dWidth = $(document).width();
-
-
 var _wWidth = $(window).width();
-
-
-
-
-
 
 
 function responsiveView() {
