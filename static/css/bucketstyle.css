@@ -1,17 +1,22 @@
+#navBar{
+    /*box-shadow: 1px 1px 5px  #888888;*/
+    z-index: 100;
+}
 .full-left-nav {
     position: fixed;
     left: 0;
     top: 0;
     width: 200px;
     height: 100%;
-    /*background-color: #e9f3fd;*/
 }
 .full-left-nav .binner{
     height: 100%;
     border-right: 1px solid #ccc;
     padding: 80px 20px 0;
 }
-
+.sroll-inner{
+    /*padding-bottom: 60px;*/
+}
 .bankItem{
     text-align: left;
     padding-bottom: 10px;
@@ -26,6 +31,10 @@
 }
 .bankItem .bankItemTit .addCateg{
     float: right
+}
+.bankItem .bankItemList{
+    width: 100%;
+    margin: 0 auto;
 }
 .bankItem .bankItemList li{
     padding: 0 0 5px 5px;
@@ -42,6 +51,20 @@
     padding: 0 5px;
     font-size: 10px;
 }
+.bankItem .bankItemList li.cBtn a{
+    display: inline-block;
+    width: 74px;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 5px;
+    color: #fff;
+}
+.bankItem .bankItemList li.cBtn a.croBtn{
+    background: #274555;
+}
+.bankItem .bankItemList li.cBtn a.fupBtn{
+    background-color: #274555;
+}
 .bankItemList0 li.on a{
     color: #3b8686;
     font-weight: bold;
@@ -50,17 +73,43 @@
     font-weight: bold;
     font-style: italic;
 }
+
+.newNoteBtn{
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+    margin-top: 50px;
+    width: 100%;
+}
+.newNoteBtn a{
+    display: block;
+    padding: 10px;
+    margin: 0 23px;
+    background-color: #fdd66d;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+.newNoteBtn a i{
+    padding-right: 10px;
+}
+
+
+
 #bankSub{
     position: absolute;
     left: 200px;
     top:0;
-    width: 350px;
-    height: 100%;
+    width: 300px;
+    /*height: 100%;*/
     background-color: #fff;
-    border-right: 1px solid #eee;
+    box-shadow: 1px 1px 5px  #888888;
 }
 #bankSub .bsinner{
     padding: 60px 0 0;
+    border-right: 1px solid #eee;
 }
 .listFilter{
     height: 20px;
@@ -80,11 +129,28 @@
 .listFilter span{
     font-weight: bold;
 }
+.subSearch{
+    text-align: left;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+.subSearch .search-inner{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 5px;
+    padding: 5px;
+
+}
+.subSearch a{
+    display: inline-block;
+    vertical-align: middle;
+}
 .bankSubList{
-    
+
 }
 .bankSubList .on{
     background-color:darkseagreen;
+    border-right: 3px solid darkgreen;
 }
 .bankSubList a{
     display: block;
@@ -116,8 +182,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
-    word-wrap:break-word; 
-    
+    word-wrap:break-word;
+
 }
 .cafeInfo .cafeTxt .date{
     font-size: 11px;
@@ -143,17 +209,35 @@
 /*글 전체 보여지는 영역*/
 #detailView{
     position: absolute;
-    left: 550px;
+    top:0px;
+    left: 500px;
     text-align: left;
-   /* width: 100%;*/
+    /* width: 100%;*/
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    min-width: 800px;
 }
 .dvinner{
-    padding: 20px;
+    position: relative;
+    padding-top: 80px;
+    /* padding: 80px 20px 0 20px;*/
+}
+.page{
+    position: absolute;
+    left:50%;
+    margin-left: -35%;;
+    width: 800px;
 }
 .page .p-top{
+    /*position: fixed;*/
+    width: 100%;
     height: 80px;
-    border-bottom: 1px solid #ccc;
-    
+    /* border-bottom: 1px solid #ccc;*/
+    /*    background-color: #eee;*/
+}
+.p-top .top-inner{
+    padding: 7px 20px;
 }
 .p-top .p-info{
     float: left;
@@ -167,20 +251,29 @@
 }
 .p-top .p-btn{
     float: right;
-    padding-top: 10px;
-    padding-right: 10px;
+    padding-left: 10px;
 }
 .p-top .p-btn ul li{
     float: left;
     text-align: center;
-    padding-left: 15px;
+    padding-left: 5px;
 }
 .p-top .p-btn ul li:hover{
     color: #fdd66d;
 }
+.p-top .p-btn ul li i{
+    font-size: 16px;
+    padding: 3px 5px 0;
+}
+.page .p-txt{
+    /*padding-top: 80px;*/
+}
 .p-inner{
-    padding: 20px 0;
+    padding: 20px;
     text-align: justify;
+    /*height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;*/
 }
 
 
@@ -190,13 +283,13 @@
     position: relative;
     width: 100%;
     text-align: left;
-    
+
 }
 .c-inner{
     position: absolute;
     width: 100%;
     left: 200px;
-    
+
 }
 .c-list-tit{
     padding: 20px;
@@ -240,10 +333,10 @@
 .c-page_num ul li a.on{color: #fdd66d; font-weight: bold;}
 .c-page_num ul li.arrow{
     padding: 0 10px;
-   
+
 }
 .c-page_num ul li.arrow i{
-     color: #eee;
+    color: #eee;
 }
 .c-page_num ul li.arrow i:hover{
     color: #fdd66d;

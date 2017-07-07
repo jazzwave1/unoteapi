@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* Reset */
-html,body{width:100%;height:100%}
+html,body{width:100%;height:100%; overflow:hidden}
 html{overflow-y:scroll;font-size:10px}
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,button{margin:0;padding:0}
 body,h1,h2,h3,h4,input,button{font-family:Malgun Gothic,'맑은고딕',Helvetica,AppleSDGothicNeo,sans-serif;font-size:12px;color:#555}
@@ -51,24 +51,31 @@ input {outline: none;border: 0px;}
     background: rgba(0,0,0,0.5);
     z-index: 1000;
 }*/
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 #wrap{
     position: relative;
     width: 100%;
     height: 100%;
+
 }
 #header {
-    position: fixed; 
-    left: 0; 
-    top: 0; 
-    width: 100%; 
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
     height: 60px;
     line-height: 60px;
-    box-shadow: 1px 1px 1px  #888888;
-    background-color: #fdd66d;
+    /*box-shadow: 1px 1px 1px  #888888;*/
+    background-color: #fff;
     /*background-color: cadetblue;*/
     /*background-image: linear-gradient( 135deg, #5EFCE8 0%, #736EFE 100%);*/
-    z-index: 100;
-    /*border-bottom:1px solid #ccc;*/
+    z-index: 200;
+    border-bottom:1px solid #ccc;
 }
 #header .hinner{
     position: relative;
@@ -83,7 +90,7 @@ input {outline: none;border: 0px;}
     /*text-transform: uppercase;*/
     font-size: 32px;
     padding-left: 50px;
-    
+
 }
 #header .hleft h1 a{
     display: block;
@@ -96,34 +103,26 @@ input {outline: none;border: 0px;}
     left: 50%;
     margin-left: -384px;
     width: 768px;
-    
-    
-}
-/*#header .categTit{padding: 0 10px; font-weight: bold; font-size: 24px; text-transform: uppercase; border-bottom: 3px solid skyblue; height: 58px; line-height: 58px;}*/
-#header .hleft .menubar{position: absolute; left: 20px;}
 
-/*navBar_style*/
-/*#navBar .navList li span{display: none;}
-#navBar .navList li{float: left; width: 60px; height: 60px; line-height: 60px; border-right: 1px solid #fff;}
-#navBar .navList li a{display: block; background-color: transparent}
-#navBar .navList li.on a{background-color: #f7d767;}
-#navBar .navList li.on a i{color: #4f4f4f;}
-#navBar .navList li a i{color: #fff; vertical-align: middle; width: 30px;}*/
+
+}
+
+#header .hleft .menubar{position: absolute; left: 20px;}
 #header .hright{
     float: right;
     padding-right: 20px;
 }
-#header .hright div
+#header .hright div{
     height: 59px;
     line-height: 59px;
 }
 #header .hright .userInfo{
-  
+
 }
 #header .hright .userInfo .pic{
     width: 40px;
     height: 40px;
-    padding-top: 10px; 
+    padding-top: 10px;
     padding-right: 5px;
 }
 #header .hright .userInfo .pic img{
@@ -135,7 +134,7 @@ input {outline: none;border: 0px;}
 }
 #header .hright .userInfo .name a{
     display: block;
-    color: #fff;
+
 }
 #header .hright .userInfo .name span{
     font-weight: bold;
@@ -150,13 +149,16 @@ input {outline: none;border: 0px;}
     display: block;
 }
 #header .hright .notice a i,#header .hright .search a i{
-    color: #fff;
+
 }
 
-
+#contents{
+    height: 100%;
+}
 #contents .conInner{
     width: 100%;
-    padding-top: 60px;  
+    height: 100%;
+    /* padding-top: 60px;*/
 }
 
 
@@ -177,16 +179,16 @@ input {outline: none;border: 0px;}
     width: 100%;
     height: 30px;
     padding-top: 10px;
-   /* padding-left: 25px;*/
+    /* padding-left: 25px;*/
     color: #000;
     border-top: 3px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
 .pop-header span{
-   position: absolute;
-   left: 10px;
-   font-weight: bold;
-    font-size:15px; 
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    font-size:15px;
 }
 .pop-header i{
     font-size: 18px;
@@ -196,7 +198,7 @@ input {outline: none;border: 0px;}
     right: 10px;
 }
 .pop-cont {
-   /* padding: 25px;*/
+    /* padding: 25px;*/
 }
 .pop-msg{
     padding: 20px 0;
@@ -208,9 +210,6 @@ input {outline: none;border: 0px;}
 .layer-scroll {
     overflow:hidden;
 }
-
-
-
 
 
 /*creq-popup*/
@@ -228,7 +227,7 @@ input {outline: none;border: 0px;}
 }
 .sns-tab li a{
     display: block;
-     padding: 10px 0;
+    padding: 10px 0;
 }
 .sns-tab li.on{
     background: #ccc;
@@ -240,14 +239,14 @@ input {outline: none;border: 0px;}
 .pop-login .tit{
     font-size: 15px;
     font-weight: bold;
-    padding-bottom: 5px;    
+    padding-bottom: 5px;
 }
 .pop-login .notice{
     padding-bottom: 30px;
 }
 .pop-login .log-form{
     text-align: center;
-    
+
 }
 .pop-login .log-form input{
     display: block;
@@ -266,7 +265,7 @@ input {outline: none;border: 0px;}
     border-radius: 5px;
     margin: 0 auto;
     margin-bottom: 20px;
-    
+
 }
 .pop-login .log-form .log-formBtn a{
     color: #fff;
@@ -284,3 +283,17 @@ input {outline: none;border: 0px;}
     padding-bottom: 20px;
 }
 
+/*footer*/
+#footer{
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #eaeaea;
+    z-index: 200;
+
+}
+#footer p{
+    color:#676767;
+}
