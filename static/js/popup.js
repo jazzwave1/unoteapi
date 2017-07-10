@@ -250,3 +250,13 @@ $(function () {
 		bodyScroll : false			// 레이어 팝업 시 콘텐츠 스크롤 여부 제어
 	})
 });
+
+/*크롤링 로그인 화면*/
+$(".pop-login").hide();
+$(".login0").show();
+
+$(".sns-tab li").on('click', function(){
+    var index = $(".sns-tab li").index(this);
+    $(".pop-login").hide();
+    $(".login"+index).show();
+});
