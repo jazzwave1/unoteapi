@@ -312,9 +312,6 @@
 .c-table-wrap table th{
     padding-bottom: 10px;
 }
-.c-table-wrap table .chk div{
-    display: inline-block;
-}
 .c-table-wrap table td{
     height: 30px;
     line-height: 30px;
