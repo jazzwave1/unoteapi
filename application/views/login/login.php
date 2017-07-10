@@ -23,7 +23,7 @@
             <!--header-->
             <!--<div id="header">
                 <div class="hleft">
-                    <!--login페이지에서 없애거나, 클릭 시 로그인 노티를 해주어야함-->
+                    
                     <a href="#" class="menubar"><i class="fa fa-bars"></i></a>
                     <h1><a href="bucket.html">GlDong</a></h1>
                 </div>
