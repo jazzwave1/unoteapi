@@ -112,7 +112,7 @@ class Common_dao extends CI_Model
         $this->setLog($aLog);
         return $ret;
     }
-    public function actModelFuc($aConfig, $aParam, $rType='object')
+    public function actModelFuc($aConfig, $aParam, $rType='object', $rPK=false)
     {
         if(!$aConfig || !$aParam) return false;
 
@@ -126,11 +126,20 @@ class Common_dao extends CI_Model
             return false;
         }
         if ($result = $this->runQuery($query , $aInputData, $bType, $rType))
-            return $result;
+        {
+            if($rPK)
+            {
+                return $this->db->insert_id();
+            }
+            else
+            {
+                return $result;
+            }
+        }
         else
             return false;
     }
-    public function actModelFucFromDB($aConfig, $aParam, $dbname, $rType='object')
+    public function actModelFucFromDB($aConfig, $aParam, $dbname, $rType='object', $rPK=false)
     {
         if(!$aConfig || !$aParam) return false;
 
@@ -144,7 +153,16 @@ class Common_dao extends CI_Model
             return false;
         }
         if ($result = $this->runQueryFromDB($query , $aInputData, $bType, $dbname, $rType))
-            return $result;
+        {
+            if($rPK)
+            {
+                return $dbname->insert_id(); 
+            }
+            else
+            {
+                return $result;
+            } 
+        }    
         else
             return false;
     }

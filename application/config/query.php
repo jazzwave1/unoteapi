@@ -26,8 +26,8 @@ $config['query'] = array(
         'getNoteInfo' => array(
             'query' => 'SELECT n_idx, usn, title, regdate
                           FROM note
-                         WHERE usn = ?'
-            ,'data' => array('usn')
+                         WHERE n_idx = ?'
+            ,'data' => array('n_idx')
             ,'btype'=> 'i'
             ,'null' => array()
         )
@@ -44,6 +44,21 @@ $config['query'] = array(
                         VALUES (?,?,?,?)'
            ,'data' => array('n_idx', 'usn', 'title', 'regdate')
            ,'btype'=> 'iiss'
+           ,'null' => array()
+        )
+        ,'insertNoteSentence' => array(
+            'query' => 'INSERT INTO note_sentence(n_idx, s_idx, contents)
+                        VALUES (?,?,?)'
+           ,'data' => array('n_idx', 's_idx', 'contents')
+           ,'btype'=> 'iis'
+           ,'null' => array()
+       )
+       ,'deleteNoteSentence' => array(
+           'query' => 'DELETE 
+                         FROM note_sentence
+                        WHERE n_idx=?'
+           ,'data' => array('n_idx')
+           ,'btype'=> 'i'
            ,'null' => array()
         )
         ,'updateNote' => array(

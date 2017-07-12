@@ -34,30 +34,32 @@ class Note_model extends CI_model
 
     public function insertNote($aNoteData)
     {
-        $aInput = array(
-            'n_idx'    => $aNoteData['n_idx']
-            ,'usn'     => $aNoteData['usn']
-            ,'title'   => $aNoteData['title']
-            ,'regdate' => date("Y-m-d H:i:s")
-        );
-
-        if( $this->note_dao->insertNote($aInput) )
-            return true;
+        if( $pk = $this->note_dao->insertNote($aNoteData) )
+            return $pk;
         else
             return false;
     }
-
-    public function updateNote($aNoteData)
+    public function insertNoteSentence($pk, $aContentInfo)
     {
-        $aInput = array(
-            'n_idx'    => $aNoteData['n_idx']
-            ,'usn'     => $aNoteData['usn']
-            ,'title'   => $aNoteData['title']
-            ,'regdate' => date("Y-m-d H:i:s")
-        );
+        if(!$pk) return false;
+        if(count($aContentInfo) == 0) return false;
 
+        foreach($aContentInfo as $key=>$val)
+        {
+            $this->note_dao->insertNoteSentence($pk, $val['s_idx'], $val['contents']); 
+        }
+        return true;
+    }
+
+    public function updateNote($aInput)
+    {
         if( $this->note_dao->updateNote($aInput) )
+        {
+            // update note_sentence
+            $this->note_dao->deleteNoteSentence($aInput['n_idx']); 
+            $this->insertNoteSentence($aInput['n_idx'], $aInput['contents']); 
             return true;
+        }    
         else
             return false;
     }
