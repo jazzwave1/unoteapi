@@ -11,11 +11,13 @@ class LoginClass
     {
         if(! $this->_chkParam($id, $pwd))
         {
-            dieProcess();
+            echo "die";
+            die;
         }
         if(! $sEnPwd = $this->_mkEncPWD($id, $pwd) ) 
         {
-            dieProcess();
+            echo "die";
+            die;
         }
         $sFingerPrint = $this->_mkFingerPrint();
         $sTimeStamp   = $this->timestamp; 
