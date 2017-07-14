@@ -10,6 +10,7 @@ class Mynote extends CI_Controller{
     public function index()
     {
         // $menu = $this->config->item('menu');
+        // $menu = edu_get_config('menu','menu');
         // echo '<pre>menu : '. print_r( $menu, true ) .'</pre>';
         // die();
 
@@ -32,11 +33,13 @@ class Mynote extends CI_Controller{
         // test code
         // dumy data
         $aVdata = array();
-        $aVdata['mynote'] = $aCrawlingData;
 
-        foreach ($aVdata['mynote'] as $sKey => $oMynote) {
-            $aVdata['mynote'][$sKey]->datastring = json_decode($oMynote->datastring);
-            $aVdata['mynote'][$sKey]->datastring->summary = iconv_substr($aVdata['mynote'][$sKey]->datastring->contents, 0 ,50).'...';
+        $aVdata['menu'] = getMenuData('Mynote','index');
+        $aVdata['sublist'] = $aCrawlingData;
+
+        foreach ($aVdata['sublist'] as $sKey => $oMynote) {
+            $aVdata['sublist'][$sKey]->datastring = json_decode($oMynote->datastring);
+            $aVdata['sublist'][$sKey]->datastring->summary = iconv_substr($aVdata['sublist'][$sKey]->datastring->contents, 0 ,50).'...';
         }
 
         // test code

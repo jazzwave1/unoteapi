@@ -8,10 +8,8 @@ class MenuClass {
     {
         if(!$usn) return false;
 
-        $ci =& get_instance();
-
         // 공통메뉴 config 파일에서 가져오기
-        $aMenu = $ci->config->item('menu');
+        $aMenu = edu_get_config('menu','menu');
 
         // 개인메뉴 db eduniety.category 에서 가져오기
         $oCategoryModel = edu_get_instance('category_model', 'model');
@@ -19,9 +17,8 @@ class MenuClass {
 
         $aCategoryList = array();
         foreach ($aCategoryInfo as $obj) {
-            $aCategoryList[] = array(
-                 'url'      => 'Textbank/'.$obj->category_idx
-                ,'s_icon'   => ''
+            $aCategoryList[$obj->category_idx] = array(
+                's_icon'   => ''
                 ,'s_name'   => $obj->name
                 ,'is_use'   => 'y'
             );
@@ -29,16 +26,16 @@ class MenuClass {
 
         // echo '<pre>aCategoryList: '. print_r( $aCategoryList, true ) .'</pre>';
         // echo '<pre>aCategoryInfo: '. print_r( $aCategoryInfo, true ) .'</pre>';
-        // echo '<pre>aMenu: '. print_r( $aMenu, true ) .'</pre>';
+        // echo '<pre>aMenu: '. print_r( $aMenu , true ) .'</pre>';
         // die();
 
         $aMenuList = array();
-        foreach ($aMenu as $key => $aMenuData) {
-            $aMenuList[] = $aMenuData;
+        foreach ($aMenu as $class => $aMenuData) {
+            $aMenuList[$class] = $aMenuData;
             
-            if($aMenuData['title']['class'] == 'category')
+            if($class == 'Category')
             {
-                $aMenuList[$key]['sub'] = $aCategoryList;
+                $aMenuList[$class]['sub'] = $aCategoryList;
             }
         }
         // echo '<pre>aMenu: '. print_r( $aMenu, true ) .'</pre>';

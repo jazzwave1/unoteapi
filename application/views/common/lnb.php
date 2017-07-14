@@ -1,22 +1,21 @@
+                <!--lnb-->
+                <div id="lnb" class="full-left-nav">
+                    <div class="lnb-inner navList">
 <?php
     // test code
     $usn = 2;
 
     $this->load->library('MenuClass');
     $aMenuList = MenuClass::getMenuList($usn);
-?>
-                <!--lnb-->
-                <div id="lnb" class="full-left-nav">
-                    <div class="lnb-inner navList">
-<?php
-    foreach ($aMenuList as $aMenuData)
+
+    foreach ($aMenuList as $controller => $aMenuData)
     {
 ?>
                         <div class="lnbItem">
                             <p class="lnbItemTit">
-                                <?=$aMenuData['title']['t_name']?>
+                                <?=$aMenuData['title']?>
 <?php
-        if($aMenuData['title']['class'] == 'category')
+        if($controller == 'Category')
         {
 ?>
                                 <span class="addCateg">
@@ -28,15 +27,15 @@
                             </p>
                             <ul class="lnbItemList">
 <?php
-        foreach ($aMenuData['sub'] as $aMenuSubData)
+        foreach ($aMenuData['sub'] as $method => $aMenuSubData)
         {
             if($aMenuSubData['is_use'] == 'y')
             {
 ?>
                                 <li>
-                                    <a href="<?=$aMenuSubData['url']?>">
+                                    <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>">
 <?php
-                if($aMenuData['title']['class'] == 'category')
+                if($controller == 'Category')
                 {
 ?>
                                     <span class="categTit"><?=$aMenuSubData['s_name']?></span>
@@ -47,7 +46,7 @@
 ?>
                                     <i class="fa <?=$aMenuSubData['s_icon']?>" aria-hidden="true"></i><?=$aMenuSubData['s_name']?>
 <?php
-                    if($aMenuData['title']['class'] == 'article')
+                    if($controller == 'Article')
                     {
 ?>
                                     <span class="num">20</span>
@@ -58,7 +57,7 @@
                                     </a>
                                 </li>
 <?php
-                if($aMenuData['title']['class'] == 'crawling')
+                if($controller == 'crawling')
                 {
 ?>
                                 <li class="cBtn">
