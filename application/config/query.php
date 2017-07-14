@@ -124,9 +124,18 @@ $config['query'] = array(
             ,'btype'=> 's'
             ,'null' => array()
         )
-
     )
-
+    ,'category' => array(
+        'getCategoryInfo' => array(
+            'query' => 'SELECT category_idx, usn, name
+                          FROM category
+                         WHERE usn = ?
+                         ORDER BY name ASC'
+            ,'data' => array('usn')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
+    )
 
     ,'edumember' => array(
         'getMemberInfo' => array(

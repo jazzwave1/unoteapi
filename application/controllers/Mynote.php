@@ -9,6 +9,10 @@ class Mynote extends CI_Controller{
 
     public function index()
     {
+        // $menu = $this->config->item('menu');
+        // echo '<pre>menu : '. print_r( $menu, true ) .'</pre>';
+        // die();
+
         // test code
         $usn = 1;
 
@@ -27,22 +31,27 @@ class Mynote extends CI_Controller{
 
         // test code
         // dumy data
-        $data = array();
-        $data['mynote'] = $aCrawlingData;
+        $aVdata = array();
+        $aVdata['mynote'] = $aCrawlingData;
 
-        foreach ($data['mynote'] as $sKey => $oMynote) {
-            $data['mynote'][$sKey]->datastring = json_decode($oMynote->datastring);
-            $data['mynote'][$sKey]->datastring->summary = iconv_substr($data['mynote'][$sKey]->datastring->contents, 0 ,50).'...';
+        foreach ($aVdata['mynote'] as $sKey => $oMynote) {
+            $aVdata['mynote'][$sKey]->datastring = json_decode($oMynote->datastring);
+            $aVdata['mynote'][$sKey]->datastring->summary = iconv_substr($aVdata['mynote'][$sKey]->datastring->contents, 0 ,50).'...';
         }
 
         // test code
         // echo "<!--";
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r($aVdata);
+        // echo "</pre>";
         // echo "-->";
 
-        $this->load->view('mynote/list', $data);
+        $data = array(
+             'vdata' => $aVdata
+            ,'contents' => 'mynote/list'
+        );
+
+        $this->load->view('common/container', $data);
     }
     public function detail($n_idx)
     {

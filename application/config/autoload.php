@@ -103,7 +103,7 @@ $autoload['helper'] = array('url','common','edu_global','alert');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array();
+$autoload['config'] = array('menu');
 
 /*
 | -------------------------------------------------------------------
