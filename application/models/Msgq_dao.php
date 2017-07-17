@@ -16,11 +16,12 @@ class Msgq_dao extends Common_dao
         return $this->actModelFuc($aConfig, $aParam);
     }
 
-    public function setMsgQ($account)
+    public function setMsgQ($account, $aReqFilter=array())
     {
         $aParam = array(
             'account' => $account
            ,'state'   => 'REQ' 
+           ,'req_filter' => implode('|', $aReqFilter) 
            ,'regdate' => date('Y-m-d H:i:s') 
         );
         $aConfig = $this->queryInfoMsgq['setMSGQ'];
@@ -37,6 +38,28 @@ class Msgq_dao extends Common_dao
         $aConfig = $this->queryInfoMsgq['getMSGQList'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    public function getMyFilter($account, $sValue, $nBindCount)
+    {
+        $btype = 's';
+        $query = "select corperation, site, board
+                    from req_filter
+                   where account = ?
+                     and rf_idx in (";
+        for($i=0 ; $i<$nBindCount; $i++)
+        {
+            $query .= "?,";
+            $btype .= 'i';
+        } 
+        $query = substr($query, 0,-1).')';
 
+        $aTemp = explode(',', $sValue);
+        $aInputData = array($account);
+        $aInputData = array_merge($aInputData, $aTemp); 
+        
+        $oResult = $this->db->query($query, $aInputData, true, $btype);
+        $oRtn = $oResult->result();
+
+        return $oRtn;
+    }
 
 }

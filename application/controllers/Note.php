@@ -65,7 +65,7 @@ class Note extends CI_Controller {
     }
 
 
-    private function setContentInfo($contents)
+    private function _setContentInfo($contents)
     {
         $aRtn = array();
         $aTemp = explode("</p>", $contents);
@@ -96,7 +96,7 @@ class Note extends CI_Controller {
             // 추후 note_display, note_sentence table 추가 필요
             if($pk = $this->note_model->insertNote($aNoteData))
             {
-                $aContentInfo = $this->setContentInfo($this->input->post('ir1'));
+                $aContentInfo = $this->_setContentInfo($this->input->post('ir1'));
                 $this->note_model->insertNoteSentence($pk, $aContentInfo) ;
                 
                 $aResult = array( 'code' => 1, 'msg' => 'OK', 'pk'=>$pk);
@@ -112,7 +112,7 @@ class Note extends CI_Controller {
                 ,'usn'      => 1
                 ,'title'    => $this->input->post('title') 
                 ,'regdate'  => date("Y-m-d H:i:s")
-                ,'contents' => $this->setContentInfo($this->input->post('ir1')) 
+                ,'contents' => $this->_setContentInfo($this->input->post('ir1')) 
             );
 
             if($this->_isNote($aNoteData['n_idx']))

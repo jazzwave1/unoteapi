@@ -91,7 +91,7 @@ $config['query'] = array(
     )
     ,'msgq' => array(
         'getMSGQ' => array(
-            'query' => 'SELECT q_idx, account, state, regdate, completedate
+            'query' => 'SELECT q_idx, account, state, regdate, completedate, r_count
                           FROM msgq 
                          WHERE q_idx = ?
                            AND account = ?'
@@ -100,9 +100,9 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'setMSGQ' => array(
-            'query' => 'INSERT INTO msgq ( account, state, regdate )
-                        VALUES (?,?,?)'
-            ,'data' => array('account','state','regdate')
+            'query' => 'INSERT INTO msgq ( account, state, req_filter, regdate )
+                        VALUES (?,?,?,?)'
+            ,'data' => array('account','state','req_filter', 'regdate')
             ,'btype'=> 'sss'
             ,'null' => array()
         )
@@ -117,7 +117,7 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'getMSGQList' => array(
-            'query' => 'SELECT q_idx, account, state, regdate, completedate
+            'query' => 'SELECT q_idx, account, state, req_filter, regdate, completedate, r_count
                           FROM msgq 
                          WHERE account = ?'
             ,'data' => array('account')
