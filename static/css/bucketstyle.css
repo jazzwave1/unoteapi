@@ -2,7 +2,7 @@
     /*box-shadow: 1px 1px 5px  #888888;*/
     z-index: 100;
 }
-.full-left-nav {
+.full-left-nav{
     position: fixed;
     left: 0;
     top: 0;
@@ -93,8 +93,6 @@
     padding-right: 10px;
 }
 
-
-
 #bankSub{
     position: absolute;
     left: 200px;
@@ -121,8 +119,12 @@
 .listFilter p{
     display: inline-block;
 }
-.listFilter p i{padding-right: 5px;}
-.listFilter p.filter{float: right}
+.listFilter p i{
+    padding-right: 5px;
+}
+.listFilter p.filter{
+    float: right
+}
 .listFilter span{
     font-weight: bold;
 }
@@ -138,8 +140,14 @@
     padding: 5px;
 
 }
-.subSearch a{
+/*add 2017-07-17 검색창 영역 수정*/
+.subSearch .search-inner input{
+    width:90%;
+    padding: 5px 0 5px;
+}
+.subSearch .search-inner a{
     display: inline-block;
+    padding: 0 5px;
     vertical-align: middle;
 }
 .bankSubList{
@@ -154,10 +162,64 @@
     text-align: left;
 }
 
+/* add 2017-07-17 내노트 sublist */
+.my-note{
+
+}
+.my-note-subList{
+    text-align: left;
+    padding: 10px;
+}
+.my-note-subList li{
+
+}
+.my-note-subList .date{
+    font-weight: bold;
+    color: #4f4f4f;
+}
+.my-note-subList .date i{
+    padding-right: 10px;
+}
+.my-note-subList a{
+    display: block;
+    background: url('../images/bg_timeline.png') repeat-y 5px 0;
+}
+.my-note-subList .thumb{
+    padding-left: 20px;
+}
+.my-note-subList .thumb .thumb-tit{
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.my-note-subList .thumb .thumb-txt{
+    text-align: justify;
+    padding-bottom: 5px;
+}
+.my-note-subList .thumb .thumb-img{
+    padding-bottom: 20px;
+}
+.my-note-subList .thumb .thumb-img img{
+    width: 100%;
+    height: 165px;
+}
+
+
 /*까페글*/
-.cafeInfo{position: relative; width: 100%; height: 60px;border-top: 1px solid #eee; padding: 10px 0}
-.cafeInfo div{float: left;}
-.cafeInfo .cafeinner{padding: 0 10px;}
+.cafeInfo{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid #eee;
+    padding: 10px 0
+}
+.cafeInfo div{
+    float: left;
+}
+.cafeInfo .cafeinner{
+    padding: 0 10px;
+}
 .cafeInfo .cafeLogo{
     width: 60px;
     line-height: 60px;
@@ -180,7 +242,6 @@
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     word-wrap:break-word;
-
 }
 .cafeInfo .cafeTxt .date{
     font-size: 11px;
@@ -202,7 +263,6 @@
     color: darkred;
 }
 
-
 /*글 전체 보여지는 영역*/
 #detailView{
     position: absolute;
@@ -220,10 +280,11 @@
     padding-top: 80px;
     /* padding: 80px 20px 0 20px;*/
 }
+/*상세페이지 넓이 조절*/
 .page{
     margin: 0 auto;
-    max-width: 800px;
-    min-width: 320px;
+    max-width: 1200px;
+    min-width: 800px;
     padding: 0 20px;
 }
 .page .p-top{
@@ -272,21 +333,16 @@
     overflow: hidden;
     overflow-y: scroll;*/
 }
-
-
-
 /*글감수집*/
 #cList{
     position: relative;
     width: 100%;
     text-align: left;
-
 }
 .c-inner{
     position: absolute;
     width: 100%;
     left: 200px;
-
 }
 .c-list-tit{
     padding: 20px;
@@ -324,10 +380,12 @@
 .c-page_num ul li{
     display: inline-block;
 }
-.c-page_num ul li a.on{color: #fdd66d; font-weight: bold;}
+.c-page_num ul li a.on{
+    color: #fdd66d;
+    font-weight: bold;
+}
 .c-page_num ul li.arrow{
     padding: 0 10px;
-
 }
 .c-page_num ul li.arrow i{
     color: #eee;
