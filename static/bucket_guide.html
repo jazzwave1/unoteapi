@@ -77,10 +77,12 @@
                         <div class="lnbItem">
                             <p class="lnbItemTit">글감 카테고리
                                 <span class="addCateg">
+                                    <!--카테고리추가 버튼-->
                                     <i class="fa fa-plus" aria-hidden="true"></i>
                                 </span>
                             </p>
-                            <ul class="lnbItemList">
+                            <!--카테고리 리스트 클래스명 추가-->
+                            <ul class="lnbItemList categList">
                                 <li><a href="#">Book1.<span class="categTit">교육정보화</span></a></li>
                                 <li><a href="#">Book2.<span class="categTit">리터러시</span></a></li>
                                 <li><a href="#">Book3.<span class="categTit">교육의미래</span></a></li>
@@ -367,6 +369,12 @@
     </div>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
+    <script>
+        /*카테고리추가*/
+        $(".addCateg").on("click",function(){
+            $("ul.categList").append( '<li><input type="text" style="border:1px solid #eee; border-radius:3px; padding:5px 2px;"></li>' );
+        });
+    </script>
 </body>
 
 </html>

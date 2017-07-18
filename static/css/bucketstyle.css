@@ -27,7 +27,10 @@
     padding-bottom: 10px;
 }
 .lnbItem .lnbItemTit .addCateg{
-    float: right
+    float: right;
+    width: 20px;
+    text-align: right;
+    cursor: pointer;
 }
 .lnbItem .lnbItemList{
     width: 100%;
@@ -283,8 +286,10 @@
 /*상세페이지 넓이 조절*/
 .page{
     margin: 0 auto;
-    max-width: 1200px;
-    min-width: 800px;
+    max-width: 800px;
+    min-width: 300px;
+    /*max-width: 1200px;
+    min-width: 800px;*/
     padding: 0 20px;
 }
 .page .p-top{
