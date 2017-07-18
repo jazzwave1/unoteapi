@@ -3,7 +3,7 @@
                     <div class="lnb-inner navList">
 <?php
     // test code
-    $usn = 2;
+    $usn = 1;
 
     $this->load->library('MenuClass');
     $aMenuList = MenuClass::getMenuList($usn);
@@ -29,7 +29,7 @@
 <?php
         foreach ($aMenuData['sub'] as $method => $aMenuSubData)
         {
-            if($aMenuSubData['is_use'] == 'y')
+            if($aMenuSubData['is_use'])
             {
 ?>
                                 <li>
@@ -44,7 +44,7 @@
                 else
                 {
 ?>
-                                    <i class="fa <?=$aMenuSubData['s_icon']?>" aria-hidden="true"></i><?=$aMenuSubData['s_name']?>
+                                    <i class="<?=$aMenuSubData['s_icon']?>" aria-hidden="true"></i><?=$aMenuSubData['s_name']?>
 <?php
                     if($controller == 'Article')
                     {
@@ -57,7 +57,7 @@
                                     </a>
                                 </li>
 <?php
-                if($controller == 'crawling')
+                if($controller == 'Crawling')
                 {
 ?>
                                 <li class="cBtn">

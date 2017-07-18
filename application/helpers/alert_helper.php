@@ -72,4 +72,3 @@
         echo "</script>";
         exit;
     }
-?>

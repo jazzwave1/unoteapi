@@ -28,14 +28,14 @@ function getTemplateSublist($aData)
     {
         $sRtn .= '
                                 <li class="">
-                                    <a href="1">
+                                    <a href="'.HOSTURL.'/Mynote/viewNote/'.$obj->n_idx.'">
                                         <div class="cafeInfo ">
                                             <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">'.$obj->datastring->source.'</div>
+                                                <div class="cafeLogo">'.$obj->n_idx.'</div>
                                                 <div class="cafeTxt">
-                                                    <p class="tit">'.$obj->datastring->title.'</p>
+                                                    <p class="tit">'.$obj->title.'</p>
                                                     <p></p>
-                                                    <p class="date">'.$obj->datastring->reg_date.'</p>
+                                                    <p class="date">'.$obj->regdate.'</p>
                                                 </div>
                                                 <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
                                             </div>
@@ -58,9 +58,10 @@ function getTemplateSublist($aData)
     echo $sRtn;
 }
 
-function getTemplateDetail($aData)
+function getTemplateDetail($oData)
 {
     $sRtn = '';
+
     $sRtn .= '
                <!--detailView-->
                 <div id="detailView">
@@ -70,9 +71,8 @@ function getTemplateDetail($aData)
                                 <div class="top-inner">
                                     <div class="clearfix">
                                         <div class="p-info">
-                                            <p class="p-tit">소1프트웨어 교육과 미래교육의 방향</p>
-                                            <p><span>네이버까페</span> / <span>카페명</span> / <span>카테고리</span> / <span>게시물명</span></p>
-                                            <p>수집일 : 2017.05.21 12시 31분 완료 </p>
+                                            <p class="p-tit"><h2>'.$oData->title.'</h2></p>
+                                            <p>작성일 : '.$oData->regdate.'</p>
                                         </div>
                                         <div class="p-btn">
                                             <ul class="clearfix">
@@ -108,6 +108,6 @@ function getTemplateDetail($aData)
                 <!--//detailView-->
     ';
 
-    echo $sRtn;
+    return $sRtn;
 
 }

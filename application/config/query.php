@@ -26,6 +26,14 @@ $config['query'] = array(
         'getNoteInfo' => array(
             'query' => 'SELECT n_idx, usn, title, regdate
                           FROM note
+                         WHERE usn = ?'
+            ,'data' => array('usn')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
+        ,'getNoteInfoByNidx' => array(
+            'query' => 'SELECT n_idx, usn, title, regdate
+                          FROM note
                          WHERE n_idx = ?'
             ,'data' => array('n_idx')
             ,'btype'=> 'i'

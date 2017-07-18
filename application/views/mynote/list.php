@@ -3,6 +3,6 @@
     getTemplateSublist($vdata);
 
     //detailView
-    getTemplateDetail($vdata);
+    // getTemplateDetail($vdata);
 ?>
  

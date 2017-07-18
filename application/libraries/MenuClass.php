@@ -16,12 +16,17 @@ class MenuClass {
         $aCategoryInfo = $oCategoryModel->category_model->getCategoryInfo($usn);
 
         $aCategoryList = array();
-        foreach ($aCategoryInfo as $obj) {
-            $aCategoryList[$obj->category_idx] = array(
-                's_icon'   => ''
-                ,'s_name'   => $obj->name
-                ,'is_use'   => 'y'
-            );
+
+        if(is_array($aCategoryInfo) && count($aCategoryInfo)>0 )
+        {
+            foreach ($aCategoryInfo as $obj)
+            {
+                $aCategoryList[$obj->category_idx] = array(
+                    's_icon'   => ''
+                    ,'s_name'   => $obj->name
+                    ,'is_use'   => 'y'
+                );
+            }
         }
 
         // echo '<pre>aCategoryList: '. print_r( $aCategoryList, true ) .'</pre>';

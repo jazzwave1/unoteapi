@@ -9,11 +9,6 @@ class Mynote extends CI_Controller{
 
     public function index()
     {
-        // $menu = $this->config->item('menu');
-        // $menu = edu_get_config('menu','menu');
-        // echo '<pre>menu : '. print_r( $menu, true ) .'</pre>';
-        // die();
-
         // test code
         $usn = 1;
 
@@ -24,23 +19,13 @@ class Mynote extends CI_Controller{
             die;
         }
 
-        // 크롤링 된 데이터 db에서 가져오기
-        $cra  = edu_get_instance('CrawlingClass');
-        $oCra = new $cra();
+        $note  = edu_get_instance('NoteClass');
+        $oNote = new $note($usn);
 
-        $aCrawlingData = $oCra->getCrawling($usn);
-
-        // test code
-        // dumy data
         $aVdata = array();
-
         $aVdata['menu'] = getMenuData('Mynote','index');
-        $aVdata['sublist'] = $aCrawlingData;
+        $aVdata['sublist'] = $oNote->oNoteInfo;
 
-        foreach ($aVdata['sublist'] as $sKey => $oMynote) {
-            $aVdata['sublist'][$sKey]->datastring = json_decode($oMynote->datastring);
-            $aVdata['sublist'][$sKey]->datastring->summary = iconv_substr($aVdata['sublist'][$sKey]->datastring->contents, 0 ,50).'...';
-        }
 
         // test code
         // echo "<!--";
@@ -48,6 +33,7 @@ class Mynote extends CI_Controller{
         // print_r($aVdata);
         // echo "</pre>";
         // echo "-->";
+        // die();
 
         $data = array(
              'vdata' => $aVdata
@@ -56,42 +42,46 @@ class Mynote extends CI_Controller{
 
         $this->load->view('common/container', $data);
     }
-    public function detail($n_idx)
+    public function viewNote($n_idx)
+    {
+        $note  = edu_get_instance('NoteClass');
+        $sHtml = $note->getNoteDetailHtml($n_idx);
+
+        $aRtn = array('html' => $sHtml);
+
+        // test code
+        // echo '<pre>aRtn: '. print_r( $aRtn, true ) .'</pre>';
+        echo $aRtn['html'];
+        // die();
+
+        return json_encode($aRtn);
+    }
+
+    public function saveNote($n_idx)
     {
         // test code
         $n_idx = 1;
 
-        // n_idx check
-        if(! $n_idx )
-        {
-            alert('노트 정보를 찾을 수 없습니다. 잠시 후 다시 시도하세요.','/mynote');
-            die;
-        }
+        edu_get_instance('NoteClass');
+        // $bRes = NoteClass::getNote($n_idx); 
 
-        $data = array();
-
-        $this->load->view('mynote/detail', $data);
+        // if()
     }
-    public function crawlinglist()
+    public function deleteNote($n_idx)
     {
         // test code
-        $account = $this->_getAccount();
+        $n_idx = 1;
 
-        edu_get_instance('MSGQClass');
-        $aList = MSGQClass::getMsgQList($account); 
+        if(!$n_idx) return false;
+        
+        $this->n_idx = $n_idx;
 
-        // test code
-        // echo "<pre>"; 
-        // print_r($aList);
-        
-        $data = array();
-        $data['aList'] = $aList;
-        
-        $this->load->view('mynote/listMsgq', $data);
+        $this->_deleteNote($this->n_idx);
     }
-
-    private function _getAccount()
+    private function _deleteNote($n_idx)
     {
-        return "jazzwave14";
+        $oNoteModel = edu_get_instance('note_model', 'model');
+        $bRes = $oNoteModel->note_model->deleteNote($n_idx);
+        return $bRes;
     }
 }

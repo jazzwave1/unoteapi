@@ -23,10 +23,38 @@ class NoteClass {
     public function index()
     {
     }
+    public function delNote($n_idx)
+    {
+        if(!$n_idx) return false;
+        
+        $this->n_idx = $n_idx;
+
+        $this->_delNote($this->n_idx);
+    }
+    public function getNoteDetailHtml($n_idx)
+    {
+        if(!$n_idx) return false;
+
+        $aNoteInfo = $this->_getNoteInfoByNidx($n_idx);
+
+        return getTemplateDetail($aNoteInfo[0]);
+    }
     private function _getNoteInfo($usn)
     {
         $oNoteModel = edu_get_instance('note_model', 'model');
-        $aNoteInfo = $oNoteModel->note_model->getNoteInfo($usn);
+        $aNoteInfo = $oNoteModel->note_model->getNoteInfoByUsn($usn);
+        return $aNoteInfo;
+    }
+    private function _getNoteInfoByUsn($usn)
+    {
+        $oNoteModel = edu_get_instance('note_model', 'model');
+        $aNoteInfo = $oNoteModel->note_model->getNoteInfoByUsn($usn);
+        return $aNoteInfo;
+    }
+    private function _getNoteInfoByNidx($n_idx)
+    {
+        $oNoteModel = edu_get_instance('note_model', 'model');
+        $aNoteInfo = $oNoteModel->note_model->getNoteInfoByNidx($n_idx);
         return $aNoteInfo;
     }
     private function _getNoteDisplay($n_idx)
@@ -34,5 +62,11 @@ class NoteClass {
     }
     private function _getNoteSentence($n_idx)
     {
+    }
+    private function _delNote($n_idx)
+    {
+        $oNoteModel = edu_get_instance('note_model', 'model');
+        $bRes = $oNoteModel->note_model->delNote($n_idx);
+        return $bRes;
     }
 }

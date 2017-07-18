@@ -19,7 +19,7 @@ class Note_model extends CI_model
         return false;
     }
 
-    public function getNoteInfo($usn)
+    public function getNoteInfoByUsn($usn)
     {
         if(!$usn) return false;
 
@@ -28,6 +28,19 @@ class Note_model extends CI_model
         $aInput = array('usn'=>$usn);
 
         $aRes = $this->note_dao->getNoteInfo($aInput);
+
+        return $aRes;
+    }
+
+    public function getNoteInfoByNidx($n_idx)
+    {
+        if(!$n_idx) return false;
+
+        $aRes = array();
+
+        $aInput = array('n_idx'=>$n_idx);
+
+        $aRes = $this->note_dao->getNoteInfoByNidx($aInput);
 
         return $aRes;
     }
