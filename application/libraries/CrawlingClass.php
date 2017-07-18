@@ -8,10 +8,10 @@ class CrawlingClass {
 
     public function getCrawling($usn)
     {
-        $oCraModel = edu_get_instance('crawling_model', 'model');
-        $aCraInfo = $oCraModel->crawling_model->getCrawlingInfo($usn);
-
-        return $aCraInfo;
+        edu_get_instance('MSGQClass');
+        $aList = MSGQClass::getMsgQList($usn); 
+        
+        return $aList;
     }
 
 }
