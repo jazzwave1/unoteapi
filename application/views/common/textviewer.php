@@ -1,7 +1,3 @@
-<?php
-// echo '<pre>textviewer: '. print_r( $vdata, true ) .'</pre>';
-// die();
-?>                
                 <!--detailView-->
                 <div id="detailView">
                     <div class="dvinner">
@@ -9,9 +5,9 @@
                             <div class="p-top clearfix">
                                 <div class="top-inner">
                                     <div class="clearfix">
-                                        <div class="p-info">
-                                            <p class="p-date">2017.06.21</p>
-                                            <p class="p-tit">소프트웨어 교육과 미래교육의 방향</p>
+                                        <div class="p-info" data-n_idx="1">
+                                            <p class="p-date">1999.01.01</p>
+                                            <p class="p-tit">제목을 입력하세요</p>
                                         </div>
                                         <div class="p-btn">
                                             <ul class="clearfix">
@@ -23,11 +19,11 @@
                                                     <i class="fa fa-road fa-1g" aria-hidden="true"></i>
                                                     <!--<div>이동</div>-->
                                                 </li>
-                                                <li>
+                                                <li class="newwinBtn">
                                                     <i class="fa fa-external-link fa-1g " aria-hidden="true"></i>
                                                     <!--<div>새창</div>-->
                                                 </li>
-                                                <li>
+                                                <li class="deleteBtn">
                                                     <i class="fa fa-trash-o fa-1g" aria-hidden="true"></i>
                                                     <!--<div>휴지통</div>-->
                                                 </li>
@@ -38,7 +34,7 @@
                             </div>
                             <div class="p-txt">
                                 <div class="p-inner">
-                                   /////////////////////////////////////////////////////////////////////////////////////
+                                   상세 내용을 입력하세요.
                                 </div>
                             </div>
                         </div>

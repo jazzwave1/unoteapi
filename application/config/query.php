@@ -27,6 +27,7 @@ $config['query'] = array(
             'query' => 'SELECT n_idx, usn, title, regdate
                           FROM note
                          WHERE usn = ?
+                           AND deldate IS NULL
                          ORDER BY n_idx DESC'
             ,'data' => array('usn')
             ,'btype'=> 'i'
@@ -52,7 +53,8 @@ $config['query'] = array(
         ,'getNoteInfoByNidx' => array(
             'query' => 'SELECT n_idx, usn, title, regdate
                           FROM note
-                         WHERE n_idx = ?'
+                         WHERE n_idx = ?
+                           AND deldate IS NULL'
             ,'data' => array('n_idx')
             ,'btype'=> 'i'
             ,'null' => array()
@@ -79,6 +81,14 @@ $config['query'] = array(
            ,'btype'=> 'iis'
            ,'null' => array()
        )
+        ,'deleteNote' => array(
+            'query' => "UPDATE note
+                           SET deldate = ? 
+                         WHERE n_idx = ?"
+            ,'data' => array('deldate', 'n_idx')
+            ,'btype'=> 'si'
+            ,'null' => array()
+        )        
        ,'deleteNoteSentence' => array(
            'query' => 'DELETE 
                          FROM note_sentence
@@ -94,14 +104,6 @@ $config['query'] = array(
                          WHERE n_idx = ?'
             ,'data' => array('title', 'regdate','n_idx')
             ,'btype'=> 'ssi'
-            ,'null' => array()
-        )
-        ,'deleteNote' => array(
-            'query' => "DELETE  
-                          FROM note 
-                         WHERE n_idx = ?"
-            ,'data' => array('n_idx')
-            ,'btype'=> 'i'
             ,'null' => array()
         )
     )

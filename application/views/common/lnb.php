@@ -32,7 +32,7 @@
             if($aMenuSubData['is_use'])
             {
 ?>
-                                <li>
+                                <li class="lnbItem">
                                     <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>">
 <?php
                 if($controller == 'Category')
