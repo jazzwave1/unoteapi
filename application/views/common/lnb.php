@@ -61,7 +61,7 @@
                 {
 ?>
                                 <li class="cBtn">
-                                    <a href="#" class="croBtn">수집하기</a>
+                                    <a href="<?=HOSTURL?>/Crawling/reqcrawl" class="croBtn">수집하기</a>
                                     <a href="#" class="fupBtn">파일업로드</a>
                                 </li>
 <?php                    

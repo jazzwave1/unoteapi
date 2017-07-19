@@ -18,5 +18,16 @@ class Crawling_model extends CI_model{
 
         return false;
     }
+    public function setReqFilter($usn, $corperation, $site, $board)
+    {
+        if(!$usn || !$corperation) return false;
 
+        $aInput = array(
+            "account"=>$usn
+            ,"corperation"=>$corperation
+            ,"site"=>$site
+            ,"board"=>$board
+        );
+        return $this->crawling_dao->setReqFilter($aInput);
+    }
 }
