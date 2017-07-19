@@ -13,6 +13,8 @@
     <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
     <link href="<?=SURL?>/css/common.css" rel="stylesheet">
     <link href="<?=SURL?>/css/bucketstyle.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
+
     <!--[if lt IE 9]>
         <script src="js/html5shiv.min.js"></script>
     <![endif]-->

@@ -22,8 +22,8 @@ class MenuClass {
             foreach ($aCategoryInfo as $obj)
             {
                 $aCategoryList[$obj->category_idx] = array(
-                    's_icon'   => ''
-                    ,'s_name'   => $obj->name
+                    'icon'      => ''
+                    ,'subtitle' => $obj->name
                     ,'is_use'   => 'y'
                 );
             }
