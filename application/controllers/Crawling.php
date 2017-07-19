@@ -5,14 +5,17 @@ class Crawling extends CI_Controller{
     {
         parent::__construct();
         // $this->account_model = edu_get_instance('account_model', 'model'); 
+    
+        
+        $this->nPageNum = 10;
     }
 
     public function index()
     {
         $this->History();
     }
-    
-    public function History()
+
+    public function History($pagination=0)
     {
         // test code
         $account = $this->_getAccount();
@@ -21,13 +24,42 @@ class Crawling extends CI_Controller{
         $aList = $oCrawlingClass->getCrawling($account);
         
         echo "<!--";
-        print_r($aList);
+        //print_r($aList);
         echo "-->";
+
+
+        $this->load->library('pagination');
+
+        $config['base_url'] = HOSTURL.'/Crawling/History';
+        $config['total_rows'] = count($aList);
+        $config['per_page'] = $this->nPageNum; 
+        $config['use_page_numbers'] = TRUE;
         
+        // pagination customizing
+        $config['num_tag_open'] = '<li>&nbsp;';
+        $config['num_tag_close'] = '&nbsp;</li>';
+        $config['cur_tag_open'] = '<li><a href="javascript:;" class="on">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['prev_link'] = '<li class="arrow">
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                </li>';
+        $config['next_link'] = '<li class="arrow">
+                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                </li>'; 
+        
+        // display count 로 변경 
+        $aList = $this->_setPagination($aList, $pagination);
+
+        $this->pagination->initialize($config); 
+        $pagination = $this->pagination->create_links();
+        
+
         $data = array(
              'vdata' => $aList
+            ,'pagination' => $pagination
             ,'contents' => 'crawling/clist'
         );
+
 
         $this->load->view('common/container', $data);
 
@@ -52,7 +84,19 @@ class Crawling extends CI_Controller{
         // return usn
         return "1";
     }
+    private function _setPagination($aList, $nPageNum)
+    {
+        if(count($aList) == 0) return false;
 
+        foreach($aList as $key=>$val)
+        {
+            if($key >= $nPageNum && $key < $nPageNum + $this->nPageNum) 
+            {
+                $aRtn[] = $aList[$key]; 
+            }
+        }
+        return $aRtn; 
+    } 
    
 
     ######################################

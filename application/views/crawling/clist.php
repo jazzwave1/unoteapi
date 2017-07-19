@@ -40,17 +40,9 @@
                         </div>
                         <div class="c-page_num">
                             <ul>
-                                <li class="arrow">
-                                    <a href="javascript:;"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-                                </li>
-                                <li><a href="javascript:;" class="on">1</a></li>
-                                <li><a href="javascript:;">2</a></li>
-                                <li><a href="javascript:;">3</a></li>
-                                <li class="arrow">
-                                    <a href="javascript:;"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                                </li>
+                                <?=$pagination?> 
                             </ul>
-                        </div>
+                        </div>                       
                     </div>
                 </div>
                 <!--//글감수집-->
