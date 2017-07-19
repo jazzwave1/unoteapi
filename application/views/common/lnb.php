@@ -38,13 +38,13 @@
                 if($controller == 'Category')
                 {
 ?>
-                                    <span class="categTit"><?=$aMenuSubData['s_name']?></span>
+                                    <span class="categTit"><?=$aMenuSubData['subtitle']?></span>
 <?php
                 }
                 else
                 {
 ?>
-                                    <i class="<?=$aMenuSubData['s_icon']?>" aria-hidden="true"></i><?=$aMenuSubData['s_name']?>
+                                    <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?>
 <?php
                     if($controller == 'Article')
                     {

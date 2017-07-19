@@ -23,11 +23,29 @@ $config['query'] = array(
         )
     )
     ,'note' => array(
-        'getNoteInfo' => array(
+        'getNoteInfoByUsn' => array(
             'query' => 'SELECT n_idx, usn, title, regdate
                           FROM note
-                         WHERE usn = ?'
+                         WHERE usn = ?
+                         ORDER BY n_idx DESC'
             ,'data' => array('usn')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
+        ,'getNoteSummary' => array(
+            'query' => 'SELECT n_idx, s_idx, contents
+                          FROM note_sentence
+                         WHERE n_idx = ?
+                         LIMIT 1'
+            ,'data' => array('n_idx')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
+        ,'getNoteDetailInfo' => array(
+            'query' => 'SELECT n_idx, s_idx, contents
+                          FROM note_sentence
+                         WHERE n_idx = ?'
+            ,'data' => array('n_idx')
             ,'btype'=> 'i'
             ,'null' => array()
         )
@@ -103,7 +121,6 @@ $config['query'] = array(
            ,'btype'=> 'ssss'
            ,'null' => array('site', 'board')
        )
-
     )
     ,'msgq' => array(
         'getMSGQ' => array(
