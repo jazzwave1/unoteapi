@@ -21,11 +21,11 @@ class Msgq_model extends CI_model{
 
         return false;
     }
-    public function setMsgQ($account)
+    public function setMsgQ($account, $site_id , $aReqFilter=array())
     {
         if(!$account) return false;
 
-        return ($this->msgq_dao->setMsgQ($account) );
+        return ($this->msgq_dao->setMsgQ($account, $site_id, $aReqFilter) );
     }
     public function updateMsgQ($account, $q_idx, $state)
     {

@@ -27,7 +27,7 @@
                                     </tr-->
                                 <?php foreach($vdata as $key=>$val) :?>
                                     <tr>
-                                    <td><div class=""><?=$val->sCorperation?></div></td>
+                                    <td><div class=""><?=$val->site_name?></div></td>
                                         <td><a href="javascript:;"><?=$val->sSite?></a></td>
                                         <td><?=$val->sBoard?></td>
                                         <td><?=$val->regdate?></td>

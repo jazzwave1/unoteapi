@@ -6,12 +6,12 @@ class MSGQClass {
     {
     }
 
-    public static function setMsgQ($account, $aReqFilter=array())
+    public static function setMsgQ($account, $site_id,$aReqFilter=array())
     {
         if(!$account) return false;
         
         $msgq_model = edu_get_instance('msgq_model', 'model');
-        return $msgq_model->setMsgQ($account, $aReqFilter);
+        return $msgq_model->setMsgQ($account, $site_id,$aReqFilter);
     }
 
     public static function getMsgQ($q_idx, $account)

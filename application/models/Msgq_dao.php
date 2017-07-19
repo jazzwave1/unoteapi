@@ -16,11 +16,12 @@ class Msgq_dao extends Common_dao
         return $this->actModelFuc($aConfig, $aParam);
     }
 
-    public function setMsgQ($account, $aReqFilter=array())
+    public function setMsgQ($account, $site_id,$aReqFilter=array())
     {
         $aParam = array(
             'account' => $account
            ,'state'   => 'REQ' 
+           ,'site_id' => $site_id 
            ,'req_filter' => implode('|', $aReqFilter) 
            ,'regdate' => date('Y-m-d H:i:s') 
         );

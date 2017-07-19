@@ -15,5 +15,13 @@ class Crawling_dao extends Common_dao
         $aConfig = $this->queryInfoCrawling['getCrawlingInfo'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    
+    public function setReqFilter($aParam=array())
+    {
+        $aConfig = $this->queryInfoCrawling['insertReqFilter'];
+        $this->actModelFuc($aConfig, $aParam);
+        return $this->db->insert_id();
+    }
+
 
 }

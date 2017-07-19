@@ -96,6 +96,14 @@ $config['query'] = array(
             ,'btype'=> 's'
             ,'null' => array()
         )
+        ,'insertReqFilter' => array(
+            'query' => 'INSERT INTO req_filter(account, corperation, site, board)
+                        VALUES (?,?,?,?)'
+           ,'data' => array('account', 'corperation', 'site', 'board')
+           ,'btype'=> 'ssss'
+           ,'null' => array('site', 'board')
+       )
+
     )
     ,'msgq' => array(
         'getMSGQ' => array(
@@ -108,11 +116,11 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'setMSGQ' => array(
-            'query' => 'INSERT INTO msgq ( account, state, req_filter, regdate )
-                        VALUES (?,?,?,?)'
-            ,'data' => array('account','state','req_filter', 'regdate')
-            ,'btype'=> 'sss'
-            ,'null' => array()
+            'query' => 'INSERT INTO msgq ( account, state, site_id, req_filter, regdate )
+                        VALUES (?,?,?,?,?)'
+            ,'data' => array('account','state','site_id','req_filter', 'regdate')
+            ,'btype'=> 'sssss'
+            ,'null' => array("site_id","req_filter")
         )
         ,'updateMSGQ' => array(
             'query' => 'UPDATE msgq 
@@ -125,7 +133,7 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'getMSGQList' => array(
-            'query' => 'SELECT q_idx, account, state, req_filter, regdate, completedate, r_count
+            'query' => 'SELECT q_idx, account, state, site_id, req_filter, regdate, completedate, r_count
                           FROM msgq 
                          WHERE account = ?'
             ,'data' => array('account')
