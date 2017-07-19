@@ -28,4 +28,7 @@ function notiDelete(){
     _categBtn.children(".deleteBtn").parent().parent().remove();
 }
 
-/*$(".pop-submit")on("click", notiDelete);*/
+/*$("a태그 클래스명").prop('href', 변경되는 url);*/
+$(".newWindowBtn").prop("href","http://www.daum.net");
+
+
