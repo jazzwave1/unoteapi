@@ -13,6 +13,108 @@ class Note extends CI_Controller {
         $this->load->model('note_model');
     }
 
+    public function index()
+    {
+        $this->List();
+    }
+
+    public function List()
+    {
+        // test code
+        $usn = 1;
+
+        // usn check
+        if(! $usn )
+        {
+            alert('로그인 후 이용하세요.','/login');
+            die;
+        }
+
+        $aVdata = array();
+        $aVdata['menu'] = getMenuData('Note','List');
+
+        $note  = edu_get_instance('NoteClass');
+        $oNote = new $note($usn);
+        $aVdata['sublist'] = $oNote->oNoteInfo;
+
+        // test code
+        // echo "<!--";
+        // echo "<pre>";
+        // print_r($aVdata);
+        // echo "</pre>";
+        // echo "-->";
+        // die();
+
+        $data = array(
+             'vdata' => $aVdata
+            ,'contents' => 'note/list'
+        );
+
+        $this->load->view('common/container', $data);
+    }
+
+    public function deleteNote()
+    {
+        $n_idx = $this->input->post('n_idx');
+
+        if($this->_deleteNote($n_idx))
+        {
+            $aResult = array(
+                 "code"  => 1
+                ,"msg"   => "OK"
+            );            
+        }
+        else
+        {
+            $aResult = array(
+                 "code"  => 999
+                ,"msg"   => "Error"
+            );                  
+        }
+
+        response_json($aResult);
+        die;
+    }
+    private function _deleteNote($n_idx)
+    {
+        $oNoteModel = edu_get_instance('note_model', 'model');
+        $bRes = $oNoteModel->note_model->deleteNote($n_idx);
+        return $bRes;
+    }
+
+
+    ##########################
+    ###### RPC Function ######
+    ##########################
+    public function rpcGetNoteInfo()
+    {
+        $n_idx = $this->input->post('n_idx');
+
+        $aResult = array(
+             "code"  => 1
+            ,"msg"   => "OK"
+            ,"aNoteDetail" => $this->_getNoteDetailInfo($n_idx) 
+        );
+
+        response_json($aResult);
+        die;
+    } 
+
+    private function _getNoteDetailInfo($n_idx)
+    {
+        edu_get_instance('NoteClass');
+
+        $aNoteDetailInfo = NoteClass::getNoteDetailInfo($n_idx);
+
+        return $aNoteDetailInfo;
+    } 
+
+
+/*
+Dev Code
+이하 코드는 추후 수정 및 삭제 예정
+==============================================================================
+*/
     public function testAPI($account_id,$n_idx)
     {
         // get DB data
@@ -135,7 +237,7 @@ class Note extends CI_Controller {
             die;
         }
     }
-    public function deleteNote($n_idx='')
+    public function delNote($n_idx='')
     {
         if($this->_isNote($n_idx))
         {

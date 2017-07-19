@@ -6,6 +6,79 @@ class Note_model extends CI_model
         $this->load->model('note_dao');
     }
 
+    public function getNoteInfoByUsn($usn)
+    {
+        if(!$usn) return false;
+
+        $aRes = array();
+
+        $aInput = array('usn'=>$usn);
+
+        $aNoteInfo = $this->note_dao->getNoteInfoByUsn($aInput);
+
+        foreach ($aNoteInfo as $key => $obj) {
+            $aInput = array('n_idx'=>$obj->n_idx);
+            $aNoteSummary = $this->note_dao->getNoteSummary($aInput);
+
+            $sSummary = '';
+            if( isset($aNoteSummary) && is_array($aNoteSummary)>0 )
+            {
+                $sSummary = strip_tags($aNoteSummary[0]->contents);
+            }
+
+            $aNoteInfo[$key]->regdate = substr($obj->regdate,0,4).'.'.substr($obj->regdate,5,2).'.'.substr($obj->regdate,8,2);
+            $aNoteInfo[$key]->summary = $sSummary;
+            $aNoteInfo[$key]->thumbnail = '';
+        }
+
+        $aRes = $aNoteInfo;
+
+        return $aRes;
+    }
+
+    public function getNoteDetailInfo($n_idx)
+    {
+        if(!$n_idx) return false;
+
+        $aRes = array();
+
+        $aInput = array('n_idx'=>$n_idx);
+
+        $aNoteInfo = $this->note_dao->getNoteInfoByNidx($aInput);
+        $aNoteDetailInfo = $this->note_dao->getNoteDetailInfo($aInput);
+
+        $aRes['n_idx'] = $aNoteInfo[0]->n_idx;
+        $aRes['title'] = $aNoteInfo[0]->title;
+        $aRes['regdate'] = substr($aNoteInfo[0]->regdate,0,4).'.'.substr($aNoteInfo[0]->regdate,5,2).'.'.substr($aNoteInfo[0]->regdate,8,2);
+
+        $aRes['text'] = '';
+        if( isset($aNoteDetailInfo) && is_array($aNoteDetailInfo) )
+        {
+            foreach ($aNoteDetailInfo as $obj)
+            {
+                $aRes['text'] .= str_replace('<p ','<p id="s_idx_'.$obj->s_idx.'" ', $obj->contents);
+            }
+        }
+        return $aRes;
+    }
+
+    public function deleteNote($n_idx)
+    {
+        if(!$n_idx) return false;
+
+        $aInput = array('n_idx' => $n_idx, 'deldate' => date('Y-m-d H:i:s') );
+
+        if( $this->note_dao->deleteNote($aInput) )
+            return true;
+        else
+            return false;
+    }
+
+/*
+Dev Code
+이하 코드는 추후 수정 및 삭제 예정
+==============================================================================
+*/
     public function isNote($n_idx)
     {
         if(!$n_idx) return false;
@@ -19,18 +92,7 @@ class Note_model extends CI_model
         return false;
     }
 
-    public function getNoteInfoByUsn($usn)
-    {
-        if(!$usn) return false;
 
-        $aRes = array();
-
-        $aInput = array('usn'=>$usn);
-
-        $aRes = $this->note_dao->getNoteInfo($aInput);
-
-        return $aRes;
-    }
 
     public function getNoteInfoByNidx($n_idx)
     {
@@ -75,20 +137,5 @@ class Note_model extends CI_model
         }    
         else
             return false;
-    }
-
-    public function deleteNote($n_idx)
-    {
-        if(!$n_idx) return false;
-
-        $aInput = array('n_idx' => $n_idx);
-
-        if( $this->note_dao->deleteNote($aInput) )
-            // note_display delete
-            // note_sentence delete
-            return true;
-        else
-            return false;
-
     }
 }

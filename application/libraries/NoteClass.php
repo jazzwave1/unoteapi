@@ -20,9 +20,31 @@ class NoteClass {
         $this->oNoteInfo = $this->_getNoteInfo($this->usn);
     }
 
-    public function index()
+    public static function getNoteDetailInfo($n_idx)
     {
+        if(!$n_idx) return false;
+        
+        $note_model = edu_get_instance('note_model', 'model');
+        $aNoteDetailInfo = $note_model->getNoteDetailInfo($n_idx);
+
+        return $aNoteDetailInfo;    
     }
+    private function _getNoteInfo($usn)
+    {
+        $oNoteModel = edu_get_instance('note_model', 'model');
+        $aNoteInfo = $oNoteModel->note_model->getNoteInfoByUsn($usn);
+        return $aNoteInfo;
+    }
+
+
+
+
+
+/*
+Dev Code
+이하 코드는 추후 수정 및 삭제 예정
+==============================================================================
+*/
     public function delNote($n_idx)
     {
         if(!$n_idx) return false;
@@ -39,12 +61,8 @@ class NoteClass {
 
         return getTemplateDetail($aNoteInfo[0]);
     }
-    private function _getNoteInfo($usn)
-    {
-        $oNoteModel = edu_get_instance('note_model', 'model');
-        $aNoteInfo = $oNoteModel->note_model->getNoteInfoByUsn($usn);
-        return $aNoteInfo;
-    }
+
+
     private function _getNoteInfoByUsn($usn)
     {
         $oNoteModel = edu_get_instance('note_model', 'model');

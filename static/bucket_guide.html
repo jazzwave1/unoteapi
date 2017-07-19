@@ -336,16 +336,18 @@
                                         </div>
                                         <div class="p-btn">
                                             <ul class="clearfix">
-                                                <li>
+                                                <li class="hide">
                                                     <i class="fa fa-bookmark fa-1g" aria-hidden="true"></i>
                                                     <!--<div>북마크</div>-->
                                                 </li>
-                                                <li>
+                                                <li class="hide">
                                                     <i class="fa fa-road fa-1g" aria-hidden="true"></i>
                                                     <!--<div>이동</div>-->
                                                 </li>
-                                                <li>
-                                                    <i class="fa fa-external-link fa-1g " aria-hidden="true"></i>
+                                                <li class="newWindow">
+                                                    <a class="newWindowBtn" target="_blank" href="" onClick="window.open(this.href,'window','width=750,height=750,left=0,top=0')">
+                                                        <i class="fa fa-external-link fa-1g " aria-hidden="true"></i>
+                                                    </a>
                                                     <!--<div>새창</div>-->
                                                 </li>
                                                 <li>
@@ -402,7 +404,6 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/popup.js"></script>
-    <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/bucketEvent.js"></script>
 </body>
 

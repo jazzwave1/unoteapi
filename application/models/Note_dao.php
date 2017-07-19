@@ -11,18 +11,42 @@ class Note_dao extends Common_dao
         $this->queryInfoAccount = $aQueryInfo['account'];
     }
 
+    public function getNoteInfoByUsn($aParam=array())
+    {
+        $aConfig = $this->queryInfoNote['getNoteInfoByUsn'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
     public function getNoteInfoByNidx($aParam=array())
     {
         $aConfig = $this->queryInfoNote['getNoteInfoByNidx'];
         return $this->actModelFuc($aConfig, $aParam);
     }
-    
-    public function getNoteInfo($aParam=array())
+    public function getNoteSummary($aParam=array())
     {
-        $aConfig = $this->queryInfoNote['getNoteInfo'];
+        $aConfig = $this->queryInfoNote['getNoteSummary'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function getNoteDetailInfo($aParam=array())
+    {
+        $aConfig = $this->queryInfoNote['getNoteDetailInfo'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function deleteNote($aParam=array())
+    {
+        $aConfig = $this->queryInfoNote['deleteNote'];
         return $this->actModelFuc($aConfig, $aParam);
     }
 
+
+
+
+
+
+/*
+Dev Code
+이하 코드는 추후 수정 및 삭제 예정
+==============================================================================
+*/
     public function getNoteDisplayInfo($aParam=array())
     {
         $aConfig = $this->queryInfoNote['getNoteDisplayInfo'];
@@ -59,9 +83,5 @@ class Note_dao extends Common_dao
         return $this->actModelFuc($aConfig, $aParam);
     }
 
-    public function deleteNote($aParam=array())
-    {
-        $aConfig = $this->queryInfoNote['deleteNote'];
-        return $this->actModelFuc($aConfig, $aParam);
-    }
+
 }
