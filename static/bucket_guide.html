@@ -83,7 +83,14 @@
                             </p>
                             <!--카테고리 리스트 클래스명 추가-->
                             <ul class="lnbItemList categList">
-                                <li><a href="#">Book1.<span class="categTit">교육정보화</span></a></li>
+                                <!--카테고리 수정 및 삭제 버튼 추가-->
+                                <li>
+                                    <a href="#">Book1.<span class="categTit">교육정보화</span></a>
+                                    <div class="categBtn">
+                                        <span class="editBtn"><a href="#categEditPop" data-popup="#categEditPop" class="layer-popup"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+                                        <span class="deleteBtn"><a href="#categDeletePop" data-popup="#categDeletePop" class="layer-popup"><i class="fa fa-times" aria-hidden="true"></i></a></span>
+                                    </div>
+                                </li>
                                 <li><a href="#">Book2.<span class="categTit">리터러시</span></a></li>
                                 <li><a href="#">Book3.<span class="categTit">교육의미래</span></a></li>
                             </ul>
@@ -361,20 +368,42 @@
                 <!--//detailView-->
             </div>
         </div>
-         <!--footer-->
-        <!--<div id="footer">
-            <p>Copyright © EDUNIETY Corp. All Rights Reserved.</p>
-        </div>-->
-        <!--//footer-->
+    </div>
+    <!--카테고리 수정 팝업-->
+    <div class="pop-wrap" id="categEditPop" style="display:none">
+        <div class="pop-header">
+            <span>카테고리 수정</span><a href="#none" class="btnp-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+        </div>
+        <div class="pop-cont">
+            <form action="">
+                <p>카테고리 이름을 수정하세요.</p>
+                <input type="text">
+                <div class="pop-btn">
+                    <a href="javascript:;">확인</a> <a href="#none" class="btnp-close">취소</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--카테고리 삭제 팝업-->
+    <div class="pop-wrap" id="categDeletePop" style="display:none">
+        <div class="pop-header">
+            <span>카테고리 삭제</span><a href="#none" class="btnp-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+        </div>
+        <div class="pop-cont">
+
+            <p>카테고리 삭제 하시겠습니까?</p>
+
+            <div class="pop-btn">
+                <a href="javascript:;" class="pop-submit">확인</a> <a href="#none" class="btnp-close">취소</a>
+            </div>
+
+        </div>
     </div>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
-    <script>
-        /*카테고리추가*/
-        $(".addCateg").on("click",function(){
-            $("ul.categList").append( '<li><input type="text" style="border:1px solid #eee; border-radius:3px; padding:5px 2px;"></li>' );
-        });
-    </script>
+    <script type="text/javascript" src="js/popup.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/bucketEvent.js"></script>
 </body>
 
 </html>
