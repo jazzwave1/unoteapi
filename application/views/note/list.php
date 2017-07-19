@@ -7,7 +7,8 @@
 	$(function(){
 
 		$('.sublist-li').on('click', function(event){
-			$('.sublist-li').addClass('on');
+            $(this).siblings('li').removeClass('on');
+            $(this).addClass('on');
 			var n_idx = $(this).data( "n_idx" );
 			$.post(
 			  "<?=HOSTURL?>/Note/rpcGetNoteInfo"
