@@ -51,6 +51,8 @@ class Crawling extends CI_Controller{
         $aList = $this->_setPagination($aList, $pagination);
 
         $this->pagination->initialize($config); 
+         
+        
         $pagination = $this->pagination->create_links();
         
 
@@ -86,12 +88,21 @@ class Crawling extends CI_Controller{
     }
     private function _setPagination($aList, $nPageNum)
     {
+       // echo "<pre>";
+       // print_r($aList);
         if(count($aList) == 0) return false;
+        if($nPageNum == 0) $nPageNum=1;
+
+
+        $nSNum = ($nPageNum*$this->nPageNum) - 10;
+        $nENum = ($nPageNum*$this->nPageNum) ;
 
         foreach($aList as $key=>$val)
         {
-            if($key >= $nPageNum && $key < $nPageNum + $this->nPageNum) 
+            
+            if($key >= $nSNum  && $key < $nENum) 
             {
+         //       echo $key." | ";
                 $aRtn[] = $aList[$key]; 
             }
         }
