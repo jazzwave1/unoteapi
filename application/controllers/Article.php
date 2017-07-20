@@ -27,7 +27,7 @@ class Article extends CI_Controller {
         }
 
         $aVdata = array();
-        $aVdata['menu'] = getMenuData('Note','List');
+        $aVdata['menu'] = getMenuData('Article','List');
 
         $note  = edu_get_instance('NoteClass');
         $oNote = new $note($usn);
