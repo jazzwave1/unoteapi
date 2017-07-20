@@ -19,11 +19,13 @@
                                                     <i class="fa fa-road fa-1g" aria-hidden="true"></i>
                                                     <!--<div>이동</div>-->
                                                 </li>
-                                                <li class="newwinBtn">
-                                                    <i class="fa fa-external-link fa-1g " aria-hidden="true"></i>
+                                                <li class="newWindow">
+                                                    <a class="newWindowBtn" target="_blank" href="" onClick="window.open(this.href,'window','width=750,height=750,left=0,top=0')">
+                                                        <i class="fa fa-external-link fa-1g " aria-hidden="true"></i>
+                                                    </a>
                                                     <!--<div>새창</div>-->
                                                 </li>
-                                                <li class="deleteBtn">
+                                                <li class="noteDelBtn">
                                                     <i class="fa fa-trash-o fa-1g" aria-hidden="true"></i>
                                                     <!--<div>휴지통</div>-->
                                                 </li>

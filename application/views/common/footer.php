@@ -8,6 +8,8 @@
     </div>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="<?=SURL?>/js/common.js"></script>
+    <script type="text/javascript" src="<?=SURL?>/js/popup.js"></script>
+    <script type="text/javascript" src="<?=SURL?>/js/bucketEvent.js"></script>
 </body>
 
 </html>
