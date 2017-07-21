@@ -19,4 +19,36 @@ class Category_model extends CI_model{
         return false;
     }
 
+    public function setCategory($usn, $sCategoryName)
+    {
+        if (!$usn) return false;
+
+        $aInput = array(
+             'usn'  => $usn
+            ,'name' => $sCategoryName
+        );
+        return $this->category_dao->setCategory($aInput);
+    }
+
+    public function updateCategory($category_idx, $usn, $sCategoryName)
+    {
+        if(!$category_idx || !$usn) return false;
+        
+        $aInput = array(
+             'category_idx'  => $category_idx
+            ,'usn'           => $usn
+            ,'name' => $sCategoryName
+        );
+        return $this->category_dao->updateCategory($aInput);
+    }
+
+    public function deleteCategory($category_idx)
+    {
+        if(!$category_idx) return false;
+        
+        $aInput = array(
+             'category_idx'  => $category_idx
+        );
+        return $this->category_dao->deleteCategory($aInput);
+    }
 }

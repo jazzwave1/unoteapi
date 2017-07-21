@@ -29,11 +29,6 @@ class MenuClass {
             }
         }
 
-        // echo '<pre>aCategoryList: '. print_r( $aCategoryList, true ) .'</pre>';
-        // echo '<pre>aCategoryInfo: '. print_r( $aCategoryInfo, true ) .'</pre>';
-        // echo '<pre>aMenu: '. print_r( $aMenu , true ) .'</pre>';
-        // die();
-
         $aMenuList = array();
         foreach ($aMenu as $class => $aMenuData) {
             $aMenuList[$class] = $aMenuData;
@@ -43,9 +38,6 @@ class MenuClass {
                 $aMenuList[$class]['sub'] = $aCategoryList;
             }
         }
-        // echo '<pre>aMenu: '. print_r( $aMenu, true ) .'</pre>';
-        // echo '<pre>aMenuList: '. print_r( $aMenuList, true ) .'</pre>';
-        // die();
 
         return $aMenuList;
     }
