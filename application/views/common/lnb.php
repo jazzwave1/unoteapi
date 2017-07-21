@@ -30,11 +30,12 @@
         <?php if($aMenuSubData['is_use']): ?>
                 <!--category-->
                 <?php if($controller == 'Category'): ?>
-                                <li>
-                                    <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>"><span class="categTit"><?=$aMenuSubData['subtitle']?></span></a>
+                                <li id="category_<?=$method?>">
+                                    <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>"><span class="categTit" id="categTit_<?=$method?>"><?=$aMenuSubData['subtitle']?></span></a>
+                                    <!--<input id="categInput_<?=$method?>" type="text" value="<?=$aMenuSubData['subtitle']?>" onkeypress="if(event.keyCode==13) {editCategory(this);}">-->
                                     <div class="categBtn">
-                                        <span class="editBtn"><a href="#categEditPop" data-popup="#categEditPop" class="layer-popup"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
-                                        <span class="deleteBtn"><a href="#categDeletePop" data-popup="#categDeletePop" class="layer-popup"><i class="fa fa-times" aria-hidden="true"></i></a></span>
+                                        <span class="categEditBtn"><a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+                                        <span class="categDelBtn"><a href=""><i class="fa fa-times" aria-hidden="true"></i></a></span>
                                     </div>
                                 </li>
                 <!--//category-->
