@@ -34,8 +34,8 @@
                                     <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>"><span class="categTit" id="categTit_<?=$method?>"><?=$aMenuSubData['subtitle']?></span></a>
                                     <!--<input id="categInput_<?=$method?>" type="text" value="<?=$aMenuSubData['subtitle']?>" onkeypress="if(event.keyCode==13) {editCategory(this);}">-->
                                     <div class="categBtn">
-                                        <span class="categEditBtn"><a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
-                                        <span class="categDelBtn"><a href=""><i class="fa fa-times" aria-hidden="true"></i></a></span>
+                                        <span class="categEditBtn"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                        <span class="categDelBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
                                     </div>
                                 </li>
                 <!--//category-->

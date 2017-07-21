@@ -101,10 +101,6 @@ class Article extends CI_Controller {
             );                  
         }
 
-        $aResult = array(
-             "category_idx"  => $category_idx
-        );  
-
         response_json($aResult);
         die;
     }

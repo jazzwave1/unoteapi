@@ -74,46 +74,47 @@ $('.categDelBtn').on('click', function(event){
 
 // 카테고리 수정
 $('.categEditBtn').on('click', function(event){
-  var category_id = $(this).parent().parent().attr('id');
+  var category_id = $(this).closest('li').attr('id');
   var c_idx = category_id.replace('category_','');
   var c_name = $('#categTit_'+c_idx).text();
 
   $('#categTit_'+c_idx).parent().remove();
 
-  $('#category_'+c_idx).prepend(
-    '<input id="categInput_'+c_idx+'" type="text" value="'+c_name+'" onkeypress="if(event.keyCode==13) {editCategory(this);}">'
-  );
-
-  return;
+  if($('#categInput_'+c_idx).length < 1)
+  {
+    $('#category_'+c_idx).prepend(
+      '<input id="categInput_'+c_idx+'" type="text" value="'+c_name+'" onkeypress="if(event.keyCode==13) {editCategory(this);}">'
+    );
+  }
 });
 
 function editCategory(category)
 {
     var name = category.value;
+    var c_idx = category.id.replace('categInput_','');
 
-    alert(name);
-
-    // if(name)
-    // {
-    //     $.post(
-    //       "/unoteapi/Article/setCategory"
-    //       ,{
-    //           "sCategoryName" : name
-    //        }
-    //       ,function(data, status) {
-    //         if (status == "success" && data.code == 1)
-    //         {
-    //             window.location.reload();
-    //             // console.log(data.aNoteDetail); 
-    //         }
-    //         // 삭제 실패
-    //         else if (status == "")
-    //         {
-    //             alert(data.msg);
-    //         }
-    //       }
-    //     );
-    // }
+    if(c_idx && name)
+    {
+        $.post(
+          "/unoteapi/Article/setCategory"
+          ,{
+               "category_idx" : c_idx
+              ,"sCategoryName" : name
+           }
+          ,function(data, status) {
+            if (status == "success" && data.code == 1)
+            {
+                window.location.reload();
+                // console.log(data.aNoteDetail); 
+            }
+            // 삭제 실패
+            else if (status == "")
+            {
+                alert(data.msg);
+            }
+          }
+        );
+    }
 }
 
 
