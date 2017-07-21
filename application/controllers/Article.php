@@ -51,42 +51,68 @@ class Article extends CI_Controller {
 
     public function setCategory()
     {
+        // test code
+        $usn = 1;
+
         $category_idx = $this->input->post('category_idx');
-        $usn = $this->input->post('usn');
         $name = $this->input->post('sCategoryName');
 
-        // test code
-        $category_idx = '';
-        $usn = 1;
-        $sCategoryName = '테스트임';
+        if($this->_setCategory($category_idx, $usn, $name))
+        {
+            $aResult = array(
+                 "code"  => 1
+                ,"msg"   => "OK"
+            );            
+        }
+        else
+        {
+            $aResult = array(
+                 "code"  => 999
+                ,"msg"   => "Error"
+            );                  
+        }
 
-        $aRes = array(
-             'category_idx'  => $category_idx
-            ,'usn'           => $usn
-            ,'sCategoryName' => $sCategoryName
-        );
-
+        response_json($aResult);
+        die;
+    }
+    private function _setCategory($category_idx, $usn, $sCategoryName)
+    {
         edu_get_instance('CategoryClass');
-        $aRes['resert'] = CategoryClass::setCategory($category_idx, $usn, $sCategoryName);
-
-        echo json_encode($aRes);
+        $bRes = CategoryClass::setCategory($category_idx, $usn, $sCategoryName);
+        return $bRes;
     }
 
     public function delCategory()
     {
         $category_idx = $this->input->post('category_idx');
 
-        // test code
-        $category_idx = 9;
+        if($this->_delCategory($category_idx))
+        {
+            $aResult = array(
+                 "code"  => 1
+                ,"msg"   => "OK"
+            );            
+        }
+        else
+        {
+            $aResult = array(
+                 "code"  => 999
+                ,"msg"   => "Error"
+            );                  
+        }
 
-        $aRes = array(
-             'category_idx'  => $category_idx
-        );
+        $aResult = array(
+             "category_idx"  => $category_idx
+        );  
 
+        response_json($aResult);
+        die;
+    }
+    private function _delCategory($category_idx)
+    {
         edu_get_instance('CategoryClass');
-        $aRes['resert'] = CategoryClass::delCategory($category_idx);
-
-        echo json_encode($aRes);
+        $bRes = CategoryClass::delCategory($category_idx);
+        return $bRes;
     }
 
     
