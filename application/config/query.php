@@ -170,8 +170,41 @@ $config['query'] = array(
             ,'btype'=> 'i'
             ,'null' => array()
         )
+        ,'setCategory' => array(
+            'query' => 'INSERT INTO category(usn, name)
+                        VALUES (?,?)'
+           ,'data' => array('usn', 'name')
+           ,'btype'=> 'is'
+           ,'null' => array()
+        )
+        ,'updateCategory' => array(
+            'query' => 'UPDATE category
+                           SET name = ?
+                         WHERE category_idx = ?
+                           AND usn = ?'
+           ,'data' => array('name', 'category_idx', 'usn')
+           ,'btype'=> 'sii'
+           ,'null' => array()
+        )
+        ,'deleteCategory' => array(
+            'query' => 'DELETE 
+                         FROM category
+                        WHERE category_idx=?'
+           ,'data' => array('category_idx')
+           ,'btype'=> 'i'
+           ,'null' => array()
+        )
     )
-
+    ,'article' => array(
+        'updateTextbankForCidx' => array(
+            'query' => 'UPDATE text_bank
+                           SET category_idx = NULL
+                         WHERE category_idx = ?'
+           ,'data' => array('category_idx')
+           ,'btype'=> 'i'
+           ,'null' => array()
+        )
+    )
     ,'edumember' => array(
         'getMemberInfo' => array(
             'query' => 'SELECT mb_id, mb_name 

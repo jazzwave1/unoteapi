@@ -49,5 +49,45 @@ class Article extends CI_Controller {
         $this->load->view('common/container', $data);
     }
 
+    public function setCategory()
+    {
+        $category_idx = $this->input->post('category_idx');
+        $usn = $this->input->post('usn');
+        $name = $this->input->post('sCategoryName');
+
+        // test code
+        $category_idx = '';
+        $usn = 1;
+        $sCategoryName = '테스트임';
+
+        $aRes = array(
+             'category_idx'  => $category_idx
+            ,'usn'           => $usn
+            ,'sCategoryName' => $sCategoryName
+        );
+
+        edu_get_instance('CategoryClass');
+        $aRes['resert'] = CategoryClass::setCategory($category_idx, $usn, $sCategoryName);
+
+        echo json_encode($aRes);
+    }
+
+    public function delCategory()
+    {
+        $category_idx = $this->input->post('category_idx');
+
+        // test code
+        $category_idx = 9;
+
+        $aRes = array(
+             'category_idx'  => $category_idx
+        );
+
+        edu_get_instance('CategoryClass');
+        $aRes['resert'] = CategoryClass::delCategory($category_idx);
+
+        echo json_encode($aRes);
+    }
+
     
 }

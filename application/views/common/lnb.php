@@ -48,8 +48,8 @@
                     <?php endif; ?>
                                     </a>
                                 </li>
-                 <?php endif; ?>
-                 <!--//else-->
+                <?php endif; ?>
+                <!--//else-->
                 <!--crawling btn-->
                 <?php if($controller == 'Crawling'): ?>
                                 <li class="cBtn">
@@ -81,7 +81,7 @@
                     <div class="pop-cont">
                         <form action="">
                             <p>카테고리 이름을 수정하세요.</p>
-                            <input type="text">
+                            <input type="text" value="">
                             <div class="pop-btn">
                                 <a href="javascript:;">확인</a> <a href="#none" class="btnp-close">취소</a>
                             </div>
