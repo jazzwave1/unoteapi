@@ -271,7 +271,7 @@ Dev Code
     }
     private function _isNote($n_idx=0)
     {
-        return $this->note_model->isNote($n_idx);
+        return $this->note_model->getNoteInfoByNidx($n_idx);
     }
     private function _regNote()
     {

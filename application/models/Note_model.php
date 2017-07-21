@@ -74,26 +74,7 @@ class Note_model extends CI_model
             return false;
     }
 
-/*
-Dev Code
-이하 코드는 추후 수정 및 삭제 예정
-==============================================================================
-*/
-    public function isNote($n_idx)
-    {
-        if(!$n_idx) return false;
-
-        $aInput = array('n_idx'=>$n_idx);
-        $aNoteInfo = $this->note_dao->getNoteInfo($aInput);
-
-        if( is_array($aNoteInfo) && count($aNoteInfo) > 0 )
-            return true;
-
-        return false;
-    }
-
-
-
+    
     public function getNoteInfoByNidx($n_idx)
     {
         if(!$n_idx) return false;
@@ -106,7 +87,6 @@ Dev Code
 
         return $aRes;
     }
-
     public function insertNote($aNoteData)
     {
         if( $pk = $this->note_dao->insertNote($aNoteData) )
@@ -125,6 +105,28 @@ Dev Code
         }
         return true;
     }
+/*
+Dev Code
+이하 코드는 추후 수정 및 삭제 예정
+==============================================================================
+*/
+
+    public function isNote($n_idx)
+    {
+        if(!$n_idx) return false;
+
+        $aInput = array('n_idx'=>$n_idx);
+        $aNoteInfo = $this->note_dao->getNoteInfo($aInput);
+
+        if( is_array($aNoteInfo) && count($aNoteInfo) > 0 )
+            return true;
+
+        return false;
+    }
+
+
+
+    
 
     public function updateNote($aInput)
     {
