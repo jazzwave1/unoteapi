@@ -154,7 +154,7 @@ function noteDelete()
     }
 }
 
-$('.sublist-li').on('click', function(event){
+$('.timeline-li').on('click', function(event){
     $(this).siblings('li').removeClass('on');
     $(this).addClass('on');
     
@@ -174,6 +174,31 @@ $('.sublist-li').on('click', function(event){
             $('.p-inner').html(data.aNoteDetail['text']);
 
             // console.log(data.aNoteDetail); 
+        }
+      }
+    );
+});
+
+$('.sublist-li').on('click', function(event){
+    $(this).siblings('li').removeClass('on');
+    $(this).addClass('on');
+    
+    var t_idx = $(this).data( "t_idx" );
+
+    $.post(
+      "rpcGetArticleInfo"
+      ,{
+           "t_idx" : t_idx 
+       }
+      ,function(data, status) {
+        if (status == "success" && data.code == 1)
+        {
+            $('.p-info').data('t_idx', t_idx);
+            $('.p-date').text(data.aArticleDetail['regdate']);
+            $('.p-tit').text(data.aArticleDetail['craw_data']['title']);
+            $('.p-inner').html(data.aArticleDetail['craw_data']['contents']);
+
+            // console.log(data.aArticleDetail); 
         }
       }
     );

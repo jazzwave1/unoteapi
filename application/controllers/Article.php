@@ -6,7 +6,7 @@ class Article extends CI_Controller {
     {
         parent::__construct();
 
-        $this->load->model('note_model');
+        $this->load->model('article_model');
     }
 
     public function index()
@@ -29,16 +29,16 @@ class Article extends CI_Controller {
         $aVdata = array();
         $aVdata['menu'] = getMenuData('Article','List');
 
-        $note  = edu_get_instance('NoteClass');
-        $oNote = new $note($usn);
-        $aVdata['sublist'] = $oNote->oNoteInfo;
+        $article  = edu_get_instance('ArticleClass');
+        $oArticle = new $article($usn);
+        $aVdata['sublist'] = $oArticle->oArticleInfo;
 
         // test code
-        // echo "<!--";
-        // echo "<pre>";
-        // print_r($aVdata);
-        // echo "</pre>";
-        // echo "-->";
+        echo "<!--";
+        echo "<pre>";
+        print_r($aVdata);
+        echo "</pre>";
+        echo "-->";
         // die();
 
         $data = array(
@@ -48,6 +48,40 @@ class Article extends CI_Controller {
 
         $this->load->view('common/container', $data);
     }
+
+
+    ##########################
+    ###### RPC Function ######
+    ##########################
+    public function rpcGetArticleInfo()
+    {
+        $t_idx = $this->input->post('t_idx');
+
+        // test code
+        // $t_idx = 69;
+
+        $aResult = array(
+             "code"  => 1
+            ,"msg"   => "OK"
+            ,"aArticleDetail" => $this->_getArticleDetailInfo($t_idx) 
+        );
+
+        // echo '<pre>: '. print_r( $aResult, true ) .'</pre>';
+        // die();
+
+        response_json($aResult);
+        die;
+    } 
+
+    private function _getArticleDetailInfo($t_idx)
+    {
+        edu_get_instance('ArticleClass');
+
+        $aArticleDetailInfo = ArticleClass::getArticleDetailInfo($t_idx);
+
+        return $aArticleDetailInfo;
+    } 
+
 
     public function setCategory()
     {

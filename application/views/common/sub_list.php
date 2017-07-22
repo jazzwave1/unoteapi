@@ -17,190 +17,23 @@
                             <div class="scroll-subList">
                             <!--글감리스트-->
                             <ul class="bankSubList">
-                                <li class="on">
+                            <?php foreach ($vdata['sublist'] as $oSublist): ?>
+                                <li class="sublist-li" data-t_idx="<?=$oSublist->t_idx?>">
                                     <a href="#">
                                         <div class="cafeInfo ">
                                             <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버1</div>
+                                                <div class="cafeLogo"><?=$oSublist->craw_data->corperation?></div>
                                                 <div class="cafeTxt">
-                                                    <p class="tit">소프트웨어 교육과 미래교육의 방향소프트웨어 교육과 미래교육의 방향</p>
+                                                    <p class="tit"><?=$oSublist->craw_data->title?></p>
                                                     <p></p>
-                                                    <p class="date">2017.06.21</p>
+                                                    <p class="date"><?=$oSublist->regdate?></p>
                                                 </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+                                                <!-- <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div> -->
                                             </div>
                                         </div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="cafeInfo ">
-                                            <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버2</div>
-                                                <div class="cafeTxt">
-                                                    <p class="tit">test</p>
-                                                    <p></p>
-                                                    <p class="date">2017.06.18</p>
-                                                </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="cafeInfo ">
-                                            <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버3</div>
-                                                <div class="cafeTxt">
-                                                    <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                    <p class="date">2017.05.28</p>
-                                                </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="cafeInfo ">
-                                            <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버4</div>
-                                                <div class="cafeTxt">
-                                                    <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                    <p class="date">2017.05.28</p>
-                                                </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="cafeInfo ">
-                                            <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버5</div>
-                                                <div class="cafeTxt">
-                                                    <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                    <p class="date">2017.05.28</p>
-                                                </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="cafeInfo ">
-                                            <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버6</div>
-                                                <div class="cafeTxt">
-                                                    <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                    <p class="date">2017.05.28</p>
-                                                </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="cafeInfo ">
-                                            <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버7</div>
-                                                <div class="cafeTxt">
-                                                    <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                    <p class="date">2017.05.28</p>
-                                                </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="cafeInfo ">
-                                            <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버8</div>
-                                                <div class="cafeTxt">
-                                                    <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                    <p class="date">2017.05.28</p>
-                                                </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="cafeInfo ">
-                                            <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버9</div>
-                                                <div class="cafeTxt">
-                                                    <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                    <p class="date">2017.05.28</p>
-                                                </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="cafeInfo ">
-                                            <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버10</div>
-                                                <div class="cafeTxt">
-                                                    <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                    <p class="date">2017.05.28</p>
-                                                </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="cafeInfo ">
-                                            <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버11</div>
-                                                <div class="cafeTxt">
-                                                    <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                    <p class="date">2017.05.28</p>
-                                                </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="cafeInfo ">
-                                            <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버12</div>
-                                                <div class="cafeTxt">
-                                                    <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                    <p class="date">2017.05.28</p>
-                                                </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="cafeInfo ">
-                                            <div class="cafeinner clearfix">
-                                                <div class="cafeLogo">네이버13</div>
-                                                <div class="cafeTxt">
-                                                    <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                    <p class="date">2017.05.28</p>
-                                                </div>
-                                                <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
+                            <?php endforeach; ?>
                             </ul>
                             <!--//글감리스트-->
                         </div>

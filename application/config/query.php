@@ -205,6 +205,24 @@ $config['query'] = array(
            ,'btype'=> 'i'
            ,'null' => array()
         )
+        ,'getArticleInfoByUsn' => array(
+            'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
+                          FROM text_bank
+                         WHERE usn = ?
+                           AND category_idx is NULL
+                         ORDER BY t_idx DESC'
+            ,'data' => array('usn')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
+        ,'getArticleInfoByTidx' => array(
+            'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
+                          FROM text_bank
+                         WHERE t_idx = ?'
+            ,'data' => array('t_idx')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
     )
     ,'edumember' => array(
         'getMemberInfo' => array(

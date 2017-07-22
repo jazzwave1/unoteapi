@@ -24,11 +24,14 @@ class CategoryClass {
     {
         // db eduniety.category delete
         $category_model = edu_get_instance('category_model', 'model');
-        return $category_model->deleteCategory($category_idx);
+        if($category_model->deleteCategory($category_idx))
+        {
+            // db eduniety.text_bank category_idx = null
+            $article_model = edu_get_instance('article_model', 'model');
+            return $article_model->updateTextbankForCidx($category_idx);
+        }
+        return false;
 
-        // db eduniety.text_bank category_idx = null
-        $article_model = edu_get_instance('article_model', 'model');
-        return $article_model->updateTextbankForCidx($category_idx);
     }
 
 }

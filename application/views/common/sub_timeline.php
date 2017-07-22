@@ -18,7 +18,7 @@
                                 <!--글감리스트-->
                                 <ul class="my-note-subList">
                                 <?php foreach ($vdata['sublist'] as $oSublist): ?>
-                                    <li class="sublist-li" data-n_idx="<?=$oSublist->n_idx?>">
+                                    <li class="timeline-li" data-n_idx="<?=$oSublist->n_idx?>">
                                         <p class="date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?=$oSublist->regdate?></p>
                                         <!--<a href="javascrip:void(0);" >-->
                                             <div class="thumb">
