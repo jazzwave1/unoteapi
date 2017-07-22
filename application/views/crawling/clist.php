@@ -13,6 +13,7 @@
                                         <th class="">게시판명</th>
                                         <th class="">요청일</th>
                                         <th class="">완료일</th>
+                                        <th class="">상태</th>
                                         <th class="">수집양</th>
                                     </tr>
                                 </thead>
@@ -32,6 +33,7 @@
                                         <td><?=$val->sBoard?></td>
                                         <td><?=$val->regdate?></td>
                                         <td><?=$val->completedate?></td>
+                                        <td><?=$val->state?></td>
                                         <td><?=$val->r_count?></td>
                                     </tr>
                                 <?php endforeach;?> 
