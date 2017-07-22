@@ -18,13 +18,19 @@ class Msgq_dao extends Common_dao
 
     public function setMsgQ($account, $site_id,$aReqFilter=array())
     {
+        if(count($aReqFilter)>=1)
+            $sReqFilter = implode('|', $aReqFilter);
+        else
+            $sReqFilter = '';
+
         $aParam = array(
             'account' => $account
            ,'state'   => 'REQ' 
            ,'site_id' => $site_id 
-           ,'req_filter' => implode('|', $aReqFilter) 
+           ,'req_filter' => $sReqFilter 
            ,'regdate' => date('Y-m-d H:i:s') 
         );
+   
         $aConfig = $this->queryInfoMsgq['setMSGQ'];
         $this->actModelFuc($aConfig, $aParam);
         return $this->db->insert_id();

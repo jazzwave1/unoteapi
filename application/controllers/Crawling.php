@@ -115,9 +115,9 @@ class Crawling extends CI_Controller{
     ######################################
     public function rpcCrawling()
     {
-        // facebook & naver, daum 구분할수 있도록 처리 해야함 
-        print_r($_POST); 
-        die;
+        // siteid = 1 : NAVER
+        // siteid = 2 : DAUM 
+        // siteid = 3 : FACEBOOK 
 
         $usn      = $this->input->post('usn');
         $siteid   = $this->input->post('site');
@@ -133,7 +133,7 @@ class Crawling extends CI_Controller{
 
         // set MSGQ & get q_idx
         $oCrawlingClass = edu_get_instance('CrawlingClass');
-        if($nRtnCode = $oCrawlingClass->callCrawling($usn, $siteid, $aReqFilter))
+        if($nRtnCode = $oCrawlingClass->callCrawling($usn, $siteid, $aReqFilter, $user_id, $user_pwd))
         {
 //            echo $nRtnCode."\n";
             if($nRtnCode == '2')
