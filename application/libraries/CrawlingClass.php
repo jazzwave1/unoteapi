@@ -70,15 +70,15 @@ class CrawlingClass {
     }
     private function _crawlingNaver($usn, $siteid, $aReqFilter, $user_id, $user_pwd)
     {
-        return ; 
+        return true; 
     }
     private function _crawlingDaum($usn, $siteid, $aReqFilter, $user_id, $user_pwd)
     {
-        return ; 
+        return true; 
     }
     private function _crawlingFacebook($usn, $siteid, $aReqFilter, $user_id, $user_pwd)
     {
-        return ; 
+        return true; 
     
     }
 }
