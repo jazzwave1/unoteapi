@@ -154,7 +154,8 @@ $config['query'] = array(
         ,'getMSGQList' => array(
             'query' => 'SELECT q_idx, account, state, site_id, req_filter, regdate, completedate, r_count
                           FROM msgq 
-                         WHERE account = ?'
+                         WHERE account = ?
+                         ORDER BY regdate DESC'
             ,'data' => array('account')
             ,'btype'=> 's'
             ,'null' => array()
