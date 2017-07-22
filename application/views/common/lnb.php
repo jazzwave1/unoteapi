@@ -54,7 +54,7 @@
                 <!--crawling btn-->
                 <?php if($controller == 'Crawling'): ?>
                                 <li class="cBtn">
-                                    <a href="<?=HOSTURL?>/Crawling/reqcrawl" class="croBtn">수집하기</a>
+                                    <a href="#cReqPop" data-popup="#cReqPop" class="croBtn layer-popup">수집하기</a>
                                     <a href="#" class="fupBtn">파일업로드</a>
                                 </li>
                 <?php endif; ?>
@@ -104,3 +104,147 @@
 
                     </div>
                 </div>
+<!--layer-popup-->
+    <div class="pop-wrap" id="cReqPop" style="display:none">
+        <div>
+            <div class="pop-header">
+                <span>크롤링 로봇 수집 설정</span>
+                <a href="#none" class="btnp-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </div>
+            <div class="pop-box">
+                <div class="pop-cont">
+                    <ul class="sns-tab clearfix">
+                        <li class="on"><a href="javascript:setSite(1);" >naver</a></li>
+                        <li><a href="javascript:setSite(2);">daum</a></li>
+                        <li><a href="javascript:setSite(3);">facebook</a></li>
+                        <input type="hidden" id="site" value="" > 
+                        <input type="hidden" id="usn" value="<?=$usn?>" > 
+                    </ul>
+                    <!--수집 대상 선택 및 로그인 화면-->
+                    <div>
+                        <div class="login0 pop-login">
+                            <div class="tit">
+                                네이버 카페 게시글 수집
+                            </div>
+                            <div class="notice">
+                                개인정보보호법에 의거, 아이디/패스워드는 에듀니티에서 저장하지 않습니다.
+                                <br> 번거롭더라도 수집 시, 개별 로그인이 필요합니다.
+                            </div>
+                            <div class="log-form n-log-form">
+                                <form action="" method="post">
+                                    <fieldset>
+                                        <input id="naverUserId" type="text" name="id" placeholder="아이디">
+                                        <input id="naverUserPwd" type="password" name="pwd" placeholder="비밀번호">
+                                        <p class="log-formBtn">
+                                            <a href="javascript:callCrawl();">로그인</a>
+                                        </p>
+                                        <p class="log-notice">
+                                            * 아이디를 입력하세요 / * 비밀번호를 입력하세요 / * 입력정보를 확인해주세요
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="login1 pop-login">
+                            <div class="tit">
+                                다음 카페 게시글 수집
+                            </div>
+                            <div class="notice">
+                                개인정보보호법에 의거, 아이디/패스워드는 에듀니티에서 저장하지 않습니다.
+                                <br> 번거롭더라도 수집 시, 개별 로그인이 필요합니다.
+                            </div>
+                            <div class="log-form d-log-form">
+                                <form action="" method="post">
+                                    <fieldset>
+                                        <input id="daumUserId" type="text" name="id" placeholder="아이디">
+                                        <input id="daumUserPwd" type="password" name="pwd" placeholder="비밀번호">
+                                        <p class="log-formBtn">
+                                            <a href="javascript:callCrawl();">로그인</a>
+                                        </p>
+                                        <p class="log-notice">
+                                            * 아이디를 입력하세요 / * 비밀번호를 입력하세요 / * 입력정보를 확인해주세요
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="login2 pop-login">
+                            <div class="tit">
+                                페이스북 게시글 수집
+                            </div>
+                            <div class="notice">
+                                개인정보보호법에 의거, 아이디/패스워드는 에듀니티에서 저장하지 않습니다.
+                                <br> 번거롭더라도 수집 시, 개별 로그인이 필요합니다.
+                            </div>
+                            <div class="log-form f-log-form">
+                                <form action="" method="post">
+                                    <fieldset>
+                                        <input id="facebookToken" type="text" name="id" placeholder="토큰">
+                                        <p class="log-formBtn">
+                                            <a href="javascript:callCrawl();">로그인</a>
+                                        </p>
+                                        <p class="log-notice">
+                                            * 아이디를 입력하세요 / * 비밀번호를 입력하세요 / * 입력정보를 확인해주세요
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//layer-popup-->
+    
+    
+<script>
+function setSite(site)
+{
+    $('#site').val(site);
+}
+function callCrawl()
+{
+//  var test = new Array();
+//  var cnt = 0;
+//  $("input[id=filter]:checked").each(function() {
+//      test[cnt] = $(this).val() ;
+//      console.log(test);
+//      cnt++;
+//  });
+
+    var test = new Array(); 
+    var s_id = "";
+    var s_pwd = ""; 
+    if( $('#site').val() == 1 || $('#site').val() == "" )
+    {
+        $('#site').val(1);
+        var s_id  = $('#naverUserId').val(); 
+        var s_pwd = $('#naverUserPwd').val(); 
+    }else if( $('#site').val() == 2 ){
+        var s_id  = $('#daumUserId').val(); 
+        var s_pwd = $('#daumUserPwd').val(); 
+    }else if( $('#site').val() == 3 ){
+        var s_id  = "AT"; 
+        var s_pwd = $('#facebookToken').val(); 
+    } 
+    $.post(
+      "<?=HOSTURL?>/Crawling/rpcCrawling"
+      ,{
+           "site"   : $('#site').val() 
+           ,"s_id"  : s_id 
+           ,"s_pwd" : s_pwd 
+           ,"usn"   : $('#usn').val() 
+           ,"filter" : test 
+       }
+      ,function(data, status) {
+        if (status == "success" && data.code == 1)
+        {
+            alert('요청되었습니다.');
+            location.href = "<?=HOSTURL?>/Crawling/History";
+        }
+      }
+    );         
+}      
+</script>
+
