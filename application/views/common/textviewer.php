@@ -14,12 +14,12 @@ $controller = strtolower($this->uri->segment(1));
                                         </div>
                                         <div class="p-btn">
                                             <ul class="clearfix">
-                                                <li class="<?=($controller == 'note') ? 'hide' : 'bookmarkBtn'?>">
-                                                    <a href="javascript:;"><i class="fa fa-bookmark fa-1g" aria-hidden="true"></i></a>
+                                                <li class="<?=($controller == 'note') ? 'hide' : 'bookMark'?>">
+                                                    <a class="bookMarkBtn" href="javascript:;"><i class="fa fa-bookmark fa-1g" aria-hidden="true"></i></a>
                                                     <!--<div>북마크</div>-->
                                                 </li>
-                                                <li class="<?=($controller == 'note') ? 'hide' : 'moveCategBtn'?>">
-                                                    <a href="javascript:;"><i class="fa fa-road fa-1g" aria-hidden="true"></i></a>
+                                                <li class="<?=($controller == 'note') ? 'hide' : 'moveCateg'?>">
+                                                    <a class="moveCategBtn" href="javascript:;"><i class="fa fa-clipboard fa-1g" aria-hidden="true"></i></a>
                                                     <!--<div>카테고리 이동</div>-->
                                                     <!--카테고리 이동 안내 창-->
                                                     <div class="selCateg">
@@ -47,7 +47,7 @@ $controller = strtolower($this->uri->segment(1));
                                                     <!--<div>새창</div>-->
                                                 </li>
                                                 <li class="copyLink">
-                                                    <a href="javascript:;"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                                    <a class="copyLinkBtn" href="javascript:;"><i class="fa fa-link" aria-hidden="true"></i></a>
                                                     <!--<div>링크복사</div>-->
                                                 </li>
                                                 <li class="<?=($controller == 'note') ? 'noteDelBtn' : 'articleDelBtn'?>">

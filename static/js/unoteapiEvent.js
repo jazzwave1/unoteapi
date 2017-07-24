@@ -262,6 +262,6 @@ function articleBookmark()
     );
 }
 //카테고리 이동 창
-$(".moveCateg").click(function(){
+$(".moveCategBtn").click(function(){
     $(".selCateg").toggleClass("on");
 });
