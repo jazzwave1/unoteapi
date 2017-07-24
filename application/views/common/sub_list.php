@@ -3,7 +3,8 @@
                     <div class="bsinner">
                         <!--카테고리타이틀/필터/버튼 영역-->
                         <div class="listFilter">
-                            <p><i class="fa fa-book" aria-hidden="true"></i><?=$vdata['menu']['subtitle']?></p>
+                            <p><i class="<?=$vdata['menu']['icon']?>" aria-hidden="true"></i><?=$vdata['menu']['subtitle']?></p>
+                            <p> / 전체 <?=count($vdata['sublist'])?></p>
                             <!--<p class="filter">정렬 | <span>최신순 <i class="fa fa-caret-down" aria-hidden="true"></i></span></p>-->
                         </div>
                         <div class="subSearch">
@@ -17,12 +18,13 @@
                             <div class="scroll-subList">
                             <!--글감리스트-->
                             <ul class="bankSubList">
+                            <?php if( is_array($vdata['sublist']) && count($vdata['sublist'])>0 ): ?>
                             <?php foreach ($vdata['sublist'] as $oSublist): ?>
                                 <li class="sublist-li" data-t_idx="<?=$oSublist->t_idx?>">
-                                    <a href="#">
+                                    <a href="javascript:void(0)">
                                         <div class="cafeInfo ">
                                             <div class="cafeinner clearfix">
-                                                <div class="cafeLogo"><?=$oSublist->craw_data->corperation?></div>
+                                                <div class="cafeLogo"><!--<?=$oSublist->craw_data->corperation?>--></div>
                                                 <div class="cafeTxt">
                                                     <p class="tit"><?=$oSublist->craw_data->title?></p>
                                                     <p></p>
@@ -34,6 +36,7 @@
                                     </a>
                                 </li>
                             <?php endforeach; ?>
+                            <?php endif; ?>
                             </ul>
                             <!--//글감리스트-->
                         </div>

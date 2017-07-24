@@ -6,7 +6,8 @@ class Article extends CI_Controller {
     {
         parent::__construct();
 
-        $this->load->model('article_model');
+        edu_get_instance('ArticleClass');
+        edu_get_instance('article_model', 'model');
     }
 
     public function index()
@@ -16,37 +17,17 @@ class Article extends CI_Controller {
 
     public function List()
     {
-        // test code
-        $usn = 1;
+        $this->_getArticleList('list');
+    }
 
-        // usn check
-        if(! $usn )
-        {
-            alert('로그인 후 이용하세요.','/login');
-            die;
-        }
+    public function Bookmark()
+    {
+        $this->_getArticleList('bookmark');
+    }
 
-        $aVdata = array();
-        $aVdata['menu'] = getMenuData('Article','List');
-
-        $article  = edu_get_instance('ArticleClass');
-        $oArticle = new $article($usn);
-        $aVdata['sublist'] = $oArticle->oArticleInfo;
-
-        // test code
-        echo "<!--";
-        echo "<pre>";
-        print_r($aVdata);
-        echo "</pre>";
-        echo "-->";
-        // die();
-
-        $data = array(
-             'vdata' => $aVdata
-            ,'contents' => 'article/list'
-        );
-
-        $this->load->view('common/container', $data);
+    public function Trash()
+    {
+        $this->_getArticleList('trash');
     }
 
 
@@ -58,7 +39,7 @@ class Article extends CI_Controller {
         $t_idx = $this->input->post('t_idx');
 
         // test code
-        // $t_idx = 69;
+        // $t_idx = 168;
 
         $aResult = array(
              "code"  => 1
@@ -72,7 +53,6 @@ class Article extends CI_Controller {
         response_json($aResult);
         die;
     } 
-
     private function _getArticleDetailInfo($t_idx)
     {
         edu_get_instance('ArticleClass');
@@ -81,7 +61,80 @@ class Article extends CI_Controller {
 
         return $aArticleDetailInfo;
     } 
+    public function rpcDeleteArticle()
+    {
+        $t_idx = $this->input->post('t_idx');
 
+        if($this->_deleteArticle($t_idx))
+        {
+            $aResult = array(
+                 "code"  => 1
+                ,"msg"   => "OK"
+            );            
+        }
+        else
+        {
+            $aResult = array(
+                 "code"  => 999
+                ,"msg"   => "Error"
+            );                  
+        }
+
+        response_json($aResult);
+        die;
+    }
+    private function _deleteArticle($t_idx)
+    {
+        $oArticleModel = edu_get_instance('article_model', 'model');
+        $bRes = $oArticleModel->article_model->deleteArticle($t_idx);
+        return $bRes;
+    }
+
+    public function rpcBookmarkArticle()
+    {
+        $t_idx = $this->input->post('t_idx');
+
+        if($this->_bookmarkArticle($t_idx))
+        {
+            $aResult = array(
+                 "code"  => 1
+                ,"msg"   => "OK"
+            );            
+        }
+        else
+        {
+            $aResult = array(
+                 "code"  => 999
+                ,"msg"   => "Error"
+            );                  
+        }
+
+        response_json($aResult);
+        die;
+    }
+    private function _bookmarkArticle($t_idx)
+    {
+        $oArticleModel = edu_get_instance('article_model', 'model');
+        
+        //북마크체크O -> X
+        if($this->_isBookmarkArticle($t_idx))
+        {
+            $bRes = $oArticleModel->article_model->unchkBookmarkArticle($t_idx);
+        }
+        //북마크체크X -> O
+        else
+        {
+            $bRes = $oArticleModel->article_model->chkBookmarkArticle($t_idx);
+        }
+
+        return $bRes;
+    }
+    private function _isBookmarkArticle($t_idx)
+    {
+        $oArticleModel = edu_get_instance('article_model', 'model');
+        $bRes = $oArticleModel->article_model->isBookmarkArticle($t_idx);
+        return $bRes;
+    }
 
     public function setCategory()
     {
@@ -144,6 +197,50 @@ class Article extends CI_Controller {
         $bRes = CategoryClass::delCategory($category_idx);
         return $bRes;
     }
+    private function _getArticleList($sType)
+    {
+        $usn = $this->_getUsn();
+
+        // usn check
+        if(! $usn )
+        {
+            alert('로그인 후 이용하세요.','/login');
+            die;
+        }
+
+        $aVdata = array();
+        if($sType == 'list')
+        {
+            $aVdata['menu'] = getMenuData('Article','List');
+            $aVdata['sublist'] = ArticleClass::getArticleInfo($usn);
+        }
+        else if($sType == 'bookmark')
+        {
+            $aVdata['menu'] = getMenuData('Article','Bookmark');
+            $aVdata['sublist'] = ArticleClass::getArticleBookmarkInfo($usn);
+        }
+        else if($sType == 'trash')
+        {
+            $aVdata['menu'] = getMenuData('Article','Trash');
+            $aVdata['sublist'] = ArticleClass::getArticleTrashInfo($usn);
+        }
+
+        $data = array(
+             'vdata' => $aVdata
+            ,'contents' => 'article/list'
+        );
+
+        $this->load->view('common/container', $data);
+    }
+
+
+    // test code
+    private function _getUsn()
+    {
+        return 1;
+    }
+
+
 
     
 }

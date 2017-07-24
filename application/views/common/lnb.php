@@ -44,7 +44,7 @@
                                 <li>
                                     <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>">
                                     <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?>
-                    <?php if($controller == 'Article'): ?>
+                    <?php if($controller.'/'.$method == 'Article/List'): ?>
                                     <span class="num">20</span>
                     <?php endif; ?>
                                     </a>

@@ -70,8 +70,8 @@ class Note_model extends CI_model
 
         if( $this->note_dao->deleteNote($aInput) )
             return true;
-        else
-            return false;
+
+        return false;
     }
 
     
@@ -91,8 +91,8 @@ class Note_model extends CI_model
     {
         if( $pk = $this->note_dao->insertNote($aNoteData) )
             return $pk;
-        else
-            return false;
+
+        return false;
     }
     public function insertNoteSentence($pk, $aContentInfo)
     {
@@ -124,10 +124,6 @@ Dev Code
         return false;
     }
 
-
-
-    
-
     public function updateNote($aInput)
     {
         if( $this->note_dao->updateNote($aInput) )
@@ -137,7 +133,7 @@ Dev Code
             $this->insertNoteSentence($aInput['n_idx'], $aInput['contents']); 
             return true;
         }    
-        else
-            return false;
+
+        return false;
     }
 }

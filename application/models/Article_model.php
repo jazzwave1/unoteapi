@@ -24,10 +24,53 @@ class  Article_model extends CI_model{
 
         $aArticleInfo = $this->article_dao->getArticleInfoByUsn($aInput);
 
-        foreach ($aArticleInfo as $key => $oData)
+        if(isset($aArticleInfo) && is_array($aArticleInfo) )
         {
-            $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
-            $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
+            foreach ($aArticleInfo as $key => $oData)
+            {
+                $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
+                $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
+            }
+        }
+
+        return $aArticleInfo;
+    }
+
+    public function getArticleBookmarkInfo($usn)
+    {
+        if(!$usn) return false;
+
+        $aInput = array('usn'=>$usn,'bookmark'=>'Y');
+
+        $aArticleInfo = $this->article_dao->getArticleBookmarkInfo($aInput);
+
+        if(isset($aArticleInfo) && is_array($aArticleInfo) )
+        {
+            foreach ($aArticleInfo as $key => $oData)
+            {
+                $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
+                $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
+            }
+        }
+
+        return $aArticleInfo;
+    }
+
+    public function getArticleTrashInfo($usn)
+    {
+        if(!$usn) return false;
+
+        $aInput = array('usn'=>$usn,'deltype'=>'DEL');
+
+        $aArticleInfo = $this->article_dao->getArticleTrashInfo($aInput);
+
+        if(isset($aArticleInfo) && is_array($aArticleInfo) )
+        {
+            foreach ($aArticleInfo as $key => $oData)
+            {
+                $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
+                $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
+            }
         }
 
         return $aArticleInfo;
@@ -52,6 +95,51 @@ class  Article_model extends CI_model{
         $aRes = $aArticleDetailInfo[0];
 
         return $aRes;
+    }
+
+    public function deleteArticle($t_idx)
+    {
+        if(!$t_idx) return false;
+
+        $aInput = array('t_idx' => $t_idx, 'deltype' => 'DEL', 'deldate' => date('Y-m-d H:i:s') );
+
+        if( $this->article_dao->deleteArticle($aInput) )
+            return true;
+        
+        return false;
+    }
+    public function chkBookmarkArticle($t_idx)
+    {
+        if(!$t_idx) return false;
+
+        $aInput = array('t_idx' => $t_idx, 'bookmark' => 'Y');
+
+        if( $this->article_dao->chkBookmarkArticle($aInput) )
+            return true;
+        
+        return false;
+    }
+    public function unchkBookmarkArticle($t_idx)
+    {
+        if(!$t_idx) return false;
+
+        $aInput = array('t_idx' => $t_idx);
+
+        if( $this->article_dao->unchkBookmarkArticle($aInput) )
+            return true;
+        
+        return false;
+    }
+    public function isBookmarkArticle($t_idx)
+    {
+        if(!$t_idx) return false;
+
+        $aInput = array('t_idx' => $t_idx);
+
+        if( $this->article_dao->isBookmarkArticle($aInput) )
+            return true;
+        
+        return false;
     }
 
 

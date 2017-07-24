@@ -1,3 +1,7 @@
+/*
+ * lnb script
+ */
+
 /*글감 카테고리*/
 var _addCateg = $(".addCateg");
 var _categList = $(".categList");
@@ -43,7 +47,6 @@ function addCategory(category)
         );
     }
 }
-
 // 카테고리 삭제
 $('.categDelBtn').on('click', function(event){
   var category_id = $(this).parent().parent().attr('id');
@@ -71,7 +74,6 @@ $('.categDelBtn').on('click', function(event){
       );
   }
 });
-
 // 카테고리 수정
 $('.categEditBtn').on('click', function(event){
   var category_id = $(this).closest('li').attr('id');
@@ -87,7 +89,6 @@ $('.categEditBtn').on('click', function(event){
     );
   }
 });
-
 function editCategory(category)
 {
     var name = category.value;
@@ -118,42 +119,9 @@ function editCategory(category)
 }
 
 
-
-/*$("a태그 클래스명").prop('href', 변경되는 url);*/
-$(".newWindowBtn").prop("href","http://www.daum.net");
-
-
-/*노트 삭제*/
-$(".noteDelBtn").on("click", noteDelete);
-
-function noteDelete()
-{
-    var n_idx = $('.p-info').data('n_idx');
-
-    if(confirm('삭제하시겠습니까? 삭제된 노트는 복구가 불가능합니다.'))
-    {
-        $.post(
-          "deleteNote"
-          ,{
-               "n_idx" : n_idx 
-           }
-          ,function(data, status) {
-            if (status == "success" && data.code == 1)
-            {
-                alert(data.msg);
-                window.location.reload();
-                // console.log(data.aNoteDetail); 
-            }
-            // 삭제 실패
-            else if (status == "")
-            {
-                alert(data.msg);
-            }
-          }
-        );
-    }
-}
-
+/*
+ * sub_list, sub_timeline script
+ */
 $('.timeline-li').on('click', function(event){
     $(this).siblings('li').removeClass('on');
     $(this).addClass('on');
@@ -178,7 +146,6 @@ $('.timeline-li').on('click', function(event){
       }
     );
 });
-
 $('.sublist-li').on('click', function(event){
     $(this).siblings('li').removeClass('on');
     $(this).addClass('on');
@@ -203,3 +170,94 @@ $('.sublist-li').on('click', function(event){
       }
     );
 });
+
+
+/*
+ * textviewer script
+ */
+// $("a태그 클래스명").prop('href', 변경되는 url);
+$(".newWindowBtn").prop("href","http://www.daum.net");
+// 노트 삭제
+$(".noteDelBtn").on("click", noteDelete);
+function noteDelete()
+{
+    var n_idx = $('.p-info').data('n_idx');
+    var t_idx = $('.p-info').data('t_idx');
+
+    if(confirm('삭제된 노트는 복구가 절대 불가능합니다. 삭제하시겠습니까?'))
+    {
+        $.post(
+          "rpcDeleteNote"
+          ,{
+               "n_idx" : n_idx 
+           }
+          ,function(data, status) {
+            if (status == "success" && data.code == 1)
+            {
+                alert(data.msg);
+                window.location.reload();
+                // console.log(data.aNoteDetail); 
+            }
+            // 삭제 실패
+            else
+            {
+                alert(data.msg);
+            }
+          }
+        );
+    }
+}
+// 글 삭제
+$(".articleDelBtn").on("click", articleDelete);
+function articleDelete()
+{
+    var t_idx = $('.p-info').data('t_idx');
+
+    if(confirm('삭제된 글감은 휴지통으로 이동됩니다.'))
+    {
+        $.post(
+          "rpcDeleteArticle"
+          ,{
+               "t_idx" : t_idx 
+           }
+          ,function(data, status) {
+            if (status == "success" && data.code == 1)
+            {
+                window.location.reload();
+                // console.log(data.aNoteDetail); 
+            }
+            // 삭제 실패
+            else
+            {
+                alert(data.msg);
+            }
+          }
+        );
+    }
+}
+
+// 북마크
+$(".bookmarkBtn").on("click", articleBookmark);
+function articleBookmark()
+{
+    var t_idx = $('.p-info').data('t_idx');
+
+    $.post(
+      "rpcBookmarkArticle"
+      ,{
+           "t_idx" : t_idx 
+       }
+      ,function(data, status) {
+        if (status == "success" && data.code == 1)
+        {
+            window.location.reload();
+            // console.log(data.aNoteDetail); 
+        }
+        // 삭제 실패
+        else
+        {
+            alert(data.msg);
+        }
+      }
+    );
+}

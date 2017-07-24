@@ -53,7 +53,32 @@ class Note extends CI_Controller {
         $this->load->view('common/container', $data);
     }
 
-    public function deleteNote()
+    ##########################
+    ###### RPC Function ######
+    ##########################
+    public function rpcGetNoteInfo()
+    {
+        $n_idx = $this->input->post('n_idx');
+
+        $aResult = array(
+             "code"  => 1
+            ,"msg"   => "OK"
+            ,"aNoteDetail" => $this->_getNoteDetailInfo($n_idx) 
+        );
+
+        response_json($aResult);
+        die;
+    } 
+    private function _getNoteDetailInfo($n_idx)
+    {
+        edu_get_instance('NoteClass');
+
+        $aNoteDetailInfo = NoteClass::getNoteDetailInfo($n_idx);
+
+        return $aNoteDetailInfo;
+    } 
+
+  public function rpcDeleteNote()
     {
         $n_idx = $this->input->post('n_idx');
 
@@ -81,33 +106,6 @@ class Note extends CI_Controller {
         $bRes = $oNoteModel->note_model->deleteNote($n_idx);
         return $bRes;
     }
-
-
-    ##########################
-    ###### RPC Function ######
-    ##########################
-    public function rpcGetNoteInfo()
-    {
-        $n_idx = $this->input->post('n_idx');
-
-        $aResult = array(
-             "code"  => 1
-            ,"msg"   => "OK"
-            ,"aNoteDetail" => $this->_getNoteDetailInfo($n_idx) 
-        );
-
-        response_json($aResult);
-        die;
-    } 
-
-    private function _getNoteDetailInfo($n_idx)
-    {
-        edu_get_instance('NoteClass');
-
-        $aNoteDetailInfo = NoteClass::getNoteDetailInfo($n_idx);
-
-        return $aNoteDetailInfo;
-    } 
 
 
 /*

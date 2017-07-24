@@ -209,16 +209,73 @@ $config['query'] = array(
             'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
                           FROM text_bank
                          WHERE usn = ?
+                           AND deltype is NULL
                            AND category_idx is NULL
                          ORDER BY t_idx DESC'
             ,'data' => array('usn')
             ,'btype'=> 'i'
             ,'null' => array()
         )
+        ,'getArticleBookmarkInfo' => array(
+            'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
+                          FROM text_bank
+                         WHERE usn = ?
+                           AND bookmark = ?
+                           AND deltype is NULL
+                           AND category_idx is NULL
+                         ORDER BY t_idx DESC'
+            ,'data' => array('usn','bookmark')
+            ,'btype'=> 'is'
+            ,'null' => array()
+        )
+        ,'getArticleTrashInfo' => array(
+            'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
+                          FROM text_bank
+                         WHERE usn = ?
+                           AND deltype = ?
+                         ORDER BY t_idx DESC'
+            ,'data' => array('usn','deltype')
+            ,'btype'=> 'is'
+            ,'null' => array()
+        )
         ,'getArticleInfoByTidx' => array(
             'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
                           FROM text_bank
                          WHERE t_idx = ?'
+            ,'data' => array('t_idx')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
+        ,'deleteArticle' => array(
+            'query' => "UPDATE text_bank
+                           SET deltype = ?
+                              ,deldate = ?
+                         WHERE t_idx = ?"
+            ,'data' => array('deltype', 'deldate', 't_idx')
+            ,'btype'=> 'ssi'
+            ,'null' => array()
+        )
+        ,'chkBookmarkArticle' => array(
+            'query' => "UPDATE text_bank
+                           SET bookmark = ?
+                         WHERE t_idx = ?"
+            ,'data' => array('bookmark', 't_idx')
+            ,'btype'=> 'si'
+            ,'null' => array()
+        )
+        ,'unchkBookmarkArticle' => array(
+            'query' => "UPDATE text_bank
+                           SET bookmark = NULL
+                         WHERE t_idx = ?"
+            ,'data' => array('t_idx')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
+        ,'isBookmarkArticle' => array(
+            'query' => "SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
+                          FROM text_bank
+                         WHERE t_idx = ?
+                           AND bookmark = 'Y'"
             ,'data' => array('t_idx')
             ,'btype'=> 'i'
             ,'null' => array()

@@ -4,26 +4,26 @@ class ArticleClass {
 
     public function __construct()
     {
-        $a = func_get_args();
-        $i = func_num_args();
-        if (method_exists($this,$f='__construct'.$i))
-        {
-        call_user_func_array(array($this,$f),$a);
-        }
-    }
-    public function  __construct1($usn)
-    {
-        if(!$usn) return false;
-        
-        $this->usn = $usn;
-
-        $this->oArticleInfo = $this->_getArticleInfo($this->usn);
     }
 
-    private function _getArticleInfo($usn)
+    public static function getArticleInfo($usn)
     {
         $oArticleModel = edu_get_instance('article_model', 'model');
         $aArticleInfo = $oArticleModel->article_model->getArticleInfoByUsn($usn);
+
+        return $aArticleInfo;
+    }
+    public static function getArticleBookmarkInfo($usn)
+    {
+        $oArticleModel = edu_get_instance('article_model', 'model');
+        $aArticleInfo = $oArticleModel->article_model->getArticleBookmarkInfo($usn);
+
+        return $aArticleInfo;
+    }
+    public static function getArticleTrashInfo($usn)
+    {
+        $oArticleModel = edu_get_instance('article_model', 'model');
+        $aArticleInfo = $oArticleModel->article_model->getArticleTrashInfo($usn);
 
         return $aArticleInfo;
     }
