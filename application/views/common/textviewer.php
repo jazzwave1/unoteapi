@@ -1,5 +1,5 @@
 <?php
-$controller = $this->uri->segment(1);
+$controller = strtolower($this->uri->segment(1));
 ?>
                 <!--detailView-->
                 <div id="detailView">
@@ -14,11 +14,11 @@ $controller = $this->uri->segment(1);
                                         </div>
                                         <div class="p-btn">
                                             <ul class="clearfix">
-                                                <li class="<?=($controller == 'Note') ? 'hide' : 'bookmarkBtn'?>">
+                                                <li class="<?=($controller == 'note') ? 'hide' : 'bookmarkBtn'?>">
                                                     <i class="fa fa-bookmark fa-1g" aria-hidden="true"></i>
                                                     <!--<div>북마크</div>-->
                                                 </li>
-                                                <li class="<?=($controller == 'Note') ? 'hide' : 'moveCategBtn'?>">
+                                                <li class="<?=($controller == 'note') ? 'hide' : 'moveCategBtn'?>">
                                                     <i class="fa fa-road fa-1g" aria-hidden="true"></i>
                                                     <!--<div>이동</div>-->
                                                 </li>
@@ -28,7 +28,7 @@ $controller = $this->uri->segment(1);
                                                     </a>
                                                     <!--<div>새창</div>-->
                                                 </li>
-                                                <li class="<?=($controller == 'Note') ? 'noteDelBtn' : 'articleDelBtn'?>">
+                                                <li class="<?=($controller == 'note') ? 'noteDelBtn' : 'articleDelBtn'?>">
                                                     <i class="fa fa-trash-o fa-1g" aria-hidden="true"></i>
                                                     <!--<div>휴지통</div>-->
                                                 </li>
