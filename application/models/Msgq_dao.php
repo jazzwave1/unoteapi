@@ -48,7 +48,7 @@ class Msgq_dao extends Common_dao
     public function getMyFilter($account, $sValue, $nBindCount)
     {
         $btype = 's';
-        $query = "select corperation, site, board
+        $query = "select corporation, site, board
                     from req_filter
                    where account = ?
                      and rf_idx in (";

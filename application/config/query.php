@@ -117,9 +117,9 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'insertReqFilter' => array(
-            'query' => 'INSERT INTO req_filter(account, corperation, site, board)
+            'query' => 'INSERT INTO req_filter(account, corporation, site, board)
                         VALUES (?,?,?,?)'
-           ,'data' => array('account', 'corperation', 'site', 'board')
+           ,'data' => array('account', 'corporation', 'site', 'board')
            ,'btype'=> 'ssss'
            ,'null' => array('site', 'board')
        )

@@ -18,13 +18,13 @@ class Crawling_model extends CI_model{
 
         return false;
     }
-    public function setReqFilter($usn, $corperation, $site, $board)
+    public function setReqFilter($usn, $corporation, $site, $board)
     {
         if(!$usn || !$corperation) return false;
 
         $aInput = array(
             "account"=>$usn
-            ,"corperation"=>$corperation
+            ,"corporation"=>$corporation
             ,"site"=>$site
             ,"board"=>$board
         );

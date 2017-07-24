@@ -39,22 +39,30 @@ class MSGQClass {
 
         $aRtn = SELF::setFilterString($aMQList);
 
-        $sCorperation = "";
+        $sCorporation = "";
         $sSite = "";
         $sBoard = "";
 
+        echo "<!--";
+        print_r($aRtn);
+        echo "-->";
+
         foreach($aRtn as $key=>$val)
         {
-            foreach ($val->aMyFilter as $k=>$v)
+            if($val->aMyFilter)
             {
-                $sCorperation = $v->corperation;
-                $sSite .= $v->site." / "; 
-                $sBoard .= $v->board." / "; 
+                foreach ($val->aMyFilter as $k=>$v)
+                {
+                    $sCorporation = $v->corporation;
+                    $sSite .= $v->site." / "; 
+                    $sBoard .= $v->board." / "; 
+                }
+
             }
-            $aRtn[$key]->sCorperation = $sCorperation;
+            $aRtn[$key]->sCorporation = $sCorporation;
             $aRtn[$key]->sSite = $sSite;
             $aRtn[$key]->sBoard = $sBoard;
-            $sCorperation = "";
+            $sCorporation = "";
             $sSite = "";
             $sBoard = "";
         }
@@ -67,10 +75,16 @@ class MSGQClass {
         
         foreach($aMQList as $key=>$val)
         {
-            $sValue = str_replace('|',',',$val->req_filter, $count);
-            $nBindCount = $count + 1;  
+            if($val->req_filter)
+            {
+                $sValue = str_replace('|',',',$val->req_filter, $count);
+                $nBindCount = $count + 1;  
 
-            $aMQList[$key]->aMyFilter = $msgq_model->getMyFilter($val->account, $sValue, $nBindCount);
+                $aMQList[$key]->aMyFilter = $msgq_model->getMyFilter($val->account, $sValue, $nBindCount);
+           
+            }
+            else
+                $aMQList[$key]->aMyFilter = "";
         }
         return $aMQList;        
     }
