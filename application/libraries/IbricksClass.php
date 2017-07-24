@@ -23,17 +23,20 @@ class IbricksClass {
         // result 결과를 처리 하는 부분은 추가적으로 확인 해야 함
         echo sendCURLPost($sURL, $params); 
     } 
-    public static function crawlMyPost($user_id, $user_pwd, $account, $siteid, $q_idx)
+    public static function crawlMyPost($q_idx, $user_id, $user_pwd, $accessToken)
     {
         $sURL = IBRICKS."/crawlMyPost"; 
 
         $params = array(
-             "uid"    => $account 
-            ,"siteid" => $siteid
-            ,"user"   => $user_id
-            ,"pw"     => $user_pwd
-            ,"q_idx"  => $q_idx
+             "qIdx" => $q_idx
+            ,"user" => $user_id
+            ,"pw"   => $user_pwd
+            ,"accessToken" => $accessToken
         );
+
+       //echo "<pre>";
+       //print_r($params);
+       //die;
 
         // result 결과를 처리 하는 부분은 추가적으로 확인 해야 함
         echo sendCURLPost($sURL, $params); 
@@ -42,12 +45,14 @@ class IbricksClass {
     //////////////////////////////
     ///////// 맞춤법 API /////////
     //////////////////////////////
-    public static function spellCheckFromString($sStr)
+    //public static function spellCheckFromString($sStr)
+    public static function spellCheckFromString($nIdx, $sIdx)
     {
         $sURL = IBRICKS."/spellCheck"; 
 
         $params = array(
-             "in" => $sStr
+              "nIdx" => $nIdx
+             ,"sIdx" => $sIdx
         );
 
         // result 결과를 처리 하는 부분은 추가적으로 확인 해야 함

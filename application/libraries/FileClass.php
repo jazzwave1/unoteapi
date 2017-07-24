@@ -1,33 +1,36 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');ㅊ
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class FileClass
 {
     public function __construct()
     {
+        $this->sFilePath = "/Users/hojunlee/Sites/unoteapi/static/uploadfile/";
+        $this->sLink = HOSTURL."/static/uploadfile/";
     }
 
-    public function getFile($fileName)
+    public function getFileLink($usn, $fileName)
     {
-        //header
-
-        $filePath = _getFilePath($fileName);
-
-        if($fp = fopen($filePath, "r"))
-        {
-        }
-        fclose($fp);
+        echo $this->sLink.$usn."/".$fileName;     
     }
-
-    public function saveFile($fileName)
+    public function saveFile($usn, $oFile)
     {
-        $config = $this->_setFileUploadConfig();
+        $config['upload_path']   = $this->sFilePath.$usn."/";
+        $config['allowed_types'] = 'GIF|JPG|PNG|gif|jpg|png';
+        $config['max_size']      = '1000';
+//       $config['max_width']     = '1024';
+//       $config['max_height']    = '768';
+
+        $_FILES = $oFile;
+
+        $CI = & get_instance();
+        $CI->load->library('upload', $config); 
 
         if(!is_dir($config['upload_path']))
         {
             mkdir($config['upload_path'], 0755, true);
         }
 
-        if(!$this->upload->do_upload($fileName))
+        if(!$CI->upload->do_upload())
         {
             echo 'Error upload';
             die();
@@ -38,18 +41,10 @@ class FileClass
             die();
         }
     }
-
-    private function _setFileUploadConfig()
+    public function deleteFile($usn, $fileName)
     {
-        $aConfig['upload_path'] = $this->filePath;
-
-        return $aConfig;
-    }
-
-    public function deleteFile($fileName)
-    {
-        $filePath = _getFilePath($fileName);
-
+        $filePath = $this->sFilePath.$usn."/".$fileName;
+        
         if(!file_exists($filePath))
         {
             return false;
@@ -65,13 +60,6 @@ class FileClass
             echo "Seccess delete";
             die();
         }
-    }
-
-    private function _getFilePath($fileName)
-    {
-        $filePath = 'document/file/'.$fileName;
-
-        return $filePath;
     }
 
 }

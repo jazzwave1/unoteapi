@@ -39,22 +39,45 @@ class ibricks extends CI_Controller {
 
     }
 
-    public function apiSpellCheck($sIn='')
+    //public function apiSpellCheck($sIn='')
+    public function apiSpellCheck($nIdx='', $sIdx='')
     {
-        if(!$sIn) 
+        if(!$nIdx) 
         {
             response_json(array('code'=>999, 'msg'=>'input param check')); 
             die;
         }
 
-        $sResultJson = IbricksClass::spellCheckFromString($sIn);
+        //$sResultJson = IbricksClass::spellCheckFromString($sIn);
+        $sResultJson = IbricksClass::spellCheckFromString($nIdx, $sIdx);
         $aResultJson = json_decode($sResultJson);
         
         // test code
         echo "<pre>";
         echo "* Target Server : ". IBRICKS ."<br>"; 
         echo "* Function : spellCheck <br>"; 
-        echo "* sIn : ". $sIn ."<br>"; 
+        echo "* nIdx : ". $nIdx ."<br>"; 
+        echo "* sIdx : ". $sIdx ."<br>"; 
+        echo "* Result json String  : ". $sResultJson  . "<br>" ;
+        echo "* Result array : ";
+        print_r($aResultJson);
+        echo "<br>";  
+    }
+    public function apiCrawMyPost($q_idx, $user_id, $user_pwd, $accessToken="")
+    {
+        $user_id  = urldecode($user_id);
+        $user_pwd = urldecode($user_pwd);
+        $sResultJson = IbricksClass::crawlMyPost($q_idx, $user_id, $user_pwd, $accessToken);
+        $aResultJson = json_decode($sResultJson);
+        
+        // test code
+        echo "<pre>";
+        echo "* Target Server : ". IBRICKS ."<br>"; 
+        echo "* Function : crawlMyPost <br>"; 
+        echo "* qIdx : ". $q_idx."<br>"; 
+        echo "* user : ". $user_id ."<br>"; 
+        echo "* pw: ". $user_pwd."<br>"; 
+        echo "* accessToken: ". $accessToken."<br>"; 
         echo "* Result json String  : ". $sResultJson  . "<br>" ;
         echo "* Result array : ";
         print_r($aResultJson);
