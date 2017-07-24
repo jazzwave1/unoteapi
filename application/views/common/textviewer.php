@@ -14,19 +14,23 @@ $controller = $this->uri->segment(1);
                                         </div>
                                         <div class="p-btn">
                                             <ul class="clearfix">
-                                                <li <?=($controller == 'Note') ? 'class="hide"' : ''?>>
+                                                <li <?=($controller == 'Note') ? 'class="hide"' : 'class="bookMark"'?>>
                                                     <i class="fa fa-bookmark fa-1g" aria-hidden="true"></i>
-                                                    <!--<div>북마크</div>-->
+                                                    <!--<div>북마크</div>-->r
                                                 </li>
-                                                <li class="hide">
-                                                    <i class="fa fa-road fa-1g" aria-hidden="true"></i>
-                                                    <!--<div>이동</div>-->
+                                                <li <?=($controller == 'Note') ? 'class="hide"' : 'class="moveCateg"'?>>
+                                                    <i class="fa fa-clipboard fa-1g" aria-hidden="true"></i>
+                                                    <!--<div>카테고리 이동</div>-->
                                                 </li>
                                                 <li class="newWindow">
                                                     <a class="newWindowBtn" target="_blank" href="" onClick="window.open(this.href,'window','width=750,height=750,left=0,top=0')">
                                                         <i class="fa fa-external-link fa-1g " aria-hidden="true"></i>
                                                     </a>
                                                     <!--<div>새창</div>-->
+                                                </li>
+                                                <li class="copyLink">
+                                                    <i class="fa fa-link" aria-hidden="true"></i>
+                                                    <!--<div>링크복사</div>-->
                                                 </li>
                                                 <li class="noteDelBtn">
                                                     <i class="fa fa-trash-o fa-1g" aria-hidden="true"></i>
