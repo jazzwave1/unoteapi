@@ -261,3 +261,7 @@ function articleBookmark()
       }
     );
 }
+//카테고리 이동 창
+$(".moveCateg").click(function(){
+    $(".selCateg").toggleClass("on");
+});
