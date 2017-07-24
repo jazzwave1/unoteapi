@@ -376,6 +376,9 @@
 
     position: relative;
 }
+a.moveCategBtn.on{
+     color: #fdd66d;
+ }
 .p-top .p-btn ul li.moveCateg .selCateg{
     display: none;
     position: absolute;

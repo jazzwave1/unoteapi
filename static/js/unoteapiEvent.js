@@ -263,5 +263,6 @@ function articleBookmark()
 }
 //카테고리 이동 창
 $(".moveCategBtn").click(function(){
+    $(".moveCategBtn").toggleClass("on");
     $(".selCateg").toggleClass("on");
 });
