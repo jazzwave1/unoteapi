@@ -25,7 +25,7 @@
                                         <div class="cafeInfo ">
                                             <div class="cafeinner clearfix">
                                                 <div class="cafeLogo">
-                                                    <img src="../static/images/icon/logo_naver.png" alt="네이버로고">
+                                                    <p><img src="../static/images/icon/logo_naver.png" alt="네이버로고"></p>
                                                     <!--<img src="../static/images/icon/logo_daum.png" alt="다음로고">
                                                     <img src="../static/images/icon/logo_facebook.png" alt="페이스북로고">-->
                                                     <?=$oSublist->craw_data->corporation?>

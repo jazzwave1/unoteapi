@@ -264,6 +264,9 @@
     text-align: center;
     border-radius: 50%;
 }
+.cafeInfo .cafeLogo p{
+    padding: 10px;
+}
 .cafeInfo .cafeLogo img{
     width: 100%;
     height:100%;
@@ -289,7 +292,7 @@
 }
 .cafeInfo .cafeTxt p{
 }
-.cafeInfo div.deleteBtn{
+.cafeInfo div.bookMarkBtn{
     width: 20px;
     position: absolute;
     right: 10px;
