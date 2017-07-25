@@ -34,6 +34,12 @@ class Article_dao extends Common_dao
         return $this->actModelFuc($aConfig, $aParam);
     }
 
+    public function getArticleCategoryInfo($aParam=array())
+    {
+        $aConfig = $this->queryInfoArticle['getArticleCategoryInfo'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+
     public function getArticleInfoByTidx($aParam=array())
     {
         $aConfig = $this->queryInfoArticle['getArticleInfoByTidx'];
@@ -42,6 +48,11 @@ class Article_dao extends Common_dao
     public function deleteArticle($aParam=array())
     {
         $aConfig = $this->queryInfoArticle['deleteArticle'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function deleteTrash($aParam=array())
+    {
+        $aConfig = $this->queryInfoArticle['deleteTrash'];
         return $this->actModelFuc($aConfig, $aParam);
     }
     public function chkBookmarkArticle($aParam=array())

@@ -33,4 +33,9 @@ class Category_dao extends Common_dao
         $aConfig = $this->queryInfoCategory['deleteCategory'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    public function goCategory($aParam=array())
+    {
+        $aConfig = $this->queryInfoCategory['goCategory'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
 }

@@ -30,6 +30,10 @@ class Article extends CI_Controller {
         $this->_getArticleList('trash');
     }
 
+    public function Category($category_idx)
+    {
+        $this->_getArticleList('category', $category_idx);
+    }
 
     ##########################
     ###### RPC Function ######
@@ -90,6 +94,35 @@ class Article extends CI_Controller {
         return $bRes;
     }
 
+    public function rpcDeleteTrash()
+    {
+        $t_idx = $this->input->post('t_idx');
+
+        if($this->_deleteTrash($t_idx))
+        {
+            $aResult = array(
+                 "code"  => 1
+                ,"msg"   => "OK"
+            );            
+        }
+        else
+        {
+            $aResult = array(
+                 "code"  => 999
+                ,"msg"   => "Error"
+            );                  
+        }
+
+        response_json($aResult);
+        die;
+    }
+    private function _deleteTrash($t_idx)
+    {
+        $oArticleModel = edu_get_instance('article_model', 'model');
+        $bRes = $oArticleModel->article_model->deleteTrash($t_idx);
+        return $bRes;
+    }
+
     public function rpcBookmarkArticle()
     {
         $t_idx = $this->input->post('t_idx');
@@ -133,6 +166,36 @@ class Article extends CI_Controller {
     {
         $oArticleModel = edu_get_instance('article_model', 'model');
         $bRes = $oArticleModel->article_model->isBookmarkArticle($t_idx);
+        return $bRes;
+    }
+
+    public function rpcGoCategoryArticle()
+    {
+        $category_idx = $this->input->post('c_idx');
+        $t_idx = $this->input->post('t_idx');  
+
+        if($this->_goCategory($category_idx, $t_idx))
+        {
+            $aResult = array(
+                 "code"  => 1
+                ,"msg"   => "OK"
+            );            
+        }
+        else
+        {
+            $aResult = array(
+                 "code"  => 999
+                ,"msg"   => "Error"
+            );                  
+        }
+
+        response_json($aResult);
+        die;
+    }
+    private function _goCategory($category_idx, $t_idx)
+    {
+        edu_get_instance('CategoryClass');
+        $bRes = CategoryClass::goCategory($category_idx, $t_idx);
         return $bRes;
     }
 
@@ -197,7 +260,7 @@ class Article extends CI_Controller {
         $bRes = CategoryClass::delCategory($category_idx);
         return $bRes;
     }
-    private function _getArticleList($sType)
+    private function _getArticleList($sType, $category_idx=0)
     {
         $usn = $this->_getUsn();
 
@@ -208,25 +271,40 @@ class Article extends CI_Controller {
             die;
         }
 
+        $this->load->library('MenuClass');
+        $aMenuList = MenuClass::getMenuList($usn);
+
         $aVdata = array();
         if($sType == 'list')
         {
-            $aVdata['menu'] = getMenuData('Article','List');
+            $aVdata['menu'] = $aMenuList['Article']['sub']['List'];
             $aVdata['sublist'] = ArticleClass::getArticleInfo($usn);
         }
         else if($sType == 'bookmark')
         {
-            $aVdata['menu'] = getMenuData('Article','Bookmark');
+            $aVdata['menu'] = $aMenuList['Article']['sub']['Bookmark'];
             $aVdata['sublist'] = ArticleClass::getArticleBookmarkInfo($usn);
         }
         else if($sType == 'trash')
         {
-            $aVdata['menu'] = getMenuData('Article','Trash');
+            $aVdata['menu'] = $aMenuList['Article']['sub']['Trash'];
             $aVdata['sublist'] = ArticleClass::getArticleTrashInfo($usn);
+        }
+        else if($sType == 'category')
+        {
+            $aVdata['menu'] = $aMenuList['Category']['sub'][$category_idx];
+            $aVdata['sublist'] = ArticleClass::getArticleCategoryInfo($usn, $category_idx);
+        }
+
+        $aVdata['sublist_cnt'] = 0;
+        if(is_array($aVdata['sublist']))
+        {
+            $aVdata['sublist_cnt'] = count($aVdata['sublist']);
         }
 
         $data = array(
              'vdata' => $aVdata
+            ,'aMenuList' => $aMenuList
             ,'contents' => 'article/list'
         );
 

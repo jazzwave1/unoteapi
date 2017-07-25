@@ -195,6 +195,14 @@ $config['query'] = array(
            ,'btype'=> 'i'
            ,'null' => array()
         )
+        ,'goCategory' => array(
+            'query' => 'UPDATE text_bank
+                           SET category_idx = ?
+                         WHERE t_idx = ?'
+           ,'data' => array('category_idx', 't_idx')
+           ,'btype'=> 'ii'
+           ,'null' => array()
+        )
     )
     ,'article' => array(
         'updateTextbankForCidx' => array(
@@ -238,6 +246,17 @@ $config['query'] = array(
             ,'btype'=> 'is'
             ,'null' => array()
         )
+        ,'getArticleCategoryInfo' => array(
+            'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
+                          FROM text_bank
+                         WHERE usn = ?
+                           AND category_idx = ?
+                           AND deltype is NULL
+                         ORDER BY t_idx DESC'
+            ,'data' => array('usn','category_idx')
+            ,'btype'=> 'is'
+            ,'null' => array()
+        )
         ,'getArticleInfoByTidx' => array(
             'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
                           FROM text_bank
@@ -253,6 +272,14 @@ $config['query'] = array(
                          WHERE t_idx = ?"
             ,'data' => array('deltype', 'deldate', 't_idx')
             ,'btype'=> 'ssi'
+            ,'null' => array()
+        )
+        ,'deleteTrash' => array(
+            'query' => "DELETE 
+                         FROM text_bank
+                        WHERE t_idx=?"
+            ,'data' => array('t_idx')
+            ,'btype'=> 'i'
             ,'null' => array()
         )
         ,'chkBookmarkArticle' => array(

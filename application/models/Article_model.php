@@ -60,7 +60,7 @@ class  Article_model extends CI_model{
     {
         if(!$usn) return false;
 
-        $aInput = array('usn'=>$usn,'deltype'=>'DEL');
+        $aInput = array('usn'=>$usn, 'deltype'=>'DEL');
 
         $aArticleInfo = $this->article_dao->getArticleTrashInfo($aInput);
 
@@ -76,6 +76,25 @@ class  Article_model extends CI_model{
         return $aArticleInfo;
     }
 
+    public function getArticleCategoryInfo($usn, $category_idx)
+    {
+        if(!$usn) return false;
+
+        $aInput = array('usn'=>$usn, 'category_idx'=>$category_idx);
+
+        $aArticleInfo = $this->article_dao->getArticleCategoryInfo($aInput);
+
+        if(isset($aArticleInfo) && is_array($aArticleInfo) )
+        {
+            foreach ($aArticleInfo as $key => $oData)
+            {
+                $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
+                $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
+            }
+        }
+
+        return $aArticleInfo;
+    }
     public function getArticleDetailInfo($t_idx)
     {
         if(!$t_idx) return false;
@@ -86,9 +105,11 @@ class  Article_model extends CI_model{
 
         $aArticleDetailInfo = $this->article_dao->getArticleInfoByTidx($aInput);
 
+
         foreach ($aArticleDetailInfo as $key => $oData)
         {
             $aArticleDetailInfo[$key]->craw_data = json_decode($oData->craw_data);
+            $aArticleDetailInfo[$key]->craw_data->contents = nl2br($aArticleDetailInfo[$key]->craw_data->contents);
             $aArticleDetailInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
         }
 
@@ -108,6 +129,17 @@ class  Article_model extends CI_model{
         
         return false;
     }
+    public function deleteTrash($t_idx)
+    {
+        if(!$t_idx) return false;
+
+        $aInput = array('t_idx' => $t_idx);
+
+        if( $this->article_dao->deleteTrash($aInput) )
+            return true;
+        
+        return false;
+    }    
     public function chkBookmarkArticle($t_idx)
     {
         if(!$t_idx) return false;

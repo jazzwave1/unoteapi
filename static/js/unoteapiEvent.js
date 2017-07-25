@@ -153,7 +153,7 @@ $('.sublist-li').on('click', function(event){
     var t_idx = $(this).data( "t_idx" );
 
     $.post(
-      "rpcGetArticleInfo"
+      "/unoteapi/Article/rpcGetArticleInfo"
       ,{
            "t_idx" : t_idx 
        }
@@ -182,7 +182,6 @@ $(".noteDelBtn").on("click", noteDelete);
 function noteDelete()
 {
     var n_idx = $('.p-info').data('n_idx');
-    var t_idx = $('.p-info').data('t_idx');
 
     if(confirm('삭제된 노트는 복구가 절대 불가능합니다. 삭제하시겠습니까?'))
     {
@@ -208,7 +207,39 @@ function noteDelete()
     }
 }
 // 글 삭제
-$(".articleDelBtn").on("click", articleDelete);
+$(".articleDelBtn").on("click", function(){
+  var type = $('.p-info').data('type');
+
+  if(type == 'trash')      trashDelete();
+  else                     articleDelete();
+});
+function trashDelete()
+{
+    var t_idx = $('.p-info').data('t_idx');
+
+    if(confirm('휴지통에서 삭제한 글감은 복구가 절대 불가능합니다. 삭제하시겠습니까?'))
+    {
+        $.post(
+          "rpcDeleteTrash"
+          ,{
+               "t_idx" : t_idx 
+           }
+          ,function(data, status) {
+            if (status == "success" && data.code == 1)
+            {
+                window.location.reload();
+                // console.log(data.aNoteDetail); 
+            }
+            // 삭제 실패
+            else
+            {
+                alert(data.msg);
+            }
+          }
+        );
+    }
+}
+// $(".articleDelBtn").on("click", articleDelete);
 function articleDelete()
 {
     var t_idx = $('.p-info').data('t_idx');
@@ -237,13 +268,13 @@ function articleDelete()
 }
 
 // 북마크
-$(".bookmarkBtn").on("click", articleBookmark);
+$(".bookMark").on("click", articleBookmark);
 function articleBookmark()
 {
     var t_idx = $('.p-info').data('t_idx');
 
     $.post(
-      "rpcBookmarkArticle"
+      "/unoteapi/Article/rpcBookmarkArticle"
       ,{
            "t_idx" : t_idx 
        }
@@ -266,3 +297,30 @@ $(".moveCategBtn").click(function(){
     $(".moveCategBtn").toggleClass("on");
     $(".selCateg").toggleClass("on");
 });
+// 카테고리 이동 이벤트
+$(".goCateg").on("click", goCateg);
+function goCateg()
+{
+    var c_idx = $(this).data('c_idx');
+    var t_idx = $('.p-info').data('t_idx');
+
+    $.post(
+      "/unoteapi/Article/rpcGoCategoryArticle"
+      ,{
+           "c_idx" : c_idx 
+           ,"t_idx" : t_idx 
+       }
+      ,function(data, status) {
+        if (status == "success" && data.code == 1)
+        {
+            window.location.reload();
+            // console.log(data.aNoteDetail); 
+        }
+        // 삭제 실패
+        else
+        {
+            alert(data.msg);
+        }
+      }
+    );
+}

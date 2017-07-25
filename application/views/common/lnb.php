@@ -1,14 +1,6 @@
                 <!--lnb-->
                 <div id="lnb" class="full-left-nav">
                     <div class="lnb-inner navList">
-<?php
-    // test code
-    $usn = 1;
-
-    $this->load->library('MenuClass');
-    $aMenuList = MenuClass::getMenuList($usn);
-?>
-
 <!--menu-->
 <?php foreach ($aMenuList as $controller => $aMenuData): ?>
                         <div class="lnbItem">
@@ -31,7 +23,7 @@
                 <!--category-->
                 <?php if($controller == 'Category'): ?>
                                 <li id="category_<?=$method?>">
-                                    <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>"><span class="categTit" id="categTit_<?=$method?>"><?=$aMenuSubData['subtitle']?></span></a>
+                                    <a href="<?=HOSTURL?>/Article/<?=$controller?>/<?=$method?>"><span class="categTit" id="categTit_<?=$method?>"><?=$aMenuSubData['subtitle']?></span></a>
                                     <!--<input id="categInput_<?=$method?>" type="text" value="<?=$aMenuSubData['subtitle']?>" onkeypress="if(event.keyCode==13) {editCategory(this);}">-->
                                     <div class="categBtn">
                                         <span class="categEditBtn"><i class="fa fa-pencil" aria-hidden="true"></i></span>
@@ -68,7 +60,7 @@
 <!--//menu-->
                         <!--새글쓰기 버튼-->
                         <div class="newNoteBtn">
-                            <a href="#"><i class="fa fa-file-text-o" aria-hidden="true"></i>새글쓰기</a>
+                            <a href="/unote" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i>새글쓰기</a>
                         </div>
                     </div>
                 </div>

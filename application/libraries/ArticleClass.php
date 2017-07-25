@@ -27,6 +27,13 @@ class ArticleClass {
 
         return $aArticleInfo;
     }
+    public static function getArticleCategoryInfo($usn, $category_idx)
+    {
+        $oArticleModel = edu_get_instance('article_model', 'model');
+        $aArticleInfo = $oArticleModel->article_model->getArticleCategoryInfo($usn, $category_idx);
+
+        return $aArticleInfo;
+    }
 
     public static function getArticleDetailInfo($t_idx)
     {

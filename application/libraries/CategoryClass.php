@@ -31,7 +31,11 @@ class CategoryClass {
             return $article_model->updateTextbankForCidx($category_idx);
         }
         return false;
-
     }
 
+    public static function goCategory($category_idx, $t_idx)
+    {
+        $category_model = edu_get_instance('category_model', 'model');
+        return $category_model->goCategory($category_idx, $t_idx);
+    }
 }

@@ -1,5 +1,15 @@
 <?php
 $controller = strtolower($this->uri->segment(1));
+$method = strtolower($this->uri->segment(2));
+
+// test code
+$usn = 1;
+$this->load->library('MenuClass');
+$aMenuList = MenuClass::getMenuList($usn);
+$aCategory = $aMenuList['Category']['sub'];
+
+// echo '<pre>aCategory: '. print_r( $aCategory, true ) .'</pre>';
+// die();
 ?>
                 <!--detailView-->
                 <div id="detailView">
@@ -8,7 +18,7 @@ $controller = strtolower($this->uri->segment(1));
                             <div class="p-top clearfix">
                                 <div class="top-inner">
                                     <div class="clearfix">
-                                        <div class="p-info" data-n_idx="1" data-t_idx="1">
+                                        <div class="p-info" data-n_idx="1" data-t_idx="1" data-type="<?=$method?>">
                                             <p class="p-date">1999.01.01</p>
                                             <p class="p-tit">제목을 입력하세요</p>
                                         </div>
@@ -27,16 +37,16 @@ $controller = strtolower($this->uri->segment(1));
                                                         <div class="selCateg-inner">
                                                             <div class="selList">
                                                                 <ul>
-                                                                    <li class="new"><i class="fa fa-plus-circle" aria-hidden="true"></i>새 카테고리</li>
-                                                                    <li>라이언</li>
-                                                                    <li>프로도</li>
-                                                                    <li>학교</li>
+                                                                    <!--<li class="new"><i class="fa fa-plus-circle" aria-hidden="true"></i>새 카테고리</li>-->
+                                                                    <?php foreach($aCategory as $c_idx => $aData): ?>
+                                                                    <li class="goCateg" data-c_idx="<?=$c_idx?>" ><?=$aData['subtitle']?></li>
+                                                                <?php endforeach; ?>
                                                                 </ul>
                                                             </div>
-                                                            <div class="selBtn">
+                                                            <!--<div class="selBtn">
                                                                 <div>확인</div>
                                                                 <div>취소</div>
-                                                            </div>
+                                                            </div>-->
                                                         </div>
                                                     </div><!--//카테고리 이동 안내 창-->
                                                 </li>

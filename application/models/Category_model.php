@@ -51,4 +51,16 @@ class Category_model extends CI_model{
         );
         return $this->category_dao->deleteCategory($aInput);
     }
+
+    public function goCategory($category_idx, $t_idx)
+    {
+        if (!$category_idx || !$t_idx) return false;
+
+        $aInput = array(
+             'category_idx'  => $category_idx
+            ,'t_idx' => $t_idx
+        );
+        return $this->category_dao->goCategory($aInput);
+    }
+
 }
