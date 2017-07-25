@@ -10,9 +10,11 @@ class FileClass
 
     public function getFileLink($usn, $fileName)
     {
-        echo $this->sLink.$usn."/".$fileName;     
+        if(!$usn || !$fileName) return false;
+
+        return $this->sLink.$usn."/".$fileName;     
     }
-    public function saveFile($usn, $oFile)
+    public function saveFile($usn, $aFile)
     {
         $config['upload_path']   = $this->sFilePath.$usn."/";
         $config['allowed_types'] = 'GIF|JPG|PNG|gif|jpg|png';
@@ -20,7 +22,7 @@ class FileClass
 //       $config['max_width']     = '1024';
 //       $config['max_height']    = '768';
 
-        $_FILES = $oFile;
+        $_FILES = $aFile;
 
         $CI = & get_instance();
         $CI->load->library('upload', $config); 
@@ -32,14 +34,15 @@ class FileClass
 
         if(!$CI->upload->do_upload())
         {
-            echo 'Error upload';
-            die();
+            // error
+            response_json(array('code'=>999, 'msg'=>'Fail'));
         }
         else
         {
-            echo 'Success upload';
-            die();
+            $sURL = $this->getFileLink($usn, $aFile['userfile']['name']);
+            response_json(array('code'=>1, 'msg'=>'OK', 'sURL'=>$sURL));
         }
+        die; 
     }
     public function deleteFile($usn, $fileName)
     {
