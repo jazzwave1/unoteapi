@@ -403,17 +403,19 @@ a.moveCategBtn.on{
 .selCateg .selCateg-inner{
     padding: 10px 20px 10px;
 }
-.selCateg .selList ul li.new{
+/*.selCateg .selList ul li.new{
     padding-left: 0;
     padding-bottom: 10px;
     font-weight: lighter;
-}
+}*/
 .selCateg .selList ul li{
     float: none;
     padding-bottom: 5px;
-    padding-left: 23px;
     text-align: left;
     font-weight: bold;
+}
+.selCateg .selList ul li i{
+    padding-right: 5px;
 }
 .selCateg .selBtn{
     padding-top: 10px;
