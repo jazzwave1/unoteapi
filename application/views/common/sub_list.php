@@ -24,12 +24,13 @@
                                     <a href="javascript:void(0)">
                                         <div class="cafeInfo ">
                                             <div class="cafeinner clearfix">
-                                                <div class="cafeLogo"><!--<?=$oSublist->craw_data->corperation?>--></div>
+                                                <div class="cafeLogo"><?=$oSublist->craw_data->corporation?></div>
                                                 <div class="cafeTxt">
                                                     <p class="tit"><?=$oSublist->craw_data->title?></p>
                                                     <p></p>
                                                     <p class="date"><?=$oSublist->regdate?></p>
                                                 </div>
+                                                <div class="deleteBtn"><?=$oSublist->bookmark?></div>
                                                 <!-- <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div> -->
                                             </div>
                                         </div>
