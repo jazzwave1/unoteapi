@@ -292,11 +292,20 @@ function articleBookmark()
       }
     );
 }
-//카테고리 이동 창
+//카테고리 이동 버튼 클릭 이벤트
 $(".moveCategBtn").click(function(){
     $(".moveCategBtn").toggleClass("on");
-    $(".selCateg").toggleClass("on");
+    $(".selCateg").show();
 });
+$(document).mouseup(function (e) {
+    var container = $(".selCateg");
+    if (!container.is(e.target) && container.has(e.target).length === 0){
+        container.hide();
+        $(".moveCategBtn").removeClass("on");
+    }
+
+});
+
 // 카테고리 이동 이벤트
 $(".goCateg").on("click", goCateg);
 function goCateg()
