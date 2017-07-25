@@ -35,6 +35,23 @@ class Article extends CI_Controller {
         $this->_getArticleList('category', $category_idx);
     }
 
+    public function viewArticle($t_idx)
+    {
+        $aVdata = array();
+        $aArticleDetailInfo = $this->_getArticleDetailInfo($t_idx);
+
+        $aVdata['t_idx'] = $aArticleDetailInfo->t_idx;
+        $aVdata['title'] = $aArticleDetailInfo->craw_data->title;
+        $aVdata['regdate'] = $aArticleDetailInfo->regdate;
+        $aVdata['contents'] = $aArticleDetailInfo->craw_data->contents;
+
+        $data = array(
+             'vdata' => $aVdata
+        );
+
+        $this->load->view('common/textviewerOpen', $data);
+    }
+
     ##########################
     ###### RPC Function ######
     ##########################

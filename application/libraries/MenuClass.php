@@ -39,6 +39,10 @@ class MenuClass {
             }
         }
 
+        edu_get_instance('ArticleClass');
+        $unread_cnt = ArticleClass::getUnreadArticleCnt($usn);
+        $aMenuList['Article']['sub']['List']['unread_cnt'] = $unread_cnt;
+
         return $aMenuList;
     }
 

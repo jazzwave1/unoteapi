@@ -20,8 +20,7 @@ class Note extends CI_Controller {
 
     public function List()
     {
-        // test code
-        $usn = 1;
+        $usn = $this->_getUsn();
 
         // usn check
         if(! $usn )
@@ -30,8 +29,9 @@ class Note extends CI_Controller {
             die;
         }
 
-        $aVdata = array();
-        $aVdata['menu'] = getMenuData('Note','List');
+        $this->load->library('MenuClass');
+        $aMenuList = MenuClass::getMenuList($usn);
+        $aVdata['menu'] = $aMenuList['Note']['sub']['List'];
 
         $note  = edu_get_instance('NoteClass');
         $oNote = new $note($usn);
@@ -47,10 +47,27 @@ class Note extends CI_Controller {
 
         $data = array(
              'vdata' => $aVdata
+            ,'aMenuList' => $aMenuList
             ,'contents' => 'note/list'
         );
 
         $this->load->view('common/container', $data);
+    }
+    public function viewNote($n_idx)
+    {
+        $aVdata = array();
+        $aNoteDetailInfo = $this->_getNoteDetailInfo($n_idx);
+
+        $aVdata['n_idx'] = $aNoteDetailInfo['n_idx'];
+        $aVdata['title'] = $aNoteDetailInfo['title'];
+        $aVdata['regdate'] = $aNoteDetailInfo['regdate'];
+        $aVdata['contents'] = $aNoteDetailInfo['text'];
+
+        $data = array(
+             'vdata' => $aVdata
+        );
+
+        $this->load->view('common/textviewerOpen', $data);
     }
 
     ##########################
@@ -105,6 +122,13 @@ class Note extends CI_Controller {
         $oNoteModel = edu_get_instance('note_model', 'model');
         $bRes = $oNoteModel->note_model->deleteNote($n_idx);
         return $bRes;
+    }
+
+
+    // test code
+    private function _getUsn()
+    {
+        return 1;
     }
 
 

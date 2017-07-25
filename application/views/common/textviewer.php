@@ -18,7 +18,7 @@ $aCategory = $aMenuList['Category']['sub'];
                             <div class="p-top clearfix">
                                 <div class="top-inner">
                                     <div class="clearfix">
-                                        <div class="p-info" data-n_idx="1" data-t_idx="1" data-type="<?=$method?>">
+                                        <div class="p-info" data-n_idx="1" data-t_idx="1" data-type="<?=$method?>" data-controller="<?=$controller?>">
                                             <p class="p-date">1999.01.01</p>
                                             <p class="p-tit">제목을 입력하세요</p>
                                         </div>
@@ -50,13 +50,13 @@ $aCategory = $aMenuList['Category']['sub'];
                                                         </div>
                                                     </div><!--//카테고리 이동 안내 창-->
                                                 </li>
-                                                <li class="newWindow" >
+                                                <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>">
                                                     <a class="newWindowBtn" title="새창 열기" target="_blank" href="" onClick="window.open(this.href,'window','width=750,height=750,left=0,top=0')">
                                                         <i class="fa fa-external-link fa-1g " aria-hidden="true"></i>
                                                     </a>
                                                     <!--<div>새창</div>-->
                                                 </li>
-                                                <li class="copyLink" >
+                                                <li class="copyLink" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>">
                                                     <a class="copyLinkBtn" title="링크 복사" href="javascript:;"><i class="fa fa-link" aria-hidden="true"></i></a>
                                                     <!--<div>링크복사</div>-->
                                                 </li>

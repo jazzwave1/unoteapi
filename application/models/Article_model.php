@@ -16,6 +16,18 @@ class  Article_model extends CI_model{
         return $this->article_dao->updateTextbankForCidx($aInput);
     }
 
+    public function getUnreadArticleCnt($usn)
+    {
+        if(!$usn) return false;
+
+        $aInput = array('usn'=>$usn);
+
+        $aArticleCnt = $this->article_dao->getUnreadArticleCnt($aInput);
+        $sUnreadCnt = $aArticleCnt[0]->cnt;
+
+        return $sUnreadCnt;
+    }
+
     public function getArticleInfoByUsn($usn)
     {
         if(!$usn) return false;
@@ -105,12 +117,14 @@ class  Article_model extends CI_model{
 
         $aArticleDetailInfo = $this->article_dao->getArticleInfoByTidx($aInput);
 
-
-        foreach ($aArticleDetailInfo as $key => $oData)
+        if(isset($aArticleDetailInfo) && is_array($aArticleDetailInfo) )
         {
-            $aArticleDetailInfo[$key]->craw_data = json_decode($oData->craw_data);
-            $aArticleDetailInfo[$key]->craw_data->contents = nl2br($aArticleDetailInfo[$key]->craw_data->contents);
-            $aArticleDetailInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
+            foreach ($aArticleDetailInfo as $key => $oData)
+            {
+                $aArticleDetailInfo[$key]->craw_data = json_decode($oData->craw_data);
+                $aArticleDetailInfo[$key]->craw_data->contents = nl2br($aArticleDetailInfo[$key]->craw_data->contents);
+                $aArticleDetailInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
+            }
         }
 
         $aRes = $aArticleDetailInfo[0];

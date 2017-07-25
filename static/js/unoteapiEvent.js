@@ -175,8 +175,49 @@ $('.sublist-li').on('click', function(event){
 /*
  * textviewer script
  */
+
+// 새창 열기
 // $("a태그 클래스명").prop('href', 변경되는 url);
-$(".newWindowBtn").prop("href","http://www.daum.net");
+$(".newWindow").on("click", newWindow);
+function newWindow()
+{
+    var t_idx = $('.p-info').data('t_idx');
+    var n_idx = $('.p-info').data('n_idx');
+    var controller = $(this).data('controller');
+    var url = '/unoteapi/'+controller+'/view'+controller+'/';
+    if(controller == 'Note')  url += n_idx;
+    else if(controller == 'Article')  url += t_idx;
+
+    $(".newWindowBtn").prop("href",url);
+    // $(".newWindowBtn").prop("href","/unoteapi/Article/viewArticle/"+t_idx);
+}
+
+// 링크 복사
+$(".copyLink").on("click", copyLink);
+function copyLink()
+{
+    var t_idx = $('.p-info').data('t_idx');
+    var n_idx = $('.p-info').data('n_idx');
+    var hosturl = $(this).data('hosturl');
+    var controller = $(this).data('controller');
+    var url = hosturl+'/'+controller+'/view'+controller+'/';
+    if(controller == 'Note')  url += n_idx;
+    else if(controller == 'Article')  url += t_idx;
+
+    if( is_ie() ) {
+      window.clipboardData.setData("Text", url);
+      alert("복사되었습니다.");
+      return;
+    }
+    prompt("Ctrl+C를 눌러 복사하세요.", url);
+}
+function is_ie() {
+  if(navigator.userAgent.toLowerCase().indexOf("chrome") != -1) return false;
+  if(navigator.userAgent.toLowerCase().indexOf("msie") != -1) return true;
+  if(navigator.userAgent.toLowerCase().indexOf("windows nt") != -1) return true;
+  return false;
+}
+
 // 노트 삭제
 $(".noteDelBtn").on("click", noteDelete);
 function noteDelete()
@@ -303,7 +344,6 @@ $(document).mouseup(function (e) {
         container.hide();
         $(".moveCategBtn").removeClass("on");
     }
-
 });
 
 // 카테고리 이동 이벤트

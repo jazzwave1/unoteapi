@@ -25,17 +25,22 @@
                                         <div class="cafeInfo ">
                                             <div class="cafeinner clearfix">
                                                 <div class="cafeLogo">
-                                                    <p><img src="../static/images/icon/logo_naver.png" alt="네이버로고"></p>
-                                                    <!--<img src="../static/images/icon/logo_daum.png" alt="다음로고">
-                                                    <img src="../static/images/icon/logo_facebook.png" alt="페이스북로고">-->
-                                                    <?=$oSublist->craw_data->corporation?>
+                                                    <p>
+                                                    <?php if($oSublist->craw_data->corporation == '네이버'): ?>
+                                                    <img src="<?=SURL?>/images/icon/logo_naver.png" alt="네이버로고">
+                                                    <?php elseif($oSublist->craw_data->corporation == '다음'): ?>
+                                                    <img src="<?=SURL?>/images/icon/logo_daum.png" alt="다음로고">
+                                                    <?php elseif($oSublist->craw_data->corporation == '페이스북'): ?>
+                                                    <img src="<?=SURL?>/images/icon/logo_facebook.png" alt="페이스북로고">
+                                                    </p>
+                                                    <?php endif; ?>
                                                 </div>
                                                 <div class="cafeTxt">
                                                     <p class="tit"><?=$oSublist->craw_data->title?></p>
                                                     <p></p>
                                                     <p class="date"><?=$oSublist->regdate?></p>
                                                 </div>
-                                                <div class="bookMarkBtn"><i class="fa fa-bookmark fa-1g" aria-hidden="true"></i><?=$oSublist->bookmark?></div>
+                                                <div class="bookMarkBtn"><?=($oSublist->bookmark == 'Y') ? '<i class="fa fa-bookmark fa-1g aria-hidden="true"></i>' : ''?></div>
                                                 <!--<div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div> -->
                                             </div>
                                         </div>

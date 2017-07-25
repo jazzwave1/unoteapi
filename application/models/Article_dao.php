@@ -16,6 +16,12 @@ class Article_dao extends Common_dao
         return $this->actModelFuc($aConfig, $aParam);
     }
 
+    public function getUnreadArticleCnt($aParam=array())
+    {
+        $aConfig = $this->queryInfoArticle['getUnreadArticleCnt'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+
     public function getArticleInfoByUsn($aParam=array())
     {
         $aConfig = $this->queryInfoArticle['getArticleInfoByUsn'];

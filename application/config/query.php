@@ -213,8 +213,20 @@ $config['query'] = array(
            ,'btype'=> 'i'
            ,'null' => array()
         )
+        ,'getUnreadArticleCnt' => array(
+            'query' => 'SELECT count(*) as cnt
+                          FROM text_bank
+                         WHERE usn = ?
+                           AND readchk is NULL
+                           AND deltype is NULL
+                           AND category_idx is NULL
+                         ORDER BY t_idx DESC'
+            ,'data' => array('usn')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
         ,'getArticleInfoByUsn' => array(
-            'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
+            'query' => 'SELECT t_idx, usn, craw_data, readchk, bookmark, deltype, category_idx, deldate, regdate
                           FROM text_bank
                          WHERE usn = ?
                            AND deltype is NULL
@@ -225,7 +237,7 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'getArticleBookmarkInfo' => array(
-            'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
+            'query' => 'SELECT t_idx, usn, craw_data, readchk, bookmark, deltype, category_idx, deldate, regdate
                           FROM text_bank
                          WHERE usn = ?
                            AND bookmark = ?
@@ -237,7 +249,7 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'getArticleTrashInfo' => array(
-            'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
+            'query' => 'SELECT t_idx, usn, craw_data, readchk, bookmark, deltype, category_idx, deldate, regdate
                           FROM text_bank
                          WHERE usn = ?
                            AND deltype = ?
@@ -247,7 +259,7 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'getArticleCategoryInfo' => array(
-            'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
+            'query' => 'SELECT t_idx, usn, craw_data, readchk, bookmark, deltype, category_idx, deldate, regdate
                           FROM text_bank
                          WHERE usn = ?
                            AND category_idx = ?
@@ -258,7 +270,7 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'getArticleInfoByTidx' => array(
-            'query' => 'SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
+            'query' => 'SELECT t_idx, usn, craw_data, readchk, bookmark, deltype, category_idx, deldate, regdate
                           FROM text_bank
                          WHERE t_idx = ?'
             ,'data' => array('t_idx')
@@ -299,7 +311,7 @@ $config['query'] = array(
             ,'null' => array()
         )
         ,'isBookmarkArticle' => array(
-            'query' => "SELECT t_idx, usn, craw_data, bookmark, deltype, category_idx, deldate, regdate
+            'query' => "SELECT t_idx, usn, craw_data, readchk, bookmark, deltype, category_idx, deldate, regdate
                           FROM text_bank
                          WHERE t_idx = ?
                            AND bookmark = 'Y'"

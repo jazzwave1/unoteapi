@@ -6,6 +6,13 @@ class ArticleClass {
     {
     }
 
+    public static function getUnreadArticleCnt($usn)
+    {
+        $oArticleModel = edu_get_instance('article_model', 'model');
+        $sArticleCnt = $oArticleModel->article_model->getUnreadArticleCnt($usn);
+
+        return $sArticleCnt;
+    }
     public static function getArticleInfo($usn)
     {
         $oArticleModel = edu_get_instance('article_model', 'model');
