@@ -413,6 +413,7 @@ a.moveCategBtn.on{
     padding-bottom: 5px;
     text-align: left;
     font-weight: bold;
+    cursor: pointer;
 }
 .selCateg .selList ul li i{
     padding-right: 5px;
