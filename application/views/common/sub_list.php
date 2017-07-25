@@ -4,7 +4,7 @@
                         <!--카테고리타이틀/필터/버튼 영역-->
                         <div class="listFilter">
                             <p><i class="<?=$vdata['menu']['icon']?>" aria-hidden="true"></i><?=$vdata['menu']['subtitle']?></p>
-                            <p> / 전체 <?=$vdata['sublist_cnt']?></p>
+                            <p class="totalList">  전체 | <span><?=$vdata['sublist_cnt']?></span></p>
                             <!--<p class="filter">정렬 | <span>최신순 <i class="fa fa-caret-down" aria-hidden="true"></i></span></p>-->
                         </div>
                         <div class="subSearch">
@@ -24,14 +24,19 @@
                                     <a href="javascript:void(0)">
                                         <div class="cafeInfo ">
                                             <div class="cafeinner clearfix">
-                                                <div class="cafeLogo"><?=$oSublist->craw_data->corporation?></div>
+                                                <div class="cafeLogo">
+                                                    <img src="../../../static/images/icon/logo_naver.png" alt="네이버로고">
+                                                    <!--<img src="../../../static/images/icon/logo_daum.png" alt="다음로고">
+                                                    <img src="../../../static/images/icon/logo_facebook.png" alt="페이스북로고">-->
+                                                    <?=$oSublist->craw_data->corporation?>
+                                                </div>
                                                 <div class="cafeTxt">
                                                     <p class="tit"><?=$oSublist->craw_data->title?></p>
                                                     <p></p>
                                                     <p class="date"><?=$oSublist->regdate?></p>
                                                 </div>
-                                                <div class="deleteBtn"><?=$oSublist->bookmark?></div>
-                                                <!-- <div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div> -->
+                                                <div class="bookMarkBtn"><i class="fa fa-bookmark fa-1g" aria-hidden="true"></i><?=$oSublist->bookmark?></div>
+                                                <!--<div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div> -->
                                             </div>
                                         </div>
                                     </a>

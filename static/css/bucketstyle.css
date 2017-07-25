@@ -133,7 +133,7 @@
     width: 300px;
     /*height: 100%;*/
     background-color: #fff;
-    box-shadow: 1px 1px 5px  #888888;
+   /* box-shadow: 1px 1px 5px  #888888;*/
 }
 #bankSub .bsinner{
     padding: 60px 0 0;
@@ -160,6 +160,9 @@
 }
 .listFilter span{
     font-weight: bold;
+}
+.listFilter p.totalList{
+    float: right;
 }
 .subSearch{
     text-align: left;
@@ -257,9 +260,13 @@
     width: 60px;
     line-height: 60px;
     height: 100%;
-    background-color: #eee;
+    /*background-color: #eee;*/
     text-align: center;
     border-radius: 50%;
+}
+.cafeInfo .cafeLogo img{
+    width: 100%;
+    border-radius:50%;
 }
 .cafeInfo .cafeTxt{
     width: 180px;
@@ -288,6 +295,12 @@
     top: 10px;
     line-height: 60px;
 }
+.cafeInfo div.bookMarkBtn i{
+    color: #fdd66d;
+    font-size: 16px;
+}
+
+/*
 .cafeInfo div.deleteBtn i{
     color: #ccc;
     font-size: 16px;
@@ -295,6 +308,7 @@
 .cafeInfo div.deleteBtn i:hover{
     color: darkred;
 }
+*/
 
 /*글 전체 보여지는 영역*/
 #detailView{
