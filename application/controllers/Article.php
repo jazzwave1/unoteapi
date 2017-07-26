@@ -144,19 +144,23 @@ class Article extends CI_Controller {
     {
         $t_idx = $this->input->post('t_idx');
 
-        if($this->_bookmarkArticle($t_idx))
+        $aBookmarkArticle = $this->_bookmarkArticle($t_idx);
+
+        if($aBookmarkArticle['result'])
         {
             $aResult = array(
                  "code"  => 1
                 ,"msg"   => "OK"
-            );            
+                ,"type"   => $aBookmarkArticle['type']
+            );
         }
         else
         {
             $aResult = array(
                  "code"  => 999
                 ,"msg"   => "Error"
-            );                  
+                ,"type"   => $aBookmarkArticle['type']
+            );
         }
 
         response_json($aResult);
@@ -169,15 +173,21 @@ class Article extends CI_Controller {
         //북마크체크O -> X
         if($this->_isBookmarkArticle($t_idx))
         {
-            $bRes = $oArticleModel->article_model->unchkBookmarkArticle($t_idx);
+            $aRes = array(
+                     'type' => 'unchk'
+                    ,'result' => $oArticleModel->article_model->unchkBookmarkArticle($t_idx)
+            );
         }
         //북마크체크X -> O
         else
         {
-            $bRes = $oArticleModel->article_model->chkBookmarkArticle($t_idx);
+            $aRes = array(
+                     'type' => 'chk'
+                    ,'result' => $oArticleModel->article_model->chkBookmarkArticle($t_idx)
+            );
         }
 
-        return $bRes;
+        return $aRes;
     }
     private function _isBookmarkArticle($t_idx)
     {

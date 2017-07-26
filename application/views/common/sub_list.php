@@ -40,7 +40,7 @@
                                                     <p></p>
                                                     <p class="date"><?=$oSublist->regdate?></p>
                                                 </div>
-                                                <div class="bookMarkBtn"><?=($oSublist->bookmark == 'Y') ? '<i class="fa fa-bookmark fa-1g aria-hidden="true"></i>' : ''?></div>
+                                                <div class="bookMarkBtn" id="bookMark<?=$oSublist->t_idx?>"><?=($oSublist->bookmark == 'Y') ? '<i class="fa fa-bookmark fa-1g aria-hidden="true"></i>' : ''?></div>
                                                 <!--<div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div> -->
                                             </div>
                                         </div>

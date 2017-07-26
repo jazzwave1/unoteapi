@@ -327,8 +327,10 @@ function articleBookmark()
       ,function(data, status) {
         if (status == "success" && data.code == 1)
         {
-            window.location.reload();
-            // console.log(data.aNoteDetail); 
+          if(data.type == 'chk')
+              $('#bookMark'+t_idx).html('<i class="fa fa-bookmark fa-1g aria-hidden="true"></i>');
+          else if(data.type == 'unchk')
+              $('#bookMark'+t_idx).html('');
         }
         // 삭제 실패
         else
