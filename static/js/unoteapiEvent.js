@@ -151,17 +151,24 @@ function getNoteInfo()
 $('.sublist-li').on('click', function(event){
     $(this).siblings('li').removeClass('on');
     $(this).addClass('on');
-    
+
+    if( $(this).hasClass('yetReadList') )
+          $(this).removeClass('yetReadList');
+
     var t_idx = $(this).data( "t_idx" );
+    var method = $(this).data( "method" );
 
     $.post(
       "/unoteapi/Article/rpcGetArticleInfo"
       ,{
-           "t_idx" : t_idx 
+           "t_idx" : t_idx
+           ,"method" : method
        }
       ,function(data, status) {
         if (status == "success" && data.code == 1)
         {
+            if(data.unread_cnt)   $('.num').html(data.unread_cnt);
+            
             $('.p-info').data('t_idx', t_idx);
             $('.p-date').text(data.aArticleDetail['regdate']);
             $('.p-tit').text(data.aArticleDetail['craw_data']['title']);

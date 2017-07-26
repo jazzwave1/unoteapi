@@ -319,6 +319,14 @@ $config['query'] = array(
             ,'btype'=> 'i'
             ,'null' => array()
         )
+        ,'readArticle' => array(
+            'query' => "UPDATE text_bank
+                           SET readchk = 'Y'
+                         WHERE t_idx = ?"
+            ,'data' => array('t_idx')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
     )
     ,'edumember' => array(
         'getMemberInfo' => array(

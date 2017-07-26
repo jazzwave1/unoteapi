@@ -76,4 +76,9 @@ class Article_dao extends Common_dao
         $aConfig = $this->queryInfoArticle['isBookmarkArticle'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    public function readArticle($aParam=array())
+    {
+        $aConfig = $this->queryInfoArticle['readArticle'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
 }

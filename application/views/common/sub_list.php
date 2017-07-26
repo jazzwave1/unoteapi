@@ -20,8 +20,8 @@
                             <ul class="bankSubList">
                             <?php if( is_array($vdata['sublist']) && count($vdata['sublist'])>0 ): ?>
                             <?php foreach ($vdata['sublist'] as $oSublist): ?>
-                                    <!--안읽은 리스트 class="yetReadList"-->
-                                <li class="sublist-li yetReadList" data-t_idx="<?=$oSublist->t_idx?>">
+                                <!--안읽은 리스트 class="yetReadList"-->
+                                <li class="sublist-li <?=($this->uri->segment(2) == 'List' && $oSublist->readchk == '') ? 'yetReadList' : ''?>" data-t_idx="<?=$oSublist->t_idx?>" data-method="<?=$this->uri->segment(2)?>">
                                     <a href="javascript:void(0)">
                                         <div class="cafeInfo ">
                                             <div class="cafeinner clearfix">

@@ -153,7 +153,7 @@ class  Article_model extends CI_model{
             return true;
         
         return false;
-    }    
+    }
     public function chkBookmarkArticle($t_idx)
     {
         if(!$t_idx) return false;
@@ -188,5 +188,16 @@ class  Article_model extends CI_model{
         return false;
     }
 
+    public function readArticle($t_idx)
+    {
+        if(!$t_idx) return false;
+
+        $aInput = array('t_idx' => $t_idx);
+
+        if( $this->article_dao->readArticle($aInput) )
+            return true;
+        
+        return false;
+    }
 
 }

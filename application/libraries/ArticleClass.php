@@ -51,4 +51,15 @@ class ArticleClass {
 
         return $aArticleDetailInfo;    
     }
+
+    public static function readArticle($t_idx)
+    {
+        if(!$t_idx) return false;
+        
+        $article_model = edu_get_instance('article_model', 'model');
+        $bResult = $article_model->readArticle($t_idx);
+
+        return $bResult;    
+    }
+
 }

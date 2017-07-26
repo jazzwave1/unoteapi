@@ -58,18 +58,25 @@ class Article extends CI_Controller {
     public function rpcGetArticleInfo()
     {
         $t_idx = $this->input->post('t_idx');
-
-        // test code
-        // $t_idx = 168;
+        $method = $this->input->post('method');
+        $usn = $this->_getUsn();
 
         $aResult = array(
              "code"  => 1
             ,"msg"   => "OK"
-            ,"aArticleDetail" => $this->_getArticleDetailInfo($t_idx) 
+            ,"aArticleDetail" => $this->_getArticleDetailInfo($t_idx)
         );
 
-        // echo '<pre>: '. print_r( $aResult, true ) .'</pre>';
-        // die();
+        if($method == 'List')
+        {
+            edu_get_instance('ArticleClass');
+            // read update
+            if(ArticleClass::readArticle($t_idx))
+            {
+                // unread cnt
+                $aResult['unread_cnt'] = ArticleClass::getUnreadArticleCnt($usn);
+            }
+        }
 
         response_json($aResult);
         die;
