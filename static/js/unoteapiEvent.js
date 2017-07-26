@@ -167,8 +167,13 @@ $('.sublist-li').on('click', function(event){
       ,function(data, status) {
         if (status == "success" && data.code == 1)
         {
-            if(data.unread_cnt)   $('.num').html(data.unread_cnt);
-            
+            // 글감리스트 미확인 cnt
+            if(data.unread_cnt) $('.num').html(data.unread_cnt);
+
+            // 북마크 css
+            if(data.aArticleDetail['bookmark'] == 'Y')  $('.bookMark').children().children('i').addClass('on');
+            else  $('.bookMark').children().children('i').removeClass('on');
+
             $('.p-info').data('t_idx', t_idx);
             $('.p-date').text(data.aArticleDetail['regdate']);
             $('.p-tit').text(data.aArticleDetail['craw_data']['title']);
@@ -335,9 +340,15 @@ function articleBookmark()
         if (status == "success" && data.code == 1)
         {
           if(data.type == 'chk')
-              $('#bookMark'+t_idx).html('<i class="fa fa-bookmark fa-1g aria-hidden="true"></i>');
+          {
+              $('#bookMark'+t_idx).html('<i class="fa fa-bookmark fa-1g" aria-hidden="true"></i>');
+              $('.bookMark').children().children('i').addClass('on');
+          }
           else if(data.type == 'unchk')
+          {
               $('#bookMark'+t_idx).html('');
+              $('.bookMark').children().children('i').removeClass('on');
+          }
         }
         // 삭제 실패
         else

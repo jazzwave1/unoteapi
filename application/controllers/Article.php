@@ -61,6 +61,9 @@ class Article extends CI_Controller {
         $method = $this->input->post('method');
         $usn = $this->_getUsn();
 
+        // test code
+        // $t_idx = 168;
+
         $aResult = array(
              "code"  => 1
             ,"msg"   => "OK"
@@ -345,6 +348,7 @@ class Article extends CI_Controller {
                     ,'regdate' => $aArticleDetailInfo->regdate
                     ,'title' => $aArticleDetailInfo->craw_data->title
                     ,'contents' => $aArticleDetailInfo->craw_data->contents
+                    ,'bookmark' => $aArticleDetailInfo->bookmark
             );            
         }
 
