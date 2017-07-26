@@ -71,14 +71,20 @@
 }
 .lnbItem .lnbItemList li.cBtn a{
     display: inline-block;
-    width: 74px;
+    width: 100%;
     text-align: center;
     padding: 10px 0;
     border-radius: 5px;
+}
+.lnbItem .lnbItemList li.cBtn a:hover{
+    background: #274555;
     color: #fff;
 }
+.lnbItem .lnbItemList li.cBtn a:hover i{
+    color:#fff;
+}
 .lnbItem .lnbItemList li.cBtn a.croBtn{
-    background: #274555;
+    border:2px solid #374555;
 }
 .lnbItem .lnbItemList li.cBtn a.fupBtn{
     background-color: #274555;
