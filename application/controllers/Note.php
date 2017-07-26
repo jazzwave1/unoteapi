@@ -37,6 +37,12 @@ class Note extends CI_Controller {
         $oNote = new $note($usn);
         $aVdata['sublist'] = $oNote->oNoteInfo;
 
+        $aVdata['sublist_cnt'] = 0;
+        if(is_array($aVdata['sublist']))
+        {
+            $aVdata['sublist_cnt'] = count($aVdata['sublist']);
+        }
+        
         if(isset($aVdata['sublist'][0]->n_idx))
         {
             $aNoteDetailInfo = $this->_getNoteDetailInfo($aVdata['sublist'][0]->n_idx);

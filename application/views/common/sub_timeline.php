@@ -4,6 +4,7 @@
                         <!--카테고리타이틀/필터/버튼 영역-->
                         <div class="listFilter">
                             <p><i class="fa fa-book" aria-hidden="true"></i><?=$vdata['menu']['subtitle']?></p>
+                            <p class="totalList">  전체 | <span><?=$vdata['sublist_cnt']?></span></p>
                             <!--<p class="filter">정렬 | <span>최신순 <i class="fa fa-caret-down" aria-hidden="true"></i></span></p>-->
                         </div>
                         <div class="subSearch">

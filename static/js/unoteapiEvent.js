@@ -222,10 +222,10 @@ function copyLink()
 
     if( is_ie() ) {
       window.clipboardData.setData("Text", retUrl);
-      alert("복사되었습니다.");
+      alert("링크가 복사되었습니다.");
       return;
     }
-    prompt("Ctrl+C를 눌러 복사하세요.", retUrl);
+    prompt("Ctrl+C를 눌러 링크를 복사하세요.", retUrl);
 }
 
 // 노트 삭제
