@@ -41,7 +41,7 @@ $config['menu'] = array(
 		,'sub' => array(
 			'History' => array(
 				 'icon' => 'fa fa-history'
-				,'subtitle' => '글감 수집 히스토리'
+				,'subtitle' => '히스토리'
 				,'is_use' => true
 			)
 		)
