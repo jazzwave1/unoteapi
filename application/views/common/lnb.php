@@ -41,9 +41,11 @@
                 <?php else: ?>
                                 <li>
                                     <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>">
-                                    <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?><span class="cBtn"><a href="#cReqPop" data-popup="#cReqPop" class="croBtn layer-popup">수집하기</a></span>
+                                    <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?>
                     <?php if($controller.'/'.$method == 'Article/List'): ?>
                                     <span class="num"><?=$aMenuSubData['unread_cnt']?></span>
+                    <?php elseif($controller.'/'.$method == 'Crawling/History'): ?>
+                                    <span class="cBtn"><a href="#cReqPop" data-popup="#cReqPop" class="croBtn layer-popup">수집하기</a></span>
                     <?php endif; ?>
                                     </a>
                                 </li>
