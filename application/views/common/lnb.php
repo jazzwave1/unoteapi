@@ -46,7 +46,7 @@
                 <!--crawling btn-->
                 <?php if($controller == 'Crawling'): ?>
                                 <li class="cBtn">
-                                    <a href="#cReqPop" data-popup="#cReqPop" class="croBtn layer-popup">수집하기</a>
+                                    <a href="#cReqPop" data-popup="#cReqPop" class="croBtn layer-popup"><i class="fa fa-download" aria-hidden="true"></i>수집하기</a>
                                    <!-- <a href="#" class="fupBtn">파일업로드</a>-->
                                 </li>
                 <?php endif; ?>
