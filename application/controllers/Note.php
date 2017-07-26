@@ -37,6 +37,18 @@ class Note extends CI_Controller {
         $oNote = new $note($usn);
         $aVdata['sublist'] = $oNote->oNoteInfo;
 
+        if(isset($aVdata['sublist'][0]->n_idx))
+        {
+            $aNoteDetailInfo = $this->_getNoteDetailInfo($aVdata['sublist'][0]->n_idx);
+
+            $aVdata['aDetail'] = array(
+                    'n_idx' => $aNoteDetailInfo['n_idx']
+                    ,'regdate' => $aNoteDetailInfo['regdate']
+                    ,'title' => $aNoteDetailInfo['title']
+                    ,'contents' => $aNoteDetailInfo['text']
+            );
+        }
+
         // test code
         // echo "<!--";
         // echo "<pre>";
@@ -80,7 +92,7 @@ class Note extends CI_Controller {
         $aResult = array(
              "code"  => 1
             ,"msg"   => "OK"
-            ,"aNoteDetail" => $this->_getNoteDetailInfo($n_idx) 
+            ,"aNoteDetail" => $this->_getNoteDetailInfo($n_idx)
         );
 
         response_json($aResult);

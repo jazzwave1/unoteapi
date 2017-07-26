@@ -8,8 +8,6 @@ $this->load->library('MenuClass');
 $aMenuList = MenuClass::getMenuList($usn);
 $aCategory = $aMenuList['Category']['sub'];
 
-// echo '<pre>aCategory: '. print_r( $aCategory, true ) .'</pre>';
-// die();
 ?>
                 <!--detailView-->
                 <div id="detailView">
@@ -18,9 +16,9 @@ $aCategory = $aMenuList['Category']['sub'];
                             <div class="p-top clearfix">
                                 <div class="top-inner">
                                     <div class="clearfix">
-                                        <div class="p-info" data-n_idx="1" data-t_idx="1" data-type="<?=$method?>" data-controller="<?=$controller?>">
-                                            <p class="p-date">1999.01.01</p>
-                                            <p class="p-tit">제목을 입력하세요</p>
+                                        <div class="p-info" data-n_idx="<?=( isset($vdata['aDetail']['n_idx']) ) ? $vdata['aDetail']['n_idx'] : ''?>" data-t_idx="<?=( isset($vdata['aDetail']['t_idx']) ) ? $vdata['aDetail']['t_idx'] : ''?>" data-type="<?=$method?>" data-controller="<?=$controller?>">
+                                            <p class="p-date"><?=( isset($vdata['aDetail']) ) ? $vdata['aDetail']['regdate'] : ''?></p>
+                                            <p class="p-tit"><?=( isset($vdata['aDetail']) ) ? $vdata['aDetail']['title'] : ''?></p>
                                         </div>
                                         <div class="p-btn">
                                             <ul class="clearfix">
@@ -71,7 +69,7 @@ $aCategory = $aMenuList['Category']['sub'];
                             </div>
                             <div class="p-txt">
                                 <div class="p-inner">
-                                   상세 내용을 입력하세요.
+                                   <?=( isset($vdata['aDetail']) ) ? $vdata['aDetail']['contents'] : ''?>
                                 </div>
                             </div>
                         </div>

@@ -319,6 +319,18 @@ class Article extends CI_Controller {
             $aVdata['sublist_cnt'] = count($aVdata['sublist']);
         }
 
+        if(isset($aVdata['sublist'][0]->t_idx))
+        {
+            $aArticleDetailInfo = $this->_getArticleDetailInfo($aVdata['sublist'][0]->t_idx);
+
+            $aVdata['aDetail'] = array(
+                    't_idx' => $aArticleDetailInfo->t_idx
+                    ,'regdate' => $aArticleDetailInfo->regdate
+                    ,'title' => $aArticleDetailInfo->craw_data->title
+                    ,'contents' => $aArticleDetailInfo->craw_data->contents
+            );            
+        }
+
         $data = array(
              'vdata' => $aVdata
             ,'usn'   => $usn
