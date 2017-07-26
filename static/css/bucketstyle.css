@@ -214,9 +214,11 @@
 }
 .my-note-subList{
     text-align: left;
-    padding: 10px;
 }
+
 .my-note-subList li{
+}
+.my-note-subList li .my-note-inner{
     padding: 10px;
 }
 .my-note-subList li.on{
@@ -225,8 +227,7 @@
 .my-note-subList li.on .my-note-bg{
     background: url('../images/bg_timeline_on.png') repeat-y 5px 0;
 }
-
-.my-note-subList .my-note-bg{
+.my-note-subList li .my-note-bg{
     background: url('../images/bg_timeline.png') repeat-y 5px 0;
 }
 .my-note-subList .date{
