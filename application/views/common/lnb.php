@@ -1,21 +1,27 @@
                 <!--lnb-->
                 <div id="lnb" class="full-left-nav">
                     <div class="lnb-inner navList">
-<!--menu-->
-<?php foreach ($aMenuList as $controller => $aMenuData): ?>
+                        <!--새글쓰기 버튼-->
+                        <div class="lnb-sideinner">
+                            <div class="newNoteBtn">
+                                <a href="/unote" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i>새글쓰기</a>
+                            </div>
+                        </div>
+                        <!--menu-->
+                        <?php foreach ($aMenuList as $controller => $aMenuData): ?>
                         <div class="lnbItem">
-                            <p class="lnbItemTit">
-                                <?=$aMenuData['title']?>
-            <!--category add-->
-            <?php if($controller == 'Category'): ?>
-                                <span class="addCateg">
-                                    <!--카테고리추가 버튼-->
-                                    <i class="fa fa-plus" aria-hidden="true"></i>
-                                </span>
-            <?php endif; ?>        
-            <!--//category add-->                            
+                            <div class="lnb-sideinner">
+                                <p class="lnbItemTit">
+                                    <?=$aMenuData['title']?>
+                                    <!--category add-->
+                                    <?php if($controller == 'Category'): ?>
+                                        <span class="addCateg">
+                                            <!--카테고리추가 버튼-->
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </span>
+                                    <?php endif; ?>
+                                    <!--//category add-->
                             </p>
-
                             <ul class="lnbItemList <?=($controller == 'Category') ? 'categList' : ''?>">
     <!--submenu-->
     <?php foreach ($aMenuData['sub'] as $method => $aMenuSubData): ?>
@@ -55,13 +61,11 @@
     <?php endforeach; ?>
     <!--//submenu-->
                             </ul>
+                            </div>
                         </div>
 <?php endforeach; ?>
 <!--//menu-->
-                        <!--새글쓰기 버튼-->
-                        <div class="newNoteBtn">
-                            <a href="/unote" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i>새글쓰기</a>
-                        </div>
+
                     </div>
                 </div>
                 <!--//lnb-->
