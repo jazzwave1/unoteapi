@@ -321,6 +321,7 @@ class Article extends CI_Controller {
 
         $data = array(
              'vdata' => $aVdata
+            ,'usn'   => $usn
             ,'aMenuList' => $aMenuList
             ,'contents' => 'article/list'
         );
