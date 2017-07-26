@@ -224,7 +224,9 @@
 .my-note-subList li.on{
     background-color:#d7eaf6;
 }
-
+.my-note-subList li.on  .fa-calendar-o{
+    color: #2980b9;
+}
 .my-note-subList li .my-note-bg{
     background: url('../images/bg_timeline.png') repeat-y 5px 0;
     padding-bottom: 20px;
