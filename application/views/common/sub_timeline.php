@@ -21,7 +21,7 @@
                                 <?php foreach ($vdata['sublist'] as $oSublist): ?>
                                     <li class="timeline-li" data-n_idx="<?=$oSublist->n_idx?>">
                                         <p class="date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?=$oSublist->regdate?></p>
-                                        <!--<a href="javascrip:void(0);" >-->
+                                         <div class="my-note-bg">
                                             <div class="thumb">
                                                 <p class="thumb-tit"><?=$oSublist->title?></p>
                                                 <p class="thumb-txt">
@@ -32,7 +32,7 @@
                                                     <!--<img src="images/img_thum.jpg">-->
                                                 </p>
                                             </div>
-                                        <!--</a>-->
+                                         </div>
                                     </li>
                                 <?php endforeach; ?>                                    
                                 </ul>
