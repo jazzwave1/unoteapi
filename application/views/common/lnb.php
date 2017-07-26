@@ -39,7 +39,7 @@
                 <!--//category-->
                 <!--Crawling-->
                 <?php elseif($controller == 'Crawling'): ?>
-                                <li>
+                                <li class="croList">
                                     <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>">
                                         <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?></a>
                                     <span class="cBtn"><a href="#cReqPop" data-popup="#cReqPop" class="croBtn layer-popup">수집하기</a></span>
@@ -47,7 +47,7 @@
                 <!--//Crawling-->
                 <!--else-->
                 <?php else: ?>
-                                <li class="croList">
+                                <li>
                                     <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>">
                                     <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?>
                     <?php if($controller.'/'.$method == 'Article/List'): ?>
