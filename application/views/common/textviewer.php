@@ -39,7 +39,7 @@ $aCategory = $aMenuList['Category']['sub'];
                                                                 <ul>
                                                                     <!--<li class="new"><i class="fa fa-plus-circle" aria-hidden="true"></i>새 카테고리</li>-->
                                                                     <?php foreach($aCategory as $c_idx => $aData): ?>
-                                                                        <li class="goCateg" data-c_idx="<?=$c_idx?>" ><?=$aData['subtitle']?><i class="fa fa-folder-open" aria-hidden="true"></i></li>
+                                                                        <li class="goCateg" data-c_idx="<?=$c_idx?>" ><i class="fa fa-folder-open" aria-hidden="true"></i><?=$aData['subtitle']?></li>
                                                                     <?php endforeach; ?>
                                                                 </ul>
                                                             </div>
