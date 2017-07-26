@@ -41,7 +41,7 @@
                 <?php else: ?>
                                 <li>
                                     <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>">
-                                    <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?>
+                                    <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?><span class="cBtn"><a href="#cReqPop" data-popup="#cReqPop" class="croBtn layer-popup">수집하기</a></span>
                     <?php if($controller.'/'.$method == 'Article/List'): ?>
                                     <span class="num"><?=$aMenuSubData['unread_cnt']?></span>
                     <?php endif; ?>
@@ -51,10 +51,10 @@
                 <!--//else-->
                 <!--crawling btn-->
                 <?php if($controller == 'Crawling'): ?>
-                                <li class="cBtn">
+                                <!--<li class="cBtn">
                                     <a href="#cReqPop" data-popup="#cReqPop" class="croBtn layer-popup"><i class="fa fa-download" aria-hidden="true"></i>수집하기</a>
-                                   <!-- <a href="#" class="fupBtn">파일업로드</a>-->
-                                </li>
+                                    <a href="#" class="fupBtn">파일업로드</a>
+                                </li>-->
                 <?php endif; ?>
                 <!--//crawling btn-->
         <?php endif; ?>

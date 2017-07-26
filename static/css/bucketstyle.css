@@ -74,7 +74,7 @@
     padding: 0 5px;
     font-size: 10px;
 }
-.lnbItem .lnbItemList li.cBtn a{
+/*.lnbItem .lnbItemList li.cBtn a{
     display: inline-block;
     width: 100%;
     text-align: center;
@@ -93,6 +93,21 @@
 }
 .lnbItem .lnbItemList li.cBtn a.fupBtn{
     background-color: #274555;
+}*/
+.cBtn{
+    float: right;
+}
+.cBtn a.croBtn{
+    font-weight: lighter;
+    text-align: center;
+    border-radius: 9999em;
+    color: #fff;
+    padding: 3px 10px;
+    background-color: #2980b9;
+}
+
+.cBtn a.croBtn i{
+    padding-right: 5px;
 }
 .lnbItem .lnbItemList li.on a{
     color: #3b8686;
