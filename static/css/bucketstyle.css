@@ -197,7 +197,10 @@
     display: block;
     text-align: left;
 }
-
+.bankSubList  .yetReadList{
+    background-color:#eee;
+    border-bottom:1px solid #fff;
+}
 /* add 2017-07-17 내노트 sublist */
 .my-note{
 
