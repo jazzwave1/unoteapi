@@ -97,7 +97,7 @@
 .cBtn{
     float: right;
 }
-.cBtn a.croBtn{
+a.croBtn{
     font-weight: lighter;
     text-align: center;
     border-radius: 9999em;
@@ -106,9 +106,7 @@
     background-color: #2980b9;
 }
 
-.cBtn a.croBtn i{
-    padding-right: 5px;
-}
+
 .lnbItem .lnbItemList li.on a{
     color: #3b8686;
     font-weight: bold;
@@ -232,6 +230,9 @@
 }
 
 .my-note-subList li{
+}
+.my-note-subList li:first-child{
+    padding-top: 10px;
 }
 .my-note-subList li .my-note-inner{
     padding: 0 10px;
