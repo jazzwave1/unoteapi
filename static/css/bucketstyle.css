@@ -426,6 +426,13 @@ a.moveCategBtn.on{
 .p-top .p-btn ul li.moveCateg .selCateg.on{
     display: block;
 }
+
+
+i.fa-bookmark.on{
+    color: #fdd66d;
+}
+
+
 .selCateg .headTit{
     padding: 5px;
     background: #eee;
