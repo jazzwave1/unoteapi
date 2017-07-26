@@ -41,7 +41,7 @@
                 <?php elseif($controller == 'Crawling'): ?>
                                 <li>
                                     <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>">
-                                    <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?>
+                                        <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?></a>
                                     <span class="cBtn"><a href="#cReqPop" data-popup="#cReqPop" class="croBtn layer-popup">수집하기</a></span>
                                 </li>
                 <!--//Crawling-->

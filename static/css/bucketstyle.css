@@ -24,7 +24,7 @@
     margin-bottom: 10px;
 }
 .lnbItem a{
-    display: inline-block;
+    display: block;
     text-align: left;
 }
 .lnbItem .lnbItemTit{
