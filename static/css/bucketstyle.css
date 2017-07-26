@@ -94,6 +94,9 @@
 .lnbItem .lnbItemList li.cBtn a.fupBtn{
     background-color: #274555;
 }*/
+.croList a{
+    display: inline;
+}
 .cBtn{
     float: right;
 }

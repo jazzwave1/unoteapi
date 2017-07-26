@@ -47,7 +47,7 @@
                 <!--//Crawling-->
                 <!--else-->
                 <?php else: ?>
-                                <li>
+                                <li class="croList">
                                     <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>">
                                     <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?>
                     <?php if($controller.'/'.$method == 'Article/List'): ?>
