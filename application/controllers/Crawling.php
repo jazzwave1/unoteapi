@@ -18,10 +18,10 @@ class Crawling extends CI_Controller{
     public function History($pagination=0)
     {
         // test code
-        $account = $this->_getAccount();
+        $usn = $this->_getUsn();
 
         $oCrawlingClass = edu_get_instance('CrawlingClass');
-        $aList = $oCrawlingClass->getCrawling($account);
+        $aList = $oCrawlingClass->getCrawling($usn);
         
         echo "<!--";
         //print_r($aList);
@@ -55,13 +55,17 @@ class Crawling extends CI_Controller{
         
         $pagination = $this->pagination->create_links();
         
+        $this->load->library('MenuClass');
+        $aMenuList = MenuClass::getMenuList($usn);
+        // $aList['menu'] = $aMenuList['Crawling']['sub']['History'];
 
         $data = array(
              'vdata' => $aList
+            ,'usn'   => $usn
             ,'pagination' => $pagination
+            ,'aMenuList' => $aMenuList
             ,'contents' => 'crawling/clist'
         );
-
 
         $this->load->view('common/container', $data);
 
@@ -69,7 +73,7 @@ class Crawling extends CI_Controller{
     public function reqcrawl()
     {
         // test code
-        $account = $this->_getAccount();
+        $usn = $this->_getUsn();
 
         $aTemp = array();
 
@@ -81,7 +85,7 @@ class Crawling extends CI_Controller{
         $this->load->view('common/container', $data);
 
     }
-    private function _getAccount()
+    private function _getUsn()
     {
         // return usn
         return "1";
