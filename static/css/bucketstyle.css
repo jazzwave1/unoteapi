@@ -228,11 +228,14 @@
     color: #2980b9;
 }
 .my-note-subList li .my-note-bg{
-    background: url('../images/bg_timeline.png') repeat-y 5px 0;
+    /*background: url('../images/bg_timeline.png') repeat-y 5px 0;*/
+    border-left: 1px solid #ccc;
+    margin-left: 5px;
     padding-bottom: 20px;
 }
 .my-note-subList li.on .my-note-bg{
-    background: url('../images/bg_timeline_on.png') repeat-y 5px 0;
+    /*background: url('../images/bg_timeline_on.png') repeat-y 5px 0;*/
+    border-left: 1px solid #2980b9;
 }
 .my-note-subList .date{
     font-weight: bold;
