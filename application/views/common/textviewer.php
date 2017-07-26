@@ -47,6 +47,10 @@ $aCategory = $aMenuList['Category']['sub'];
                                                         </div>
                                                     </div><!--//카테고리 이동 안내 창-->
                                                 </li>
+                                                <li class="<?=($controller == 'note') ? 'editMynote' : 'hide'?>">
+                                                    <a class="editMynoteBtn" href="javascript:;" title="수정하기"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    <!--<div>수정하기</div>-->
+                                                </li>
                                                 <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>">
                                                     <a class="newWindowBtn" title="새창 열기" target="_blank" href="" onClick="window.open(this.href,'window','width=750,height=750,left=0,top=0')">
                                                         <i class="fa fa-external-link fa-1g " aria-hidden="true"></i>
