@@ -45,7 +45,8 @@ $config['query'] = array(
         ,'getNoteDetailInfo' => array(
             'query' => 'SELECT n_idx, s_idx, contents
                           FROM note_sentence
-                         WHERE n_idx = ?'
+                         WHERE n_idx = ?
+                         ORDER BY n_idx, s_idx'
             ,'data' => array('n_idx')
             ,'btype'=> 'i'
             ,'null' => array()

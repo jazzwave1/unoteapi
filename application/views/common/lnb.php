@@ -105,7 +105,7 @@
         <div>
             <div class="pop-header">
                 <span>크롤링 로봇 수집 설정</span>
-                <a href="#none" class="btnp-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+                <a href="javascript:;" class="btnp-close"><i class="fa fa-times" aria-hidden="true"></i></a>
             </div>
             <div class="pop-box">
                 <div class="pop-cont">

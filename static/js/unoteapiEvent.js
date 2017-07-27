@@ -359,6 +359,17 @@ function articleBookmark()
     );
 }
 
+// 내노트 수정하기
+$(".editMynoteBtn").on("click", editMynote);
+function editMynote()
+{
+    var n_idx = $('.p-info').data('n_idx');
+
+    var url = '/unote/index.php?n_idx='+n_idx;
+
+    window.open(url);
+}
+
 //카테고리 이동 버튼 클릭 이벤트
 $(".moveCategBtn").click(function(){
     $(".moveCategBtn").toggleClass("on");

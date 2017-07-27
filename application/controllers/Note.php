@@ -96,11 +96,26 @@ class Note extends CI_Controller {
     {
         $n_idx = $this->input->post('n_idx');
 
-        $aResult = array(
-             "code"  => 1
-            ,"msg"   => "OK"
-            ,"aNoteDetail" => $this->_getNoteDetailInfo($n_idx)
-        );
+        // text code
+        // $n_idx = 16;
+
+        $aNoteDetail = $this->_getNoteDetailInfo($n_idx);
+
+        if( $aNoteDetail['is_use'] == 'Y' )
+        {
+            $aResult = array(
+                 "code"  => 1
+                ,"msg"   => "OK"
+                ,"aNoteDetail" => $this->_getNoteDetailInfo($n_idx)
+            );
+        }
+        else
+        {
+            $aResult = array(
+                 "code"  => 301
+                ,"msg"   => "존재하지 않는 노트입니다."
+            );
+        }
 
         response_json($aResult);
         die;
