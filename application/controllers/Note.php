@@ -65,6 +65,7 @@ class Note extends CI_Controller {
 
         $data = array(
              'vdata' => $aVdata
+            ,'usn'   => $usn
             ,'aMenuList' => $aMenuList
             ,'contents' => 'note/list'
         );
