@@ -157,6 +157,7 @@ class Note extends CI_Controller {
         $bRes = $oNoteModel->note_model->deleteNote($n_idx);
         return $bRes;
     }
+
     private function _setContentInfo($contents)
     {
         $aRtn = array();
@@ -165,15 +166,15 @@ class Note extends CI_Controller {
         {
             $aTemp[$key] .= "</p>"; 
             $aRtn[] = array('s_idx'=>$key+1, 'contents'=>$aTemp[$key]);
-        } 
+        }
         return $aRtn;
     }
+
     public function saveNote($sType='reg')
     {
         if($this->input->post('sType')) 
             $sType = $this->input->post('sType') ;
-        
-        
+
         if($sType == 'reg')
         {
             $aNoteData = array(
@@ -226,7 +227,6 @@ class Note extends CI_Controller {
             die;
         }
     }
-
 
     // test code
     private function _getUsn()
@@ -290,7 +290,6 @@ Dev Code
         );
         response_json($this->oErrorLog->setErrorLog($aErrorLog));
     }
-
 
     public function delNote($n_idx='')
     {

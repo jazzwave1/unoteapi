@@ -134,10 +134,10 @@
                                         <p class="log-formBtn">
                                             <a href="javascript:callCrawl();">로그인</a>
                                         </p>
-                                        <p class="log-notice hide">
-                                            <span id="noticeId"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
-                                            <span id="noticePwd"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
-                                            <span id="noticeInfo"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
+                                        <p class="log-notice">
+                                            <span id="noticeId" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
+                                            <span id="noticePwd" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
+                                            <span id="noticeInfo" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
                                         </p>
                                     </fieldset>
                                 </form>
@@ -159,10 +159,10 @@
                                         <p class="log-formBtn">
                                             <a href="javascript:callCrawl();">로그인</a>
                                         </p>
-                                        <p class="log-notice hide">
-                                            <span id="noticeId"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
-                                            <span id="noticePwd"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
-                                            <span id="noticeInfo"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
+                                        <p class="log-notice">
+                                            <span id="noticeId" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
+                                            <span id="noticePwd" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
+                                            <span id="noticeInfo" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
                                         </p>
                                     </fieldset>
                                 </form>
@@ -183,10 +183,10 @@
                                         <p class="log-formBtn">
                                             <a href="javascript:FBCrawl();">로그인</a>
                                         </p>
-                                        <p class="log-notice hide">
-                                            <span id="noticeId"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
-                                            <span id="noticePwd"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
-                                            <span id="noticeInfo"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
+                                        <p class="log-notice">
+                                            <span id="noticeId" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
+                                            <span id="noticePwd" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
+                                            <span id="noticeInfo" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
                                         </p>
                                     </fieldset>
                                 </form>
@@ -221,6 +221,7 @@ function callCrawl()
 //      console.log(test);
 //      cnt++;
 //  });
+    noticeReset();
 
     var test = new Array(); 
     var s_id = "";
@@ -236,7 +237,20 @@ function callCrawl()
     }else if( $('#site').val() == 3 ){
         var s_id  = "AT"; 
         var s_pwd = $('#facebookToken').val(); 
-    } 
+    }
+
+    if(!s_id)
+    {
+        $('#noticeId').show();
+        return false;
+    }
+    if(!s_pwd)
+    {
+        $('#noticePwd').show();
+        return false;
+    }
+
+            
     $.post(
       "<?=HOSTURL?>/Crawling/rpcCrawling"
       ,{
@@ -252,9 +266,22 @@ function callCrawl()
             alert('요청되었습니다.');
             location.href = "<?=HOSTURL?>/Crawling/History";
         }
+        //아이디 오류
+        else if (status == "success" && data.code == 1)
+        {
+            $('#noticeId').show();
+            // alert('요청되었습니다.');
+            // location.href = "<?=HOSTURL?>/Crawling/History";
+        }
       }
     );         
-}      
+}
+function noticeReset()
+{
+    $('#noticeId').hide();
+    $('#noticePwd').hide();
+    $('#noticeInfo').hide();
+}
 </script>
 
 <!--facebook login script-->

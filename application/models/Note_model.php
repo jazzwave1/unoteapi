@@ -105,6 +105,7 @@ class Note_model extends CI_model
 
         foreach($aContentInfo as $key=>$val)
         {
+            $val['contents'] = preg_replace('/ id=\"s_idx_([0-9]+)\"/','', $val['contents']);
             $this->note_dao->insertNoteSentence($pk, $val['s_idx'], $val['contents']); 
         }
         return true;
