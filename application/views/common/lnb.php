@@ -134,8 +134,10 @@
                                         <p class="log-formBtn">
                                             <a href="javascript:callCrawl();">로그인</a>
                                         </p>
-                                        <p class="log-notice">
-                                            * 아이디를 입력하세요 / * 비밀번호를 입력하세요 / * 입력정보를 확인해주세요
+                                        <p class="log-notice hide">
+                                            <span id="noticeId"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
+                                            <span id="noticePwd"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
+                                            <span id="noticeInfo"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
                                         </p>
                                     </fieldset>
                                 </form>
@@ -157,8 +159,10 @@
                                         <p class="log-formBtn">
                                             <a href="javascript:callCrawl();">로그인</a>
                                         </p>
-                                        <p class="log-notice">
-                                            * 아이디를 입력하세요 / * 비밀번호를 입력하세요 / * 입력정보를 확인해주세요
+                                        <p class="log-notice hide">
+                                            <span id="noticeId"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
+                                            <span id="noticePwd"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
+                                            <span id="noticeInfo"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
                                         </p>
                                     </fieldset>
                                 </form>
@@ -179,8 +183,10 @@
                                         <p class="log-formBtn">
                                             <a href="javascript:FBCrawl();">로그인</a>
                                         </p>
-                                        <p class="log-notice">
-                                            * 아이디를 입력하세요 / * 비밀번호를 입력하세요 / * 입력정보를 확인해주세요
+                                        <p class="log-notice hide">
+                                            <span id="noticeId"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
+                                            <span id="noticePwd"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
+                                            <span id="noticeInfo"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
                                         </p>
                                     </fieldset>
                                 </form>
@@ -340,9 +346,7 @@ function callCrawl()
 
     }
 </script>
-<script>
 
-</script>
     
     
     

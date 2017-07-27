@@ -31,6 +31,8 @@ input {outline: none;border: 0px;}
 .clearfix {*zoom:1}
 .clearfix:after {content:'';display:block;clear:both}
 
+i{font-size: 12px;}
+
 /*guide_style*/
 @font-face {
     font-family: 'tvN_Bold';
@@ -282,7 +284,9 @@ input {outline: none;border: 0px;}
 .pop-login .log-form .log-notice{
     padding-bottom: 20px;
 }
-
+.log-notice span{
+    color: darkred;
+}
 /*footer*/
 #footer{
     position: fixed;
