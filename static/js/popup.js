@@ -256,6 +256,8 @@ $(".pop-login").hide();
 $(".login0").show();
 
 $(".sns-tab li").on('click', function(){
+    $(this).siblings('li').removeClass('on');
+    $(this).addClass('on');
     var index = $(".sns-tab li").index(this);
     $(".pop-login").hide();
     $(".login"+index).show();

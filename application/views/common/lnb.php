@@ -152,8 +152,8 @@
                             <div class="log-form d-log-form">
                                 <form action="" method="post">
                                     <fieldset>
-                                        <input id="daumUserId" type="text" name="id" placeholder="아이디">
-                                        <input id="daumUserPwd" type="password" name="pwd" placeholder="비밀번호">
+                                        <input id="daumUserId" type="text" name="id" placeholder="아이디" disabled>
+                                        <input id="daumUserPwd" type="password" name="pwd" placeholder="비밀번호" disabled>
                                         <p class="log-formBtn">
                                             <a href="javascript:callCrawl();">로그인</a>
                                         </p>
@@ -339,8 +339,10 @@ function callCrawl()
         });
 
     }
-</script> 
-    
+</script>
+<script>
+
+</script>
     
     
     
