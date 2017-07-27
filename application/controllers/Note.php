@@ -157,6 +157,75 @@ class Note extends CI_Controller {
         $bRes = $oNoteModel->note_model->deleteNote($n_idx);
         return $bRes;
     }
+    private function _setContentInfo($contents)
+    {
+        $aRtn = array();
+        $aTemp = explode("</p>", $contents);
+        foreach($aTemp as $key=>$val)
+        {
+            $aTemp[$key] .= "</p>"; 
+            $aRtn[] = array('s_idx'=>$key+1, 'contents'=>$aTemp[$key]);
+        } 
+        return $aRtn;
+    }
+    public function saveNote($sType='reg')
+    {
+        if($this->input->post('sType')) 
+            $sType = $this->input->post('sType') ;
+        
+        
+        if($sType == 'reg')
+        {
+            $aNoteData = array(
+                'n_idx'    => 'NULL'
+                ,'usn'     => 1
+                ,'title'   => $this->input->post('title') 
+                ,'regdate' => date("Y-m-d H:i:s")
+            );
+           
+            // insertNote
+            // 추후 note_display, note_sentence table 추가 필요
+            if($pk = $this->note_model->insertNote($aNoteData))
+            {
+                $aContentInfo = $this->_setContentInfo($this->input->post('ir1'));
+                $this->note_model->insertNoteSentence($pk, $aContentInfo) ;
+                
+                $aResult = array( 'code' => 1, 'msg' => 'OK', 'pk'=>$pk);
+                response_json($aResult);
+                die;
+            }
+
+        }
+        else if($sType == 'edit')
+        {
+            $aNoteData = array(
+                'n_idx'     => $this->input->post('n_idx') 
+                ,'usn'      => 1
+                ,'title'    => $this->input->post('title') 
+                ,'regdate'  => date("Y-m-d H:i:s")
+                ,'contents' => $this->_setContentInfo($this->input->post('ir1')) 
+            );
+
+            if($this->_isNote($aNoteData['n_idx']))
+            {
+                // update
+                if($this->note_model->updateNote($aNoteData))
+                {
+                    $aResult = array( 'code' => 1, 'msg' => 'OK');
+                    response_json($aResult);
+                }
+            }
+// test code 
+// 잠시 막아둠            
+//          $aErrorLog = array(
+//               'file' =>'/Note/saveNote | edit'
+//              ,'code' => 301 
+//              ,'aInput' => $aNoteData 
+//          );
+//          response_json($this->oErrorLog->setErrorLog($aErrorLog));
+            die;
+        }
+    }
 
 
     // test code
@@ -223,76 +292,6 @@ Dev Code
     }
 
 
-    private function _setContentInfo($contents)
-    {
-        $aRtn = array();
-        $aTemp = explode("</p>", $contents);
-        foreach($aTemp as $key=>$val)
-        {
-            $aTemp[$key] .= "</p>"; 
-            $aRtn[] = array('s_idx'=>$key+1, 'contents'=>$aTemp[$key]);
-        } 
-        return $aRtn;
-    }
-
-    public function saveNote($sType='reg')
-    {
-        if($this->input->post('sType')) 
-            $sType = $this->input->post('sType') ;
-        
-        
-        if($sType == 'reg')
-        {
-            $aNoteData = array(
-                'n_idx'    => 'NULL'
-                ,'usn'     => 1
-                ,'title'   => $this->input->post('title') 
-                ,'regdate' => date("Y-m-d H:i:s")
-            );
-           
-            // insertNote
-            // 추후 note_display, note_sentence table 추가 필요
-            if($pk = $this->note_model->insertNote($aNoteData))
-            {
-                $aContentInfo = $this->_setContentInfo($this->input->post('ir1'));
-                $this->note_model->insertNoteSentence($pk, $aContentInfo) ;
-                
-                $aResult = array( 'code' => 1, 'msg' => 'OK', 'pk'=>$pk);
-                response_json($aResult);
-                die;
-            }
-
-        }
-        else if($sType == 'edit')
-        {
-            $aNoteData = array(
-                'n_idx'     => $this->input->post('n_idx') 
-                ,'usn'      => 1
-                ,'title'    => $this->input->post('title') 
-                ,'regdate'  => date("Y-m-d H:i:s")
-                ,'contents' => $this->_setContentInfo($this->input->post('ir1')) 
-            );
-
-            if($this->_isNote($aNoteData['n_idx']))
-            {
-                // update
-                if($this->note_model->updateNote($aNoteData))
-                {
-                    $aResult = array( 'code' => 1, 'msg' => 'OK');
-                    response_json($aResult);
-                }
-            }
-// test code 
-// 잠시 막아둠            
-//          $aErrorLog = array(
-//               'file' =>'/Note/saveNote | edit'
-//              ,'code' => 301 
-//              ,'aInput' => $aNoteData 
-//          );
-//          response_json($this->oErrorLog->setErrorLog($aErrorLog));
-            die;
-        }
-    }
     public function delNote($n_idx='')
     {
         if($this->_isNote($n_idx))
