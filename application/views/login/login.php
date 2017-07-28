@@ -36,10 +36,7 @@
                     <!--sns계정 로그인-->
                     <div class="snsLogin">
                         <ul>
-                            <li class="fBtn">
-                                <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState();"></div>
-                            </li>
-
+                            <li class="fBtn"><a href="javascript:checkLoginState();" >FB</a></li>
                             <li class="nBtn"><a href="javascript:alert('준비중입니다');">naver</a></li>
                             <li class="kBtn"><a href="javascript:alert('준비중입니다');">kakao</a></li>
                         </ul>
