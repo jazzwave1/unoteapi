@@ -22,7 +22,7 @@ class Note extends CI_Controller {
 
     public function index()
     {
-        $this->List();
+        header('Location: '.HOSTURL.'/Note/List');
     }
 
     public function List()

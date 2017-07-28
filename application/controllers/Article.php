@@ -19,7 +19,7 @@ class Article extends CI_Controller {
 
     public function index()
     {
-        $this->List();
+        header('Location: '.HOSTURL.'/Article/List');
     }
 
     public function List()

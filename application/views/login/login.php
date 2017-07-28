@@ -18,6 +18,7 @@
     <script type="text/javascript" src="<?=SURL?>/js/facebook_login.js"></script>
 </head>
 <body>
+<div id="fb-root"></div>
     <div id="wrap">
         <div class="loginWrap">
             <!--header-->
@@ -30,23 +31,40 @@
             </div>-->
             <!--//header-->
             <div class="login inner">
-                <div class="tit">글동<i class="fa fa-pencil"></i></div>
-                <div class="stit">삶을 가꾸는 글쓰기</div>
-                <div class="clearfix">
+                <div class="tit"><!--글동<i class="fa fa-pencil"></i>--><img src="static/images/logo.png" alt="유노트 로고"></div>
+                <div class="stit">너와 나를 연결하는 노트</div>
+
+                <div class="loginBox clearfix">
+                    <div class="txt">
+                        <p>로그인</p>
+                        <p>
+                            기존에 사용하시는 계정으로 간단하게 <br>유노트를 시작하세요!
+                        </p>
+                    </div>
                     <!--sns계정 로그인-->
                     <div class="snsLogin">
                         <ul>
-                            <li class="fBtn"><a href="javascript:checkLoginState();" >FB</a></li>
-                            <li class="nBtn"><a href="javascript:alert('준비중입니다');">naver</a></li>
-                            <li class="kBtn"><a href="javascript:alert('준비중입니다');">kakao</a></li>
+                            <li class="edunietyBtn btn"><a href="javascript:;">eduniety으로 로그인</a></li>
+                            <li class="fBtn btn">
+<div scope="public_profile,email" onlogin="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+</li>
+                            <!--<li class="nBtn"><a href="javascript:alert('준비중입니다');">naver</a></li>
+                            <li class="kBtn"><a href="javascript:alert('준비중입니다');">kakao</a></li>-->
                         </ul>
                         <!--div class="findSns"><a href="javascript:;">계정찾기</a></div-->
                     </div>
+                        <form name='fo' method='post' class="loginForm" action='<?=HOSTURL?>/Login/RpcLogin'>
+
+                            <input type='hidden' name='user_id' id='user_id' >
+                            <input type='hidden' name='site' id='site' >
+                            <input type='hidden' name='accessToken' id='accessToken'>
+                        </form>
+
                     <!--//sns계정 로그인-->
                     <!--에듀니티계정 로그인-->
-                    <div class="eduniLogin">
+                    <!--<div class="eduniLogin">
                         <p class="eduni">에듀니티 회원</p>
-                        <form name='fo' method='post' class="loginForm" action='<?=HOSTURL?>/Login/RpcLogin'>
+                        <form name='fo' method='post' class="loginForm" action='<?/*=HOSTURL*/?>/Login/RpcLogin'>
 
                             <input type='hidden' name='user_id' id='user_id' >
                             <input type='hidden' name='site' id='site' >
@@ -66,19 +84,19 @@
                                     <input type="checkbox" name="save" id="saveLogin">
                                     <label for="saveLogin">로그인 상태 유지</label>
                                 </span-->
-                                <span><a href="http://portal.eduniety.net/html/member/account" class="membership">회원가입</a></span>
+                                <!--span><a href="http://portal.eduniety.net/html/member/account" class="membership">회원가입</a></span>
                                 <span><a href="http://portal.eduniety.net/html/member/find-id" class="findInfo">아이디 찾기</a></span>
                             </div>
                         </form>
-                    </div>
+                    </div>-->
                     <!--//에듀니티계정 로그인-->
                 </div>
             </div>
         </div>
     </div>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="<?=SURL?>/js/common_.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
+    <!--<script type="text/javascript" src="<?/*=SURL*/?>/js/common_.js"></script>-->
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>-->
 
     <script>
       $(function(){
