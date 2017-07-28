@@ -126,4 +126,14 @@ function getMenuData($sController, $sMethod)
 
     return $aRtn;
 }
-
+function chkLoginInfo()
+{
+    // chk login session
+    if($aMemberInfo = LoginClass::isLogin())
+    {
+        return $aMemberInfo;
+    }
+    
+    // view login page 
+    header('Location: '.HOSTURL.'/Login');
+}

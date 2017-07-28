@@ -8,6 +8,13 @@ class Article extends CI_Controller {
 
         edu_get_instance('ArticleClass');
         edu_get_instance('article_model', 'model');
+
+        ////////////////////////////////////
+        // chk Login Info
+        // true : get MembeInfo
+        // false : loaction login page
+        $this->aMemberInfo = chkLoginInfo();
+        //////////////////////////////////// 
     }
 
     public function index()

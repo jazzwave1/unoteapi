@@ -9,30 +9,22 @@ class Login extends CI_Controller {
        
         $this->account_model = edu_get_instance('account_model','model');
     
-        $this->load->library('LoginClass');
         $this->load->library('CookieClass');
     }
     public function index()
     {
-        // chk login session
-        if(LoginClass::isLogin())
+        if( LoginClass::isLogin() )
         {
-            // go~ my list page
-            header('Location: '.HOSTURL.'/main');
+            header('Location: '.HOSTURL.'/Note');
         }
-        else
-        {
-            // view login page 
-            $data = array();
-            $this->load->view('login/login', $data);
-        } 
+        
+        $data = array();
+        $this->load->view('login/login', $data);
     }
-    private function _getAccountID()
-    {
-        return "mintgreen";
-    }
-    
-    // RPC 
+
+    ///////////////////////////
+    // RPC Function /////////// 
+    ///////////////////////////
     public function RpcLogin()
     {
         // facebook login 
@@ -41,13 +33,21 @@ class Login extends CI_Controller {
         // 클라이언트 페이지에서 해당 정보를 가지고 와서 로그인 시도를 다시함
 
         // eduniety test login process
-        edu_get_instance('LoginClass');
+        //edu_get_instance('LoginClass');
 
         // param setting  
         $account_id = $this->input->post('user_id'); 
         $site = $this->input->post('site'); 
         $accessToken  = $this->input->post('accessToken'); 
 
+        if($site == "eduniety")
+        {
+            if(! $account_id = _getEduMbID() )
+            {
+                // go~ eduniety login page
+                
+            }
+        }
         
         if(!$site) $site = 'eduniety'; 
         if(!$accessToken) $accessToken = ''; 
@@ -66,7 +66,7 @@ class Login extends CI_Controller {
         {
             if($rtn['code'] == 1)
             {
-                header('Location: '.HOSTURL.'/main');
+                header('Location: '.HOSTURL.'/Note');
             }
             else
             {
@@ -82,6 +82,11 @@ class Login extends CI_Controller {
         CookieClass::delCookieInfo();
     } 
      
-
+    private function _getEduMbID()
+    {
+        // test code 
+        $mb_id = 'ahnjaejo';
+        return $mb_id;
+    }
 }
 ?>
