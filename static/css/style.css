@@ -102,16 +102,18 @@
 .snsLogin ul li a {
     display: block;
     /*text-shadow: 0 1px 0 rgba(0,0,0,0.2);*/
-    padding: 15px 20px;
+    /*padding: 15px 20px;*/
     font-weight: bold;
     color: #fff;
     text-transform: uppercase;
 }
 .snsLogin ul li.edunietyBtn{
     background: #f7d767;
+    height: 42px;
+    line-height: 42px;
 }
 .snsLogin ul li.fBtn {
-    background: #3b5998;
+    background: #4267b2;
 }
 
 .snsLogin ul li.nBtn {
