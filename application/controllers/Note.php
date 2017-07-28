@@ -11,6 +11,13 @@ class Note extends CI_Controller {
 
         $this->load->model('account_model');
         $this->load->model('note_model');
+    
+        ////////////////////////////////////
+        // chk Login Info
+        // true : get MembeInfo
+        // false : loaction login page
+        $this->aMemberInfo = chkLoginInfo();
+        //////////////////////////////////// 
     }
 
     public function index()

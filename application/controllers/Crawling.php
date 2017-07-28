@@ -8,6 +8,13 @@ class Crawling extends CI_Controller{
     
         
         $this->nPageNum = 10;
+        ////////////////////////////////////
+        // chk Login Info
+        // true : get MembeInfo
+        // false : loaction login page
+        $this->aMemberInfo = chkLoginInfo();
+        //////////////////////////////////// 
+
     }
 
     public function index()
