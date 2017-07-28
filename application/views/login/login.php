@@ -30,7 +30,7 @@
             </div>-->
             <!--//header-->
             <div class="login inner">
-                <div class="tit"><!--글동<i class="fa fa-pencil"></i>--><img src="../static/images/logo.png" alt="유노트 로고"></div>
+                <div class="tit"><!--글동<i class="fa fa-pencil"></i>--><img src="static/images/logo.png" alt="유노트 로고"></div>
                 <div class="stit">너와 나를 연결하는 노트</div>
 
                 <div class="loginBox clearfix">
