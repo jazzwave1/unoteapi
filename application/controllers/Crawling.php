@@ -19,7 +19,7 @@ class Crawling extends CI_Controller{
 
     public function index()
     {
-        $this->History();
+        header('Location: '.HOSTURL.'/Crawling/History');
     }
 
     public function History($pagination=0)
