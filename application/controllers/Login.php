@@ -42,7 +42,7 @@ class Login extends CI_Controller {
 
         if($site == "eduniety")
         {
-            if(! $account_id = _getEduMbID() )
+            if(! $account_id = $this->_getEduMbID() )
             {
                 // go~ eduniety login page
                 

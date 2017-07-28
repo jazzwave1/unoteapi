@@ -57,7 +57,6 @@
 
                             <fieldset>
                                 <input id="userId" type="text" name="id" value="chomerbleu" placeholder="아이디">
-                                <input id="userPwd" type="password" name="pwd" placeholder="비밀번호">
                                 <p class="formBtn">
                                     <a href="#" id="bSend">로그인</a>
                                 </p>
@@ -91,12 +90,12 @@
               "<?=HOSTURL?>/Login/RpcLogin"
               ,{
                    "user_id" : $('#userId').val() 
-                  ,"user_pwd" : $('#userPwd').val() 
+                   ,"site" : "eduniety" 
                }
               ,function(data, status) {
                     if (status == "success" && data.code == 1)
                     {
-                        window.location.href="<?=HOSTURL?>/Main";
+                        window.location.href="<?=HOSTURL?>/Note";
                     }
                     else
                     {

@@ -19,7 +19,7 @@ $config['query'] = array(
                         VALUES (?,?,?,?)'
             ,'data' => array('account', 'oauth', 'regdate', 'accessToken')
             ,'btype'=> 'ssss'
-            ,'null' => array()
+            ,'null' => array('accessToken')
         )
     )
     ,'note' => array(
