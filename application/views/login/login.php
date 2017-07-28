@@ -50,6 +50,13 @@
                         </ul>
                         <!--div class="findSns"><a href="javascript:;">계정찾기</a></div-->
                     </div>
+                        <form name='fo' method='post' class="loginForm" action='<?=HOSTURL?>/Login/RpcLogin'>
+
+                            <input type='hidden' name='user_id' id='user_id' >
+                            <input type='hidden' name='site' id='site' >
+                            <input type='hidden' name='accessToken' id='accessToken'>
+                        </form>
+
                     <!--//sns계정 로그인-->
                     <!--에듀니티계정 로그인-->
                     <!--<div class="eduniLogin">
