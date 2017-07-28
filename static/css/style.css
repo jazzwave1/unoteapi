@@ -1,6 +1,24 @@
-
+/*common*/
+.btn{
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
 /*login*/
-
 .loginWrap {
     /* Set rules to fill background */
     min-height: 100%;
@@ -37,32 +55,61 @@
 .login .stit {
     font-family: 'tvN_Bold';
     font-size: 32px;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
+    color: #1498d5;
 }
-.snsLogin,
+.login .txt p{
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+.login .txt p:first-child{
+    font-size: 24px;
+    font-weight: bold;
+}
+.loginBox{
+    width: 300px;
+    background: rgba(255,255,255,0.6);
+    margin: 0 auto;
+    padding: 40px 30px;
+}
+.snsLogin
+{
+    width: 100%;
+    margin: 0 auto;
+    /*float: left;
+    width: 50%;
+    text-align: center;*/
+    padding-top: 20px;
+}
+
+/*.snsLogin,
 .eduniLogin {
     float: left;
     width: 50%;
     text-align: center;
-}
+}*/
 
 .snsLogin ul {
-    padding-top: 50px;
 }
 
 .snsLogin ul li {
-    display: inline-block;
-    width: 200px;
-    padding: 15px 20px;
+    width: 300px;
     border-radius: 5px;
+    margin: 0 auto;
     margin-bottom: 20px;
 }
 
 .snsLogin ul li a {
+    display: block;
+    /*text-shadow: 0 1px 0 rgba(0,0,0,0.2);*/
+    padding: 15px 20px;
+    font-weight: bold;
     color: #fff;
     text-transform: uppercase;
 }
-
+.snsLogin ul li.edunietyBtn{
+    background: #f7d767;
+}
 .snsLogin ul li.fBtn {
     background: #3b5998;
 }
