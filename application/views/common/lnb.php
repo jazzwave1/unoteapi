@@ -4,7 +4,7 @@
                         <!--새글쓰기 버튼-->
                         <div class="lnb-sideinner">
                             <div class="newNoteBtn">
-                                <a href="/unote" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i>새글쓰기</a>
+                                <a href="/unote/index.php" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"></i>새글쓰기</a>
                             </div>
                         </div>
                         <!--menu-->
