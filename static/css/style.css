@@ -105,7 +105,7 @@
     display: block;
     /*text-shadow: 0 1px 0 rgba(0,0,0,0.2);*/
     /*padding: 15px 20px;*/
-    font-weight: bold;
+    /*font-weight: bold;*/
     color: #fff;
     text-transform: uppercase;
     font-size: 16px;
@@ -135,7 +135,11 @@
     letter-spacing: 2px;
     text-decoration: underline;
 }
-
+.eduniLogin{
+    width: 300px;
+    text-align: left;
+    padding-top: 20px;
+}
 .eduniLogin .eduni {
     font-family: 'tvN_Bold';
     font-size: 24px;
@@ -146,26 +150,23 @@
 }
 
 .eduniLogin form fieldset input {
-    display: block;
-    width: 200px;
-    margin: 0 auto;
+    width: 170px;
     padding: 15px 20px;
     border-radius: 5px;
-    margin-bottom: 20px;
+    border: 1px solid #ccc;
 }
 
 .eduniLogin .formBtn {
-    width: 200px;
-    margin: 0 auto;
-    padding: 15px 20px;
+    display: inline-block;
+    width: 83px;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
     border-radius: 5px;
-    margin-bottom: 20px;
-    background-color: darkgreen;
+    background-color: #f7d767;
+    box-shadow: inset 0 3px 4px rgba(255,255,255,0.2);
 }
 
-.eduniLogin .formBtn a {
-    color: #fff;
-}
 
 .eduniLogin .notice {
     display: none;
@@ -465,3 +466,24 @@ transition: background .55s ease;
 .pageNum ul li{display: inline-block; vertical-align: middle; padding: 0 5px;}
 .pageNum ul li a{color: #ccc; font-size: 14px; font-weight: bold;}
 .pageNum ul li a.on{color: darkcyan; font-size: 16px;}
+
+
+.btn{
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}

@@ -41,10 +41,24 @@
                             기존에 사용하시는 계정으로 간단하게 <br>유노트를 시작하세요!
                         </p>
                     </div>
+                    <!--에듀니티계정 로그인-->
+                    <div class="eduniLogin">
+                        <!--<p class="eduni">에듀니티 회원</p>-->
+                        <form action="" method="post" class="loginForm">
+                            <fieldset>
+                                <input id="userId" type="text" name="id" placeholder="에듀니티 아이디">
+                                <!--<input id="userPwd" type="password" name="pwd" placeholder="비밀번호">-->
+
+                                <a class="formBtn" href="javascript:;">로그인</a>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                    <!--//에듀니티계정 로그인-->
                     <!--sns계정 로그인-->
                     <div class="snsLogin">
                         <ul>
-                            <li class="edunietyBtn btn"><a href="https://portal.eduniety.net/html/member/login">eduniety으로 로그인</a></li>
+                            <!--<li class="edunietyBtn btn"><a href="https://portal.eduniety.net/html/member/login">eduniety으로 로그인</a></li>-->
                             <li class="fBtn btn">
 <div scope="public_profile,email" onlogin="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
 </li>
