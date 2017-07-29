@@ -85,7 +85,7 @@ $('.categEditBtn').on('click', function(event){
   if($('#categInput_'+c_idx).length < 1)
   {
     $('#category_'+c_idx).prepend(
-      '<input id="categInput_'+c_idx+'" type="text" value="'+c_name+'" onkeypress="if(event.keyCode==13) {editCategory(this);}">'
+      '<input id="categInput_'+c_idx+'" style="border: 1px solid #eee; border-radius: 5px; padding:2px;" type="text" value="'+c_name+'" onkeypress="if(event.keyCode==13) {editCategory(this);}">'
     );
   }
 });

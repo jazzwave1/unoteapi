@@ -29,7 +29,7 @@ function notiDelete(){
 }
 
 /*$("a태그 클래스명").prop('href', 변경되는 url);*/
-$(".newWindowBtn").prop("href","http://www.daum.net");
+/*$(".newWindowBtn").prop("href","http://www.daum.net");*/
 
 
 $(".noteDelBtn").on("click", noteDelete);
