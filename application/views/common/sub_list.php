@@ -33,8 +33,8 @@
                                                     <img src="<?=SURL?>/images/icon/logo_daum.png" alt="다음로고">
                                                     <?php elseif($oSublist->craw_data->corporation == '페이스북'): ?>
                                                     <img src="<?=SURL?>/images/icon/logo_facebook.png" alt="페이스북로고">
-                                                    </p>
                                                     <?php endif; ?>
+                                                    </p>
                                                 </div>
                                                 <div class="cafeTxt">
                                                     <p class="tit"><?=$oSublist->craw_data->title?></p>

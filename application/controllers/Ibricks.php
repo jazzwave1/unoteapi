@@ -147,26 +147,58 @@ class Ibricks extends CI_Controller {
         die;
     }
 
-    public function apiListArticle($nIdx='', $sIdx='')
+    public function apiListArticle($sType='')
     {
-        $nIdx = $this->input->post('n_idx');
-        $sIdx = $this->input->post('s_idx');
+        $usn = $this->_getUsn();
+        $sType = $this->input->post('sType');
 
-        // test code
-        // $nIdx = 26;
+        //test code
+        // $sType = 'list';
 
-        if(!$nIdx) 
+        if(!$usn) 
         {
             response_json(array('code'=>999, 'msg'=>'input param check')); 
             die;
         }
 
+        $aArticle = array();
+        edu_get_instance('MenuClass');
+        edu_get_instance('ArticleClass');
+        $aMenuList = MenuClass::getMenuList($usn);
+        if($sType == 'list')
+        {
+            $aArticle['menu'] = $aMenuList['Article']['sub']['List'];
+            $aArticle['list'] = ArticleClass::getArticleInfo($usn);
+        }
+        else if($sType == 'bookmark')
+        {
+            $aArticle['menu'] = $aMenuList['Article']['sub']['Bookmark'];
+            $aArticle['list'] = ArticleClass::getArticleBookmarkInfo($usn);
+        }
+        // else if($sType == 'category')
+        // {
+            // $aArticle['menu'] = $aMenuList['Category']['sub'][$category_idx];
+            // $aArticle['list'] = ArticleClass::getArticleCategoryInfo($usn, $category_idx);
+        // }
+
+        $aArticle['menu']['type'] = $sType;
+        $aArticle['category'] = $aMenuList['Category']['sub'];
+        
+        $aArticle['list_cnt'] = 0;
+        if(is_array($aArticle['list']))
+        {
+            $aArticle['list_cnt'] = count($aArticle['list']);
+        }
+
+        // echo '<pre>: '. print_r( $aArticle, true ) .'</pre>';
+        // die();
+        
+
         //$sResultJson = IbricksClass::spellCheckFromString($sIn);
         // $sResultJson = IbricksClass::beautifySentence($nIdx, $sIdx);
         // $aResultJson = (array) json_decode($sResultJson);
-        $data = array();
 
-        $addonHtml = $this->load->view('addon/listArticle', $data, true);
+        $addonHtml = $this->load->view('addon/listArticle', $aArticle, true);
 
         $aResult = array(
              "code"  => 1
@@ -176,6 +208,12 @@ class Ibricks extends CI_Controller {
 
         response_json($aResult);
         die;
+    }
+
+    // test code
+    private function _getUsn()
+    {
+        return 1;
     }
 }
 ?>

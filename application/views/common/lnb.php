@@ -29,7 +29,7 @@
                 <!--category-->
                 <?php if($controller == 'Category'): ?>
                                 <li id="category_<?=$method?>">
-                                    <a href="<?=HOSTURL?>/Article/<?=$controller?>/<?=$method?>"><span class="categTit" id="categTit_<?=$method?>"><?=$aMenuSubData['subtitle']?></span></a>
+                                    <a href="<?=HOSTURL?>/Article/<?=$controller?>/<?=$method?>"><i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><span class="categTit" id="categTit_<?=$method?>"><?=$aMenuSubData['subtitle']?></span></a>
                                     <!--<input id="categInput_<?=$method?>" type="text" value="<?=$aMenuSubData['subtitle']?>" onkeypress="if(event.keyCode==13) {editCategory(this);}">-->
                                     <div class="categBtn">
                                         <span class="categEditBtn"><i class="fa fa-pencil" aria-hidden="true"></i></span>

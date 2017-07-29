@@ -22,7 +22,7 @@ class MenuClass {
             foreach ($aCategoryInfo as $obj)
             {
                 $aCategoryList[$obj->category_idx] = array(
-                    'icon'      => ''
+                    'icon'      => 'fa fa-folder-open'
                     ,'subtitle' => $obj->name
                     ,'is_use'   => 'y'
                 );

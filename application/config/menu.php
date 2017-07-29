@@ -2,11 +2,11 @@
 // defined('BASEPATH') OR exit('No direct script access allowed');
 $config['menu'] = array(
 	'Note' => array(
-		 'title' => '내 노트'
+		 'title' => '내노트'
 		,'sub' => array(
 			'List' => array(
 				 'icon' => 'fa fa-book'
-				,'subtitle' => '내 노트'
+				,'subtitle' => '내노트'
 				,'is_use' => true
 			)
 		)
@@ -16,7 +16,7 @@ $config['menu'] = array(
 		,'sub' => array(
 			'List' => array(
 				 'icon' => 'fa fa-list'
-				,'subtitle' => '글감 리스트'
+				,'subtitle' => '글감리스트'
 				,'is_use' => true
 			)
 			,'Bookmark' => array(

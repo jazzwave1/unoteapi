@@ -1,9 +1,22 @@
+<?php
+$aCrawLogo = edu_get_config('craw_logo', 'unote');
 
+// if($menu['type'] != 'list')
+// {
+//     echo 'adsf';
+// }
+
+// echo '<pre>: '. print_r( $category, true ) .'</pre>';
+// echo '<pre>: '. print_r( $list, true ) .'</pre>';
+// die();
+?>
                             <div class="bsinner">
                                 <div class="bankSubTop">
-                                    <p class="bankSub-tit"><i class="fa fa-list-ul" aria-hidden="true"></i>글감리스트</p>
-                                    <p class="bankSub-categ"><i class="fa fa-angle-right" aria-hidden="true"></i><span><i class="fa fa-folder-open" aria-hidden="true"></i>라이언</span></p>
-                                    <p class="bankSub-total">전체 | <span>40</span></p>
+                                    <p class="bankSub-tit" onclick="listArticle('list');"><i class="fa fa-list-ul" aria-hidden="true"></i>글감리스트</p>
+                                    <?php if($menu['type'] != 'list'): ?>
+                                    <p class="bankSub-categ"><i class="fa fa-angle-right" aria-hidden="true"></i><span><i class="<?=$menu['icon']?>" aria-hidden="true"></i><?=$menu['subtitle']?></span></p>
+                                    <?php endif; ?>
+                                    <p class="bankSub-total">전체 | <span><?=$list_cnt?></span></p>
                                 </div>
                                 <div class="subSearch clearfix">
                                     <div class="subSearch-left">
@@ -16,7 +29,7 @@
                                         <div class="search-icon">
                                             <ul>
                                                 <li class="bookMark">
-                                                    <a class="bookMarkBtn" href="javascript:;" title="북마크"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a>
+                                                    <a class="bookMarkBtn" href="javascript:listArticle('bookmark');" title="북마크"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a>
                                                     <!--<div>북마크</div>-->
                                                 </li>
                                                 <li class="moveCateg">
@@ -48,113 +61,25 @@
                                     <div class="scroll-subList">
                                         <!--글감리스트-->
                                         <ul class="bankSubList">
+                                        <?php foreach ($list as $oList): ?>
                                             <li>
-                                                <a href="#">
+                                                <a href="<?=$oList->t_idx?>">
                                                     <div class="cafeInfo ">
                                                         <div class="cafeinner clearfix">
                                                             <div class="cafeLogo">
-                                                                <p><img src="images/icon/logo_naver.png"></p>
+                                                                <p><img src="<?=$aCrawLogo[$oList->craw_data->corporation]?>"></p>
                                                             </div>
                                                             <div class="cafeTxt">
-                                                                <p class="tit">소프트웨어 교육과 미래</p>
+                                                                <p class="tit"><?=$oList->craw_data->title?></p>
                                                                 <p></p>
-                                                                <p class="date">2017.06.21</p>
+                                                                <p class="date"><?=$oList->regdate?></p>
                                                             </div>
+                                                            <div class="bookMarkBtn" id="bookMark<?=$oList->t_idx?>"><?=($oList->bookmark == 'Y') ? '<i class="fa fa-bookmark fa-1g aria-hidden="true"></i>' : ''?></div>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="cafeInfo ">
-                                                        <div class="cafeinner clearfix">
-                                                            <div class="cafeLogo">
-                                                                <p><img src="images/icon/logo_naver.png"></p>
-                                                            </div>
-                                                            <div class="cafeTxt">
-                                                                <p class="tit">test</p>
-                                                                <p></p>
-                                                                <p class="date">2017.06.18</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="cafeInfo ">
-                                                        <div class="cafeinner clearfix">
-                                                            <div class="cafeLogo">
-                                                                <p><img src="images/icon/logo_naver.png"></p>
-                                                            </div>
-                                                            <div class="cafeTxt">
-                                                                <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                                <p class="date">2017.05.28</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="cafeInfo ">
-                                                        <div class="cafeinner clearfix">
-                                                            <div class="cafeLogo">
-                                                                <p><img src="images/icon/logo_naver.png"></p>
-                                                            </div>
-                                                            <div class="cafeTxt">
-                                                                <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                                <p class="date">2017.05.28</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="cafeInfo ">
-                                                        <div class="cafeinner clearfix">
-                                                            <div class="cafeLogo">
-                                                                <p><img src="images/icon/logo_naver.png"></p>
-                                                            </div>
-                                                            <div class="cafeTxt">
-                                                                <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                                <p class="date">2017.05.28</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="cafeInfo ">
-                                                        <div class="cafeinner clearfix">
-                                                            <div class="cafeLogo">
-                                                                <p><img src="images/icon/logo_naver.png"></p>
-                                                            </div>
-                                                            <div class="cafeTxt">
-                                                                <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                                <p class="date">2017.05.28</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="cafeInfo ">
-                                                        <div class="cafeinner clearfix">
-                                                            <div class="cafeLogo">
-                                                                <p><img src="images/icon/logo_naver.png"></p>
-                                                            </div>
-                                                            <div class="cafeTxt">
-                                                                <p class="tit">testettstsetsetsetsetsetsetsetsetset</p>
-                                                                <p class="date">2017.05.28</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                        <?php endforeach; ?>
                                         </ul>
                                         <!--//글감리스트-->
                                     </div>
