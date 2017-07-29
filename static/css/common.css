@@ -98,6 +98,13 @@ i{font-size: 12px;}
     display: block;
     color: #4f4f4f;
     font-weight: normal;
+    width: 170px;
+    height:60px;
+    overflow: hidden;
+}
+#header .hleft h1 a img{
+    width: 100%;
+    vertical-align: middle;
 }
 #header .hcenter{
     position: absolute;
@@ -109,7 +116,12 @@ i{font-size: 12px;}
 
 }
 
-#header .hleft .menubar{position: absolute; left: 20px;}
+#header .hleft .menubar{
+    display: block;
+    position: absolute;
+    left:0;
+    width: 60px;
+}
 #header .hright{
     float: right;
     padding-right: 20px;
