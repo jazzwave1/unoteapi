@@ -75,7 +75,7 @@ function sendCURLPost($url,$params)
     
     foreach($params as $k => $v) 
     { 
-        $postData .= $k . '='.$v.'&'; 
+        if($v)  $postData .= $k . '='.$v.'&'; 
     }
     $postData = rtrim($postData, '&');
 
@@ -90,6 +90,7 @@ function sendCURLPost($url,$params)
     $output=curl_exec($ch);
                                                               
     curl_close($ch);
+
     return $output;
 }
 function sendCURLGet($url,$params)
@@ -99,8 +100,8 @@ function sendCURLGet($url,$params)
     $postData = '';
     
     foreach($params as $k => $v) 
-    { 
-        $postData .= $k . '='.$v.'&'; 
+    {
+        if($v)  $postData .= $k . '='.$v.'&'; 
     }
     $postData = rtrim($postData, '&');
 
@@ -135,5 +136,5 @@ function chkLoginInfo()
     }
     
     // view login page 
-    header('Location: '.HOSTURL.'/Login');
+    // header('Location: '.HOSTURL.'/Login');
 }
