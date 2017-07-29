@@ -58,6 +58,17 @@ i{font-size: 12px;}
 ::-webkit-scrollbar {
     display: none;
 }
+/*fontawesome*/
+i.fa-plus{
+    color: #2980b9;
+}
+i.fa-pencil{
+    color:#ccc;
+}
+i.fa-times{
+    color:#ccc;
+}
+
 
 #wrap{
     position: relative;
@@ -91,7 +102,7 @@ i{font-size: 12px;}
     text-align: left;
     /*text-transform: uppercase;*/
     font-size: 32px;
-    padding-left: 50px;
+    padding-left: 60px;
 
 }
 #header .hleft h1 a{
