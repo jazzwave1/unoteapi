@@ -1,3 +1,10 @@
+<?php
+$this_url = $this->uri->segment(1).'/'.$this->uri->segment(2);
+if($this->uri->segment(2) == 'Category')
+{
+    $this_url = $this->uri->segment(2).'/'.$this->uri->segment(3);
+}
+?>
                 <!--lnb-->
                 <div id="lnb" class="full-left-nav">
                     <div class="lnb-inner navList">
@@ -28,7 +35,7 @@
         <?php if($aMenuSubData['is_use']): ?>
                 <!--category-->
                 <?php if($controller == 'Category'): ?>
-                                <li id="category_<?=$method?>">
+                                <li id="category_<?=$method?> " class="<?=($this_url == $controller.'/'.$method) ? 'on' : ''?>">
                                     <a href="<?=HOSTURL?>/Article/<?=$controller?>/<?=$method?>"><i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><span class="categTit" id="categTit_<?=$method?>"><?=$aMenuSubData['subtitle']?></span></a>
                                     <!--<input id="categInput_<?=$method?>" type="text" value="<?=$aMenuSubData['subtitle']?>" onkeypress="if(event.keyCode==13) {editCategory(this);}">-->
                                     <div class="categBtn">
@@ -39,7 +46,7 @@
                 <!--//category-->
                 <!--Crawling-->
                 <?php elseif($controller == 'Crawling'): ?>
-                                <li class="croList">
+                                <li class="croList <?=($this_url == $controller.'/'.$method) ? 'on' : ''?>">
                                     <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>">
                                         <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?></a>
                                     <span class="cBtn"><a href="#cReqPop" data-popup="#cReqPop" class="croBtn layer-popup">수집하기</a></span>
@@ -47,7 +54,7 @@
                 <!--//Crawling-->
                 <!--else-->
                 <?php else: ?>
-                                <li>
+                                <li class="<?=($this_url == $controller.'/'.$method) ? 'on' : ''?>">
                                     <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>">
                                     <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?>
                     <?php if($controller.'/'.$method == 'Article/List'): ?>
