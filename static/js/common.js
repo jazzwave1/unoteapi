@@ -84,3 +84,7 @@ $('#menubarIcon').click(function(){
 });
 
         
+/*logout*/
+$(".userInfo").on("click",function () {
+   $(this).children(".userBtn").slideToggle();
+});

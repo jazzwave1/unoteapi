@@ -223,11 +223,10 @@ i.fa-times{
     padding-right: 20px;
 }
 #header .hright div{
-    height: 59px;
-    line-height: 59px;
+
 }
 #header .hright .userInfo{
-
+    position: relative;
 }
 #header .hright .userInfo .pic{
     width: 40px;
@@ -249,6 +248,26 @@ i.fa-times{
 #header .hright .userInfo .name span{
     font-weight: bold;
     font-size: 14px;
+}
+
+#header .hright .userInfo .userBtn{
+    display: none;
+    position: absolute;
+    width: 150px;
+    left:50%;
+    top:50px;
+    margin-left: -75px;
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(13, 148, 208, 0.1), -6px 3px 5px rgba(13, 148, 208, 0.1), 6px 3px 5px rgba(13, 148, 208, 0.1);
+    text-align: left;
+}
+#header .hright .userInfo .userBtn .userBtn-inner{
+    padding-left: 10px;
+}
+#header .hright .userInfo .userBtn ul li i{
+    padding-right: 10px;
 }
 #header .hright .notice,#header .hright .search{
     width: 30px;

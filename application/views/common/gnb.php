@@ -20,6 +20,14 @@
                 <div class="userInfo">
                     <div class="pic"><img src="<?=SURL?>/images/deault_profile.png"></div>
                     <div class="name"><a href="#"><span>testtesttesttesttesttest</span> 님 <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
+                    <!--로그아웃창-->
+                    <div class="userBtn">
+                        <div class="userBtn-inner">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>Log-out</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <!--//userInfo-->
                 <!--notice-->
