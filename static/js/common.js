@@ -78,6 +78,9 @@ $( ".p-btn ul li a" )
     });
 
 
-
+/*gnb-menuIcon*/
+$('#menubarIcon').click(function(){
+    $(this).toggleClass('open');
+});
 
         

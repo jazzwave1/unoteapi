@@ -1,7 +1,16 @@
         <!--header-->
         <div id="header">
             <div class="hleft">
-                <a href="#" class="menubar"><i class="fa fa-bars"></i></a>
+                <a href="#" class="menubar">
+                    <div class="menubarIcon-wrap">
+                        <div id="menubarIcon" class="open">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </a>
                 <h1><a href="#"><img src="<?=SURL?>/images/logo_beta_.png" alt="유노트 로고"></a></h1>
             </div>
             <div class="hcenter">
