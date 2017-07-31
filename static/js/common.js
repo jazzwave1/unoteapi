@@ -1,18 +1,18 @@
 var _dHeight = $(document).height();
 var _dWidth = $(document).width();
 var _wWidth = $(window).width();
-
+var _detailViewWidth = _wWidth - 530;
 
 function responsiveView() {
     var wSize = $(window).width();
     var wHeight = $(window).height();
-    var detailViewWidth = wSize - 530;
+
     var detailViewHeight = wHeight - 120;
     var cTableWidth = wSize - 231;
     var scrollHeight = wHeight - 141;
     
     $("#detailView").css({
-        'width' : detailViewWidth
+        'width' : _detailViewWidth
     });
    
     $("#cList").css({
