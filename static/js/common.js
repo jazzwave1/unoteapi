@@ -32,6 +32,42 @@ function responsiveView() {
 $(window).on('load', responsiveView);
 $(window).on('resize', responsiveView);
 
+$('.menubar').on('click',clickMenubar);
+function clickMenubar() {
+    if ($('#lnb').is(":visible") === true) {
+        $('#detailView').css({
+            'left': '0px',
+            'width': _wWidth
+        });
+        $('.full-left-nav').css({
+            'left': '-230px'
+        });
+        $("#bankSub").css({
+            'left': '-530px'
+        });
+        $('#lnb').hide();
+    } else {
+        $('#detailView').css({
+            'left': '530px',
+            'width' : _detailViewWidth
+        });
+
+        $('.full-left-nav').css({
+            'left': '0'
+        });
+        $("#bankSub").css({
+            'left': '230px'
+        });
+        $('#lnb').show();
+    }
+}
+
+
+
+
+
+
+
 /*detailView icon button toolTip*/
 $( ".p-btn ul li a" )
     .mouseenter(function() {
@@ -43,58 +79,5 @@ $( ".p-btn ul li a" )
 
 
 
-
-/*full-left-nav 메뉴바 show/hide*/
-/*$(function () {
-    function responsiveView() {
-        var wSize = $(window).width();
-        if (wSize <= 768) {
-            $('#wrap').addClass('sidebar-close');
-            $('#contents').css({
-                'margin-left': '0px'
-            });
-            $('.full-left-nav').css({
-                'margin-left': '-250px'
-            });
-            $('.navList').hide();
-        }
-
-        if (wSize > 768) {
-            $('#contents').css({
-                'margin-left': '250px'
-            });
-            $('.navList').show();
-            $('.full-left-nav').css({
-                'margin-left': '0'
-            });
-            $("#wrap").removeClass("sidebar-closed");
-        }
-    }
-    $(window).on('load', responsiveView);
-    $(window).on('resize', responsiveView);
-});
-
-
-$('.menubar').click(function () {
-    if ($('.navList').is(":visible") === true) {
-        $('#contents').css({
-            'margin-left': '0px'
-        });
-        $('.full-left-nav').css({
-            'margin-left': '-250px'
-        });
-        $('.navList').hide();
-        $("#wrap").addClass("sidebar-closed");
-    } else {
-        $('#contents').css({
-            'margin-left': '250px'
-        });
-        $('.navList').show();
-        $('.full-left-nav').css({
-            'margin-left': '0'
-        });
-        $("#wrap").removeClass("sidebar-closed");
-    }
-});*/
 
         
