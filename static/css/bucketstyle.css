@@ -428,24 +428,62 @@ a.croBtn{
     font-weight: bold;
     font-size: 16px;
 }
-.p-top .p-btn{
-    float: right;
-    padding-left: 10px;
+/*detailView icon Button*/
+.p-btn{
+    margin: 0 auto;
+    max-width: 800px;
+    min-width: 300px;
 }
-.p-top .p-btn ul li{
+.p-btn>ul{
+    float: right;
+    padding-bottom: 20px;
+}
+.p-btn ul li{
     float: left;
     text-align: center;
     padding-left: 5px;
 }
-.p-top .p-btn ul li a{
+.p-btn ul li a{
+    position: relative;
     display: block;
+    color:  dimgray;
 }
-.p-top .p-btn ul li a:hover{
-    color: #fdd66d;
+.p-btn ul li a:hover{
+    color: #0d94d0;
 }
-.p-top .p-btn ul li i{
+.p-btn ul li a.on{
+    color: #0d94d0;
+}
+.p-btn>ul>li>a .toolTip{
+    position: absolute;
+    top:30px;
+    left:50%;
+    margin-left: -25px;
+    width: 50px;
+    padding: 5px;
+    background: #0d94d0;
+    color: #fff;
+    border-radius: 5px;
+    z-index: 300;
+    /*text-align: center;*/
+}
+.p-btn>ul>li>a .toolTip:after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:0;
+    border-style:solid;
+    border-width:5px 5px;
+    left:50%;
+    margin-left:-5px;
+    border-color:transparent transparent #0d94d0 transparent; top:-10px;
+}
+.p-btn ul li i{
     font-size: 16px;
     padding: 3px 5px 0;
+}
+.p-btn ul li i::before {
+    text-shadow: 0.1px 0px 2px #ccc;
 }
 .page .p-txt{
     /*padding-top: 80px;*/
