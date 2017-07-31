@@ -341,7 +341,7 @@ function articleBookmark()
         {
           if(data.type == 'chk')
           {
-              $('#bookMark'+t_idx).html('<i class="fa fa-bookmark fa-1g" aria-hidden="true"></i>');
+              $('#bookMark'+t_idx).html('<i class="fa fa-star fa-1g" aria-hidden="true"></i>');
               $('.bookMark').children().children('i').addClass('on');
           }
           else if(data.type == 'unchk')
