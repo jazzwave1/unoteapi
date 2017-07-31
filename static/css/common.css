@@ -134,6 +134,10 @@ i.fa-times{
     height: 60px;
     /*background: #818181;*/
 }
+.menubar .menubarIcon-wrap{
+    padding-left: 15px;
+    padding-top: 18px;
+}
 #menubarIcon{
     width: 30px;
     height: 30px;
@@ -200,6 +204,7 @@ i.fa-times{
     -moz-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
     transform: rotate(-45deg);
+    margin-top: 9px;
 }
 
 #menubarIcon.open span:nth-child(4) {
