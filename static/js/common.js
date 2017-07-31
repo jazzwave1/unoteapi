@@ -7,6 +7,7 @@ function responsiveView() {
     var wSize = $(window).width();
     var _wHeight = $(window).height();
     var detailViewWidth = wSize - 530;
+    var detailViewHeight = _wHeight - 120;
     var cTableWidth = wSize - 231;
     var _scrollHeight = _wHeight - 141;
     
@@ -18,7 +19,7 @@ function responsiveView() {
         'width' : cTableWidth
     });
     $(".page").css({
-        'height' :  _wHeight,
+        'height' :  detailViewHeight,
         'overflow-x' : 'hidden',
         'overflow-y' : 'scroll',
     });
@@ -30,8 +31,14 @@ function responsiveView() {
 }
 $(window).on('load', responsiveView);
 $(window).on('resize', responsiveView);
-    
 
+$( ".p-btn ul li a" )
+    .mouseenter(function() {
+        $( this ).find( "span" ).removeClass("hide");
+    })
+    .mouseleave(function() {s
+        $( this ).find( "span" ).addClass("hide");
+    });
 
 
 
