@@ -219,6 +219,7 @@ i.fa-times{
     color: #fff;
 }*/
 #header .hright{
+    position: relative;
     float: right;
     padding-right: 20px;
 }
@@ -226,7 +227,7 @@ i.fa-times{
 
 }
 #header .hright .userInfo{
-    position: relative;
+
 }
 #header .hright .userInfo .pic{
     width: 40px;
@@ -250,7 +251,7 @@ i.fa-times{
     font-size: 14px;
 }
 
-#header .hright .userInfo .userBtn{
+#header .hright .userBtn{
     display: none;
     position: absolute;
     width: 150px;
@@ -260,13 +261,14 @@ i.fa-times{
     background: #fff;
     border: 1px solid #ececec;
     border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(13, 148, 208, 0.1), -6px 3px 5px rgba(13, 148, 208, 0.1), 6px 3px 5px rgba(13, 148, 208, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), -6px 3px 5px rgba(0, 0, 0, 0.1), 6px 3px 5px rgba(0, 0, 0, 0.1);
     text-align: left;
+    z-index:500;
 }
-#header .hright .userInfo .userBtn .userBtn-inner{
+#header .hright .userBtn .userBtn-inner{
     padding-left: 10px;
 }
-#header .hright .userInfo .userBtn ul li i{
+#header .hright .userBtn ul li i{
     padding-right: 10px;
 }
 #header .hright .notice,#header .hright .search{
