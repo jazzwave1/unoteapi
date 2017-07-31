@@ -422,10 +422,12 @@ a.croBtn{
 }
 .p-top .p-info p{
     padding-bottom: 5px;
+    color: #4f4f4f;
+    font-weight: bold;
+    font-size: 14px;
 }
 .p-top .p-info .p-tit{
-    font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
 }
 /*detailView icon Button*/
 .p-btn{
@@ -486,6 +488,7 @@ a.croBtn{
     text-shadow: 0.1px 0px 2px #ccc;
 }
 .page .p-txt{
+    font-size: 14px;
     /*padding-top: 80px;*/
 }
 .p-inner{
