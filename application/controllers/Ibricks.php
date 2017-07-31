@@ -147,13 +147,15 @@ class Ibricks extends CI_Controller {
         die;
     }
 
-    public function apiListArticle($sType='')
+    public function apiListArticle($sType='', $category_idx='')
     {
         $usn = $this->_getUsn();
         $sType = $this->input->post('sType');
+        $category_idx = $this->input->post('category_idx');
 
         //test code
-        // $sType = 'list';
+        // $sType = 'category';
+        // $category_idx = '3';
 
         if(!$usn) 
         {
@@ -175,11 +177,11 @@ class Ibricks extends CI_Controller {
             $aArticle['menu'] = $aMenuList['Article']['sub']['Bookmark'];
             $aArticle['list'] = ArticleClass::getArticleBookmarkInfo($usn);
         }
-        // else if($sType == 'category')
-        // {
-            // $aArticle['menu'] = $aMenuList['Category']['sub'][$category_idx];
-            // $aArticle['list'] = ArticleClass::getArticleCategoryInfo($usn, $category_idx);
-        // }
+        else if($sType == 'category')
+        {
+            $aArticle['menu'] = $aMenuList['Category']['sub'][$category_idx];
+            $aArticle['list'] = ArticleClass::getArticleCategoryInfo($usn, $category_idx);
+        }
 
         $aArticle['menu']['type'] = $sType;
         $aArticle['category'] = $aMenuList['Category']['sub'];
@@ -189,10 +191,6 @@ class Ibricks extends CI_Controller {
         {
             $aArticle['list_cnt'] = count($aArticle['list']);
         }
-
-        // echo '<pre>: '. print_r( $aArticle, true ) .'</pre>';
-        // die();
-        
 
         //$sResultJson = IbricksClass::spellCheckFromString($sIn);
         // $sResultJson = IbricksClass::beautifySentence($nIdx, $sIdx);
@@ -205,6 +203,9 @@ class Ibricks extends CI_Controller {
             ,"msg"   => "OK"
             ,"html" => $addonHtml
         );
+
+        // echo '<pre>: '. print_r( $aResult, true ) .'</pre>';
+        // die();
 
         response_json($aResult);
         die;

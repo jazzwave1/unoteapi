@@ -1,14 +1,5 @@
 <?php
 $aCrawLogo = edu_get_config('craw_logo', 'unote');
-
-// if($menu['type'] != 'list')
-// {
-//     echo 'adsf';
-// }
-
-// echo '<pre>category: '. print_r( $category, true ) .'</pre>';
-// echo '<pre>: '. print_r( $list, true ) .'</pre>';
-// die();
 ?>
                             <div class="bsinner">
                                 <div class="bankSubTop">
@@ -36,12 +27,12 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                     <a class="moveCategBtn" href="javascript:getCategoryList();" title="카테고리"><i class="fa fa-clipboard fa-1g" aria-hidden="true"></i></a>
                                                     <!--<div>카테고리 이동</div>-->
                                                     <!--카테고리 이동 안내 창-->
-                                                    <div class="selCateg">
+                                                    <div class="selCateg" style="z-index:500;">
                                                         <div class="selCateg-inner">
                                                             <div class="selList">
                                                                 <ul>
-                                                                <?php foreach($category as $c_idx => $aCate):?>
-                                                                    <li class="goCateg" id="category_<?=$c_idx?>"><a herf="/unoteapi/Article/Category/<?=$c_idx?>"><i class="fa fa-folder-open" aria-hidden="true"></i><?=$aCate['subtitle']?></a></li>
+                                                                <?php foreach($category as $c_idx => $aCate): ?>
+                                                                    <li class="goCateg" id="category_<?=$c_idx?>"><a href="javascript:listArticle('category', '<?=$c_idx?>');"><i class="fa fa-folder-open" aria-hidden="true"></i><?=$aCate['subtitle']?></a></li>
                                                                 <?php endforeach; ?>
                                                                 </ul>
                                                             </div>
@@ -61,6 +52,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                     <div class="scroll-subList">
                                         <!--글감리스트-->
                                         <ul class="bankSubList">
+                                        <?php if( is_array($list) && count($list)>0 ): ?>
                                         <?php foreach ($list as $oList): ?>
                                             <li>
                                                 <a title="새창 열기" onClick="window.open('/unoteapi/Article/viewArticle/<?=$oList->t_idx?>','window','width=750,height=750,left=0,top=0')">
@@ -80,6 +72,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                 </a>
                                             </li>
                                         <?php endforeach; ?>
+                                        <?php endif; ?>
                                         </ul>
                                         <!--//글감리스트-->
                                     </div>
