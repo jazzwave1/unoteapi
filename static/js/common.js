@@ -17,6 +17,11 @@ function responsiveView() {
     $("#cList").css({
         'width' : cTableWidth
     });
+    $(".page").css({
+        'height' :  _wHeight,
+        'overflow-x' : 'hidden',
+        'overflow-y' : 'scroll',
+    });
     $(".scroll-subList").css({
         'height' :  _scrollHeight,
         'overflow-x' : 'hidden',

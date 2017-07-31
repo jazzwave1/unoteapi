@@ -1,3 +1,7 @@
+<?php
+$aCrawLogo = edu_get_config('craw_logo', 'unote');
+?>
+
                 <!--sublist-->
                 <div id="bankSub" class="full-left-sublist my-note">
                     <div class="bsinner">
@@ -27,13 +31,7 @@
                                             <div class="cafeinner clearfix">
                                                 <div class="cafeLogo">
                                                     <p>
-                                                    <?php if($oSublist->craw_data->corporation == '네이버'): ?>
-                                                    <img src="<?=SURL?>/images/icon/logo_naver.png" alt="네이버로고">
-                                                    <?php elseif($oSublist->craw_data->corporation == '다음'): ?>
-                                                    <img src="<?=SURL?>/images/icon/logo_daum.png" alt="다음로고">
-                                                    <?php elseif($oSublist->craw_data->corporation == '페이스북'): ?>
-                                                    <img src="<?=SURL?>/images/icon/logo_facebook.png" alt="페이스북로고">
-                                                    <?php endif; ?>
+                                                    <img src="<?=$aCrawLogo[$oSublist->craw_data->corporation]?>">
                                                     </p>
                                                 </div>
                                                 <div class="cafeTxt">
