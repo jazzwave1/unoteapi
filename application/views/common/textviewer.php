@@ -14,7 +14,7 @@ $aCategory = $aMenuList['Category']['sub'];
                         <div class="p-btn clearfix">
                             <ul class="clearfix">
                                 <li class="<?=($controller == 'note') ? 'hide' : 'bookMark'?>">
-                                    <a class="bookMarkBtn" href="javascript:;"><i aria-hidden="true" class="fa fa-bookmark fa-1g <?=( isset($vdata['aDetail']['bookmark']) && $vdata['aDetail']['bookmark'] == 'Y' ) ? 'on' : ''?>"></i><span class="toolTip hide">북마크</span></a>
+                                    <a class="bookMarkBtn" href="javascript:;"><i aria-hidden="true" class="fa fa-star-o fa-1g <?=( isset($vdata['aDetail']['bookmark']) && $vdata['aDetail']['bookmark'] == 'Y' ) ? 'on' : ''?>"></i><span class="toolTip hide">북마크</span></a>
                                     <!--<div>북마크</div>-->
                                 </li>
                                 <li class="<?=($controller == 'note') ? 'hide' : 'moveCateg'?>">
