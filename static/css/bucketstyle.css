@@ -403,10 +403,9 @@ a.croBtn{
     min-width: 300px;
     /*max-width: 1200px;
     min-width: 800px;*/
-    padding: 20px;
+    padding: 0 20px;
     background: #fff;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
-    margin-top: 20px;
 }
 .page .p-top{
     /*position: fixed;*/
@@ -433,6 +432,7 @@ a.croBtn{
     margin: 0 auto;
     max-width: 800px;
     min-width: 300px;
+    padding-top: 20px;
 }
 .p-btn>ul{
     float: right;

@@ -36,7 +36,7 @@ $( ".p-btn ul li a" )
     .mouseenter(function() {
         $( this ).find( "span" ).removeClass("hide");
     })
-    .mouseleave(function() {s
+    .mouseleave(function() {
         $( this ).find( "span" ).addClass("hide");
     });
 
