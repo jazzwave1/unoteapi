@@ -64,6 +64,11 @@
     position: relative;
     padding: 0 0 5px 5px;
 }
+.lnbItem .lnbItemList li.on{
+    background: #eee;
+    padding: 5px;
+    border-radius: 5px;
+}
 .lnbItem .lnbItemList li i{
     padding-right: 5px;
 }

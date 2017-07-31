@@ -5,11 +5,11 @@ var _wWidth = $(window).width();
 
 function responsiveView() {
     var wSize = $(window).width();
-    var _wHeight = $(window).height();
+    var wHeight = $(window).height();
     var detailViewWidth = wSize - 530;
-    var detailViewHeight = _wHeight - 120;
+    var detailViewHeight = wHeight - 120;
     var cTableWidth = wSize - 231;
-    var _scrollHeight = _wHeight - 141;
+    var scrollHeight = wHeight - 141;
     
     $("#detailView").css({
         'width' : detailViewWidth
@@ -24,7 +24,7 @@ function responsiveView() {
         'overflow-y' : 'scroll',
     });
     $(".scroll-subList").css({
-        'height' :  _scrollHeight,
+        'height' :  scrollHeight,
         'overflow-x' : 'hidden',
         'overflow-y' : 'scroll',
     });
@@ -32,6 +32,7 @@ function responsiveView() {
 $(window).on('load', responsiveView);
 $(window).on('resize', responsiveView);
 
+/*detailView icon button toolTip*/
 $( ".p-btn ul li a" )
     .mouseenter(function() {
         $( this ).find( "span" ).removeClass("hide");
@@ -96,14 +97,4 @@ $('.menubar').click(function () {
     }
 });*/
 
-
-$('.loginWrap .menubar').click(function(){
-    alert("로그인!!!!");
-});
-
-
-
-$(".slide").on("click", function(){
-    $(".subPost1").slideToggle();
-});
         
