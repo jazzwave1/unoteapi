@@ -32,7 +32,7 @@ function responsiveView() {
 $(window).on('load', responsiveView);
 $(window).on('resize', responsiveView);
 
-$('.menubar').on('click',clickMenubar);
+$('#menubarIcon').on('click',clickMenubar);
 function clickMenubar() {
     if ($('#lnb').is(":visible") === true) {
         $('#detailView').css({
