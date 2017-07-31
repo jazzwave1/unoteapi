@@ -18,7 +18,7 @@ $aCategory = $aMenuList['Category']['sub'];
                                     <!--<div>북마크</div>-->
                                 </li>
                                 <li class="<?=($controller == 'note') ? 'hide' : 'moveCateg'?>">
-                                    <a class="moveCategBtn" href="javascript:;"><i class="fa fa-clipboard fa-1g" aria-hidden="true"></i><span class="hide toolTip">카테고리</span></a>
+                                    <a class="moveCategBtn" href="javascript:;"><i class="fa fa-folder-o" aria-hidden="true"></i><span class="hide toolTip">카테고리</span></a>
                                     <!--<div>카테고리 이동</div>-->
                                     <!--카테고리 이동 안내 창-->
                                     <div class="selCateg">

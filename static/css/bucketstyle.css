@@ -496,14 +496,13 @@ a.croBtn{
     overflow-y: scroll;*/
 }
 /*카테고리 이동창*/
-.p-top .p-btn ul li.moveCateg{
-
+.moveCateg{
     position: relative;
 }
 a.moveCategBtn.on{
      color: #fdd66d;
  }
-.p-btn ul li.moveCateg .selCateg{
+.moveCateg .selCateg{
     display: none;
     position: absolute;
     width: 200px;
@@ -516,7 +515,7 @@ a.moveCategBtn.on{
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04), -6px 8px 15px rgba(0, 0, 0, 0.04), 6px 8px 15px rgba(0, 0, 0, 0.04);
     text-align: left;
 }
-.p-btn ul li.moveCateg .selCateg.on{
+.moveCateg .selCateg.on{
     display: block;
 }
 
