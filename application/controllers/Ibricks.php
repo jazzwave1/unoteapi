@@ -31,7 +31,68 @@ class Ibricks extends CI_Controller {
         $oApiLog = new ApilogClass();
         $oApiLog->setCallLog(); 
     }
+    public function testspell()
+    {
+        $nIdx = 8; 
+        $sIdx = 0; 
+        $sResultJson = IbricksClass::spellCheckFromString($nIdx, $sIdx);
+        $aResultJson = (array) json_decode($sResultJson);
+    
+        $aTemp = array();
+        // no_error & null array unset 
+        foreach($aResultJson['data'] as $key=>$val)
+        {
+            if(count((array)$val) >= 1)
+            {
+                foreach($val->result as $k => $v)
+                {
+                    if($v->etype == 'no_error')  
+                        unset($val->result[$k]);
+                }
+                if(!$val->sentence)
+                    unset($aResultJson['data'][$key]);
+            }
+            else
+                unset($aResultJson['data'][$key]);
+                
+        }
+        
+        foreach($aResultJson['data'] as $key=>$val)
+        {
+            $aTemp[] = $val->sentence;     
+        }
 
+        $aRtn = array();
+        $aRtn['result'] = $aResultJson['result']; 
+        
+        $aTemp2 = array_unique($aTemp);
+        foreach($aTemp2 as $val)
+        {
+            $aTemp3[] = $val;
+        }
+        
+        for($i=0 ; $i<count($aTemp3) ; $i++ )
+        {
+            foreach($aResultJson['data'] as $key=>$val)
+            {
+                if($aTemp3[$i] == $val->sentence)
+                {
+                    //echo $val->sentence. "<br>";
+                    $aRtn['data'][] = $val;
+                    break;
+                }
+            }
+        }         
+        
+        echo "<pre>";   
+        $aResultJson = $aRtn;
+        print_r($aResultJson);           
+        die;
+    }
+    private function chk1()
+    {
+    
+    }
     public function testStatic()
     {
         
@@ -57,7 +118,55 @@ class Ibricks extends CI_Controller {
         //$sResultJson = IbricksClass::spellCheckFromString($sIn);
         $sResultJson = IbricksClass::spellCheckFromString($nIdx, $sIdx);
         $aResultJson = (array) json_decode($sResultJson);
+        
+        $aTemp = array();
+        // no_error & null array unset 
+        foreach($aResultJson['data'] as $key=>$val)
+        {
+            if(count((array)$val) >= 1)
+            {
+                foreach($val->result as $k => $v)
+                {
+                    if($v->etype == 'no_error')  
+                        unset($val->result[$k]);
+                }
+                if(!$val->sentence)
+                    unset($aResultJson['data'][$key]);
+            }
+            else
+                unset($aResultJson['data'][$key]);
+                
+        }
+        
+        foreach($aResultJson['data'] as $key=>$val)
+        {
+            $aTemp[] = $val->sentence;     
+        }
 
+        $aRtn = array();
+        $aRtn['result'] = $aResultJson['result']; 
+        
+        $aTemp2 = array_unique($aTemp);
+        foreach($aTemp2 as $val)
+        {
+            $aTemp3[] = $val;
+        }
+        
+        for($i=0 ; $i<count($aTemp3) ; $i++ )
+        {
+            foreach($aResultJson['data'] as $key=>$val)
+            {
+                if($aTemp3[$i] == $val->sentence)
+                {
+                    //echo $val->sentence. "<br>";
+                    $aRtn['data'][] = $val;
+                    break;
+                }
+            }
+        }         
+
+        $aResultJson = $aRtn;
+         
         $addonHtml = $this->load->view('addon/spellChk', $aResultJson, true);
 
         // editor text
