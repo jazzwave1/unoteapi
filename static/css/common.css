@@ -250,9 +250,7 @@ i.fa-times{
     font-weight: bold;
     font-size: 14px;
 }
-#header .hright .userInfo .name i.fa-caret-up{
-    display: none;
-}
+
 #header .hright .userBtn{
     display: none;
     position: absolute;
