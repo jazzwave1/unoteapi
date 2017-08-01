@@ -19,14 +19,15 @@ $code = array(
                                 <ul>
                                 <?php foreach($data as $oSpell): ?>
                                     <?php foreach($oSpell->result as $oData): ?>
-                                    <li>
+                                    <li class="splChkList">
                                         <div class="applyBtn" id="applyBtn_<?=$oSpell->s_idx?>" data-s_idx="<?=$oSpell->s_idx?>" onClick="text_replace('<?=$oSpell->s_idx?>');">
-                                            적용<i class="fa fa-check" aria-hidden="true"></i>
+                                            <i class="fa fa-check applySpel" aria-hidden="true"></i>
+                                            <i class="fa fa-times closeSpel" aria-hidden="true"></i>
                                         </div>
                                         <div class="resultInfo">
                                             <p class="splWrong" id="splWrong_<?=$oSpell->s_idx?>"><?=$oData->input?></p>
                                             <p class="splRight" id="splRight_<?=$oSpell->s_idx?>"><?=$oData->output?></p>
-                                            <p class="exspl">*<?=$code[$oData->etype]?></p>
+                                            <p class="exspl"><i class="fa fa-bullhorn notiIcon" aria-hidden="true"></i><?=$code[$oData->etype]?></p>
                                             <!-- <p class="exspl">*<?=$oData->etype?></p> -->
                                         </div>
                                     </li>
