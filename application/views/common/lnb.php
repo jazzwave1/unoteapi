@@ -210,6 +210,7 @@ if($this->uri->segment(2) == 'Category')
 <script>
 function setSite(site)
 {
+    noticeReset();
     $('#site').val(site);
 }
 function FBCrawl()
@@ -237,26 +238,16 @@ function callCrawl()
     {
         $('#site').val(1);
         var s_id  = $('#naverUserId').val(); 
-        var s_pwd = $('#naverUserPwd').val(); 
+        var s_pwd = $('#naverUserPwd').val();
+        noticeAlert(s_id, s_pwd);
     }else if( $('#site').val() == 2 ){
         var s_id  = $('#daumUserId').val(); 
         var s_pwd = $('#daumUserPwd').val(); 
+        noticeAlert(s_id, s_pwd);
     }else if( $('#site').val() == 3 ){
         var s_id  = "AT"; 
         var s_pwd = $('#facebookToken').val(); 
     }
-
-    if(!s_id)
-    {
-        $('#noticeId').show();
-        return false;
-    }
-    if(!s_pwd)
-    {
-        $('#noticePwd').show();
-        return false;
-    }
-
             
     $.post(
       "<?=HOSTURL?>/Crawling/rpcCrawling"
@@ -282,6 +273,19 @@ function callCrawl()
         }
       }
     );         
+}
+function noticeAlert(s_id, s_pwd)
+{
+    if(!s_id)
+    {
+        $('#noticeId').show();
+        return false;
+    }
+    if(!s_pwd)
+    {
+        $('#noticePwd').show();
+        return false;
+    }
 }
 function noticeReset()
 {
