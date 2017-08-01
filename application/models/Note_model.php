@@ -59,7 +59,8 @@ class Note_model extends CI_model
             {
                 foreach ($aNoteDetailInfo as $obj)
                 {
-                    $aRes['text'] .= str_replace('<p','<p id="s_idx_'.$obj->s_idx.'" ', $obj->contents);
+                    // $aRes['text'] .= str_replace('<p','<p id="s_idx_'.$obj->s_idx.'" ', $obj->contents);
+                    $aRes['text'] .= $obj->contents;
                 }
             }
         }

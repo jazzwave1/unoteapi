@@ -166,24 +166,18 @@ class Ibricks extends CI_Controller {
         }         
 
         $aResultJson = $aRtn;
-         
         $addonHtml = $this->load->view('addon/spellChk', $aResultJson, true);
+
 
         // editor text
         edu_get_instance('NoteClass');
         $aNoteDetailInfo = NoteClass::getNoteDetailInfo($nIdx);
         $chkText = $aNoteDetailInfo['text'];
-        foreach ($aResultJson['data'] as $key => $obj) {
-            if(isset($obj->result))
-            {
-                foreach ($obj->result as $oData) {
-                    if($oData->etype != 'no_error')
-                    {
-                        $chkText = str_replace($oData->input, '<span class="spelChk">'.$oData->input.'</span>', $chkText);
-                    }
-                }
-            }
-        }
+        // foreach ($aResultJson['data'] as $key => $obj) {
+        //     foreach ($obj->result as $oData) {
+        //         $chkText = str_replace($oData->input, '<span class="spelChk">'.$oData->input.'</span>', $chkText);
+        //     }
+        // }
 
         $aResult = array(
              "code"  => 1
