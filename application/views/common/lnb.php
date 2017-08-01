@@ -37,7 +37,7 @@ if($this->uri->segment(2) == 'Category')
                 <?php if($controller == 'Category'): ?>
                                 <li id="category_<?=$method?>" class="<?=($this_url == $controller.'/'.$method) ? 'on' : ''?>">
                                     <a href="<?=HOSTURL?>/Article/<?=$controller?>/<?=$method?>"><i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><span class="categTit" id="categTit_<?=$method?>"><?=$aMenuSubData['subtitle']?></span></a>
-                                    <!--<input id="categInput_<?=$method?>" type="text" value="<?=$aMenuSubData['subtitle']?>" onkeypress="if(event.keyCode==13) {editCategory(this);}">-->
+                                    <input id="categInput_<?=$method?>" type="text" value="<?=$aMenuSubData['subtitle']?>" onkeypress="if(event.keyCode==13) {editCategory(this);}" style="border: 1px solid #eee; border-radius: 5px; padding:2px; display:none">
                                     <div class="categBtn">
                                         <span class="categEditBtn"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                                         <span class="categDelBtn"><i class="fa fa-times" aria-hidden="true"></i></span>

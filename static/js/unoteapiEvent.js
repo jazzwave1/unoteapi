@@ -80,15 +80,15 @@ $('.categEditBtn').on('click', function(event){
   var c_idx = category_id.replace('category_','');
   var c_name = $('#categTit_'+c_idx).text();
 
-  $('#category_'+c_idx).children('a').remove();
+  // 전체 카테고리 input 닫기
+  $('#category_'+c_idx).siblings('li').children('a').show();
+  $('#category_'+c_idx).siblings('li').children('input').hide();
 
-  if($('#categInput_'+c_idx).length < 1)
-  {
-    $('#category_'+c_idx).prepend(
-      '<input id="categInput_'+c_idx+'" style="border: 1px solid #eee; border-radius: 5px; padding:2px;" type="text" value="'+c_name+'" onkeypress="if(event.keyCode==13) {editCategory(this);}">'
-    );
-  }
+  // 해당 카테고리 수정
+  $('#category_'+c_idx).children('a').hide();
+  $('#categInput_'+c_idx).show();
 });
+
 function editCategory(category)
 {
     var name = category.value;
