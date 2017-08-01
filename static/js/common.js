@@ -1,102 +1,101 @@
 var _dHeight = $(document).height();
 var _dWidth = $(document).width();
 var _wWidth = $(window).width();
-
+var _detailViewWidth = _wWidth - 530;
+var _cTableWidth = _wWidth - 231;
 
 function responsiveView() {
-    var wSize = $(window).width();
-    var _wHeight = $(window).height();
-    var detailViewWidth = wSize - 530;
-    var cTableWidth = wSize - 231;
-    var _scrollHeight = _wHeight - 141;
+    /*var wSize = $(window).width();*/
+    var wHeight = $(window).height();
+
+    var detailViewHeight = wHeight - 120;
+
+    var scrollHeight = wHeight - 141;
     
     $("#detailView").css({
-        'width' : detailViewWidth
+        'width' : _detailViewWidth
     });
    
     $("#cList").css({
-        'width' : cTableWidth
+        'width' : _cTableWidth
     });
     $(".page").css({
-        'height' :  _wHeight,
+        'height' :  detailViewHeight,
         'overflow-x' : 'hidden',
         'overflow-y' : 'scroll',
     });
     $(".scroll-subList").css({
-        'height' :  _scrollHeight,
+        'height' :  scrollHeight,
         'overflow-x' : 'hidden',
         'overflow-y' : 'scroll',
     });
 }
 $(window).on('load', responsiveView);
 $(window).on('resize', responsiveView);
-    
 
-
-
-
-
-/*full-left-nav 메뉴바 show/hide*/
-/*$(function () {
-    function responsiveView() {
-        var wSize = $(window).width();
-        if (wSize <= 768) {
-            $('#wrap').addClass('sidebar-close');
-            $('#contents').css({
-                'margin-left': '0px'
-            });
-            $('.full-left-nav').css({
-                'margin-left': '-250px'
-            });
-            $('.navList').hide();
-        }
-
-        if (wSize > 768) {
-            $('#contents').css({
-                'margin-left': '250px'
-            });
-            $('.navList').show();
-            $('.full-left-nav').css({
-                'margin-left': '0'
-            });
-            $("#wrap").removeClass("sidebar-closed");
-        }
-    }
-    $(window).on('load', responsiveView);
-    $(window).on('resize', responsiveView);
-});
-
-
-$('.menubar').click(function () {
-    if ($('.navList').is(":visible") === true) {
-        $('#contents').css({
-            'margin-left': '0px'
+$('#menubarIcon').on('click',clickMenubar);
+function clickMenubar() {
+    if ($('#lnb').is(":visible") === true) {
+        $('#detailView').css({
+            'left': '0px',
+            'width': _wWidth
         });
         $('.full-left-nav').css({
-            'margin-left': '-250px'
+            'left': '-230px'
         });
-        $('.navList').hide();
-        $("#wrap").addClass("sidebar-closed");
+        $("#bankSub").css({
+            'left': '-530px'
+        });
+        $("#cList").css({
+            'width': _wWidth
+        });
+        $(".c-inner").css({
+            'left': 0
+        });
+        $('#lnb').hide();
     } else {
-        $('#contents').css({
-            'margin-left': '250px'
+        $('#detailView').css({
+            'left': '530px',
+            'width' : _detailViewWidth
         });
-        $('.navList').show();
+
         $('.full-left-nav').css({
-            'margin-left': '0'
+            'left': '0'
         });
-        $("#wrap").removeClass("sidebar-closed");
+        $("#bankSub, .c-inner").css({
+            'left': '230px'
+        });
+        $("#cList").css({
+            'width':_cTableWidth
+        });
+        $('#lnb').show();
     }
-});*/
+}
 
 
-$('.loginWrap .menubar').click(function(){
-    alert("로그인!!!!");
+
+
+
+
+
+/*detailView icon button toolTip*/
+$( ".p-btn ul li a" )
+    .mouseenter(function() {
+        $( this ).find( "span" ).removeClass("hide");
+    })
+    .mouseleave(function() {
+        $( this ).find( "span" ).addClass("hide");
+    });
+
+
+/*gnb-menuIcon*/
+$("#menubarIcon").click(function(){
+    $(this).toggleClass('open');
 });
 
-
-
-$(".slide").on("click", function(){
-    $(".subPost1").slideToggle();
-});
         
+/*logout*/
+$(".userInfo").on("click",function () {
+   $(".userBtn").slideToggle();
+   $(".name i").toggleClass("fa-caret-down fa-caret-up");
+});

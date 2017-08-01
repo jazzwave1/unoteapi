@@ -1,8 +1,17 @@
         <!--header-->
         <div id="header">
             <div class="hleft">
-                <a href="#" class="menubar"><i class="fa fa-bars"></i></a>
-                <h1><a href="#"><img src="../static/images/logo_beta_.png" alt="유노트 로고"></a></h1>
+                <a href="#" class="menubar">
+                    <div class="menubarIcon-wrap">
+                        <div id="menubarIcon" class="open">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </a>
+                <h1><a href="#"><img src="<?=SURL?>/images/logo2.png" alt="유노트 로고"></a></h1>
             </div>
             <div class="hcenter">
             </div>
@@ -11,6 +20,14 @@
                 <div class="userInfo">
                     <div class="pic"><img src="<?=SURL?>/images/deault_profile.png"></div>
                     <div class="name"><a href="#"><span>testtesttesttesttesttest</span> 님 <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
+                </div>
+                <!--로그아웃창-->
+                <div class="userBtn">
+                    <div class="userBtn-inner">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>Log-out</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <!--//userInfo-->
                 <!--notice-->

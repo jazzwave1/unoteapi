@@ -20,7 +20,7 @@ $config['menu'] = array(
 				,'is_use' => true
 			)
 			,'Bookmark' => array(
-				 'icon' => 'fa fa-bookmark'
+				 'icon' => 'fa fa-star-o'
 				,'subtitle' => '북마크'
 				,'is_use' => true
 			)
