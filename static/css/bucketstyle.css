@@ -126,6 +126,9 @@ a.croBtn{
     color: #0d94d0;
     font-weight: bold;
 }
+.lnbItem .lnbItemList li.on a.croBtn{
+    color:#fff;
+}
 .lnbItem .categList li a span.categTit{
     font-weight: bold;
     font-style: italic;
