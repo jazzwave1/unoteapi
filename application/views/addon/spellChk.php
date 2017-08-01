@@ -44,24 +44,27 @@ $code = array(
         $(this).siblings("li").removeClass("on");
         $(this).addClass("on");
 
-        var search = $(this).children('.resultInfo').children('.splWrong').text();
-        // var replace = '<span class="spelChk">'+search+'</span>';
-        var replace = search;
-        var text = $("#ir1").val();
+        var text = oEditor.getIR();
+        text = text.replace('<span class="spelChk" style="background:red; color:#fff;">', '');
+        text = text.replace('</span>', '');
 
-        // text = text.replace(new RegExp(search,'gi'), replace);
-        // oEditor.setIR('');
-        // oEditor.exec("PASTE_HTML", [text]);
+        var search = $(this).children('.resultInfo').children('.splWrong').text();
+        var replace = '<span class="spelChk" style="background:red; color:#fff;">'+search+'</span>';
+        // var text = $("#ir1").val();
+        // var text = oEditor.getIR();
+
+        text = text.replace(new RegExp(search,'gi'), replace);
+        oEditor.setIR('');
+        oEditor.exec("PASTE_HTML", [text]);
     });
     /*맞춤법 적용 아이콘 클릭*/
     $(".applySpel").on("click",function () {
         var search = $(this).parent().parent("li.splChkList").children('.resultInfo').children('.splWrong').text();
-        // search = '<span class="spelChk">'+search+'</span>';
+        search = '<span class="spelChk" style="background:red; color:#fff;">'+search+'</span>';
         var replace = $(this).parent().parent("li.splChkList").children('.resultInfo').children('.splRight').text();
-        var text = $("#ir1").val();
+        var text = oEditor.getIR();
 
         text = text.replace(new RegExp(search,'gi'), replace);
-        // alert(text);
 
         oEditor.setIR('');
         oEditor.exec("PASTE_HTML", [text]);
