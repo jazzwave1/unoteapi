@@ -198,11 +198,14 @@ class Note extends CI_Controller {
                 $aContentInfo = $this->_setContentInfo($this->input->post('ir1'));
                 $this->note_model->insertNoteSentence($pk, $aContentInfo) ;
                 
-                $aResult = array( 'code' => 1, 'msg' => 'OK', 'pk'=>$pk);
+                $aResult = array(
+                     'code' => 1
+                    ,'msg' => 'OK'
+                    ,'pk'=>$pk
+                );
                 response_json($aResult);
                 die;
             }
-
         }
         else if($sType == 'edit')
         {
@@ -219,7 +222,11 @@ class Note extends CI_Controller {
                 // update
                 if($this->note_model->updateNote($aNoteData))
                 {
-                    $aResult = array( 'code' => 1, 'msg' => 'OK');
+                    $aResult = array(
+                         'code' => 1
+                        ,'msg' => 'OK'
+                        ,'sBtnType' => $this->input->post('sBtnType')
+                    );
                     response_json($aResult);
                 }
             }
