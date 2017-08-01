@@ -231,7 +231,7 @@ class Ibricks extends CI_Controller {
         $sIdx = $this->input->post('s_idx');
 
         // test code
-        // $nIdx = 26;
+        $nIdx = 26;
 
         if(!$nIdx) 
         {
@@ -239,19 +239,58 @@ class Ibricks extends CI_Controller {
             die;
         }
 
-        //$sResultJson = IbricksClass::spellCheckFromString($sIn);
-        // $sResultJson = IbricksClass::beautifySentence($nIdx, $sIdx);
-        // $aResultJson = (array) json_decode($sResultJson);
-        $data = array();
+
+        $sResultJson = IbricksClass::beautifySentence($nIdx, $sIdx);
+//        echo $sResultJson;
+        $aResultJson = (array) json_decode($sResultJson);
+
+        // no_error & null array unset 
+
+//        print_r($aResultJson['data']);
+
+        foreach($aResultJson['data'] as $key=>$val)
+        {
+//            echo $key." | "."strlen : ". strlen($val->input). "<br>"; 
+            if(strlen((string)strip_tags( $val->input )) >= 1)
+            {  
+                if(!trim($val->input))
+                    unset($aResultJson['data'][$key]);
+            }
+            else
+                unset($aResultJson['data'][$key]);
+        }
+
+        $aRtn = array(); 
+        $aRtn['result'] = $aResultJson['result'];
+
+        foreach($aResultJson['data'] as $key=>$val)
+        {
+            $aRtn['data'][] = $val;
+        }
+
+
+        // dummy 추가함  ------------------------------- //
+        foreach($aRtn['data'] as $key=>$val)
+        {
+        //    print_r( $val->output );
+            $val->output[] = "테스트를 위한 라인입니다. 1";
+            $val->output[] = "테스트를 위한 라인입니다. 2";
+            $val->output[] = "테스트를 위한 라인입니다. 3";
+        }
+        // dummy 추가함  ------------------------------- //
+
+        $data = array(
+            'aBeauti' => $aRtn       
+        );
 
         $addonHtml = $this->load->view('addon/beautiChk', $data, true);
-
+ 
         $aResult = array(
              "code"  => 1
             ,"msg"   => "OK"
             ,"html" => $addonHtml
         );
-
+ 
         response_json($aResult);
         die;
     }
