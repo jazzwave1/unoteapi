@@ -87,5 +87,5 @@ $("#menubarIcon").click(function(){
 /*logout*/
 $(".userInfo").on("click",function () {
    $(".userBtn").slideToggle();
-   $(".name").children("i").toggleClass('fa-caret-down fa-caret-up');
+   $(this).find("i").toggleClass('fa-caret-down fa-caret-up');
 });
