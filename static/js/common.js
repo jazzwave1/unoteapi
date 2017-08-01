@@ -2,13 +2,14 @@ var _dHeight = $(document).height();
 var _dWidth = $(document).width();
 var _wWidth = $(window).width();
 var _detailViewWidth = _wWidth - 530;
+var _cTableWidth = wSize - 231;
 
 function responsiveView() {
-    var wSize = $(window).width();
+    /*var wSize = $(window).width();*/
     var wHeight = $(window).height();
 
     var detailViewHeight = wHeight - 120;
-    var cTableWidth = wSize - 231;
+
     var scrollHeight = wHeight - 141;
     
     $("#detailView").css({
@@ -16,7 +17,7 @@ function responsiveView() {
     });
    
     $("#cList").css({
-        'width' : cTableWidth
+        'width' : _cTableWidth
     });
     $(".page").css({
         'height' :  detailViewHeight,
@@ -45,6 +46,12 @@ function clickMenubar() {
         $("#bankSub").css({
             'left': '-530px'
         });
+        $("#cList").css({
+            'width': _wWidth
+        });
+        $(".c-inner").css({
+            'left': 0
+        });
         $('#lnb').hide();
     } else {
         $('#detailView').css({
@@ -55,8 +62,11 @@ function clickMenubar() {
         $('.full-left-nav').css({
             'left': '0'
         });
-        $("#bankSub").css({
+        $("#bankSub, .c-inner").css({
             'left': '230px'
+        });
+        $("#cList").css({
+            'width':_cTableWidth
         });
         $('#lnb').show();
     }
