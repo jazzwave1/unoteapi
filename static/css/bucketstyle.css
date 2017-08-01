@@ -130,8 +130,13 @@ a.croBtn{
     color:#fff;
 }
 .lnbItem .categList li a span.categTit{
+    display: inline-block;
+    width: 120px;
     font-weight: bold;
     font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .lnbItem .categList li .categBtn{
     position: absolute;
