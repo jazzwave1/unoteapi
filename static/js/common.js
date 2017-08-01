@@ -2,7 +2,7 @@ var _dHeight = $(document).height();
 var _dWidth = $(document).width();
 var _wWidth = $(window).width();
 var _detailViewWidth = _wWidth - 530;
-var _cTableWidth = wSize - 231;
+var _cTableWidth = _wWidth - 231;
 
 function responsiveView() {
     /*var wSize = $(window).width();*/
