@@ -1,9 +1,9 @@
 <?php
 $code = array(
-    'space' => '띄어쓰기 오류'
-,'spell' => '철자 오류'
-,'space_spell' => '띄어쓰기, 맞춤법 오류'
-,'doubt' => '맞춤법 오류'
+     'space' => '띄어쓰기 오류'
+    ,'spell' => '철자 오류'
+    ,'space_spell' => '띄어쓰기, 맞춤법 오류'
+    ,'doubt' => '맞춤법 오류'
 );
 // echo '<pre>: '. print_r( $data, true ) .'</pre>';
 // die();
@@ -20,7 +20,7 @@ $code = array(
         <?php foreach($data as $oSpell): ?>
             <?php foreach($oSpell->result as $key => $oData): ?>
                 <li class="splChkList">
-                    <div class="applyBtn" data-s_idx="<?=$oSpell->s_idx?>">
+                    <div class="applyBtn hide" data-s_idx="<?=$oSpell->s_idx?>">
                         <i class="fa fa-check applySpel" aria-hidden="true"></i>
                         <i class="fa fa-times closeSpel" aria-hidden="true"></i>
                     </div>
@@ -37,28 +37,48 @@ $code = array(
 </div>
 <script>
     /*add Jiyun*/
-    $(".splChkList").on("click", function () {
-        alert('a');
+    /*맞춤법 검사 리스트*/
+    $("li.splChkList").on("click",function () {
+        $(this).siblings("li").children('.applyBtn').addClass("hide");
+        $(this).children('.applyBtn').removeClass("hide");
+        $(this).siblings("li").removeClass("on");
+        $(this).addClass("on");
+
+        var search = $(this).children('.resultInfo').children('.splWrong').text();
+        // var replace = '<span class="spelChk">'+search+'</span>';
+        var replace = search;
+        var text = $("#ir1").val();
+
+        // text = text.replace(new RegExp(search,'gi'), replace);
+        // oEditor.setIR('');
+        // oEditor.exec("PASTE_HTML", [text]);
+    });
+    /*맞춤법 적용 아이콘 클릭*/
+    $(".applySpel").on("click",function () {
+        var search = $(this).parent().parent("li.splChkList").children('.resultInfo').children('.splWrong').text();
+        // search = '<span class="spelChk">'+search+'</span>';
+        var replace = $(this).parent().parent("li.splChkList").children('.resultInfo').children('.splRight').text();
+        var text = $("#ir1").val();
+
+        text = text.replace(new RegExp(search,'gi'), replace);
+        // alert(text);
+
+        oEditor.setIR('');
+        oEditor.exec("PASTE_HTML", [text]);
+
+        // 주석 제거 해야함
+        $(this).hide();
+
+    });
+    /*맞춤법 닫기 아이콘 클릭*/
+    $(".closeSpel").on("click",function () {
+        $(this).parent().parent("li.splChkList").hide();
     });
 
     /*글감리스트 addOn 아이콘*/
     $(".search-icon ul li").on("click", function () {
         $(this).siblings("li").removeClass("on");
         $(this).addClass("on");
-    });
-
-    /*맞춤법 검사 리스트*/
-    $("li.splChkList").on("click",function () {
-        $(this).siblings("li").removeClass("on");
-        $(this).addClass("on");
-    })
-    /*맞춤법 적용 아이콘 클릭*/
-    $(".applySpel").on("click",function () {
-        alert("OK");
-    });
-    /*맞춤법 닫기 아이콘 클릭*/
-    $(".closeSpel").on("click",function () {
-        $(this).parent().parent("li.splChk").hide();
     });
     /*카테고리 아이콘 클릭시 */
     $(".moveCateg").on("click",function () {
