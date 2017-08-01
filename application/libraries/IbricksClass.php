@@ -73,16 +73,17 @@ class IbricksClass {
     ////////////////////////////
     ///////// 윤문 API /////////
     ////////////////////////////
-    public static function beautifySentence($sSting)
+    public static function beautifySentence($nIdx, $sIdx)
     {
         $sURL = IBRICKS."/beautifySentence"; 
 
         $params = array(
-             "in" => $sSting
+              "nIdx" => $nIdx
+             ,"sIdx" => $sIdx
         );
 
         // result 결과를 처리 하는 부분은 추가적으로 확인 해야 함
-        echo sendCURLPost($sURL, $params); 
+        return sendCURLPost($sURL, $params); 
     } 
     public static function beautifyDoc($sDocID)
     {
