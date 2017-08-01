@@ -35,7 +35,7 @@ if($this->uri->segment(2) == 'Category')
         <?php if($aMenuSubData['is_use']): ?>
                 <!--category-->
                 <?php if($controller == 'Category'): ?>
-                                <li id="category_<?=$method?> " class="<?=($this_url == $controller.'/'.$method) ? 'on' : ''?>">
+                                <li id="category_<?=$method?>" class="<?=($this_url == $controller.'/'.$method) ? 'on' : ''?>">
                                     <a href="<?=HOSTURL?>/Article/<?=$controller?>/<?=$method?>"><i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><span class="categTit" id="categTit_<?=$method?>"><?=$aMenuSubData['subtitle']?></span></a>
                                     <!--<input id="categInput_<?=$method?>" type="text" value="<?=$aMenuSubData['subtitle']?>" onkeypress="if(event.keyCode==13) {editCategory(this);}">-->
                                     <div class="categBtn">

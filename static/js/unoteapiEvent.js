@@ -80,7 +80,7 @@ $('.categEditBtn').on('click', function(event){
   var c_idx = category_id.replace('category_','');
   var c_name = $('#categTit_'+c_idx).text();
 
-  $('#categTit_'+c_idx).parent().remove();
+  $('#category_'+c_idx).children('a').remove();
 
   if($('#categInput_'+c_idx).length < 1)
   {
