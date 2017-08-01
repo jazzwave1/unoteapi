@@ -19,7 +19,7 @@
                 <!--userInfo-->
                 <div class="userInfo">
                     <div class="pic"><img src="<?=SURL?>/images/deault_profile.png"></div>
-                    <div class="name"><a href="#"><span>testtesttesttesttesttest</span> 님 <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
+                    <div class="name"><a href="#"><span>testtesttesttesttesttest</span> 님 <i class="fa fa-caret-down" aria-hidden="true"></i><i class="fa fa-caret-up" aria-hidden="true"></i></a></div>
                 </div>
                 <!--로그아웃창-->
                 <div class="userBtn">

@@ -79,7 +79,7 @@ $( ".p-btn ul li a" )
 
 
 /*gnb-menuIcon*/
-$('#menubarIcon').click(function(){
+$("#menubarIcon").click(function(){
     $(this).toggleClass('open');
 });
 
@@ -87,4 +87,10 @@ $('#menubarIcon').click(function(){
 /*logout*/
 $(".userInfo").on("click",function () {
    $(".userBtn").slideToggle();
+});
+
+/*userInfo arrow*/
+$(".userInfo").click(function()
+{
+    $(this).find(".name").children("i").toggleClass('fa-caret-down fa-caret-up');
 });
