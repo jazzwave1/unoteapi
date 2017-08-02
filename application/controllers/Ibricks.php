@@ -225,7 +225,7 @@ class Ibricks extends CI_Controller {
         $sIdx = $this->input->post('s_idx');
 
         // test code
-        $nIdx = 26;
+        //$nIdx = 26;
 
         if(!$nIdx) 
         {
