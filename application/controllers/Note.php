@@ -187,7 +187,7 @@ class Note extends CI_Controller {
             $aNoteData = array(
                 'n_idx'    => 'NULL'
                 ,'usn'     => 1
-                ,'title'   => $this->input->post('title') 
+                ,'title'   => $this->input->post('title')
                 ,'regdate' => date("Y-m-d H:i:s")
             );
            
@@ -201,6 +201,7 @@ class Note extends CI_Controller {
                 $aResult = array(
                      'code' => 1
                     ,'msg' => 'OK'
+                    ,'sBtnType' => $this->input->post('sBtnType')
                     ,'pk'=>$pk
                 );
                 response_json($aResult);

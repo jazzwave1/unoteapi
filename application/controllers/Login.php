@@ -21,11 +21,6 @@ class Login extends CI_Controller {
         $data = array();
         $this->load->view('login/login', $data);
     }
-    public function Logout()
-    {
-        CookieClass::delCookieInfo();
-        header('Location: '.HOSTURL.'/Login');
-    }
 
     ///////////////////////////
     // RPC Function /////////// 

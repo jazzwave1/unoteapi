@@ -20,11 +20,11 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                         <div class="search-icon">
                                             <ul>
                                                 <li class="bookMark">
-                                                    <a class="bookMarkBtn" href="javascript:listArticle('bookmark');" title="북마크"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a>
+                                                    <a class="bookMarkBtn" href="javascript:listArticle('bookmark');" title="북마크"><i aria-hidden="true" class="fa fa-star-o"></i></a>
                                                     <!--<div>북마크</div>-->
                                                 </li>
                                                 <li class="moveCateg">
-                                                    <a class="moveCategBtn" href="javascript:getCategoryList();" title="카테고리"><i class="fa fa-clipboard fa-1g" aria-hidden="true"></i></a>
+                                                    <a class="moveCategBtn" href="javascript:getCategoryList();" title="카테고리"><i class="fa fa-folder-o" aria-hidden="true"></i></a>
                                                     <!--<div>카테고리 이동</div>-->
                                                     <!--카테고리 이동 안내 창-->
                                                     <div class="selCateg" style="z-index:500;">
@@ -66,7 +66,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                                 <p></p>
                                                                 <p class="date"><?=$oList->regdate?></p>
                                                             </div>
-                                                            <div class="bookMarkBtn" id="bookMark<?=$oList->t_idx?>"><?=($oList->bookmark == 'Y') ? '<i class="fa fa-bookmark fa-1g aria-hidden="true"></i>' : ''?></div>
+                                                            <div class="bookMarkBtn" id="bookMark<?=$oList->t_idx?>"><?=($oList->bookmark == 'Y') ? '<i class="fa fa-star fa-1g aria-hidden=" true"=""></i>' : ''?></div>
                                                         </div>
                                                     </div>
                                                 </a>
