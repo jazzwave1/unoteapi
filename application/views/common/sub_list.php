@@ -27,7 +27,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                 <!--안읽은 리스트 class="yetReadList"-->
                                 <li class="sublist-li <?=($this->uri->segment(2) == 'List' && $oSublist->readchk == '') ? 'yetReadList' : ''?>" data-t_idx="<?=$oSublist->t_idx?>" data-method="<?=$this->uri->segment(2)?>">
                                     <a href="javascript:void(0)">
-                                        <div class="cafeInfo ">
+                                        <div class="cafeInfo">
                                             <div class="cafeinner clearfix">
                                                 <div class="cafeLogo">
                                                     <p>
@@ -46,6 +46,8 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                     </a>
                                 </li>
                             <?php endforeach; ?>
+                            <?php else: ?>
+                                <li class="sublist-li">데이터가 없습니다.</li>
                             <?php endif; ?>
                             </ul>
                             <!--//글감리스트-->

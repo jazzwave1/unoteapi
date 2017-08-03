@@ -72,6 +72,8 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                 </a>
                                             </li>
                                         <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <li>데이터가 없습니다.</li>
                                         <?php endif; ?>
                                         </ul>
                                         <!--//글감리스트-->
