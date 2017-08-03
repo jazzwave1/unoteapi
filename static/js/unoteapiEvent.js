@@ -10,10 +10,17 @@ _addCateg.on("click", addCategList);
 
 // 카테고리 추가
 function addCategList(){
-    _categList.append( 
-        '<li><input class="newCateg" type="text" onkeypress="if(event.keyCode==13) {addCategory(this);}"><span class="deleteCateg"><i class="fa fa-times" aria-hidden="true"></i></span></li>'
-    );
-    
+
+    $('.categList').children().siblings('li').children('a').show();
+    $('.categList').children().siblings('li').children('input:not(.newCateg)').hide();
+
+    if($('.newCateg').length < 1)
+    {
+      _categList.append( 
+          '<li><input class="newCateg" type="text" onkeypress="if(event.keyCode==13) {addCategory(this);}"><span class="deleteCateg"><i class="fa fa-times" aria-hidden="true"></i></span></li>'
+      );
+    }
+   
     var deleteCateg = $(".deleteCateg");
     deleteCateg.on("click", deletCategList);
 
@@ -83,6 +90,7 @@ $('.categEditBtn').on('click', function(event){
   // 전체 카테고리 input 닫기
   $('#category_'+c_idx).siblings('li').children('a').show();
   $('#category_'+c_idx).siblings('li').children('input').hide();
+  $('.newCateg').parent('li').remove();
 
   // 해당 카테고리 수정
   $('#category_'+c_idx).children('a').hide();

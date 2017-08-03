@@ -170,7 +170,7 @@ class Note extends CI_Controller {
     private function _setContentInfo($contents)
     {
         $aRtn = array();
-        $aTemp = explode("</p>", $contents);
+        $aTemp = array_filter(explode("</p>", $contents));
         foreach($aTemp as $key=>$val)
         {
             $aTemp[$key] .= "</p>"; 

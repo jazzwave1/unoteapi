@@ -3,7 +3,7 @@ $code = array(
      'space' => '띄어쓰기 오류'
     ,'spell' => '철자 오류'
     ,'space_spell' => '띄어쓰기, 맞춤법 오류'
-    ,'doubt' => '맞춤법 오류'
+    ,'doubt' => '맞춤법 의심'
 );
 // echo '<pre>: '. print_r( $data, true ) .'</pre>';
 // die();
@@ -45,8 +45,7 @@ $code = array(
         $(this).addClass("on");
 
         var text = oEditor.getIR();
-        text = text.replace('<span class="spelChk" style="background:red; color:#fff;">', '');
-        text = text.replace('</span>', '');
+        text = text.replace(/<span class="spelChk" style="background:red; color:#fff;">(.+)<\/span>/ig, "$1");
 
         var search = $(this).children('.resultInfo').children('.splWrong').text();
         var replace = '<span class="spelChk" style="background:red; color:#fff;">'+search+'</span>';
@@ -95,15 +94,31 @@ $code = array(
             $(".moveCategBtn").removeClass("on");
         }
     });
-    function responsiveView() {
-        var wSize = $(window).width();
-        var wHeight = $(window).height();
-        var editorHeight = wHeight - 111;
-        var addonHeight = wHeight - 60;
 
-        $(".se2_input_area").height(editorHeight);
-        $("#addOnWrap").height(addonHeight);
-        $(".addOnCon").height(editorHeight);
+    var wHeight = $(window).height();
+    var addonHeight = wHeight - 60;
+    $("#addOnWrap").css({
+        'height' :  addonHeight,
+        'overflow-x' : 'hidden',
+        'overflow-y' : 'scroll',
+    });
+
+
+
+    function responsiveView() {
+
+        $("#smart_editor2").css({
+            'height' :  editorHeight,
+            'overflow-x' : 'hidden',
+            'overflow-y' : 'scroll',
+        });
+
+        $("#addOnWrap").css({
+            'height' :  addonHeight,
+            'overflow-x' : 'hidden',
+            'overflow-y' : 'scroll',
+        });
+        /*$(".addOnCon").height(editorHeight);*/
     }
     $(window).on('load', responsiveView);
     $(window).on('resize', responsiveView);

@@ -1,7 +1,7 @@
         <!--header-->
         <div id="header">
             <div class="hleft">
-                <a href="#" class="menubar">
+               <!-- <a href="#" class="menubar">
                     <div class="menubarIcon-wrap">
                         <div id="menubarIcon" class="open">
                             <span></span>
@@ -10,7 +10,7 @@
                             <span></span>
                         </div>
                     </div>
-                </a>
+                </a>-->
                 <h1><a href="#"><img src="<?=SURL?>/images/logo2.png" alt="유노트 로고"></a></h1>
             </div>
             <div class="hcenter">
@@ -25,7 +25,7 @@
                 <div class="userBtn">
                     <div class="userBtn-inner">
                         <ul>
-                            <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>Log-out</a></li>
+                            <li><a href="/unoteapi/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Log-out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -40,6 +40,7 @@
                     <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
                 </div>
                 <!--//search-->
+
             </div>
         </div>
         <!--//header-->

@@ -18,6 +18,7 @@
                             <div class="scroll-subList">
                                 <!--글감리스트-->
                                 <ul class="my-note-subList">
+                                <?php if( is_array($vdata['sublist']) && count($vdata['sublist'])>0 ): ?>
                                 <?php foreach ($vdata['sublist'] as $oSublist): ?>
                                     <li class="timeline-li" data-n_idx="<?=$oSublist->n_idx?>">
                                         <div class="my-note-inner">
@@ -36,7 +37,10 @@
                                          </div>
                                         </div>
                                     </li>
-                                <?php endforeach; ?>                                    
+                                <?php endforeach; ?>
+                                <?php else: ?>
+                                <li class="timeline-li">데이터가 없습니다.</li>
+                                <?php endif; ?>                                    
                                 </ul>
                                 <!--//글감리스트-->
                             </div>
