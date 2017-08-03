@@ -94,15 +94,31 @@ $code = array(
             $(".moveCategBtn").removeClass("on");
         }
     });
-    function responsiveView() {
-        var wSize = $(window).width();
-        var wHeight = $(window).height();
-        var editorHeight = wHeight - 111;
-        var addonHeight = wHeight - 60;
 
-        $(".se2_input_area").height(editorHeight);
-        $("#addOnWrap").height(addonHeight);
-        $(".addOnCon").height(editorHeight);
+    var wHeight = $(window).height();
+    var addonHeight = wHeight - 60;
+    $("#addOnWrap").css({
+        'height' :  addonHeight,
+        'overflow-x' : 'hidden',
+        'overflow-y' : 'scroll',
+    });
+
+
+
+    function responsiveView() {
+
+        $("#smart_editor2").css({
+            'height' :  editorHeight,
+            'overflow-x' : 'hidden',
+            'overflow-y' : 'scroll',
+        });
+
+        $("#addOnWrap").css({
+            'height' :  addonHeight,
+            'overflow-x' : 'hidden',
+            'overflow-y' : 'scroll',
+        });
+        /*$(".addOnCon").height(editorHeight);*/
     }
     $(window).on('load', responsiveView);
     $(window).on('resize', responsiveView);
