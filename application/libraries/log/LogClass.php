@@ -24,7 +24,6 @@ class LogClass
 
         return;
     }
-
     public function viewTailLog()
     {
         $handle = popen("tail -f /Users/hojunlee/Sites/unoteapi/application/logs/unoteapi_log.php 2>&1", 'r');
@@ -37,24 +36,6 @@ class LogClass
         }
         pclose($handle);
     }
-
-
-
-    private function _setTailLog($aLogInfo)
-    {
-        $sDebugFile = APPPATH.'logs/debug.php';
-        $fp = $this->logOpen($sDebugFile); 
-
-        fwrite($fp, "\n########################################################################\n");
-        fwrite($fp, "debug time : ");
-        fwrite($fp, print_r(date("Y-m-d H:i:s"), true));
-        fwrite($fp, "\n");
-        fwrite($fp, print_r($aLogInfo, true));
-        fwrite($fp, "\n########################################################################\n");
-
-        return; 
-    }
-
     public function log($message)
     {
         if(file_exists($this->logFilePath))
@@ -67,19 +48,11 @@ class LogClass
         $this->_logWrite($logFile, $message);
         return;
     }
-
     public function logOpen($logFilePath='')
     {
         if(!$logFilePath) $logFilePath = LOGFILE;
         return fopen($logFilePath, 'a');
     }
-
-    private function _logWrite($logFile, $message)
-    {
-        fwrite($logFile, "[" .$timestamp. "] " .$message. "\n");
-        return;
-    }
-
     public function sendMail($to, $subject, $message)
     {
         $aSender = $this->_getMailSenderInfo();
@@ -94,7 +67,6 @@ class LogClass
         mail($to, $subject, $message, implode("\r\n", $headers));
 
     }    
-    
     private function _getMailSenderInfo()
     {
         $aInfo = array(
@@ -104,4 +76,25 @@ class LogClass
         );
         return $aInfo;
     }
+    private function _setTailLog($aLogInfo)
+    {
+        $sDebugFile = APPPATH.'logs/debug.php';
+        $fp = $this->logOpen($sDebugFile); 
+
+        fwrite($fp, "\n########################################################################\n");
+        fwrite($fp, "debug time : ");
+        fwrite($fp, print_r(date("Y-m-d H:i:s"), true));
+        fwrite($fp, "\n");
+        fwrite($fp, print_r($aLogInfo, true));
+        fwrite($fp, "\n########################################################################\n");
+
+        return; 
+    }
+    private function _logWrite($logFile, $message)
+    {
+        fwrite($logFile, "[" .$timestamp. "] " .$message. "\n");
+        return;
+    }
+
+
 }

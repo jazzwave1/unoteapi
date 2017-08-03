@@ -142,4 +142,30 @@ Dev Code
 
         return false;
     }
+
+    public function setWriteHistory($usn, $n_idx, $ver)
+    {
+        $aInput = array(
+             'ver'   => $ver
+            ,'usn'   => $usn
+            ,'n_idx' => $n_idx
+        );
+        if( $this->note_dao->insertWriteHistory($aInput) )
+            return true;
+
+        return false;
+    }
+    public function getVerNumber($usn, $n_idx)
+    {
+        if(!$usn || $n_idx) false;
+        
+        $aInput = array(
+             'usn'   => $usn
+            ,'n_idx' => $n_idx
+        );
+        $nNowCnt = $this->note_dao->getVerNumber($aInput); 
+        
+        if(!$nNowCnt || $nNowCnt==0) return 1;
+        else return $nNowCnt + 1;
+    }
 }

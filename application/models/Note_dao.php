@@ -82,6 +82,18 @@ Dev Code
         $aConfig = $this->queryInfoNote['updateNote'];
         return $this->actModelFuc($aConfig, $aParam);
     }
-
+    
+    
+    public function insertWriteHistory($aParam=array())
+    {
+        $aConfig = $this->queryInfoNote['insertWriteHistory'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function getVerNumber($aParam=array())
+    {
+        $aConfig = $this->queryInfoNote['getVerNumber'];
+        $aRtn = $this->actModelFuc($aConfig, $aParam);
+        return $aRtn[0]->nowver; 
+    }
 
 }

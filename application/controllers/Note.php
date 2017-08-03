@@ -7,7 +7,9 @@ class Note extends CI_Controller {
         parent::__construct();
 
         $this->load->library('log/ErrorlogClass');
+        $this->load->library('log/WriteHistoryClass');
         $this->oErrorLog = new ErrorlogClass();
+        $this->oWriteHistoryLog = new WriteHistoryClass();
 
         $this->load->model('account_model');
         $this->load->model('note_model');
@@ -354,5 +356,13 @@ Dev Code
     }
 
 
+    public function setWriteHistory($usn, $n_idx)
+    {
+        if( $this->oWriteHistoryLog->setWriteHistory($usn, $n_idx) )
+            echo  "True";
+        else
+            echo  "False";
+    }
+        
     
 }

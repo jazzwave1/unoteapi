@@ -107,6 +107,24 @@ $config['query'] = array(
             ,'btype'=> 'ssi'
             ,'null' => array()
         )
+        ,'insertWriteHistory' => array(
+            'query' => 'INSERT INTO write_history(ver, usn, n_idx, s_idx, contents, regdate)
+                        SELECT ?,?, n_idx, s_idx, contents, now() 
+                          FROM note_sentence
+                         WHERE n_idx = ?'
+            ,'data' => array('ver', 'usn','n_idx')
+            ,'btype'=> 'iii'
+            ,'null' => array()
+        )
+        ,'getVerNumber' => array(
+            'query' => 'SELECT ifnull( max(ver) , 0 ) as nowver 
+                          FROM write_history 
+                         WHERE n_idx = ?
+                           and usn = ?'
+            ,'data' => array('n_idx','usn')
+            ,'btype'=> 'ii'
+            ,'null' => array()
+        )
     )
     ,'crawling' => array(
         'getCrawlingInfo' => array(
