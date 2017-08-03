@@ -45,8 +45,7 @@ $code = array(
         $(this).addClass("on");
 
         var text = oEditor.getIR();
-        text = text.replace('<span class="spelChk" style="background:red; color:#fff;">', '');
-        text = text.replace('</span>', '');
+        text = text.replace(/<span class="spelChk" style="background:red; color:#fff;">(.+)<\/span>/ig, "$1");
 
         var search = $(this).children('.resultInfo').children('.splWrong').text();
         var replace = '<span class="spelChk" style="background:red; color:#fff;">'+search+'</span>';
