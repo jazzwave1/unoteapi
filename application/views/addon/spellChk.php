@@ -3,7 +3,7 @@ $code = array(
      'space' => '띄어쓰기 오류'
     ,'spell' => '철자 오류'
     ,'space_spell' => '띄어쓰기, 맞춤법 오류'
-    ,'doubt' => '맞춤법 오류'
+    ,'doubt' => '맞춤법 의심'
 );
 // echo '<pre>: '. print_r( $data, true ) .'</pre>';
 // die();
