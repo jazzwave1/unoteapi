@@ -9,6 +9,7 @@ class CrawlingClass {
             ,'2'=>'다음'
             ,'3'=>'페이스북'
         );
+    
     }
 
     public function getCrawling($usn)
@@ -40,7 +41,7 @@ class CrawlingClass {
         {
             // naver
             case 1 :
-                $bCallAPI = $this->_crawlingNaver($usn, $siteid, $aReqFilter, $user_id, $user_pwd); 
+                $bCallAPI = $this->_crawlingNaver($q_idx, $user_id, $user_pwd); 
                 break;
             // daum
             case 2 :
@@ -48,7 +49,8 @@ class CrawlingClass {
                 break;
             // facebook            
             case 3 :
-                $bCallAPI = $this->_crawlingFacebook($usn, $siteid, $aReqFilter, $user_id, $user_pwd); 
+                $accessToken = $user_pwd;
+                $bCallAPI = $this->_crawlingFacebook($q_idx, $accessToken); 
                 break;
             default :
                 break;
@@ -68,17 +70,27 @@ class CrawlingClass {
         MSGQClass::updateMsgQ($usn, $q_idx , $state); 
         return;
     }
-    private function _crawlingNaver($usn, $siteid, $aReqFilter, $user_id, $user_pwd)
+    private function _crawlingNaver($q_idx, $user_id, $user_pwd)
     {
+        edu_get_instance('IbricksClass');
+        $sResultJson = IbricksClass::crawlMyPost($q_idx, $user_id, $user_pwd);
+        $aResultJson = json_decode($sResultJson);
+        
         return true; 
     }
     private function _crawlingDaum($usn, $siteid, $aReqFilter, $user_id, $user_pwd)
     {
         return true; 
     }
-    private function _crawlingFacebook($usn, $siteid, $aReqFilter, $user_id, $user_pwd)
+    private function _crawlingFacebook($q_idx, $accessToken)
     {
+        edu_get_instance('IbricksClass');
+        $user_id  = '';
+        $user_pwd = '';
+        $sResultJson = IbricksClass::crawlMyPost($q_idx, $user_id, $user_pwd, $accessToken);
+        $aResultJson = json_decode($sResultJson);
+        
         return true; 
-    
+           
     }
 }

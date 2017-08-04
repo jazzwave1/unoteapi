@@ -23,7 +23,7 @@ class IbricksClass {
         // result 결과를 처리 하는 부분은 추가적으로 확인 해야 함
         echo sendCURLPost($sURL, $params); 
     } 
-    public static function crawlMyPost($q_idx, $user_id, $user_pwd, $accessToken)
+    public static function crawlMyPost($q_idx, $user_id, $user_pwd, $accessToken="")
     {
         $sURL = IBRICKS."/crawlMyPost"; 
 
@@ -39,7 +39,8 @@ class IbricksClass {
        //die;
 
         // result 결과를 처리 하는 부분은 추가적으로 확인 해야 함
-        echo sendCURLPost($sURL, $params); 
+        sendCURLPost($sURL, $params); 
+        return ;
     } 
 
     //////////////////////////////
