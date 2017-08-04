@@ -12,7 +12,7 @@ class Crawling extends CI_Controller{
         // chk Login Info
         // true : get MembeInfo
         // false : loaction login page
-        $this->aMemberInfo = chkLoginInfo();
+        $this->oMemberInfo = chkLoginInfo();
         //////////////////////////////////// 
 
     }
@@ -25,7 +25,14 @@ class Crawling extends CI_Controller{
     public function History($pagination=0)
     {
         // test code
-        $usn = $this->_getUsn();
+        $usn = $this->oMemberInfo->usn;
+        
+        if(! $usn )
+        {
+            alert('로그인 후 이용하세요.','/unoteapi/Login');
+            die;
+        }
+
 
         $oCrawlingClass = edu_get_instance('CrawlingClass');
         $aList = $oCrawlingClass->getCrawling($usn);
@@ -80,8 +87,15 @@ class Crawling extends CI_Controller{
     public function reqcrawl()
     {
         // test code
-        $usn = $this->_getUsn();
-
+        $usn = $this->oMemberInfo->usn;
+        
+        // usn check
+        if(! $usn )
+        {
+            alert('로그인 후 이용하세요.','/unoteapi/Login');
+            die;
+        }
+       
         $aTemp = array();
 
         $data = array(
@@ -91,11 +105,6 @@ class Crawling extends CI_Controller{
 
         $this->load->view('common/container', $data);
 
-    }
-    private function _getUsn()
-    {
-        // return usn
-        return "1";
     }
     private function _setPagination($aList, $nPageNum)
     {
