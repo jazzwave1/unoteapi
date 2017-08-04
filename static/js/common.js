@@ -4,17 +4,54 @@ var _wWidth = $(window).width();
 var _detailViewWidth = _wWidth - 530;
 var _cTableWidth = _wWidth - 231;
 
+
+/*test*/
+/*
+$(".lnbItemList").on('click',function () {
+    $("#bankSub").addClass("show");
+   /!* if ($('#bankSub').hasClass("show")) {
+        $('.dvinner').addClass("show");
+    } else {
+        $('.dvinner').removeClass("show");
+    }*!/
+
+
+
+
+});
+*/
+
+
+
+
+var wHeight = $(window).height();
+
+var detailViewHeight = wHeight - 120;
+
+var scrollHeight = wHeight - 141;
+
+
+$(".page").css({
+    'height' :  detailViewHeight,
+    'overflow-x' : 'hidden',
+    'overflow-y' : 'scroll',
+});
+$(".scroll-subList").css({
+    'height' :  scrollHeight,
+    'overflow-x' : 'hidden',
+    'overflow-y' : 'scroll',
+});
+
 function responsiveView() {
     /*var wSize = $(window).width();*/
-    var wHeight = $(window).height();
 
-    var detailViewHeight = wHeight - 120;
 
-    var scrollHeight = wHeight - 141;
-    
-    $("#detailView").css({
-        'width' : _detailViewWidth
-    });
+   /* $("#detailView").css({
+        'width' : _detailViewWidth,
+        'position' : 'absolute',
+         'top':'0px',
+         'left': '530px'
+    });*/
    
     $("#cList").css({
         'width' : _cTableWidth
@@ -35,7 +72,7 @@ $(window).on('resize', responsiveView);
 
 $('#menubarIcon').on('click',clickMenubar);
 function clickMenubar() {
-    if ($('#lnb').is(":visible") === true) {
+    /*if ($('#lnb').is(":visible") === true) {
         $('#detailView').css({
             'left': '0px',
             'width': _wWidth
@@ -69,9 +106,15 @@ function clickMenubar() {
             'width':_cTableWidth
         });
         $('#lnb').show();
-    }
-}
+    }*/
 
+
+
+
+
+
+
+}
 
 
 
