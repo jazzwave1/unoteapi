@@ -18,7 +18,7 @@ class Note extends CI_Controller {
         // chk Login Info
         // true : get MembeInfo
         // false : loaction login page
-        $this->aMemberInfo = chkLoginInfo();
+        $this->oMemberInfo = chkLoginInfo();
         //////////////////////////////////// 
     }
 
@@ -29,7 +29,7 @@ class Note extends CI_Controller {
 
     public function List()
     {
-        $usn = $this->_getUsn();
+        $usn = $this->oMemberInfo->usn;
 
         // usn check
         if(! $usn )
@@ -106,7 +106,7 @@ class Note extends CI_Controller {
     ##########################
     public function saveNote($sType='reg')
     {
-        $usn = 1;
+        $usn = $this->oMemberInfo->usn;
         if($this->input->post('sType')) 
             $sType = $this->input->post('sType') ;
 

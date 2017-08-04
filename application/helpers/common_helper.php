@@ -136,5 +136,5 @@ function chkLoginInfo()
     }
     
     // view login page 
-    // header('Location: '.HOSTURL.'/Login');
+    //header('Location: '.HOSTURL.'/Login');
 }
