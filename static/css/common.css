@@ -74,7 +74,7 @@ i.fa-times{
     position: relative;
     width: 100%;
     height: 100%;
-
+    background: #f6f6f6;
 }
 #header {
     position: absolute;
@@ -87,7 +87,7 @@ i.fa-times{
     background-color: #fff;
     /*background-color: cadetblue;*/
     /*background-image: linear-gradient( 135deg, #5EFCE8 0%, #736EFE 100%);*/
-    z-index: 200;
+    z-index: 1000;
     border-bottom:1px solid #eee;
 }
 #header .hinner{
@@ -95,15 +95,16 @@ i.fa-times{
     width: 100%;
 }
 #header div{float: left;}
-#header .hleft{width: 200px;}
+#header .hleft{
+    width: 230px;
+
+}
 #header .hleft h1 {
     font-family: 'Fredericka the Great', cursive;
     /*font-family: 'tvN_Bold';*/
     text-align: left;
     /*text-transform: uppercase;*/
     font-size: 32px;
-    padding-left: 60px;
-
 }
 #header .hleft h1 a{
     display: block;
@@ -112,6 +113,7 @@ i.fa-times{
     width: 170px;
     height:60px;
     overflow: hidden;
+    margin: 0 auto;
 }
 #header .hleft h1 a img{
     width: 100%;
@@ -126,7 +128,7 @@ i.fa-times{
 
 }
 
-#header .hleft .menubar{
+.menubar{
     display: block;
     position: absolute;
     left:0;
@@ -278,10 +280,16 @@ i.fa-times{
     top:-14px;
 }
 #header .hright .userBtn .userBtn-inner{
+    width: 100%;
+}
+#header .hright .userBtn ul{
     padding-left: 10px;
 }
 #header .hright .userBtn ul li i{
     padding-right: 10px;
+}
+#header .hright .userBtn ul li a{
+    display: block;
 }
 #header .hright .notice,#header .hright .search{
     width: 30px;

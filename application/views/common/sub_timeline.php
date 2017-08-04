@@ -39,7 +39,10 @@
                                     </li>
                                 <?php endforeach; ?>
                                 <?php else: ?>
-                                <li class="timeline-li">데이터가 없습니다.</li>
+                                    <div class="emptyData">
+                                        <div class="emptyIcon"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+                                        <div>데이터가 없습니다.</div>
+                                    </div>
                                 <?php endif; ?>                                    
                                 </ul>
                                 <!--//글감리스트-->
