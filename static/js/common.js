@@ -46,12 +46,12 @@ function responsiveView() {
     /*var wSize = $(window).width();*/
 
 
-    $("#detailView").css({
+   /* $("#detailView").css({
         'width' : _detailViewWidth,
         'position' : 'absolute',
          'top':'0px',
          'left': '530px'
-    });
+    });*/
    
     $("#cList").css({
         'width' : _cTableWidth

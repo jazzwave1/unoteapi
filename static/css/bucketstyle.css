@@ -676,3 +676,26 @@ i.fa-star-o.on{
 .c-page_num ul li.arrow i:hover{
     color: #fdd66d;
 }
+
+
+
+
+@media screen and (max-width: 1600px) and (min-width: 1200px) {
+
+    .dvinner{
+        padding-left: 550px;
+        padding-right: 0;
+    }
+
+}
+@media screen and (max-width: 1199px) and (min-width: 700px) {
+
+    .dvinner{
+        padding-left: 550px;
+        padding-right: 0;
+    }
+
+    .page{
+        max-width: 500px;
+    }
+}
