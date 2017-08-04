@@ -97,10 +97,86 @@ class Note extends CI_Controller {
 
         $this->load->view('common/textviewerOpen', $data);
     }
-
+    public function setWriteHistory($usn, $n_idx)
+    {
+       return $this->oWriteHistoryLog->setWriteHistory($usn, $n_idx) ;
+    }
     ##########################
     ###### RPC Function ######
     ##########################
+    public function saveNote($sType='reg')
+    {
+        $usn = 1;
+        if($this->input->post('sType')) 
+            $sType = $this->input->post('sType') ;
+
+        if($sType == 'reg')
+        {
+            $aNoteData = array(
+                'n_idx'    => 'NULL'
+                ,'usn'     => $usn
+                ,'title'   => $this->input->post('title')
+                ,'regdate' => date("Y-m-d H:i:s")
+            );
+           
+            // insertNote
+            // 추후 note_display, note_sentence table 추가 필요
+            if($pk = $this->note_model->insertNote($aNoteData))
+            {
+                $aContentInfo = $this->_setContentInfo($this->input->post('ir1'));
+                $this->note_model->insertNoteSentence($pk, $aContentInfo) ;
+                
+                $aResult = array(
+                     'code' => 1
+                    ,'msg' => 'OK'
+                    ,'sBtnType' => $this->input->post('sBtnType')
+                    ,'pk'=>$pk
+                );
+                
+                // 학습을 위한 로그를 남김
+                $this->setWriteHistory($usn, $pk); 
+
+                response_json($aResult);
+                die;
+            }
+        }
+        else if($sType == 'edit')
+        {
+            $aNoteData = array(
+                'n_idx'     => $this->input->post('n_idx') 
+                ,'usn'      => $usn
+                ,'title'    => $this->input->post('title') 
+                ,'regdate'  => date("Y-m-d H:i:s")
+                ,'contents' => $this->_setContentInfo($this->input->post('ir1')) 
+            );
+
+            if($this->_isNote($aNoteData['n_idx']))
+            {
+                // update
+                if($this->note_model->updateNote($aNoteData))
+                {
+                    $aResult = array(
+                         'code' => 1
+                        ,'msg' => 'OK'
+                        ,'sBtnType' => $this->input->post('sBtnType')
+                    );
+                    // 학습을 위한 로그를 남김
+                    $this->setWriteHistory($usn, $aNoteData['n_idx']); 
+
+                    response_json($aResult);
+                }
+            }
+// test code 
+// 잠시 막아둠            
+//          $aErrorLog = array(
+//               'file' =>'/Note/saveNote | edit'
+//              ,'code' => 301 
+//              ,'aInput' => $aNoteData 
+//          );
+//          response_json($this->oErrorLog->setErrorLog($aErrorLog));
+            die;
+        }
+    }
     public function rpcGetNoteInfo()
     {
         $n_idx = $this->input->post('n_idx');
@@ -129,16 +205,7 @@ class Note extends CI_Controller {
         response_json($aResult);
         die;
     } 
-    private function _getNoteDetailInfo($n_idx)
-    {
-        edu_get_instance('NoteClass');
-
-        $aNoteDetailInfo = NoteClass::getNoteDetailInfo($n_idx);
-
-        return $aNoteDetailInfo;
-    } 
-
-  public function rpcDeleteNote()
+    public function rpcDeleteNote()
     {
         $n_idx = $this->input->post('n_idx');
 
@@ -166,7 +233,14 @@ class Note extends CI_Controller {
         $bRes = $oNoteModel->note_model->deleteNote($n_idx);
         return $bRes;
     }
+    private function _getNoteDetailInfo($n_idx)
+    {
+        edu_get_instance('NoteClass');
 
+        $aNoteDetailInfo = NoteClass::getNoteDetailInfo($n_idx);
+
+        return $aNoteDetailInfo;
+    } 
     private function _setContentInfo($contents)
     {
         $aRtn = array();
@@ -179,71 +253,6 @@ class Note extends CI_Controller {
         return $aRtn;
     }
 
-    public function saveNote($sType='reg')
-    {
-        if($this->input->post('sType')) 
-            $sType = $this->input->post('sType') ;
-
-        if($sType == 'reg')
-        {
-            $aNoteData = array(
-                'n_idx'    => 'NULL'
-                ,'usn'     => 1
-                ,'title'   => $this->input->post('title')
-                ,'regdate' => date("Y-m-d H:i:s")
-            );
-           
-            // insertNote
-            // 추후 note_display, note_sentence table 추가 필요
-            if($pk = $this->note_model->insertNote($aNoteData))
-            {
-                $aContentInfo = $this->_setContentInfo($this->input->post('ir1'));
-                $this->note_model->insertNoteSentence($pk, $aContentInfo) ;
-                
-                $aResult = array(
-                     'code' => 1
-                    ,'msg' => 'OK'
-                    ,'sBtnType' => $this->input->post('sBtnType')
-                    ,'pk'=>$pk
-                );
-                response_json($aResult);
-                die;
-            }
-        }
-        else if($sType == 'edit')
-        {
-            $aNoteData = array(
-                'n_idx'     => $this->input->post('n_idx') 
-                ,'usn'      => 1
-                ,'title'    => $this->input->post('title') 
-                ,'regdate'  => date("Y-m-d H:i:s")
-                ,'contents' => $this->_setContentInfo($this->input->post('ir1')) 
-            );
-
-            if($this->_isNote($aNoteData['n_idx']))
-            {
-                // update
-                if($this->note_model->updateNote($aNoteData))
-                {
-                    $aResult = array(
-                         'code' => 1
-                        ,'msg' => 'OK'
-                        ,'sBtnType' => $this->input->post('sBtnType')
-                    );
-                    response_json($aResult);
-                }
-            }
-// test code 
-// 잠시 막아둠            
-//          $aErrorLog = array(
-//               'file' =>'/Note/saveNote | edit'
-//              ,'code' => 301 
-//              ,'aInput' => $aNoteData 
-//          );
-//          response_json($this->oErrorLog->setErrorLog($aErrorLog));
-            die;
-        }
-    }
 
     // test code
     private function _getUsn()
@@ -356,13 +365,6 @@ Dev Code
     }
 
 
-    public function setWriteHistory($usn, $n_idx)
-    {
-        if( $this->oWriteHistoryLog->setWriteHistory($usn, $n_idx) )
-            echo  "True";
-        else
-            echo  "False";
-    }
         
     
 }
