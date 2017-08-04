@@ -13,26 +13,29 @@ class Note_model extends CI_model
         $aRes = array();
 
         $aInput = array('usn'=>$usn);
+        
+        $aRes = array();
 
         $aNoteInfo = $this->note_dao->getNoteInfoByUsn($aInput);
+        if(!$aNoteInfo)
+        {
+            foreach ($aNoteInfo as $key => $obj) {
+                $aInput = array('n_idx'=>$obj->n_idx);
+                $aNoteSummary = $this->note_dao->getNoteSummary($aInput);
 
-        foreach ($aNoteInfo as $key => $obj) {
-            $aInput = array('n_idx'=>$obj->n_idx);
-            $aNoteSummary = $this->note_dao->getNoteSummary($aInput);
+                $sSummary = '';
+                if( isset($aNoteSummary) && is_array($aNoteSummary)>0 )
+                {
+                    $sSummary = strip_tags($aNoteSummary[0]->contents);
+                }
 
-            $sSummary = '';
-            if( isset($aNoteSummary) && is_array($aNoteSummary)>0 )
-            {
-                $sSummary = strip_tags($aNoteSummary[0]->contents);
+                $aNoteInfo[$key]->regdate = substr($obj->regdate,0,4).'.'.substr($obj->regdate,5,2).'.'.substr($obj->regdate,8,2);
+                $aNoteInfo[$key]->summary = $sSummary;
+                $aNoteInfo[$key]->thumbnail = '';
             }
 
-            $aNoteInfo[$key]->regdate = substr($obj->regdate,0,4).'.'.substr($obj->regdate,5,2).'.'.substr($obj->regdate,8,2);
-            $aNoteInfo[$key]->summary = $sSummary;
-            $aNoteInfo[$key]->thumbnail = '';
+            $aRes = $aNoteInfo;
         }
-
-        $aRes = $aNoteInfo;
-
         return $aRes;
     }
 
