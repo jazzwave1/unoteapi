@@ -34,7 +34,7 @@ class Note extends CI_Controller {
         // usn check
         if(! $usn )
         {
-            alert('로그인 후 이용하세요.','/login');
+            alert('로그인 후 이용하세요.','/unoteapi/Login');
             die;
         }
 

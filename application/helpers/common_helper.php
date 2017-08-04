@@ -134,7 +134,11 @@ function chkLoginInfo()
     {
         return $aMemberInfo;
     }
-    
+    else
+    {
+        $aRtn = array('usn'=>'');
+        return (object)$aRtn;
+    }    
     // view login page 
     //header('Location: '.HOSTURL.'/Login');
 }
