@@ -16,6 +16,7 @@ $code = array(
 				    <p>총 글자수 : <span>951</span>, 수정<span>0</span>, 제안<span>4</span></p>
 				</div>-->
 				<div class="splChkBox">
+                <input type="hidden" id="pre_search" name="pre_search" />
 				    <ul>
 					<?php foreach($data as $oSpell): ?>
 					    <?php foreach($oSpell->result as $key => $oData): ?>
@@ -45,14 +46,16 @@ $code = array(
         $(this).addClass("on");
 
         var text = oEditor.getIR();
-        text = text.replace(/<span class="spelChk" style="background:red; color:#fff;">(.+)<\/span>/ig, "$1");
+        text = removeSpellStyle(text);
 
+        // 현재 맞춤법 검색어 표시
         var search = $(this).children('.resultInfo').children('.splWrong').text();
         var replace = '<span class="spelChk" style="background:red; color:#fff;">'+search+'</span>';
-        // var text = $("#ir1").val();
-        // var text = oEditor.getIR();
-
         text = text.replace(new RegExp(search,'gi'), replace);
+
+        // 이전 맞춤법검색어
+        $('#pre_search').val(search);
+
         oEditor.setIR('');
         oEditor.exec("PASTE_HTML", [text]);
     });
@@ -102,8 +105,6 @@ $code = array(
         'overflow-x' : 'hidden',
         'overflow-y' : 'scroll',
     });
-
-
 
     function responsiveView() {
 
