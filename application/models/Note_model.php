@@ -17,7 +17,7 @@ class Note_model extends CI_model
         $aRes = array();
 
         $aNoteInfo = $this->note_dao->getNoteInfoByUsn($aInput);
-        if(!$aNoteInfo)
+        if($aNoteInfo)
         {
             foreach ($aNoteInfo as $key => $obj) {
                 $aInput = array('n_idx'=>$obj->n_idx);
