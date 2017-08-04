@@ -139,7 +139,7 @@ class LoginClass
         
         // set Cookie ( unote )
         edu_get_instance('CookieClass');
-        CookieClass::setCookieInfo($oAcc->oAccInfo->usn, 'eduniety', $account_id);   
+        CookieClass::setCookieInfo($oAcc->oAccInfo->usn, 'facebook', $account_id);   
 
         return true;
     }
@@ -151,7 +151,7 @@ class LoginClass
         
         // set Cookie ( unote )
         edu_get_instance('CookieClass');
-        CookieClass::setCookieInfo($oAcc->oAccInfo->usn, 'eduniety', $account_id);   
+        CookieClass::setCookieInfo($oAcc->oAccInfo->usn, 'naver', $account_id);   
 
         return true;
     }
