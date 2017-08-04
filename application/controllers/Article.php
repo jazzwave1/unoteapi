@@ -13,7 +13,7 @@ class Article extends CI_Controller {
         // chk Login Info
         // true : get MembeInfo
         // false : loaction login page
-        $this->aMemberInfo = chkLoginInfo();
+        $this->oMemberInfo = chkLoginInfo();
         //////////////////////////////////// 
     }
 
@@ -66,10 +66,7 @@ class Article extends CI_Controller {
     {
         $t_idx = $this->input->post('t_idx');
         $method = $this->input->post('method');
-        $usn = $this->_getUsn();
-
-        // test code
-        // $t_idx = 168;
+        $usn = $this->oMemberInfo->usn;
 
         $aResult = array(
              "code"  => 1
@@ -245,8 +242,7 @@ class Article extends CI_Controller {
 
     public function setCategory()
     {
-        // test code
-        $usn = 1;
+        $usn = $this->oMemberInfo->usn;
 
         $category_idx = $this->input->post('category_idx');
         $name = $this->input->post('sCategoryName');
@@ -306,12 +302,12 @@ class Article extends CI_Controller {
     }
     private function _getArticleList($sType, $category_idx=0)
     {
-        $usn = $this->_getUsn();
+        $usn = $this->oMemberInfo->usn;
 
         // usn check
         if(! $usn )
         {
-            alert('로그인 후 이용하세요.','/login');
+            alert('로그인 후 이용하세요.','/unoteapi/Login');
             die;
         }
 
@@ -368,15 +364,4 @@ class Article extends CI_Controller {
 
         $this->load->view('common/container', $data);
     }
-
-
-    // test code
-    private function _getUsn()
-    {
-        return 1;
-    }
-
-
-
-    
 }
