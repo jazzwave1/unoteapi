@@ -32,9 +32,13 @@
         background: url("../../static/images/bg_notering_top.png") repeat-x 0 0;
     }
     .openpage{
-        padding: 40px 60px 40px 60px;
+        height: 100%;
         background: #fff;
         box-shadow: 1px 4px 8px  #888888;
+    }
+    .open-wrap{
+        padding: 50px 30px 30px;
+        text-align: justify;
     }
     .openpage .open-date{
         font-weight: bold;
@@ -58,18 +62,20 @@
                     <div class="openinner">
                         <div class="page-bg"></div>
                         <div class="openpage">
-                            <div class="open-top clearfix">
-                                <div class="top-inner">
-                                    <div class="clearfix">
-                                        <div class="open-info" data-n_idx="1" data-t_idx="1">
-                                            <p class="open-date"><?=$vdata['regdate']?></p>
-                                            <p class="open-tit"><?=$vdata['title']?></p>
+                            <div class="open-wrap">
+                                <div class="open-top clearfix">
+                                    <div class="top-inner">
+                                        <div class="clearfix">
+                                            <div class="open-info" data-n_idx="1" data-t_idx="1">
+                                                <p class="open-date"><?=$vdata['regdate']?></p>
+                                                <p class="open-tit"><?=$vdata['title']?></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="open-txt">
-                                   <?=$vdata['contents']?>
+                                <div class="open-txt">
+                                       <?=$vdata['contents']?>
+                                </div>
                             </div>
                         </div>
                     </div>
