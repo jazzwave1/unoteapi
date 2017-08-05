@@ -8,7 +8,10 @@
         position: relative;
         width: 100%;
         background: #f6f6f6;
-
+        padding-bottom: 30px;
+    }
+    .bgWrap{
+        padding-top: 30px;
     }
     .openView{
         width: 800px;
@@ -26,10 +29,10 @@
     }
     .page-bg{
         position: absolute;
-        top:-25px;
-        width: 680px;
+        top:-26px;
+        width: 700px;
         height:40px;
-        background: url("../../static/images/bg_notering_top.png") repeat-x 0 0;
+        background: url("../../static/images/bg_punch_top.png") repeat-x 8px 0;
     }
     .openpage{
         height: 100%;
@@ -37,7 +40,7 @@
         box-shadow: 1px 4px 8px  #888888;
     }
     .open-wrap{
-        padding: 50px 30px 30px;
+        padding: 30px 30px 0px;
         text-align: justify;
     }
     .openpage .open-date{
@@ -57,6 +60,7 @@
 </style>
 
 <div class="openWrap">
+    <div class="bgWrap">
                 <!--detailView-->
                 <div id="detailView" class="openView">
                     <div class="openinner">
@@ -80,6 +84,7 @@
                         </div>
                     </div>
                 </div>
+    </div>
                 <!--//detailView-->
                 </div>
 
