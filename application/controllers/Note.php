@@ -57,10 +57,10 @@ class Note extends CI_Controller {
             $aNoteDetailInfo = $this->_getNoteDetailInfo($aVdata['sublist'][0]->n_idx);
 
             $aVdata['aDetail'] = array(
-                    'n_idx' => $aNoteDetailInfo['n_idx']
-                    ,'regdate' => $aNoteDetailInfo['regdate']
-                    ,'title' => $aNoteDetailInfo['title']
-                    ,'contents' => $aNoteDetailInfo['text']
+                 'n_idx' => $aNoteDetailInfo['n_idx']
+                ,'regdate' => $aNoteDetailInfo['regdate']
+                ,'title' => $aNoteDetailInfo['title']
+                ,'contents' => $aNoteDetailInfo['text']
             );
         }
 

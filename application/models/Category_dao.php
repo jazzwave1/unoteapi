@@ -16,6 +16,12 @@ class Category_dao extends Common_dao
         return $this->actModelFuc($aConfig, $aParam);
     }
 
+    public function isCategory($aParam=array())
+    {
+        $aConfig = $this->queryInfoCategory['isCategory'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+
     public function setCategory($aParam=array())
     {
         $aConfig = $this->queryInfoCategory['setCategory'];

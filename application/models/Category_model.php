@@ -19,6 +19,18 @@ class Category_model extends CI_model{
         return false;
     }
 
+    public function isCategory($usn, $sCategoryName)
+    {
+        if (!$usn) return false;
+
+        $aInput = array(
+             'usn'  => $usn
+            ,'name' => $sCategoryName
+        );
+        $aCategoryCnt = $this->category_dao->isCategory($aInput);
+        return $aCategoryCnt[0]->cnt;
+    }
+
     public function setCategory($usn, $sCategoryName)
     {
         if (!$usn) return false;

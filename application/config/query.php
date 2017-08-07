@@ -190,6 +190,15 @@ $config['query'] = array(
             ,'btype'=> 'i'
             ,'null' => array()
         )
+        ,'isCategory' => array(
+            'query' => 'SELECT count(*) cnt
+                          FROM category
+                         WHERE usn = ?
+                           AND name = ?'
+           ,'data' => array('usn', 'name')
+           ,'btype'=> 'is'
+           ,'null' => array()
+        )
         ,'setCategory' => array(
             'query' => 'INSERT INTO category(usn, name)
                         VALUES (?,?)'

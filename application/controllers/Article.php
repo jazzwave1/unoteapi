@@ -245,26 +245,43 @@ class Article extends CI_Controller {
         $usn = $this->oMemberInfo->usn;
 
         $category_idx = $this->input->post('category_idx');
-        $name = $this->input->post('sCategoryName');
+        $name = trim($this->input->post('sCategoryName'));
+        $category_cnt = $this->_isCategory($usn, $name);
 
-        if($this->_setCategory($category_idx, $usn, $name))
-        {
-            $aResult = array(
-                 "code"  => 1
-                ,"msg"   => "OK"
-            );            
-        }
-        else
+        if($category_cnt > 0)
         {
             $aResult = array(
                  "code"  => 999
-                ,"msg"   => "Error"
-            );                  
+                ,"msg"   => "Error: 카테고리 중복"
+            );   
+        }
+        else
+        {
+            if($this->_setCategory($category_idx, $usn, $name))
+            {
+                $aResult = array(
+                     "code"  => 1
+                    ,"msg"   => "OK"
+                );            
+            }
+            else
+            {
+                $aResult = array(
+                     "code"  => 999
+                    ,"msg"   => "Error"
+                );                  
+            }
         }
 
         response_json($aResult);
         die;
     }
+    private function _isCategory($usn, $sCategoryName)
+    {
+        edu_get_instance('CategoryClass');
+        $sCnt = CategoryClass::isCategory($usn, $sCategoryName);
+        return $sCnt;
+    }    
     private function _setCategory($category_idx, $usn, $sCategoryName)
     {
         edu_get_instance('CategoryClass');
