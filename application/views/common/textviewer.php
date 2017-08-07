@@ -2,14 +2,13 @@
 $controller = strtolower($this->uri->segment(1));
 $method = strtolower($this->uri->segment(2));
 
-// test code
-$usn = 1;
 $this->load->library('MenuClass');
 $aMenuList = MenuClass::getMenuList($usn);
 $aCategory = $aMenuList['Category']['sub'];
 ?>
                 <!--detailView-->
                 <div id="detailView">
+                    <?php if($vdata['sublist_cnt'] > 0): ?>
                     <div class="dvinner">
                         <div class="p-btn clearfix">
                             <ul class="clearfix">
@@ -77,5 +76,10 @@ $aCategory = $aMenuList['Category']['sub'];
                             </div>
                         </div>
                     </div>
+                    <?php else: ?>
+                    <div class="dvinner">
+                        요기에 노트가 없다일 경우
+                    </div>
+                    <?php endif; ?>
                 </div>
                 <!--//detailView-->
