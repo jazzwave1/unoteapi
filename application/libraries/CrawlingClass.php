@@ -17,6 +17,9 @@ class CrawlingClass {
         edu_get_instance('MSGQClass');
         $aList = MSGQClass::getMsgQList($usn); 
 
+        if(!$aList)
+            return false;
+
         foreach($aList as $key=>$val)
         {
             $val->site_name = $this->aSiteConfig[$val->site_id];

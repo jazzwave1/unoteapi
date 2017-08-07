@@ -14,7 +14,6 @@
                                         <th class="">요청일</th>
                                         <th class="">완료일</th>
                                         <th class="">상태</th>
-                                        <th class="">수집양</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -26,17 +25,23 @@
                                         <td>17.05.01 13:30</td>
                                         <td>123/123</td>
                                     </tr-->
+                                <?php if($vdata) : ?>
                                 <?php foreach($vdata as $key=>$val) :?>
                                     <tr>
-                                    <td><div class=""><?=$val->site_name?></div></td>
+                                        <td><div class=""><?=$val->site_name?></div></td>
                                         <td><a href="javascript:;"><?=$val->sSite?></a></td>
                                         <td><?=$val->sBoard?></td>
                                         <td><?=$val->regdate?></td>
                                         <td><?=$val->completedate?></td>
                                         <td><?=$val->state?></td>
-                                        <td><?=$val->r_count?></td>
                                     </tr>
-                                <?php endforeach;?> 
+                                <?php endforeach;?>
+                                <?php else : ?>
+                                    <tr>
+                                        <td colspan=6><div class="" align="center">요청 데이터가 없습니다.</div></td>
+                                    </tr>
+                                <?php endif;?>
+                               
                                 </tbody>
                             </table>
                         </div>

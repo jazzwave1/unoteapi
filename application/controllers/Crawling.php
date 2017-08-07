@@ -26,53 +26,57 @@ class Crawling extends CI_Controller{
     {
         // test code
         $usn = $this->oMemberInfo->usn;
-        
+
         if(! $usn )
         {
             alert('로그인 후 이용하세요.','/unoteapi/Login');
             die;
         }
 
-
-        $oCrawlingClass = edu_get_instance('CrawlingClass');
-        $aList = $oCrawlingClass->getCrawling($usn);
-        
-        echo "<!--";
-        //print_r($aList);
-        echo "-->";
-
-
-        $this->load->library('pagination');
-
-        $config['base_url'] = HOSTURL.'/Crawling/History';
-        $config['total_rows'] = count($aList);
-        $config['per_page'] = $this->nPageNum; 
-        $config['use_page_numbers'] = TRUE;
-        
-        // pagination customizing
-        $config['num_tag_open'] = '<li>&nbsp;';
-        $config['num_tag_close'] = '&nbsp;</li>';
-        $config['cur_tag_open'] = '<li><a href="javascript:;" class="on">';
-        $config['cur_tag_close'] = '</a></li>';
-        $config['prev_link'] = '<li class="arrow">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                </li>';
-        $config['next_link'] = '<li class="arrow">
-                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                </li>'; 
-        
-        // display count 로 변경 
-        $aList = $this->_setPagination($aList, $pagination);
-
-        $this->pagination->initialize($config); 
-         
-        
-        $pagination = $this->pagination->create_links();
-        
+        // init 
+        $pagination = '';
         $this->load->library('MenuClass');
         $aMenuList = MenuClass::getMenuList($usn);
         // $aList['menu'] = $aMenuList['Crawling']['sub']['History'];
 
+        $oCrawlingClass = edu_get_instance('CrawlingClass');
+        $aList = $oCrawlingClass->getCrawling($usn);
+         
+        //echo "<!--";
+        //print_r($aList);
+        //echo "-->";
+        
+        if($aList)
+        {
+            $this->load->library('pagination');
+
+            $config['base_url'] = HOSTURL.'/Crawling/History';
+            $config['total_rows'] = count($aList);
+            $config['per_page'] = $this->nPageNum; 
+            $config['use_page_numbers'] = TRUE;
+            
+            // pagination customizing
+            $config['num_tag_open'] = '<li>&nbsp;';
+            $config['num_tag_close'] = '&nbsp;</li>';
+            $config['cur_tag_open'] = '<li><a href="javascript:;" class="on">';
+            $config['cur_tag_close'] = '</a></li>';
+            $config['prev_link'] = '<li class="arrow">
+                                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                    </li>';
+            $config['next_link'] = '<li class="arrow">
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                    </li>'; 
+            
+            // display count 로 변경 
+            $aList = $this->_setPagination($aList, $pagination);
+
+            $this->pagination->initialize($config); 
+             
+            
+            $pagination = $this->pagination->create_links();
+            
+        }
+        
         $data = array(
              'vdata' => $aList
             ,'usn'   => $usn

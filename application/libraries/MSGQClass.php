@@ -37,15 +37,18 @@ class MSGQClass {
         $msgq_model = edu_get_instance('msgq_model', 'model');
         $aMQList = $msgq_model->getMsgQLIst($account);
 
+        if(!$aMQList)
+            return false;
+        
         $aRtn = SELF::setFilterString($aMQList);
 
         $sCorporation = "";
         $sSite = "";
         $sBoard = "";
 
-        echo "<!--";
-        print_r($aRtn);
-        echo "-->";
+        //echo "<!--";
+        //print_r($aRtn);
+        //echo "-->";
 
         foreach($aRtn as $key=>$val)
         {
