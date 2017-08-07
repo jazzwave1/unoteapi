@@ -357,6 +357,21 @@ class Article extends CI_Controller {
         if(is_array($aVdata['sublist']))
         {
             $aVdata['sublist_cnt'] = count($aVdata['sublist']);
+
+            foreach ($aVdata['sublist'] as $key => $obj) {
+                if($obj->craw_data->corporation == '페이스북')
+                {
+                    if(isset($obj->craw_data->contents))
+                    {
+                        $aVdata['sublist'][$key]->craw_data->title = mb_substr($obj->craw_data->contents, 0, 20, 'utf-8');
+                    }
+
+
+                    $datetime = $obj->craw_data->datetime;
+                    $date = new DateTime($datetime);
+                    $aVdata['sublist'][$key]->craw_data->datetime = $date->format('Y.m.d. H:i');
+                }
+            }
         }
 
         if(isset($aVdata['sublist'][0]->t_idx))
@@ -365,6 +380,7 @@ class Article extends CI_Controller {
 
             $aVdata['aDetail'] = array(
                     't_idx' => $aArticleDetailInfo->t_idx
+                    ,'crawdate' => $aArticleDetailInfo->craw_data->datetime
                     ,'regdate' => $aArticleDetailInfo->regdate
                     ,'title' => $aArticleDetailInfo->craw_data->title
                     ,'contents' => $aArticleDetailInfo->craw_data->contents
