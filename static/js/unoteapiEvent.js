@@ -40,9 +40,16 @@ function addCategory(category)
               "sCategoryName" : name
            }
           ,function(data, status) {
-            if (status == "success" && data.code == 1)
+            if (status == "success")
             {
-                window.location.reload();
+                if(data.code == 1)
+                {
+                  window.location.reload();
+                }
+                else
+                {
+                  alert(data.msg);
+                }
                 // console.log(data.aNoteDetail); 
             }
             // 삭제 실패
@@ -111,9 +118,16 @@ function editCategory(category)
               ,"sCategoryName" : name
            }
           ,function(data, status) {
-            if (status == "success" && data.code == 1)
+            if (status == "success")
             {
-                window.location.reload();
+                if(data.code == 1)
+                {
+                  window.location.reload();
+                }
+                else
+                {
+                  alert(data.msg);
+                }
                 // console.log(data.aNoteDetail); 
             }
             // 삭제 실패

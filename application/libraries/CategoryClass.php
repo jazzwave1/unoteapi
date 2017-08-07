@@ -20,6 +20,12 @@ class CategoryClass {
         }
     }
 
+    public static function isCategory($usn, $sCategoryName)
+    {
+        $category_model = edu_get_instance('category_model', 'model');
+        return $category_model->isCategory($usn, $sCategoryName);
+    }
+
     public static function delCategory($category_idx)
     {
         // db eduniety.category delete
