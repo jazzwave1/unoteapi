@@ -41,10 +41,25 @@
                             기존에 사용하시는 계정으로 간단하게 <br>유노트를 시작하세요!
                         </p>
                     </div>
+                    
+                    <!--에듀니티계정 로그인-->
+                    <div class="eduniLogin">
+                        <form name='fo' method='post' class="loginForm" action='<?=HOSTURL?>/Login/RpcLogin'>
+                        <!--<p class="eduni">에듀니티 회원</p>-->
+                            <fieldset>
+                                <input id="userId" type="text" name="id" placeholder="에듀니티 아이디">
+                                <!--<input id="userPwd" type="password" name="pwd" placeholder="비밀번호">-->
+
+                                <a class="formBtn" id="bSend"  href="#">로그인</a>
+
+                            </fieldset>
+                    </div>
+                    <!--//에듀니티계정 로그인-->
+
                     <!--sns계정 로그인-->
                     <div class="snsLogin">
                         <ul>
-                            <li class="edunietyBtn btn"><a href="https://portal.eduniety.net/html/member/login">eduniety으로 로그인</a></li>
+                            <!--li class="edunietyBtn btn"><a href="https://portal.eduniety.net/html/member/login">eduniety으로 로그인</a></li-->
                             <li class="fBtn btn">
 <div scope="public_profile,email" onlogin="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
 </li>
@@ -53,12 +68,11 @@
                         </ul>
                         <!--div class="findSns"><a href="javascript:;">계정찾기</a></div-->
                     </div>
-                        <form name='fo' method='post' class="loginForm" action='<?=HOSTURL?>/Login/RpcLogin'>
 
                             <input type='hidden' name='user_id' id='user_id' >
                             <input type='hidden' name='site' id='site' >
                             <input type='hidden' name='accessToken' id='accessToken'>
-                        </form>
+                    </form>
 
                     <!--//sns계정 로그인-->
                     <!--에듀니티계정 로그인-->
@@ -98,7 +112,8 @@
     <!--<script type="text/javascript" src="<?/*=SURL*/?>/js/common_.js"></script>-->
     <!--<script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>-->
 
-    <script>
+<script>
+
       $(function(){
         $('#bSend').click(function(){
             $.post(

@@ -40,7 +40,10 @@ class Login extends CI_Controller {
         $site = $this->input->post('site'); 
         $accessToken  = $this->input->post('accessToken'); 
 
-        if($site == "eduniety")
+        /* 
+         * dev 버전으로 post data 를 우선으로 한다
+         
+         if($site == "eduniety")
         {
             if(! $account_id = $this->_getEduMbID() )
             {
@@ -48,7 +51,8 @@ class Login extends CI_Controller {
                 
             }
         }
-        
+        */
+
         if(!$site) $site = 'eduniety'; 
         if(!$accessToken) $accessToken = ''; 
 
