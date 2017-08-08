@@ -83,3 +83,26 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                     </div>
                                 </div>
                             </div>
+
+<script>
+    var wHeight = $(window).height();
+    var addonHeight = wHeight;
+    $("#addOnWrap").css({
+        'height' :  addonHeight,
+        'overflow-x' : 'hidden',
+        'overflow-y' : 'scroll',
+    });
+
+    function responsiveView() {
+
+
+        $("#addOnWrap").css({
+            'height' :  addonHeight,
+            'overflow-x' : 'hidden',
+            'overflow-y' : 'scroll',
+        });
+        /*$(".addOnCon").height(editorHeight);*/
+    }
+    $(window).on('load', responsiveView);
+    $(window).on('resize', responsiveView);
+</script>
