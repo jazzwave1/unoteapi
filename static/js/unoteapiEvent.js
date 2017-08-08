@@ -106,8 +106,15 @@ $('.categEditBtn').on('click', function(event){
 
 function editCategory(category)
 {
-    var name = category.value;
     var c_idx = category.id.replace('categInput_','');
+    var name = category.value;
+    var origin_name = $('#categTit_'+c_idx).html();
+
+    if(name == origin_name){
+      $('#category_'+c_idx).children('a').show();
+      $('#categInput_'+c_idx).hide();      
+      return false;
+    }
 
     if(c_idx && name)
     {
