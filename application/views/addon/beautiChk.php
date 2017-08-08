@@ -1,3 +1,4 @@
+                            <div class="chkTit">윤문 추천 결과</div>
                             <div class="addOnIcon clearfix">
                                 <a class="btn" href="javascript:beautiChk();" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i></a>
                                 <!--<a href="javascript:;">전체적용</a>-->
