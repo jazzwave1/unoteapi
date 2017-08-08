@@ -76,7 +76,7 @@ $('.categDelBtn').on('click', function(event){
         ,function(data, status) {
           if (status == "success" && data.code == 1)
           {
-              window.location.reload();
+              window.location="/unoteapi/Article/List";
               // console.log(data.aNoteDetail); 
           }
           // 삭제 실패
