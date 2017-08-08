@@ -105,4 +105,21 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
     }
     $(window).on('load', responsiveView);
     $(window).on('resize', responsiveView);
+
+
+
+
+    //카테고리 이동 버튼 클릭 이벤트
+    $(".moveCategBtn").click(function(){
+        $(".moveCategBtn").toggleClass("on");
+        $(".selCateg").show();
+    });
+    $(document).mouseup(function (e) {
+        var container = $(".selCateg");
+        if (!container.is(e.target) && container.has(e.target).length === 0){
+            container.hide();
+            $(".moveCategBtn").removeClass("on");
+        }
+    });
+
 </script>
