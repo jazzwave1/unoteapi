@@ -31,7 +31,7 @@ var detailViewHeight = wHeight - 120;
 var scrollHeight = wHeight - 141;
 
 
-$(".page").css({
+$(".page, .page-default").css({
     'height' :  detailViewHeight,
     'overflow-x' : 'hidden',
     'overflow-y' : 'scroll',
@@ -56,7 +56,7 @@ function responsiveView() {
     $("#cList").css({
         'width' : _cTableWidth
     });
-    $(".page").css({
+    $(".page, .page-default").css({
         'height' :  detailViewHeight,
         'overflow-x' : 'hidden',
         'overflow-y' : 'scroll',
