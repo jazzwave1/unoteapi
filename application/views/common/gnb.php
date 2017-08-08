@@ -25,7 +25,8 @@
                 <div class="userBtn">
                     <div class="userBtn-inner">
                         <ul>
-                            <li><a href="/unoteapi/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Log-out</a></li>
+                            <li><a href="/unoteapi/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>로그아웃</a></li>
+                            <li><a href="#"><i class="fa fa-lock" aria-hidden="true"></i>개인정보처리방침</a></li>
                         </ul>
                     </div>
                 </div>
