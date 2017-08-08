@@ -59,7 +59,7 @@ $aCategory = $aMenuList['Category']['sub'];
                                 <div class="top-inner">
                                     <div class="clearfix">
                                         <div class="p-info" data-n_idx="<?=( isset($vdata['aDetail']['n_idx']) ) ? $vdata['aDetail']['n_idx'] : ''?>" data-t_idx="<?=( isset($vdata['aDetail']['t_idx']) ) ? $vdata['aDetail']['t_idx'] : ''?>" data-type="<?=$method?>" data-controller="<?=$controller?>">
-                                            <p class="p-date"><?=( isset($vdata['aDetail']) ) ? $vdata['aDetail']['regdate'] : ''?></p>
+                                            <p class="p-date"><?=( isset($vdata['aDetail']) ) ? $vdata['aDetail']['crawdate'] : ''?></p>
                                             <p class="p-tit"><?=( isset($vdata['aDetail']) ) ? $vdata['aDetail']['title'] : ''?></p>
                                         </div>
                                     </div>

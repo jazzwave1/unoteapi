@@ -41,6 +41,17 @@ class  Article_model extends CI_model{
             foreach ($aArticleInfo as $key => $oData)
             {
                 $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
+                if($oData->craw_data->corporation == '페이스북')
+                {
+                    if(isset($oData->craw_data->contents))
+                    {
+                        $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
+                    }
+
+                    $datetime = $oData->craw_data->datetime;
+                    $date = new DateTime($datetime);
+                    $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d. H:i');
+                }
                 $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
         }
@@ -61,6 +72,17 @@ class  Article_model extends CI_model{
             foreach ($aArticleInfo as $key => $oData)
             {
                 $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
+                if($oData->craw_data->corporation == '페이스북')
+                {
+                    if(isset($oData->craw_data->contents))
+                    {
+                        $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
+                    }
+
+                    $datetime = $oData->craw_data->datetime;
+                    $date = new DateTime($datetime);
+                    $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d. H:i');
+                }
                 $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
         }
@@ -81,6 +103,17 @@ class  Article_model extends CI_model{
             foreach ($aArticleInfo as $key => $oData)
             {
                 $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
+                if($oData->craw_data->corporation == '페이스북')
+                {
+                    if(isset($oData->craw_data->contents))
+                    {
+                        $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
+                    }
+
+                    $datetime = $oData->craw_data->datetime;
+                    $date = new DateTime($datetime);
+                    $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d. H:i');
+                }
                 $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
         }
@@ -122,11 +155,23 @@ class  Article_model extends CI_model{
             foreach ($aArticleDetailInfo as $key => $oData)
             {
                 $aArticleDetailInfo[$key]->craw_data = json_decode($oData->craw_data);
-                $url = '<a href="'.$oData->craw_data->url.'" target="_blank">페이스북 링크 바로가기</a><br><br>';
                 $contents = (isset($oData->craw_data->contents)) ? nl2br($oData->craw_data->contents) : '';
 
-                if($oData->craw_data->corporation == '페이스북'){
-                    $aArticleDetailInfo[$key]->craw_data->title = $url;
+                if($oData->craw_data->corporation == '페이스북')
+                {
+                    if(isset($oData->craw_data->contents))
+                    {
+                        $aArticleDetailInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
+                    }
+                    else
+                    {
+                        $url = '<a href="'.$oData->craw_data->url.'" target="_blank">페이스북 링크 바로가기</a><br><br>';
+                        $aArticleDetailInfo[$key]->craw_data->title = $url;
+                    }
+
+                    $datetime = $oData->craw_data->datetime;
+                    $date = new DateTime($datetime);
+                    $aArticleDetailInfo[$key]->craw_data->datetime = $date->format('Y.m.d. H:i');
                 }
 
                 $aArticleDetailInfo[$key]->craw_data->contents = $contents;
