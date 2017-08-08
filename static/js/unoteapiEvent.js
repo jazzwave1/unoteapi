@@ -197,7 +197,7 @@ $('.sublist-li').on('click', function(event){
             else  $('.bookMark').children().children('i').removeClass('on');
 
             $('.p-info').data('t_idx', t_idx);
-            $('.p-date').text(data.aArticleDetail['regdate']);
+            $('.p-date').text(data.aArticleDetail['craw_data']['datetime']);
             $('.p-tit').html(data.aArticleDetail['craw_data']['title']);
             $('.p-inner').html(data.aArticleDetail['craw_data']['contents']);
 
