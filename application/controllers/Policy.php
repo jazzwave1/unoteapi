@@ -12,7 +12,7 @@ class Policy extends CI_Controller {
     public function index()
     {
     }
-    public function privacy($date='')
+    public function privacy()
     {
         $text = $this->_getPrivacyFile($this->privacy[0]) ; 
         
