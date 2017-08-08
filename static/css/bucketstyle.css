@@ -460,6 +460,48 @@ a.croBtn{
     background: #fff;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
 }
+/*상세페이지 없을 경우*/
+.page-default{
+    position: relative;
+    /*max-width: 700px;*/
+    min-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom:60px;
+
+
+}
+.page-default .p-default{
+    position: absolute;
+    left:50%;
+    top:30%;
+    /*margin-left: -77px;*/
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 100;
+    color:#b8b8b8;
+}
+.page-default .p-newBtn a{
+    display: block;
+    color:#b8b8b8;
+    text-decoration: underline;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+.page-default .p-newBtn a:hover{
+    color:#2980b9;
+}
+.page-default .p-default-bg{
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-top: -100px;
+    margin-left: -20px;
+
+}
+.page-default .p-default-bg img{
+    width: 200px;
+}
 .page .p-top{
     /*position: fixed;*/
     width: 100%;
@@ -677,6 +719,9 @@ i.fa-star-o.on{
 .c-page_num ul li.arrow i:hover{
     color: #fdd66d;
 }
+
+
+
 
 @media screen and (max-width: 1600px) and (min-width: 1300px) {
 

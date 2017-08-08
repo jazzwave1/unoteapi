@@ -52,7 +52,13 @@ $aCategory = $aMenuList['Category']['sub'];
                     </div>
                     <?php else: ?>
                     <div class="dvinner">
-                        요기에 노트가 없다일 경우
+                        <div class="page-default">
+                            <div class="p-default">
+                                <div>작성한 글이 없습니다</div>
+                                <div class="p-newBtn"><a href="/unote/index.php">새글쓰기</a></div>
+                            </div>
+                            <div class="p-default-bg"><img src="../static/images/bg_detailView_default.png"></div>
+                        </div>
                     </div>
                     <?php endif; ?>
                 </div>

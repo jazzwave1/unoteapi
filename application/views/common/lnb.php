@@ -208,6 +208,11 @@ if($this->uri->segment(2) == 'Category')
     
     
 <script>
+
+
+
+
+
 function setSite(site)
 {
     noticeReset();
