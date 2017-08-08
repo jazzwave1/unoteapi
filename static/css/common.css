@@ -285,6 +285,10 @@ i.fa-times{
 #header .hright .userBtn ul{
     padding-left: 10px;
 }
+#header .hright .userBtn ul li{
+    height: 40px;
+    line-height: 40px;
+}
 #header .hright .userBtn ul li i{
     padding-right: 10px;
 }
