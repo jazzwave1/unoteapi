@@ -21,6 +21,7 @@
                     <div class="pic"><img src="<?=SURL?>/images/deault_profile.png"></div>
                     <div class="name"><a href="#"><span>testtesttesttesttesttest</span> 님 <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
                 </div>
+                <!--//userInfo-->
                 <!--로그아웃창-->
                 <div class="userBtn">
                     <div class="userBtn-inner">
@@ -30,7 +31,7 @@
                         </ul>
                     </div>
                 </div>
-                <!--//userInfo-->
+                <!--//로그아웃창-->
                 <!--notice-->
                 <div class="notice">
                     <a href="#"><i class="fa fa-bell-o" aria-hidden="true"></i></a>

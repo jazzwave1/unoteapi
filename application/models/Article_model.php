@@ -122,7 +122,14 @@ class  Article_model extends CI_model{
             foreach ($aArticleDetailInfo as $key => $oData)
             {
                 $aArticleDetailInfo[$key]->craw_data = json_decode($oData->craw_data);
-                $aArticleDetailInfo[$key]->craw_data->contents = nl2br($aArticleDetailInfo[$key]->craw_data->contents);
+                $url = '<a href="'.$oData->craw_data->url.'" target="_blank">페이스북 링크 바로가기</a><br><br>';
+                $contents = (isset($oData->craw_data->contents)) ? nl2br($oData->craw_data->contents) : '';
+
+                if($oData->craw_data->corporation == '페이스북'){
+                    $aArticleDetailInfo[$key]->craw_data->title = $url;
+                }
+
+                $aArticleDetailInfo[$key]->craw_data->contents = $contents;
                 $aArticleDetailInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
         }

@@ -99,7 +99,7 @@ $code = array(
     });
 
     var wHeight = $(window).height();
-    var addonHeight = wHeight - 60;
+    var addonHeight = wHeight;
     $("#addOnWrap").css({
         'height' :  addonHeight,
         'overflow-x' : 'hidden',
@@ -108,11 +108,6 @@ $code = array(
 
     function responsiveView() {
 
-        $("#smart_editor2").css({
-            'height' :  editorHeight,
-            'overflow-x' : 'hidden',
-            'overflow-y' : 'scroll',
-        });
 
         $("#addOnWrap").css({
             'height' :  addonHeight,
