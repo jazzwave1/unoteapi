@@ -30,7 +30,7 @@ class Policy extends CI_Controller {
         if($_SERVER["SERVER_NAME"] == 'localhost')
             $path = "/Users/hojunlee/Sites/unoteapi/static/policy/"; 
         else
-            $path = "/var/www/html/unoteapi/"; 
+            $path = "/var/www/html/unoteapi/static/policy/"; 
 
         $myfile = fopen($path . "privacy_".$sFileName.".txt", "r");
         while(!feof($myfile)) {
