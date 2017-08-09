@@ -8,7 +8,8 @@ $code = array(
 // echo '<pre>: '. print_r( $data, true ) .'</pre>';
 // die();
 ?>
-				<div class="addOnIcon clearfix">
+                <div class="chkTit">맞춤법 검사 결과</div>
+                <div class="addOnIcon clearfix">
 				    <a class="btn" href="javascript:submitContents('spellChk');" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i></a>
 				    <!--<a href="javascript:;">전체적용</a>-->
 				</div>

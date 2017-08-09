@@ -27,7 +27,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                     <a class="moveCategBtn" href="javascript:getCategoryList();" title="카테고리"><i class="fa fa-folder-o" aria-hidden="true"></i></a>
                                                     <!--<div>카테고리 이동</div>-->
                                                     <!--카테고리 이동 안내 창-->
-                                                    <div class="selCateg" style="z-index:500;">
+                                                    <div class="selCateg <?=(count($category)<1) ? 'noCateg' : ''?>" style="z-index:500;">
                                                         <div class="selCateg-inner">
                                                             <div class="selList">
                                                                 <ul>
@@ -105,4 +105,21 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
     }
     $(window).on('load', responsiveView);
     $(window).on('resize', responsiveView);
+
+
+
+
+    //카테고리 이동 버튼 클릭 이벤트
+    // $(".moveCategBtn").click(function(){
+    //     $(".moveCategBtn").toggleClass("on");
+    //     $(".selCateg").show();
+    // });
+    $(document).mouseup(function (e) {
+        var container = $(".selCateg");
+        if (!container.is(e.target) && container.has(e.target).length === 0){
+            container.hide();
+            $(".moveCategBtn").removeClass("on");
+        }
+    });
+
 </script>
