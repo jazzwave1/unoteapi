@@ -314,10 +314,10 @@ function noticeReset()
         // for FB.getLoginStatus().
         if (response.status === 'connected') {
             // Logged into your app and Facebook.
-            //testAPI();
+            testAPI();
 
             // test code 잠시 막음
-            //document.getElementById('facebookToken').value = response.authResponse.accessToken;
+            document.getElementById('facebookToken').value = response.authResponse.accessToken;
        
             console.log('GOGO API~'); 
             //document.fo.submit();

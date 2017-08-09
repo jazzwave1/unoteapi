@@ -61,7 +61,7 @@
                         <ul>
                             <!--li class="edunietyBtn btn"><a href="https://portal.eduniety.net/html/member/login">eduniety으로 로그인</a></li-->
                             <li class="fBtn btn">
-<div scope="public_profile,email" onlogin="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+<div scope="public_profile,email,user_posts" onlogin="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
 </li>
                             <!--<li class="nBtn"><a href="javascript:alert('준비중입니다');">naver</a></li>
                             <li class="kBtn"><a href="javascript:alert('준비중입니다');">kakao</a></li>-->
