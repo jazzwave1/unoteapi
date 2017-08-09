@@ -186,7 +186,7 @@ if($this->uri->segment(2) == 'Category')
                             <div class="log-form f-log-form">
                                 <form action="" method="post">
                                     <fieldset>
-                                        <input id="facebookToken" type="text" name="id" placeholder="토큰">
+                                        <input id="facebookToken" type="hidden" name="id" placeholder="토큰">
                                         <p class="log-formBtn">
                                             <a href="javascript:FBCrawl();">로그인</a>
                                         </p>
