@@ -18,8 +18,8 @@
             <div class="hright">
                 <!--userInfo-->
                 <div class="userInfo">
-                    <div class="pic"><img src="<?=SURL?>/images/deault_profile.png"></div>
-                    <div class="name"><a href="#"><span>testtesttesttesttesttest</span> 님 <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
+                    <div class="pic"><img src="<?=SURL?>/images/junghun.jpg"></div>
+                    <div class="name"><a href="#"><span>정훈</span> 님 <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
                 </div>
                 <!--//userInfo-->
                 <!--로그아웃창-->
