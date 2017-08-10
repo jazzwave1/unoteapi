@@ -245,9 +245,9 @@ class Ibricks extends CI_Controller {
         foreach($aResultJson['data'] as $key=>$val)
         {
 //            echo $key." | "."strlen : ". strlen($val->input). "<br>"; 
-            if(strlen((string)strip_tags( $val->input )) >= 1)
+            if(strlen((string)strip_tags( $val->sentence)) >= 1)
             {  
-                if(!trim($val->input))
+                if(!trim($val->sentence))
                     unset($aResultJson['data'][$key]);
             }
             else

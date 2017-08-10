@@ -186,7 +186,7 @@ if($this->uri->segment(2) == 'Category')
                             <div class="log-form f-log-form">
                                 <form action="" method="post">
                                     <fieldset>
-                                        <input id="facebookToken" type="text" name="id" placeholder="토큰">
+                                        <input id="facebookToken" type="hidden" name="id" placeholder="토큰">
                                         <p class="log-formBtn">
                                             <a href="javascript:FBCrawl();">로그인</a>
                                         </p>
@@ -314,10 +314,10 @@ function noticeReset()
         // for FB.getLoginStatus().
         if (response.status === 'connected') {
             // Logged into your app and Facebook.
-            //testAPI();
+            testAPI();
 
             // test code 잠시 막음
-            //document.getElementById('facebookToken').value = response.authResponse.accessToken;
+            document.getElementById('facebookToken').value = response.authResponse.accessToken;
        
             console.log('GOGO API~'); 
             //document.fo.submit();
