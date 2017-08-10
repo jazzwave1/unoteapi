@@ -26,7 +26,7 @@
                                     <?php foreach($aBeauti['data'] as $key=>$val): ?> 
                                      <li class="beautiBoxList">
                                         <div class="resultInfo">
-                                        <p class="getTxt">입력 : <?=$val->input?></p>
+                                        <p class="getTxt">입력 : <?=$val->sentence?></p>
                                             <div class="recommedTxt">
                                                 <p class="recomTit"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 윤문 추천 결과</p>
                                                 <ul>
