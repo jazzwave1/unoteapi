@@ -235,19 +235,19 @@ class Ibricks extends CI_Controller {
 
 
         $sResultJson = IbricksClass::beautifySentence($nIdx, $sIdx);
-//        echo $sResultJson;
         $aResultJson = (array) json_decode($sResultJson);
+//        echo $sResultJson;
 
         // no_error & null array unset 
 
 //        print_r($aResultJson['data']);
-
+        
         foreach($aResultJson['data'] as $key=>$val)
         {
 //            echo $key." | "."strlen : ". strlen($val->input). "<br>"; 
             if(strlen((string)strip_tags( $val->sentence)) >= 1)
             {  
-                if(!trim($val->sentence))
+                if(count($val->result) == 0)
                     unset($aResultJson['data'][$key]);
             }
             else
@@ -255,22 +255,21 @@ class Ibricks extends CI_Controller {
         }
 
         $aRtn = array(); 
-        $aRtn['result'] = $aResultJson['result'];
 
+        $cnt = 0; 
         foreach($aResultJson['data'] as $key=>$val)
         {
-            $aRtn['data'][] = $val;
+            $aRtn['data'][$cnt]['sentence'] = $val->sentence;
+            $aRtn['data'][$cnt]['output'] = $val->result[0]->output; 
+            $cnt++;
         }
 
 
         // dummy 추가함  ------------------------------- //
         foreach($aRtn['data'] as $key=>$val)
         {
-        //    print_r( $val->output );
-            $val->output[] = "테스트를 위한 라인입니다. 1";
-            $val->output[] = "테스트를 위한 라인입니다. 2";
-            $val->output[] = "테스트를 위한 라인입니다. 3";
-        }
+            $aRtn['data'][$key]['output'][] = "임시 테스트 라인을 추가합니다.";
+        }//
         // dummy 추가함  ------------------------------- //
 
         $data = array(
@@ -278,7 +277,7 @@ class Ibricks extends CI_Controller {
         );
 
         $addonHtml = $this->load->view('addon/beautiChk', $data, true);
- 
+   
         $aResult = array(
              "code"  => 1
             ,"msg"   => "OK"
