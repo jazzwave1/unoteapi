@@ -41,7 +41,6 @@
                             기존에 사용하시는 계정으로 간단하게 <br>유노트를 시작하세요!
                         </p>
                     </div>
-                    
                     <!--에듀니티계정 로그인-->
                     <div class="eduniLogin">
                         <form name='fo' method='post' class="loginForm" action='<?=HOSTURL?>/Login/RpcLogin'>
@@ -55,16 +54,15 @@
                             </fieldset>
                     </div>
                     <!--//에듀니티계정 로그인-->
-
+                    <div class="lineBg">SNS</div>
                     <!--sns계정 로그인-->
                     <div class="snsLogin">
                         <ul>
-                            <!--li class="edunietyBtn btn"><a href="https://portal.eduniety.net/html/member/login">eduniety으로 로그인</a></li-->
                             <li class="fBtn btn">
 <div scope="public_profile,email,user_posts" onlogin="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
 </li>
-                            <!--<li class="nBtn"><a href="javascript:alert('준비중입니다');">naver</a></li>
-                            <li class="kBtn"><a href="javascript:alert('준비중입니다');">kakao</a></li>-->
+                            <li class="nBtn"><a href="javascript:alert('준비중입니다');"><span class="nlogo"><img src="static/images/icon/logo_naver_login.png"></span>Naver으로 로그인</a></li>
+                            <li class="dBtn"><a href="javascript:alert('준비중입니다');"><span class="dlogo"><img src="static/images/icon/logo_daum_login.png"></span>Daum으로 로그인</a></li>
                         </ul>
                         <!--div class="findSns"><a href="javascript:;">계정찾기</a></div-->
                     </div>

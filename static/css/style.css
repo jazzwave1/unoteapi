@@ -66,6 +66,14 @@
     font-size: 24px;
     font-weight: bold;
 }
+.login .lineBg{
+    background: url("../images/bg_line.png") repeat-x 0 50%;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
 .loginBox{
     width: 300px;
     background: rgba(255,255,255,0.6);
@@ -101,14 +109,17 @@
 }
 
 .snsLogin ul li a {
+    border: none;
     font-family: Helvetica, Arial, sans-serif;
-    display: block;
-    /*text-shadow: 0 1px 0 rgba(0,0,0,0.2);*/
-    /*padding: 15px 20px;*/
-    /*font-weight: bold;*/
+    letter-spacing: .25px;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: clip;
+    white-space: nowrap;
     color: #fff;
-    text-transform: uppercase;
     font-size: 16px;
+    margin-right: 12px;
+
 }
 .snsLogin ul li.edunietyBtn{
     background: #f7d767;
@@ -118,14 +129,30 @@
 }
 .snsLogin ul li.fBtn {
     background: #4267b2;
+
 }
 
 .snsLogin ul li.nBtn {
     background: #3eaf0e;
+    padding: 13px 2px;
+    text-align: left;
 }
-
-.snsLogin ul li.kBtn {
-    background: #f9e000;
+.snsLogin ul li.nBtn a{
+    padding-left: 40px;
+}
+.snsLogin ul li.nBtn a span{
+    padding-right: 20px;
+}
+.snsLogin ul li.dBtn {
+    background: #618ffc;
+    padding: 13px 2px;
+    text-align: left;
+}
+.snsLogin ul li.dBtn a {
+    padding-left: 40px;
+}
+.snsLogin ul li.dBtn a span{
+    padding-right: 20px;
 }
 
 .snsLogin .findSns a {
