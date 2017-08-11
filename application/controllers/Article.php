@@ -156,15 +156,19 @@ class Article extends CI_Controller {
 
     public function rpcBookmarkArticle()
     {
+        edu_get_instance('ArticleClass');
         $t_idx = $this->input->post('t_idx');
+        $usn = $this->oMemberInfo->usn;
 
         $aBookmarkArticle = $this->_bookmarkArticle($t_idx);
+        $total_cnt = ArticleClass::getArticleBookmarkCnt($usn);
 
         if($aBookmarkArticle['result'])
         {
             $aResult = array(
                  "code"  => 1
                 ,"msg"   => "OK"
+                ,"total_cnt"   => $total_cnt
                 ,"type"   => $aBookmarkArticle['type']
             );
         }

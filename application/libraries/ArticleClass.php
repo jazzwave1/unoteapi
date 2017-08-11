@@ -20,6 +20,13 @@ class ArticleClass {
 
         return $aArticleInfo;
     }
+    public static function getArticleCnt($usn)
+    {
+        $oArticleModel = edu_get_instance('article_model', 'model');
+        $aArticleInfo = $oArticleModel->article_model->getArticleCnt($usn);
+
+        return $aArticleInfo;
+    }
     public static function getArticleBookmarkInfo($usn)
     {
         $oArticleModel = edu_get_instance('article_model', 'model');
@@ -27,10 +34,24 @@ class ArticleClass {
 
         return $aArticleInfo;
     }
+    public static function getArticleBookmarkCnt($usn)
+    {
+        $oArticleModel = edu_get_instance('article_model', 'model');
+        $aArticleInfo = $oArticleModel->article_model->getArticleBookmarkCnt($usn);
+
+        return $aArticleInfo;
+    }
     public static function getArticleTrashInfo($usn)
     {
         $oArticleModel = edu_get_instance('article_model', 'model');
         $aArticleInfo = $oArticleModel->article_model->getArticleTrashInfo($usn);
+
+        return $aArticleInfo;
+    }
+    public static function getArticleTrashCnt($usn)
+    {
+        $oArticleModel = edu_get_instance('article_model', 'model');
+        $aArticleInfo = $oArticleModel->article_model->getArticleTrashCnt($usn);
 
         return $aArticleInfo;
     }

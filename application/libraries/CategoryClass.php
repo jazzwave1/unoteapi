@@ -44,4 +44,12 @@ class CategoryClass {
         $category_model = edu_get_instance('category_model', 'model');
         return $category_model->goCategory($category_idx, $t_idx);
     }
+
+    public static function getCategoryCnt($usn, $category_idx)
+    {
+        $category_model = edu_get_instance('category_model', 'model');
+        $aCategoryInfo = $category_model->getCategoryCnt($usn, $category_idx);
+
+        return $aCategoryInfo;
+    }
 }

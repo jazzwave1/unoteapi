@@ -35,7 +35,12 @@ class NoteClass {
         $aNoteInfo = $oNoteModel->note_model->getNoteInfoByUsn($usn);
         return $aNoteInfo;
     }
-
+    public static function getNoteCnt($usn)
+    {
+        $oNoteModel = edu_get_instance('note_model', 'model');
+        $sNoteCnt = $oNoteModel->note_model->getNoteCnt($usn);
+        return $sNoteCnt;
+    }
 
 
 

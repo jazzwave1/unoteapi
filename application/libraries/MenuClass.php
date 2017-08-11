@@ -37,13 +37,47 @@ class MenuClass {
             {
                 $aMenuList[$class]['sub'] = $aCategoryList;
             }
+
+            foreach ($aMenuList[$class]['sub'] as $method => $aSubmenu) {
+                if($class != 'Crawling')
+                {
+                    $aMenuList[$class]['sub'][$method]['total_cnt'] = self::_getMenuCount($usn, $class, $method);
+                }
+            }
         }
+        
+        // echo '<pre>aMenuList: '. print_r( $aMenuList, true ) .'</pre>';
+        // die();
 
         edu_get_instance('ArticleClass');
         $unread_cnt = ArticleClass::getUnreadArticleCnt($usn);
         $aMenuList['Article']['sub']['List']['unread_cnt'] = $unread_cnt;
 
+
         return $aMenuList;
+    }
+
+    public static function _getMenuCount($usn, $class, $method)
+    {
+        $total_cnt = 0;
+        $menu = $class.'/'.$method;
+
+        edu_get_instance('NoteClass');
+        edu_get_instance('ArticleClass');
+        edu_get_instance('CategoryClass');
+
+        if($menu == 'Note/List')
+            $total_cnt = NoteClass::getNoteCnt($usn);
+        else if($menu == 'Article/List')
+            $total_cnt = ArticleClass::getArticleCnt($usn);
+        else if($menu == 'Article/Bookmark')
+            $total_cnt = ArticleClass::getArticleBookmarkCnt($usn);
+        else if($menu == 'Article/Trash')
+            $total_cnt = ArticleClass::getArticleTrashCnt($usn);
+        else if($class == 'Category')
+            $total_cnt = CategoryClass::getCategoryCnt($usn, $method);
+
+        return $total_cnt;
     }
 
 }

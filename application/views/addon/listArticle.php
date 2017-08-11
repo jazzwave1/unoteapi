@@ -55,7 +55,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                         <?php if( is_array($list) && count($list)>0 ): ?>
                                         <?php foreach ($list as $oList): ?>
                                             <li>
-                                                <a title="새창 열기" onClick="window.open('/unoteapi/Article/viewArticle/<?=$oList->t_idx?>','window','width=750,height=750,left=0,top=0')">
+                                                <a title="새창 열기" onClick="window.open('/unoteapi/Article/viewArticle/<?=$oList->t_idx?>','window','width=850,height=750,left=0,top=0')">
                                                     <div class="cafeInfo ">
                                                         <div class="cafeinner clearfix">
                                                             <div class="cafeLogo">

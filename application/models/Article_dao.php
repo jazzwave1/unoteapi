@@ -27,16 +27,31 @@ class Article_dao extends Common_dao
         $aConfig = $this->queryInfoArticle['getArticleInfoByUsn'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    public function getArticleCnt($aParam=array())
+    {
+        $aConfig = $this->queryInfoArticle['getArticleCnt'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
 
     public function getArticleBookmarkInfo($aParam=array())
     {
         $aConfig = $this->queryInfoArticle['getArticleBookmarkInfo'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    public function getArticleBookmarkCnt($aParam=array())
+    {
+        $aConfig = $this->queryInfoArticle['getArticleBookmarkCnt'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
 
     public function getArticleTrashInfo($aParam=array())
     {
         $aConfig = $this->queryInfoArticle['getArticleTrashInfo'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
+    public function getArticleTrashCnt($aParam=array())
+    {
+        $aConfig = $this->queryInfoArticle['getArticleTrashCnt'];
         return $this->actModelFuc($aConfig, $aParam);
     }
 
