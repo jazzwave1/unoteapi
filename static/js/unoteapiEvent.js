@@ -278,7 +278,6 @@ function noteDelete()
           ,function(data, status) {
             if (status == "success" && data.code == 1)
             {
-                alert(data.msg);
                 window.location.reload();
                 // console.log(data.aNoteDetail); 
             }
@@ -368,6 +367,8 @@ function articleBookmark()
       ,function(data, status) {
         if (status == "success" && data.code == 1)
         {
+          $('.Bookmark').children().children('.lnb-cnt').html(data.total_cnt);
+
           if(data.type == 'chk')
           {
               $('#bookMark'+t_idx).html('<i class="fa fa-star fa-1g" aria-hidden="true"></i>');

@@ -18,6 +18,15 @@ class Category_model extends CI_model{
 
         return false;
     }
+    public function getCategoryCnt($usn, $category_idx)
+    {
+        if(!$usn) return false;
+
+        $aInput = array('usn'=>$usn, 'category_idx'=>$category_idx);
+
+        $aCategoryInfo = $this->category_dao->getCategoryCnt($aInput);
+        return $aCategoryInfo[0]->total_cnt;
+    }
 
     public function isCategory($usn, $sCategoryName)
     {

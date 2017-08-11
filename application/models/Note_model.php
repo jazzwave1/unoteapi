@@ -39,6 +39,16 @@ class Note_model extends CI_model
         return $aRes;
     }
 
+    public function getNoteCnt($usn)
+    {
+        if(!$usn) return false;
+
+        $aInput = array('usn'=>$usn);
+
+        $aNoteCnt = $this->note_dao->getNoteCnt($aInput);
+        return $aNoteCnt[0]->total_cnt;
+    }
+
     public function getNoteDetailInfo($n_idx)
     {
         if(!$n_idx) return false;

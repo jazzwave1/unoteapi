@@ -33,6 +33,15 @@ $config['query'] = array(
             ,'btype'=> 'i'
             ,'null' => array()
         )
+        ,'getNoteCnt' => array(
+            'query' => 'SELECT count(*) as total_cnt
+                          FROM note
+                         WHERE usn = ?
+                           AND deldate IS NULL'
+            ,'data' => array('usn')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
         ,'getNoteSummary' => array(
             'query' => 'SELECT n_idx, s_idx, contents
                           FROM note_sentence
@@ -190,8 +199,18 @@ $config['query'] = array(
             ,'btype'=> 'i'
             ,'null' => array()
         )
+        ,'getCategoryCnt' => array(
+            'query' => 'SELECT count(*) as total_cnt
+                          FROM text_bank
+                         WHERE usn = ?
+                           AND category_idx = ?
+                           AND deltype is NULL'
+           ,'data' => array('usn', 'category_idx')
+           ,'btype'=> 'ii'
+           ,'null' => array()
+        )
         ,'isCategory' => array(
-            'query' => 'SELECT count(*) cnt
+            'query' => 'SELECT count(*) as cnt
                           FROM category
                          WHERE usn = ?
                            AND name = ?'
@@ -264,6 +283,17 @@ $config['query'] = array(
             ,'btype'=> 'i'
             ,'null' => array()
         )
+        ,'getArticleCnt' => array(
+            'query' => 'SELECT count(*) as total_cnt
+                          FROM text_bank
+                         WHERE usn = ?
+                           AND deltype is NULL
+                           AND category_idx is NULL
+                         ORDER BY t_idx DESC'
+            ,'data' => array('usn')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
         ,'getArticleBookmarkInfo' => array(
             'query' => 'SELECT t_idx, usn, craw_data, readchk, bookmark, deltype, category_idx, deldate, regdate
                           FROM text_bank
@@ -276,8 +306,30 @@ $config['query'] = array(
             ,'btype'=> 'is'
             ,'null' => array()
         )
+        ,'getArticleBookmarkCnt' => array(
+            'query' => 'SELECT count(*) as total_cnt
+                          FROM text_bank
+                         WHERE usn = ?
+                           AND bookmark = ?
+                           AND deltype is NULL
+                           AND category_idx is NULL
+                         ORDER BY t_idx DESC'
+            ,'data' => array('usn','bookmark')
+            ,'btype'=> 'is'
+            ,'null' => array()
+        )
         ,'getArticleTrashInfo' => array(
             'query' => 'SELECT t_idx, usn, craw_data, readchk, bookmark, deltype, category_idx, deldate, regdate
+                          FROM text_bank
+                         WHERE usn = ?
+                           AND deltype = ?
+                         ORDER BY t_idx DESC'
+            ,'data' => array('usn','deltype')
+            ,'btype'=> 'is'
+            ,'null' => array()
+        )
+        ,'getArticleTrashCnt' => array(
+            'query' => 'SELECT count(*) as total_cnt
                           FROM text_bank
                          WHERE usn = ?
                            AND deltype = ?

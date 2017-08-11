@@ -58,6 +58,15 @@ class  Article_model extends CI_model{
 
         return $aArticleInfo;
     }
+    public function getArticleCnt($usn)
+    {
+        if(!$usn) return false;
+
+        $aInput = array('usn'=>$usn);
+
+        $aArticleCnt = $this->article_dao->getArticleCnt($aInput);
+        return $aArticleCnt[0]->total_cnt;
+    }
 
     public function getArticleBookmarkInfo($usn)
     {
@@ -89,6 +98,15 @@ class  Article_model extends CI_model{
 
         return $aArticleInfo;
     }
+    public function getArticleBookmarkCnt($usn)
+    {
+        if(!$usn) return false;
+
+        $aInput = array('usn'=>$usn,'bookmark'=>'Y');
+
+        $aArticleCnt = $this->article_dao->getArticleBookmarkCnt($aInput);
+        return $aArticleCnt[0]->total_cnt;
+    }
 
     public function getArticleTrashInfo($usn)
     {
@@ -119,6 +137,15 @@ class  Article_model extends CI_model{
         }
 
         return $aArticleInfo;
+    }
+    public function getArticleTrashCnt($usn)
+    {
+        if(!$usn) return false;
+
+        $aInput = array('usn'=>$usn, 'deltype'=>'DEL');
+
+        $aArticleCnt = $this->article_dao->getArticleTrashCnt($aInput);
+        return $aArticleCnt[0]->total_cnt;
     }
 
     public function getArticleCategoryInfo($usn, $category_idx)
