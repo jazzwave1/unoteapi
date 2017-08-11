@@ -1,4 +1,4 @@
-                            <div class="chkTit">윤문 추천 결과</div>
+                            <div class="chkTit">윤문 추천 결과<span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span></div>
                             <div class="addOnIcon clearfix">
                                 <a class="btn" href="javascript:beautiChk();" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i></a>
                                 <!--<a href="javascript:;">전체적용</a>-->
@@ -40,3 +40,37 @@
                                     <?php endforeach;?> 
                                 </ul>
                             </div>
+<script>
+
+
+    /*윤문 추천 결과 창 닫기*/
+    $(".chkTit .closedBtn").on("click", function () {
+        $(this).parent().parent().parent().hide();
+    });
+    var wHeight = $(window).height();
+    var addonHeight = wHeight-60;
+    $("#addOnWrap").css({
+        'height' :  addonHeight,
+        'overflow-x' : 'hidden',
+        'overflow-y' : 'scroll',
+        'position': 'absolute',
+        'top': '0',
+        'right': '0'
+    });
+
+    function responsiveView() {
+
+
+        $("#addOnWrap").css({
+            'height' :  addonHeight,
+            'overflow-x' : 'hidden',
+            'overflow-y' : 'scroll',
+            'position': 'absolute',
+            'top': '0',
+            'right': '0'
+        });
+        /*$(".addOnCon").height(editorHeight);*/
+    }
+    $(window).on('load', responsiveView);
+    $(window).on('resize', responsiveView);
+</script>

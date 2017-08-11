@@ -86,11 +86,14 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
 
 <script>
     var wHeight = $(window).height();
-    var addonHeight = wHeight;
+    var addonHeight = wHeight-60;
     $("#addOnWrap").css({
         'height' :  addonHeight,
         'overflow-x' : 'hidden',
         'overflow-y' : 'scroll',
+        'position': 'absolute',
+        'top': '0',
+        'right': '0'
     });
 
     function responsiveView() {
@@ -100,6 +103,9 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
             'height' :  addonHeight,
             'overflow-x' : 'hidden',
             'overflow-y' : 'scroll',
+            'position': 'absolute',
+            'top': '0',
+            'right': '0'
         });
         /*$(".addOnCon").height(editorHeight);*/
     }

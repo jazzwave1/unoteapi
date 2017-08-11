@@ -8,7 +8,9 @@ $code = array(
 // echo '<pre>: '. print_r( $data, true ) .'</pre>';
 // die();
 ?>
-                <div class="chkTit">맞춤법 검사 결과</div>
+
+
+                <div class="chkTit">맞춤법 검사 결과 <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span></div>
                 <div class="addOnIcon clearfix">
 				    <a class="btn" href="javascript:submitContents('spellChk');" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i></a>
 				    <!--<a href="javascript:;">전체적용</a>-->
@@ -91,6 +93,13 @@ $code = array(
         $(".moveCateg").toggleClass("on");
         $(".selCateg").show();
     });
+
+
+    /*맞춤법 검사 결과 창 닫기*/
+    $(".chkTit .closedBtn").on("click", function () {
+        $("#addOnWrap").hide();
+    });
+
     $(document).mouseup(function (e) {
         var container = $(".selCateg");
         if (!container.is(e.target) && container.has(e.target).length === 0){
@@ -100,11 +109,14 @@ $code = array(
     });
 
     var wHeight = $(window).height();
-    var addonHeight = wHeight;
+    var addonHeight = wHeight-60;
     $("#addOnWrap").css({
         'height' :  addonHeight,
         'overflow-x' : 'hidden',
         'overflow-y' : 'scroll',
+        'position': 'absolute',
+        'top': '0',
+        'right': '0'
     });
 
     function responsiveView() {
@@ -114,6 +126,9 @@ $code = array(
             'height' :  addonHeight,
             'overflow-x' : 'hidden',
             'overflow-y' : 'scroll',
+            'position': 'absolute',
+            'top': '0',
+            'right': '0'
         });
         /*$(".addOnCon").height(editorHeight);*/
     }
