@@ -34,7 +34,7 @@ class CategoryClass {
         {
             // db eduniety.text_bank category_idx = null
             $article_model = edu_get_instance('article_model', 'model');
-            return $article_model->updateTextbankForCidx($category_idx);
+            return $article_model->deleteArticleByCidx($category_idx);
         }
         return false;
     }

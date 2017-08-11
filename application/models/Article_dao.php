@@ -96,4 +96,9 @@ class Article_dao extends Common_dao
         $aConfig = $this->queryInfoArticle['readArticle'];
         return $this->actModelFuc($aConfig, $aParam);
     }
+    public function deleteArticleByCidx($aParam=array())
+    {
+        $aConfig = $this->queryInfoArticle['deleteArticleByCidx'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
 }

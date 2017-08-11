@@ -407,6 +407,14 @@ $config['query'] = array(
             ,'btype'=> 'i'
             ,'null' => array()
         )
+        ,'deleteArticleByCidx' => array(
+            'query' => "DELETE 
+                         FROM text_bank
+                        WHERE category_idx=?"
+            ,'data' => array('category_idx')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
     )
     ,'edumember' => array(
         'getMemberInfo' => array(

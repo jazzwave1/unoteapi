@@ -279,4 +279,15 @@ class  Article_model extends CI_model{
         return false;
     }
 
+    public function deleteArticleByCidx($category_idx)
+    {
+        if(!$category_idx) return false;
+
+        $aInput = array('category_idx' => $category_idx);
+
+        if( $this->article_dao->deleteArticleByCidx($aInput) )
+            return true;
+        
+        return false;
+    }
 }

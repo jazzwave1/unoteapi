@@ -66,7 +66,7 @@ $('.categDelBtn').on('click', function(event){
   var category_id = $(this).parent().parent().attr('id');
   var c_idx = category_id.replace('category_','');
 
-  if(confirm('삭제하시겠습니까? 해당 카테고리의 글감은 글감 리스트로 이동됩니다.'))
+  if(confirm('삭제하시겠습니까? 이 카테고리의 모든 글감은 휴지통으로 이동됩니다.'))
   {
       $.post(
         "/unoteapi/Article/delCategory"
@@ -80,7 +80,7 @@ $('.categDelBtn').on('click', function(event){
               // console.log(data.aNoteDetail); 
           }
           // 삭제 실패
-          else if (status == "")
+          else if (status == "success" && data.code == 999)
           {
               alert(data.msg);
           }
