@@ -67,12 +67,17 @@
     font-weight: bold;
 }
 .login .lineBg{
-    background: url("../images/bg_line.png") repeat-x 0 50%;
+
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
 }
-
+.login .lineBg span{
+    display: inline-block;
+    height: 25px;
+    width: 130px;
+    background: url("../images/bg_line.png") repeat-x 0 80%;
+}
 
 .loginBox{
     width: 300px;

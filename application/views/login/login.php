@@ -54,7 +54,7 @@
                             </fieldset>
                     </div>
                     <!--//에듀니티계정 로그인-->
-                    <div class="lineBg">SNS</div>
+                    <div class="lineBg"><span></span>SNS<span></span></div>
                     <!--sns계정 로그인-->
                     <div class="snsLogin">
                         <ul>
