@@ -23,8 +23,9 @@
                                             </div>
                                         </div>
                                     </li-->
+                                    <?php if($aBeauti) : ?> 
                                     <?php foreach($aBeauti['data'] as $key=>$val): ?> 
-                                     <li class="beautiBoxList">
+                                    <li class="beautiBoxList">
                                         <div class="resultInfo">
                                         <p class="getTxt">입력 : <?=$val['sentence']?></p>
                                             <div class="recommedTxt">
@@ -38,6 +39,13 @@
                                         </div>
                                     </li>    
                                     <?php endforeach;?> 
+                                    <?php else :?> 
+                                    <li class="beautiBoxList">
+                                        <div class="resultInfo">
+                                        <p class="getTxt">추천결과가 없습니다.</p>
+                                        </div>
+                                    </li> 
+                                    <?php endif;?> 
                                 </ul>
                             </div>
 <script>
