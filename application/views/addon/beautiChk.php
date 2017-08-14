@@ -53,8 +53,10 @@
 
     /*윤문 추천 결과 창 닫기*/
     $(".chkTit .closedBtn").on("click", function () {
-        $(this).parent().parent().parent().hide();
+        $(".addOn-default").show();
+        $("#addOnWrap").hide();
     });
+
     var wHeight = $(window).height();
     var addonHeight = wHeight-60;
     $("#addOnWrap").css({

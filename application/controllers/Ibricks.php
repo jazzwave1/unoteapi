@@ -9,6 +9,13 @@ class Ibricks extends CI_Controller {
        
         $this->load->library('MSGQClass');
         $this->load->library('IbricksClass');
+
+        ////////////////////////////////////
+        // chk Login Info
+        // true : get MembeInfo
+        // false : loaction login page
+        $this->oMemberInfo = chkLoginInfo();
+        //////////////////////////////////// 
     }
     public function test()
     {
@@ -107,7 +114,7 @@ class Ibricks extends CI_Controller {
         $sIdx = $this->input->post('s_idx');
 
         // test code
-        // $nIdx = 26;
+        // $nIdx = 58;
 
         if(!$nIdx) 
         {
@@ -163,11 +170,10 @@ class Ibricks extends CI_Controller {
                     break;
                 }
             }
-        }         
+        }
 
         $aResultJson = $aRtn;
         $addonHtml = $this->load->view('addon/spellChk', $aResultJson, true);
-
 
         // editor text
         edu_get_instance('NoteClass');
@@ -293,13 +299,13 @@ class Ibricks extends CI_Controller {
 
     public function apiListArticle($sType='', $category_idx='')
     {
-        $usn = $this->_getUsn();
+        $usn = $this->oMemberInfo->usn;
         $sType = $this->input->post('sType');
         $category_idx = $this->input->post('category_idx');
 
         //test code
         // $sType = 'category';
-        // $category_idx = '3';
+        // $category_idx = '25';
 
         if(!$usn) 
         {
@@ -311,6 +317,7 @@ class Ibricks extends CI_Controller {
         edu_get_instance('MenuClass');
         edu_get_instance('ArticleClass');
         $aMenuList = MenuClass::getMenuList($usn);
+
         if($sType == 'list')
         {
             $aArticle['menu'] = $aMenuList['Article']['sub']['List'];
@@ -353,12 +360,6 @@ class Ibricks extends CI_Controller {
 
         response_json($aResult);
         die;
-    }
-
-    // test code
-    private function _getUsn()
-    {
-        return 1;
     }
 }
 ?>

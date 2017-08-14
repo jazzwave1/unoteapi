@@ -97,6 +97,7 @@ $code = array(
 
     /*맞춤법 검사 결과 창 닫기*/
     $(".chkTit .closedBtn").on("click", function () {
+        $(".addOn-default").show();
         $("#addOnWrap").hide();
     });
 

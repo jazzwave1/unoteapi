@@ -7,7 +7,36 @@ class Addon extends CI_Controller {
         parent::__construct();
         $this->load->library('MSGQClass');
         $this->load->library('IbricksClass');
+
+        ////////////////////////////////////
+        // chk Login Info
+        // true : get MembeInfo
+        // false : loaction login page
+        $this->oMemberInfo = chkLoginInfo();
+        //////////////////////////////////// 
     }
+
+    public function getCategory()
+    {
+        $usn = $this->oMemberInfo->usn;
+
+        // 개인메뉴 db eduniety.category 에서 가져오기
+        $oCategoryModel = edu_get_instance('category_model', 'model');
+        $aCategoryInfo = $oCategoryModel->category_model->getCategoryInfo($usn);
+
+        // $aData = array('aCategory'=>$aCategoryInfo);
+        // $addonHtml = $this->load->view('addon/default', $aData, true);
+
+        $aResult = array(
+             "code"  => 1
+            ,"msg"   => "OK"
+            ,"aCategory" => $aCategoryInfo
+        ); 
+
+        response_json($aResult);
+        die;
+    }
+
 
     /*
      * ibricks 통신용 API

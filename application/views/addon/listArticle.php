@@ -1,6 +1,8 @@
 <?php
 $aCrawLogo = edu_get_config('craw_logo', 'unote');
 ?>
+
+                            <div class="chkTit">참고글감 <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span></div>
                             <div class="bsinner">
                                 <div class="bankSubTop">
                                     <p class="bankSub-tit" onclick="listArticle('list');"><i class="fa fa-list-ul" aria-hidden="true"></i>글감리스트</p>
@@ -98,7 +100,6 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
 
     function responsiveView() {
 
-
         $("#addOnWrap").css({
             'height' :  addonHeight,
             'overflow-x' : 'hidden',
@@ -112,8 +113,11 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
     $(window).on('load', responsiveView);
     $(window).on('resize', responsiveView);
 
-
-
+    /*맞춤법 검사 결과 창 닫기*/
+    $(".chkTit .closedBtn").on("click", function () {
+        $(".addOn-default").show();
+        $("#addOnWrap").hide();
+    });
 
     //카테고리 이동 버튼 클릭 이벤트
     // $(".moveCategBtn").click(function(){
