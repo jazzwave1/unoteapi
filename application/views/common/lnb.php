@@ -111,20 +111,21 @@ if($this->uri->segment(2) == 'Category')
     <div class="pop-wrap" id="cReqPop" style="display:none">
         <div>
             <div class="pop-header">
-                <span>크롤링 로봇 수집 설정</span>
+                <span><i class="fa fa-download" aria-hidden="true"></i>크롤링 로봇 수집 설정</span>
                 <a href="javascript:;" class="btnp-close"><i class="fa fa-times" aria-hidden="true"></i></a>
             </div>
             <div class="pop-box">
                 <div class="pop-cont">
                     <ul class="sns-tab clearfix">
-                        <li class="on"><a href="javascript:setSite(3);">facebook</a></li>
-                        <li><a href="javascript:setSite(1);" >naver</a></li>
-                        <li><a href="javascript:setSite(2);">daum</a></li>
+                        <li class="on"><a href="javascript:setSite(3);"><img src="../static/images/icon/logo_facebook_default.png"><div>페이스북</div></a></li>
+                        <li><a href="javascript:setSite(1);"><img src="../static/images/icon/logo_naver_default.png"><div>네이버</div></a></li>
+                        <li><a href="javascript:setSite(2);"><img src="../static/images/icon/logo_daum_default.png"><div>다음</div></a></li>
                         <input type="hidden" id="site" value="" > 
                         <input type="hidden" id="usn" value="<?=$usn?>" > 
                     </ul>
+                    <div class="cssBox"></div>
                     <!--수집 대상 선택 및 로그인 화면-->
-                    <div>
+                    <div class="pop-login-wrap">
                         <div class="login0 pop-login">
                             <div class="tit">
                                 페이스북 게시글 수집
