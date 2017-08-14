@@ -1,3 +1,6 @@
+<?php
+$aCrawStatus = edu_get_config('craw_status', 'unote');
+?>
 <!--글감수집-->
                 <div id="cList">
                     <div class="c-inner">
@@ -11,8 +14,8 @@
                                         <th class="">대상처</th>
                                         <th class="">대상까페</th>
                                         <th class="">게시판명</th>
-                                        <th class="">요청일</th>
-                                        <th class="">완료일</th>
+                                        <th class="">요청일자</th>
+                                        <th class="">완료일자</th>
                                         <th class="">상태</th>
                                     </tr>
                                 </thead>
@@ -33,7 +36,7 @@
                                         <td><?=$val->sBoard?></td>
                                         <td><?=$val->regdate?></td>
                                         <td><?=$val->completedate?></td>
-                                        <td><?=$val->state?></td>
+                                        <td><?=$aCrawStatus[$val->state]?> <a href="javascript:;"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a></td>
                                     </tr>
                                 <?php endforeach;?>
                                 <?php else : ?>

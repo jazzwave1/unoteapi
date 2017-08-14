@@ -117,15 +117,39 @@ if($this->uri->segment(2) == 'Category')
             <div class="pop-box">
                 <div class="pop-cont">
                     <ul class="sns-tab clearfix">
-                        <li class="on"><a href="javascript:setSite(1);" >naver</a></li>
+                        <li class="on"><a href="javascript:setSite(3);">facebook</a></li>
+                        <li><a href="javascript:setSite(1);" >naver</a></li>
                         <li><a href="javascript:setSite(2);">daum</a></li>
-                        <li><a href="javascript:setSite(3);">facebook</a></li>
                         <input type="hidden" id="site" value="" > 
                         <input type="hidden" id="usn" value="<?=$usn?>" > 
                     </ul>
                     <!--수집 대상 선택 및 로그인 화면-->
                     <div>
                         <div class="login0 pop-login">
+                            <div class="tit">
+                                페이스북 게시글 수집
+                            </div>
+                            <div class="notice">
+                                개인정보보호법에 의거, 아이디/패스워드는 에듀니티에서 저장하지 않습니다.
+                                <br> 번거롭더라도 수집 시, 개별 로그인이 필요합니다.
+                            </div>
+                            <div class="log-form f-log-form">
+                                <form action="" method="post">
+                                    <fieldset>
+                                        <input id="facebookToken" type="hidden" name="id" placeholder="토큰">
+                                        <p class="log-formBtn">
+                                            <a href="javascript:FBCrawl();">로그인</a>
+                                        </p>
+                                        <p class="log-notice">
+                                            <span id="noticeId" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
+                                            <span id="noticePwd" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
+                                            <span id="noticeInfo" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>    
+                        <div class="login1 pop-login">
                             <div class="tit">
                                 네이버 카페 게시글 수집
                             </div>
@@ -150,7 +174,7 @@ if($this->uri->segment(2) == 'Category')
                                 </form>
                             </div>
                         </div>
-                        <div class="login1 pop-login">
+                        <div class="login2 pop-login">
                             <div class="tit">
                                 다음 카페 게시글 수집
                             </div>
@@ -165,30 +189,6 @@ if($this->uri->segment(2) == 'Category')
                                         <input id="daumUserPwd" type="password" name="pwd" placeholder="비밀번호" disabled>
                                         <p class="log-formBtn">
                                             <a href="javascript:callCrawl();">로그인</a>
-                                        </p>
-                                        <p class="log-notice">
-                                            <span id="noticeId" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
-                                            <span id="noticePwd" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
-                                            <span id="noticeInfo" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
-                                        </p>
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="login2 pop-login">
-                            <div class="tit">
-                                페이스북 게시글 수집
-                            </div>
-                            <div class="notice">
-                                개인정보보호법에 의거, 아이디/패스워드는 에듀니티에서 저장하지 않습니다.
-                                <br> 번거롭더라도 수집 시, 개별 로그인이 필요합니다.
-                            </div>
-                            <div class="log-form f-log-form">
-                                <form action="" method="post">
-                                    <fieldset>
-                                        <input id="facebookToken" type="hidden" name="id" placeholder="토큰">
-                                        <p class="log-formBtn">
-                                            <a href="javascript:FBCrawl();">로그인</a>
                                         </p>
                                         <p class="log-notice">
                                             <span id="noticeId" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>

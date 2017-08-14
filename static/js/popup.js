@@ -258,7 +258,7 @@ $(".login0").show();
 $(".sns-tab li").on('click', function(){
     var index = $(".sns-tab li").index(this);
     // 다음
-    if(index == '1'){
+    if(index == '2'){
         alert('준비중입니다.');
         return false;
     }
