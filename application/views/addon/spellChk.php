@@ -5,8 +5,6 @@ $code = array(
     ,'space_spell' => '띄어쓰기, 맞춤법 오류'
     ,'doubt' => '맞춤법 의심'
 );
-// echo '<pre>: '. print_r( $data, true ) .'</pre>';
-// die();
 ?>
 
 
@@ -21,6 +19,7 @@ $code = array(
 				<div class="splChkBox">
                 <input type="hidden" id="pre_search" name="pre_search" />
 				    <ul>
+                    <?php if(is_array($data) && count($data)>0): ?> 
 					<?php foreach($data as $oSpell): ?>
 					    <?php foreach($oSpell->result as $key => $oData): ?>
 						<li class="splChkList">
@@ -37,6 +36,13 @@ $code = array(
 						</li>
 					    <?php endforeach; ?>
 					<?php endforeach; ?>
+                    <?php else :?> 
+                        <li>
+                            <div class="resultInfo">
+                            <p class="getTxt">검사결과가 없습니다.</p>
+                            </div>
+                        </li> 
+                    <?php endif;?> 
 				    </ul>
 				</div>
 <script>

@@ -4,6 +4,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
 
                             <div class="chkTit">참고글감 <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span></div>
                             <div class="bsinner">
+                                <!--
                                 <div class="bankSubTop">
                                     <p class="bankSub-tit" onclick="listArticle('list');"><i class="fa fa-list-ul" aria-hidden="true"></i>글감리스트</p>
                                     <?php if($menu['type'] != 'list'): ?>
@@ -23,12 +24,9 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                             <ul>
                                                 <li class="bookMark">
                                                     <a class="bookMarkBtn" href="javascript:listArticle('bookmark');" title="북마크"><i aria-hidden="true" class="fa fa-star-o"></i></a>
-                                                    <!--<div>북마크</div>-->
                                                 </li>
                                                 <li class="moveCateg">
                                                     <a class="moveCategBtn" href="javascript:getCategoryList();" title="카테고리"><i class="fa fa-folder-o" aria-hidden="true"></i></a>
-                                                    <!--<div>카테고리 이동</div>-->
-                                                    <!--카테고리 이동 안내 창-->
                                                     <div class="selCateg <?=(count($category)<1) ? 'noCateg' : ''?>" style="z-index:500;">
                                                         <div class="selCateg-inner">
                                                             <div class="selList">
@@ -40,7 +38,6 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!--//카테고리 이동 안내 창-->
                                                 </li>
                                                 <li>
                                                     <a href="#"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
@@ -49,6 +46,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                         </div>
                                     </div>
                                 </div>
+                                -->
                                 <div class="sroll-inner">
                                     <!--리스트가 화면 height넘어가면, class scroll-subList생김-->
                                     <div class="scroll-subList">
@@ -57,21 +55,24 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                         <?php if( is_array($list) && count($list)>0 ): ?>
                                         <?php foreach ($list as $oList): ?>
                                             <li>
-                                                <a title="새창 열기" onClick="window.open('/unoteapi/Article/viewArticle/<?=$oList->t_idx?>','window','width=850,height=750,left=0,top=0')">
-                                                    <div class="cafeInfo ">
-                                                        <div class="cafeinner clearfix">
-                                                            <div class="cafeLogo">
-                                                                <p><img src="<?=$aCrawLogo[$oList->craw_data->corporation]?>"></p>
-                                                            </div>
-                                                            <div class="cafeTxt">
-                                                                <p class="tit"><?=$oList->craw_data->title?></p>
-                                                                <p></p>
-                                                                <p class="date"><?=$oList->regdate?></p>
-                                                            </div>
-                                                            <div class="bookMarkBtn" id="bookMark<?=$oList->t_idx?>"><?=($oList->bookmark == 'Y') ? '<i class="fa fa-star fa-1g aria-hidden=" true"=""></i>' : ''?></div>
+                                                <!-- <a title="새창 열기" onClick="viewDetail();"> -->
+                                                <div class="cafeInfo">
+                                                    <div class="cafeinner clearfix">
+                                                        <div class="cafeLogo">
+                                                            <p><img src="<?=$aCrawLogo[$oList->craw_data->corporation]?>"></p>
                                                         </div>
+                                                        <div class="cafeTxt">
+                                                            <p class="tit"><?=$oList->craw_data->title?></p>
+                                                            <p></p>
+                                                            <p class="date"><?=$oList->regdate?></p>
+                                                        </div>
+                                                        <div class="bookMarkBtn" id="bookMark<?=$oList->t_idx?>"><?=($oList->bookmark == 'Y') ? '<i class="fa fa-star fa-1g aria-hidden=" true"=""></i>' : ''?></div>
                                                     </div>
-                                                </a>
+                                                </div>
+                                                <!-- </a> -->
+                                                <div class="detail" style="display:none;">
+                                                    aksdjfhladsfjkladjsfkl
+                                                </div>
                                             </li>
                                         <?php endforeach; ?>
                                         <?php else: ?>
@@ -130,6 +131,10 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
             container.hide();
             $(".moveCategBtn").removeClass("on");
         }
+    });
+
+    $(".cafeInfo").on("click",function () {
+        $(this).siblings('.detail').show();
     });
 
 </script>

@@ -114,7 +114,7 @@ class Ibricks extends CI_Controller {
         $sIdx = $this->input->post('s_idx');
 
         // test code
-        // $nIdx = 58;
+        // $nIdx = 69;
 
         if(!$nIdx) 
         {
@@ -127,6 +127,8 @@ class Ibricks extends CI_Controller {
         $aResultJson = (array) json_decode($sResultJson);
         
         $aTemp = array();
+        $aTemp2 = array();
+        $aTemp3 = array();
         // no_error & null array unset 
         foreach($aResultJson['data'] as $key=>$val)
         {
@@ -152,13 +154,14 @@ class Ibricks extends CI_Controller {
 
         $aRtn = array();
         $aRtn['result'] = $aResultJson['result']; 
-        
+        $aRtn['data'] = array(); 
+
         $aTemp2 = array_unique($aTemp);
         foreach($aTemp2 as $val)
         {
             $aTemp3[] = $val;
         }
-        
+
         for($i=0 ; $i<count($aTemp3) ; $i++ )
         {
             foreach($aResultJson['data'] as $key=>$val)
