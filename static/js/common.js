@@ -1,35 +1,15 @@
-var _dHeight = $(document).height();
+/*layout*/
 var _dWidth = $(document).width();
 var _wWidth = $(window).width();
 var _detailViewWidth = _wWidth - 530;
-var _cTableWidth = _wWidth - 231;
-
-
-/*test*/
-/*
-$(".lnbItemList").on('click',function () {
-    $("#bankSub").addClass("show");
-   /!* if ($('#bankSub').hasClass("show")) {
-        $('.dvinner').addClass("show");
-    } else {
-        $('.dvinner').removeClass("show");
-    }*!/
-
-
-
-
-});
-*/
-
-
-
-
+/*var _cTableWidth = _wWidth - 231;*/
 var wHeight = $(window).height();
-
 var detailViewHeight = wHeight - 120;
-
 var scrollHeight = wHeight - 141;
 
+/*$("#cList").css({
+    'width' : _cTableWidth
+});*/
 
 $(".page, .page-default").css({
     'height' :  detailViewHeight,
@@ -43,19 +23,9 @@ $(".scroll-subList").css({
 });
 
 function responsiveView() {
-    /*var wSize = $(window).width();*/
-
-
-   /* $("#detailView").css({
-        'width' : _detailViewWidth,
-        'position' : 'absolute',
-         'top':'0px',
-         'left': '530px'
-    });*/
-   
-    $("#cList").css({
+    /*$("#cList").css({
         'width' : _cTableWidth
-    });
+    });*/
     $(".page, .page-default").css({
         'height' :  detailViewHeight,
         'overflow-x' : 'hidden',
@@ -67,8 +37,35 @@ function responsiveView() {
         'overflow-y' : 'scroll',
     });
 }
+
 $(window).on('load', responsiveView);
 $(window).on('resize', responsiveView);
+
+
+/*detailView icon button toolTip*/
+$( ".p-btn ul li a" )
+    .mouseenter(function() {
+        $( this ).find( "span" ).removeClass("hide");
+    })
+    .mouseleave(function() {
+        $( this ).find( "span" ).addClass("hide");
+    });
+
+
+/*gnb-menuIcon*/
+$("#menubarIcon").click(function(){
+    $(this).toggleClass('open');
+});
+
+
+/*logout*/
+$(".userInfo").on("click",function () {
+    $(".userBtn").slideToggle();
+    $(".name i").toggleClass("fa-caret-down fa-caret-up");
+});
+
+
+
 
 $('#menubarIcon').on('click',clickMenubar);
 function clickMenubar() {
@@ -108,37 +105,5 @@ function clickMenubar() {
         $('#lnb').show();
     }*/
 
-
-
-
-
-
-
 }
 
-
-
-
-
-
-/*detailView icon button toolTip*/
-$( ".p-btn ul li a" )
-    .mouseenter(function() {
-        $( this ).find( "span" ).removeClass("hide");
-    })
-    .mouseleave(function() {
-        $( this ).find( "span" ).addClass("hide");
-    });
-
-
-/*gnb-menuIcon*/
-$("#menubarIcon").click(function(){
-    $(this).toggleClass('open');
-});
-
-        
-/*logout*/
-$(".userInfo").on("click",function () {
-   $(".userBtn").slideToggle();
-   $(".name i").toggleClass("fa-caret-down fa-caret-up");
-});
