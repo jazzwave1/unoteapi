@@ -253,32 +253,8 @@ $(function () {
 
 /*크롤링 로그인 화면*/
 $(".pop-login").hide();
-$(".login0").show();
+$(".login3").show();
 
-
-$(".sns-tab li").on('click', function(){
-    var index = $(".sns-tab li").index(this);
-	// 다음
-    if(index == '2'){
-        /*alert('준비중입니다.');
-        return false;*/
-    }
-    $(this).siblings('li').removeClass('on');
-    $(this).addClass('on');
-
-    $(".sns-tab li").each(function (idx) {
-		$(this).find('img').attr('src',$(this).find('img').attr('src').replace('_default','_on'));
-		if(index !=idx){
-            $(this).find('img').attr('src',$(this).find('img').attr('src').replace('_on','_default'));
-		}
-    });
-
-
-
-    $(".pop-login").hide();
-    $(".login"+index).show();
+$(".btnp-close").on('click', function(){
+	setSite(3);
 });
-
-
-
-

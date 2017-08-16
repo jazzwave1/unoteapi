@@ -117,16 +117,16 @@ if($this->uri->segment(2) == 'Category')
             <div class="pop-box">
                 <div class="pop-cont">
                     <ul class="sns-tab clearfix">
-                        <li class="on"><a href="javascript:setSite(3);"><img src="../static/images/icon/logo_facebook_on.png"><div>페이스북</div></a></li>
-                        <li><a href="javascript:setSite(1);"><img src="../static/images/icon/logo_naver_default.png"><div>네이버</div></a></li>
-                        <li><a href="javascript:setSite(2);"><img src="../static/images/icon/logo_daum_default.png"><div>다음</div></a></li>
+                        <li id="tab3" class="on"><a href="javascript:setSite(3);"><img src="<?=SURL?>/images/icon/logo_facebook_on.png"><div>페이스북</div></a></li>
+                        <li id="tab1"><a href="javascript:setSite(1);"><img src="<?=SURL?>/images/icon/logo_naver_default.png"><div>네이버</div></a></li>
+                        <li id="tab2"><a href="javascript:setSite(2);"><img src="<?=SURL?>/images/icon/logo_daum_default.png"><div>다음</div></a></li>
                         <input type="hidden" id="site" value="" > 
                         <input type="hidden" id="usn" value="<?=$usn?>" > 
                     </ul>
                     <div class="cssBox"></div>
                     <!--수집 대상 선택 및 로그인 화면-->
                     <div class="pop-login-wrap">
-                        <div class="login0 pop-login">
+                        <div class="login3 pop-login">
                             <div class="tit">
                                 페이스북 게시글 수집
                             </div>
@@ -142,9 +142,9 @@ if($this->uri->segment(2) == 'Category')
                                             <a href="javascript:FBCrawl();">로그인</a>
                                         </p>
                                         <p class="log-notice">
-                                            <span id="noticeId" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
-                                            <span id="noticePwd" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
-                                            <span id="noticeInfo" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
+                                            <span class="noticeId hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
+                                            <span class="noticePwd hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
+                                            <span class="noticeInfo hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
                                         </p>
                                     </fieldset>
                                 </form>
@@ -167,9 +167,9 @@ if($this->uri->segment(2) == 'Category')
                                             <a href="javascript:callCrawl();">로그인</a>
                                         </p>
                                         <p class="log-notice">
-                                            <span id="noticeId" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
-                                            <span id="noticePwd" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
-                                            <span id="noticeInfo" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
+                                            <span class="noticeId hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
+                                            <span class="noticePwd hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
+                                            <span class="noticeInfo hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
                                         </p>
                                     </fieldset>
                                 </form>
@@ -195,9 +195,9 @@ if($this->uri->segment(2) == 'Category')
                                             <a href="javascript:callCrawl();">로그인</a>
                                         </p>
                                         <p class="log-notice">
-                                            <span id="noticeId" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
-                                            <span id="noticePwd" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
-                                            <span id="noticeInfo" class="hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
+                                            <span class="noticeId hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
+                                            <span class="noticePwd hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 비밀번호를 입력하세요</span>
+                                            <span class="noticeInfo hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 입력정보를 확인해주세요</span>
                                         </p>
                                     </fieldset>
                                 </form>
@@ -219,7 +219,9 @@ if($this->uri->segment(2) == 'Category')
 
 function setSite(site)
 {
+    tabSet(site);
     noticeReset();
+    loginReset();
     $('#site').val(site);
 }
 function FBCrawl()
@@ -276,7 +278,7 @@ function callCrawl()
         //아이디 오류
         else if (status == "success" && data.code == 1)
         {
-            $('#noticeId').show();
+            $('.noticeId').show();
             // alert('요청되었습니다.');
             // location.href = "<?=HOSTURL?>/Crawling/History";
         }
@@ -287,20 +289,38 @@ function noticeAlert(s_id, s_pwd)
 {
     if(!s_id)
     {
-        $('#noticeId').show();
+        $('.noticeId').show();
         return false;
     }
     if(!s_pwd)
     {
-        $('#noticePwd').show();
+        $('.noticePwd').show();
         return false;
     }
 }
+function tabSet(index)
+{
+    $(".sns-tab li").siblings('li').removeClass('on');
+    $("#tab"+index).addClass('on');
+
+    $(".sns-tab li").each(function (idx) {
+        $(this).find('img').attr('src',$(this).find('img').attr('src').replace('_on','_default'));
+    });
+    $("#tab"+index).find('img').attr('src',$("#tab"+index).find('img').attr('src').replace('_default','_on'));
+
+    $(".pop-login").hide();
+    $(".login"+index).show();
+}
 function noticeReset()
 {
-    $('#noticeId').hide();
-    $('#noticePwd').hide();
-    $('#noticeInfo').hide();
+    $('.noticeId').hide();
+    $('.noticePwd').hide();
+    $('.noticeInfo').hide();
+}
+function loginReset()
+{
+    $('#naverUserId').val('');
+    $('#naverUserPwd').val('');
 }
 </script>
 
