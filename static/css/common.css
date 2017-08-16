@@ -457,7 +457,7 @@ i.fa-times{
 }
 .pop-login .log-form{
     text-align: center;
-
+    padding-bottom: 20px;
 }
 .pop-login .log-form input{
     display: block;
@@ -492,7 +492,7 @@ i.fa-times{
     background-color: #3c5a9a;
 }
 .pop-login .log-form .log-notice{
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
 }
 .log-notice span{
     color: darkred;
