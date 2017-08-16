@@ -471,14 +471,15 @@ i.fa-times{
 
 
 .pop-login .log-form .log-formBtn{
-    width: 200px;
-    padding: 10px;
+    width: 222px;
     border-radius: 5px;
     margin: 0 auto;
     margin-bottom: 20px;
 
 }
 .pop-login .log-form .log-formBtn a{
+    display: block;
+    padding: 10px;
     color: #fff;
 }
 .pop-login .n-log-form .log-formBtn{
