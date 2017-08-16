@@ -37,9 +37,9 @@ $code = array(
 					    <?php endforeach; ?>
 					<?php endforeach; ?>
                     <?php else :?> 
-                        <li>
+                        <li class="emptySpell">
                             <div class="resultInfo">
-                            <p class="getTxt">검사결과가 없습니다.</p>
+                                <p class="getTxt">검사결과가 없습니다.</p>
                             </div>
                         </li> 
                     <?php endif;?> 
