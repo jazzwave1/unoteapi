@@ -94,6 +94,24 @@ class CrawlingClass {
         $aResultJson = json_decode($sResultJson);
         
         return true; 
-           
+    }
+    public function deleteHistoryArticle($q_idx)
+    {
+        edu_get_instance('MSGQClass');
+        edu_get_instance('ArticleClass');
+
+        // 1. update msgq : status=del
+        if(MSGQClass::deleteMsgQByHistory($q_idx))
+        {
+            // 2. delete text_bank : q_idx
+            if(ArticleClass::deleteArticleByHistory($q_idx))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        return false;        
     }
 }

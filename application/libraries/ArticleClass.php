@@ -83,4 +83,14 @@ class ArticleClass {
         return $bResult;    
     }
 
+    public static function deleteArticleByHistory($q_idx)
+    {
+        if(!$q_idx) return false;
+        
+        $article_model = edu_get_instance('article_model', 'model');
+        $bResult = $article_model->deleteArticleByHistory($q_idx);
+
+        return $bResult;    
+    }
+
 }

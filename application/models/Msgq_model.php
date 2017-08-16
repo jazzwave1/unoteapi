@@ -52,4 +52,17 @@ class Msgq_model extends CI_model{
 
         return false;
     }
+
+    public function deleteMsgQByHistory($q_idx)
+    {
+        if(!$q_idx) return false;
+        
+        $aInput = array(
+             'state' => 'DEL'
+            ,'q_idx'   => $q_idx
+        );
+
+        return ($this->msgq_dao->deleteMsgQByHistory($aInput));
+    }
+
 }

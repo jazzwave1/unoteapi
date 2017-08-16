@@ -1,5 +1,7 @@
 <?php
 $aCrawStatus = edu_get_config('craw_status', 'unote');
+// echo '<pre>: '. print_r( $vdata, true ) .'</pre>';
+// die();
 ?>
 <!--글감수집-->
                 <div id="cList">
@@ -37,7 +39,7 @@ $aCrawStatus = edu_get_config('craw_status', 'unote');
                                         <td><?=$val->sBoard?></td>
                                         <td><?=$val->regdate?></td>
                                         <td><?=$val->completedate?></td>
-                                        <td><?=$aCrawStatus[$val->state]?> <a href="javascript:;"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a></td>
+                                        <td><?=$aCrawStatus[$val->state]?> <a href="javascript:delHistoryArticle(<?=$val->q_idx?>);"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a></td>
                                     </tr>
                                 <?php endforeach;?>
                                 <?php else : ?>

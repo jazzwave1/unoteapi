@@ -185,6 +185,25 @@ class Crawling extends CI_Controller{
         die;
     }
 
+    public function rpcDelHistoryArticle()
+    {
+        $q_idx  = $this->input->post('q_idx');
+
+        //chk param
+        if(!$q_idx)      {response_json(array('code'=>999, 'msg'=>'Fail')); die;}  
+
+        $oCrawlingClass = edu_get_instance('CrawlingClass');
+        if($oCrawlingClass->deleteHistoryArticle($q_idx))
+        {            
+            response_json(array('code'=>1, 'msg'=>'OK')); die;
+        }
+        else
+        {
+            response_json(array('code'=>999, 'msg'=>'Fail')); die;
+        }
+
+        die;
+    }
 
 
 

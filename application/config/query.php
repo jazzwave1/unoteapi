@@ -188,6 +188,14 @@ $config['query'] = array(
             ,'btype'=> 's'
             ,'null' => array()
         )
+        ,'deleteMSGQByHistory' => array(
+            'query' => 'UPDATE msgq 
+                           set state = ?
+                         where q_idx = ?'
+            ,'data' => array('state','q_idx')
+            ,'btype'=> 'ss'
+            ,'null' => array()
+        )
     )
     ,'category' => array(
         'getCategoryInfo' => array(
@@ -412,6 +420,14 @@ $config['query'] = array(
                          FROM text_bank
                         WHERE category_idx=?"
             ,'data' => array('category_idx')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
+        ,'deleteArticleByHistory' => array(
+            'query' => "DELETE 
+                         FROM text_bank
+                        WHERE q_idx=?"
+            ,'data' => array('q_idx')
             ,'btype'=> 'i'
             ,'null' => array()
         )

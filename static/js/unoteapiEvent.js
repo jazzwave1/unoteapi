@@ -440,3 +440,30 @@ function goCateg()
       }
     );
 }
+
+function delHistoryArticle(q_idx)
+{
+    if(confirm('삭제된 글감은 복구가 절대 불가능합니다. 삭제하시겠습니까?'))
+    {
+      $.post(
+        "/unoteapi/Crawling/rpcDelHistoryArticle"
+        ,{
+             "q_idx" : q_idx 
+         }
+        ,function(data, status) {
+          if (status == "success" && data.code == 1)
+          {
+              window.location.reload();
+              // console.log(data.aNoteDetail); 
+          }
+          // 삭제 실패
+          else
+          {
+              alert(data.msg);
+          }
+        }
+      ); 
+    }
+
+
+}

@@ -290,4 +290,16 @@ class  Article_model extends CI_model{
         
         return false;
     }
+
+    public function deleteArticleByHistory($q_idx)
+    {
+        if(!$q_idx) return false;
+
+        $aInput = array('q_idx' => $q_idx);
+
+        if( $this->article_dao->deleteArticleByHistory($aInput) )
+            return true;
+        
+        return false;
+    }
 }

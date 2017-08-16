@@ -91,4 +91,13 @@ class MSGQClass {
         }
         return $aMQList;        
     }
+
+    public static function deleteMsgQByHistory($q_idx)
+    {
+        if(!$q_idx) return false;
+
+        $msgq_model = edu_get_instance('msgq_model', 'model');
+        return $msgq_model->deleteMsgQByHistory($q_idx);
+    }
+
 }

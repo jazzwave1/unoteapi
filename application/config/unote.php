@@ -10,4 +10,5 @@ $config['craw_status'] = array(
 	 'REQ' => '요청'
 	,'PRO' => '진행중'
 	,'COM' => '완료'
+	,'DEL' => '글감삭제'
 );

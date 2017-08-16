@@ -68,5 +68,10 @@ class Msgq_dao extends Common_dao
 
         return $oRtn;
     }
+    public function deleteMsgQByHistory($aParam=array())
+    {
+        $aConfig = $this->queryInfoMsgq['deleteMSGQByHistory'];
+        return $this->actModelFuc($aConfig, $aParam);
+    }
 
 }
