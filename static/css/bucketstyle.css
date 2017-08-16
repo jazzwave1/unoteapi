@@ -725,8 +725,9 @@ i.fa-star-o.on{
 .c-page_num ul li{
     display: inline-block;
 }
+
 .c-page_num ul li a.on{
-    color: #fdd66d;
+   /* color: #fdd66d;*/
     font-weight: bold;
 }
 .c-page_num ul li.arrow{
