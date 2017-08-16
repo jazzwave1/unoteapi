@@ -117,7 +117,7 @@ if($this->uri->segment(2) == 'Category')
             <div class="pop-box">
                 <div class="pop-cont">
                     <ul class="sns-tab clearfix">
-                        <li class="on"><a href="javascript:setSite(3);"><img src="../static/images/icon/logo_facebook_default.png"><div>페이스북</div></a></li>
+                        <li class="on"><a href="javascript:setSite(3);"><img src="../static/images/icon/logo_facebook_on.png"><div>페이스북</div></a></li>
                         <li><a href="javascript:setSite(1);"><img src="../static/images/icon/logo_naver_default.png"><div>네이버</div></a></li>
                         <li><a href="javascript:setSite(2);"><img src="../static/images/icon/logo_daum_default.png"><div>다음</div></a></li>
                         <input type="hidden" id="site" value="" > 
@@ -182,6 +182,9 @@ if($this->uri->segment(2) == 'Category')
                             <div class="notice">
                                 개인정보보호법에 의거, 아이디/패스워드는 에듀니티에서 저장하지 않습니다.
                                 <br> 번거롭더라도 수집 시, 개별 로그인이 필요합니다.
+                            </div>
+                            <div class="d-dimmed">
+                                서비스 준비중입니다
                             </div>
                             <div class="log-form d-log-form">
                                 <form action="" method="post">

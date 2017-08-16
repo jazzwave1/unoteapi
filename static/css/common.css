@@ -407,9 +407,9 @@ i.fa-times{
     padding: 10px 0;
 }
 .sns-tab li a img{
-    width: 52px;
-    height:52px;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+   /* border-radius: 50%;*/
 }
 .sns-tab li a div{
     padding-top:10px;
@@ -425,10 +425,10 @@ i.fa-times{
     box-shadow: inset -10px 0 5px -5px hsla(0,0%,0%,.25);*/
 }
 .sns-tab li.on a img{
-    width: 48px;
-    height:48px;
-    border: 2px solid #4f4f4f;
-    border-radius: 50%;
+    width: 50px;
+    height:50px;
+    /*border: 2px solid #4f4f4f;*/
+    /*border-radius: 50%;*/
 }
 .pop-cont .cssBox{
     width: 460px;
@@ -496,6 +496,26 @@ i.fa-times{
 .log-notice span{
     color: darkred;
 }
+
+
+/*다음 서비스 준비중*/
+.login2{
+    position: relative;
+}
+.login2 .d-dimmed{
+    position: absolute;
+    top: 80px;
+    width: 420px;
+    background: rgba(0,0,0,0.4);
+    z-index: 2000;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    padding: 70px 0;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
 /*footer*/
 #footer{
     position: fixed;
