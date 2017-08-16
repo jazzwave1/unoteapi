@@ -4,10 +4,11 @@ $aCrawStatus = edu_get_config('craw_status', 'unote');
 <!--글감수집-->
                 <div id="cList">
                     <div class="c-inner">
-                        <div class="c-list-tit">
-                            <p>글감수집 현황</p>
+                        <div class="c-conts">
+                            <div class="c-list-tit">
+                            <p><i class="fa fa-files-o" aria-hidden="true"></i>글감수집 현황</p>
                         </div>
-                        <div class="c-table-wrap">
+                            <div class="c-table-wrap">
                             <table>
                                 <thead>
                                     <tr>
@@ -48,11 +49,12 @@ $aCrawStatus = edu_get_config('craw_status', 'unote');
                                 </tbody>
                             </table>
                         </div>
-                        <div class="c-page_num">
-                            <ul>
-                                <?=$pagination?> 
-                            </ul>
-                        </div>                       
+                            <div class="c-page_num">
+                                <ul>
+                                    <?=$pagination?>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!--//글감수집-->
