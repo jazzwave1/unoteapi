@@ -68,8 +68,8 @@ if(is_array($data) && count($data)>0){
         $(this).siblings("li").removeClass("on");
         $(this).addClass("on");
 
-        var text = oEditor.getIR();
-
+        var text = removeBrTag(oEditor.getIR());
+        
         // 이전 선택된 맞춤법 : Highlight->Underline 표시
         text = repPreSelectStyle($('#pre_search').val(), text);
 
@@ -80,12 +80,14 @@ if(is_array($data) && count($data)>0){
         // 이전 맞춤법검색어 저장
         $('#pre_search').val(search);
 
+
         oEditor.setIR('');
         oEditor.exec("PASTE_HTML", [text]);
     });
     /*맞춤법 적용 아이콘 클릭*/
     $(".applySpel").on("click",function () {
-        var text = oEditor.getIR();
+        var text = removeBrTag(oEditor.getIR());
+
         var search = $(this).parent().parent("li.splChkList").children('.resultInfo').children('.splWrong').text();
         var replace = $(this).parent().parent("li.splChkList").children('.resultInfo').children('.splRight').text();
 
@@ -98,7 +100,8 @@ if(is_array($data) && count($data)>0){
     });
     /*맞춤법 닫기 아이콘 클릭*/
     $(".closeSpel").on("click",function () {
-        var text = oEditor.getIR();
+        var text = removeBrTag(oEditor.getIR());
+
         var search = $(this).parent().parent("li.splChkList").children('.resultInfo').children('.splWrong').text();
 
         text = repApplyStyle(search, '', text);
@@ -111,7 +114,8 @@ if(is_array($data) && count($data)>0){
 
     /*맞춤법 검사 결과 창 닫기*/
     $(".chkTit .closedBtn").on("click", function () {
-        var text = oEditor.getIR();
+        var text = removeBrTag(oEditor.getIR());
+
         var aSplChk = document.getElementsByName('aSplChk[]');
 
         text = repAllStyle(aSplChk, text);
