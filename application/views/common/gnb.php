@@ -34,6 +34,7 @@
                 <!--//로그아웃창-->
                 <!--notice-->
                 <div class="notice">
+                    <div class="noti-num">1</div>
                     <a href="#"><i class="fa fa-bell-o" aria-hidden="true"></i></a>
                 </div>
                 <!--//notice-->
