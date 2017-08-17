@@ -6,6 +6,12 @@ $config['craw_logo'] = array(
 	,'페이스북' => SURL.'/images/icon/logo_facebook_default.png'
 );
 
+$config['craw_logo_mini'] = array(
+	 '네이버' => SURL.'/images/icon/logo_naver_log.png'
+	,'다음' => SURL.'/images/icon/logo_daum_log.png'
+	,'페이스북' => SURL.'/images/icon/logo_facebook_log.png'
+);
+
 $config['craw_status'] = array(
 	 'REQ' => '요청'
 	,'PRO' => '진행중'
