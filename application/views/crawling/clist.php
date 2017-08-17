@@ -48,14 +48,14 @@ $aLogoMini = edu_get_config('craw_logo_mini', 'unote');
                                     </tr>-->
                                 <?php if($vdata) : ?>
                                 <?php foreach($vdata as $key=>$val) :?>
-                                    <tr <?=($val->state == 'REQ') ? 'class="doneLog"' : '' ?>>
+                                    <tr <?=($val->state == 'PRO') ? 'class="doneLog"' : '' ?>>
                                         <td><p><span class="logLogo"><img src="<?=$aLogoMini[$val->site_name]?>"></span><span><?=$val->site_name?></span></p></td>
                                         <td><?=$val->sSite?></td>
                                         <td><?=$val->sBoard?></td>
                                         <td><?=$val->regdate?></td>
                                         <td><?=$val->completedate?></td>
 
-                                    <?php if($val->state == 'REQ'): ?>
+                                    <?php if($val->state == 'PRO'): ?>
                                         <td><div class="bar"></div></td>
                                     <?php elseif($val->state == 'COM'): ?>
                                         <td><span class="done"><?=$aCrawStatus[$val->state]?></span></td>
