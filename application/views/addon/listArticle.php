@@ -1,5 +1,10 @@
 <?php
 $aCrawLogo = edu_get_config('craw_logo', 'unote');
+
+// echo '<!--';
+// echo '<pre>: '. print_r( $list, true ) .'</pre>';
+// echo '-->';
+// die();
 ?>
 
                             <div class="chkTit chkTit2">참고글감 <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span></div>
@@ -71,7 +76,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                 </div>
                                                 <!-- </a> -->
                                                 <div class="detail" style="display:none;">
-                                                    aksdjfhladsfjkladjsfkl
+                                                    <?=( isset($oList->craw_data->contents) ) ? $oList->craw_data->contents : ''?>
                                                 </div>
                                             </li>
                                         <?php endforeach; ?>
