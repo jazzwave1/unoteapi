@@ -683,7 +683,7 @@ i.fa-star-o.on{
 .c-list-tit{
     font-size: 18px;
     font-weight: bold;
-    padding:80px 20px 20px;
+    padding:80px 20px 0px;
 }
 .c-list-tit p{
 
@@ -710,10 +710,98 @@ i.fa-star-o.on{
     font-size: 12px;
     text-align: center;
 }
-.c-table-wrap table td{
+.c-table-wrap table td {
+    position: relative;
     border-bottom: 1px solid #eee;
     text-align: center;
     padding: 10px 0;
+}
+.c-table-wrap table td span.done{
+    color: #0d94d0;
+    font-weight: bold;
+}
+.c-table-wrap table tr.doneLog{
+    background: #dff3ff;
+    font-weight: bold;
+}
+/*상태로딩바_0*/
+
+/*상태로딩바*/
+.c-table-wrap table td .bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 8px;
+    width: 100px;
+    margin-top: -4px;
+    margin-left: -50px;
+    border-radius: 20px;
+    background-image: -webkit-linear-gradient(-45deg, #ccc 25%, rgba(255, 154, 26, 0) 25%, rgba(255, 154, 26, 0) 50%, #ccc 50%, #ccc 75%, rgba(255, 154, 26, 0) 75%);
+    background-image: -moz-linear-gradient(-45deg, #ccc 25%, rgba(255, 154, 26, 0) 25%, rgba(255, 154, 26, 0) 50%, #ccc 50%, #ccc 75%, rgba(255, 154, 26, 0) 75%);
+    background-image: -o-linear-gradient(-45deg, #ccc 25%, rgba(255, 154, 26, 0) 25%, rgba(255, 154, 26, 0) 50%, #ccc 50%, #ccc 75%, rgba(255, 154, 26, 0) 75%);
+    background-image: linear-gradient(-45deg, #ccc 25%, rgba(255, 154, 26, 0) 25%, rgba(255, 154, 26, 0) 50%, #ccc 50%, #ccc 75%, rgba(255, 154, 26, 0) 75%);
+    background-color: #4f4f4f;
+    background-size: 50px 50px;
+    border: 1px solid #0d94d0;
+
+    -webkit-box-shadow: inset 0 10px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 10px 0 rgba(255, 255, 255, 0.2);
+    -webkit-animation: move 3s linear infinite;
+    -moz-animation: move 3s linear infinite;
+    -ms-animation: move 3s linear infinite;
+    animation: move 3s linear infinite;
+}
+
+@-webkit-keyframes move {
+    0%   { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+@-moz-keyframes move {
+    0%   { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+@-ms-keyframes move {
+    0%   { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+@-webkit-keyframes move {
+    0%   { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+
+.c-table-wrap table tbody td:first-child{
+
+}
+.c-table-wrap table tbody td:first-child p{
+    width: 100%;
+}
+.c-table-wrap table tbody td:first-child p span{
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+}
+.c-table-wrap table tbody td:first-child p span.logLogo{
+    display: inline-block;
+    text-align: right;
+}
+.c-table-wrap table .logLogo img{
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    background: #eee;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.c-table-wrap table .deleteLog i{
+    font-size: 14px;
+}
+.c-table-wrap table .deleteLog a:hover i{
+    color: darkred;
 }
 .c-page_num{
     width: 100%;

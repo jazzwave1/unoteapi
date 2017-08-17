@@ -14,32 +14,48 @@ $aCrawStatus = edu_get_config('craw_status', 'unote');
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="">대상처</th>
-                                        <th class="">대상까페</th>
-                                        <th class="">게시판명</th>
-                                        <th class="">요청일자</th>
-                                        <th class="">완료일자</th>
-                                        <th class="">상태</th>
+                                        <th class="" style="width: 15%">대상처</th>
+                                        <th class="" style="width: 15%">대상까페</th>
+                                        <th class="" style="width: 15%">게시판명</th>
+                                        <th class="" style="width: 15%">요청일자</th>
+                                        <th class="" style="width: 15%">완료일자</th>
+                                        <th class="" style="width: 15%">상태</th>
+                                        <th class="" style="width: 10%">삭제</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!--tr>
-                                        <td><div class="">다음까페</div></td>
-                                        <td><a href="javascript:;">프로젝트 학습 정보공유</a></td>
+                                    <tr class="doneLog">
+                                        <td><p><span class="logLogo"><img src="../static/images/icon/logo_naver_log.png"></span><span>네이버</span></p></td>
+                                        <td>프로젝트 학습 정보공유</td>
                                         <td>나의 프로젝트 학습</td>
-                                        <td>17.05.01 13:20</td>
-                                        <td>17.05.01 13:30</td>
-                                        <td>123/123</td>
-                                    </tr-->
+                                        <td>2017-05-01 13:20:00</td>
+                                        <td>2017-05-01 13:20:10</td>
+                                        <td>
+                                            <div class="bar"></div>
+                                        </td>
+                                        <td class="deleteLog"><a href="#" title="글감수집 기록삭제"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><span class="logLogo"><img src="../static/images/icon/logo_facebook_log.png"></span><span>페이스북</span></p></td>
+                                        <td>프로젝트 학습 정보공유</td>
+                                        <td>나의 프로젝트 학습</td>
+                                        <td>2017-05-01 13:20:00</td>
+                                        <td>2017-05-01 13:20:10</td>
+                                        <td>
+                                            <span class="done">완료</span>
+                                        </td>
+                                        <td class="deleteLog"><a href="#" title="글감수집 기록삭제"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i></a></td>
+                                    </tr>
                                 <?php if($vdata) : ?>
                                 <?php foreach($vdata as $key=>$val) :?>
                                     <tr>
-                                        <td><div class=""><?=$val->site_name?></div></td>
-                                        <td><a href="javascript:;"><?=$val->sSite?></a></td>
+                                        <td><?=$val->site_name?></td>
+                                        <td><?=$val->sSite?></td>
                                         <td><?=$val->sBoard?></td>
                                         <td><?=$val->regdate?></td>
                                         <td><?=$val->completedate?></td>
-                                        <td><?=$aCrawStatus[$val->state]?> <a href="javascript:delHistoryArticle(<?=$val->q_idx?>);"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a></td>
+                                        <td><?=$aCrawStatus[$val->state]?></td>
+                                        <td class="deleteLog"><a href="javascript:delHistoryArticle(<?=$val->q_idx?>);" title="글감수집 기록삭제"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a></td>
                                     </tr>
                                 <?php endforeach;?>
                                 <?php else : ?>
