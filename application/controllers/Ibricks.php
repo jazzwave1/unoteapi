@@ -114,7 +114,7 @@ class Ibricks extends CI_Controller {
         $sIdx = $this->input->post('s_idx');
 
         // test code
-        // $nIdx = 69;
+        // $nIdx = 72;
 
         if(!$nIdx) 
         {
@@ -182,17 +182,25 @@ class Ibricks extends CI_Controller {
         edu_get_instance('NoteClass');
         $aNoteDetailInfo = NoteClass::getNoteDetailInfo($nIdx);
         $chkText = $aNoteDetailInfo['text'];
-        // foreach ($aResultJson['data'] as $key => $obj) {
-        //     foreach ($obj->result as $oData) {
-        //         $chkText = str_replace($oData->input, '<span class="spelChk">'.$oData->input.'</span>', $chkText);
-        //     }
-        // }
+
+        $script = '<style>.underlineChk{text-decoration: underline; text-decoration-color:red;color:red;}.highlightChk{background:red; color:#fff;}</style>';
+
+        foreach ($aResultJson['data'] as $key => $obj) {
+            foreach ($obj->result as $oData) {
+                $chkText = str_replace($oData->input, '<span class="underlineChk">'.$oData->input.'</span>', $chkText);
+            }
+        }
+
+        // test code
+        // echo '<pre>$aResultJson: '. print_r( $aResultJson, true ) .'</pre>';
+        // echo '<pre>$chkText: '. print_r( $chkText, true ) .'</pre>';
+        // die();
 
         $aResult = array(
              "code"  => 1
             ,"msg"   => "OK"
             ,"html" => $addonHtml
-            ,"chkText" => $chkText
+            ,"chkText" => $script.$chkText
         );
         response_json($aResult);
         die;

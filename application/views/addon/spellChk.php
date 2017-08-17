@@ -5,6 +5,15 @@ $code = array(
     ,'space_spell' => '띄어쓰기, 맞춤법 오류'
     ,'doubt' => '맞춤법 의심'
 );
+
+$aSplChk = array();
+if(is_array($data) && count($data)>0){
+    foreach ($data as $key => $obj) {
+        foreach ($obj->result as $oData) {
+            $aSplChk[] = $oData->input;
+        }
+    }
+}
 ?>
 
 
@@ -17,6 +26,11 @@ $code = array(
 				    <p>총 글자수 : <span>951</span>, 수정<span>0</span>, 제안<span>4</span></p>
 				</div>-->
 				<div class="splChkBox">
+
+                <?php foreach ($aSplChk as $chkText): ?>
+                <input type="hidden" name="aSplChk[]" value="<?=$chkText?>" />
+                <?php endforeach; ?>
+
                 <input type="hidden" id="pre_search" name="pre_search" />
 				    <ul>
                     <?php if(is_array($data) && count($data)>0): ?> 
@@ -55,14 +69,15 @@ $code = array(
         $(this).addClass("on");
 
         var text = oEditor.getIR();
-        text = removeSpellStyle(text);
 
-        // 현재 맞춤법 검색어 표시
+        // 이전 선택된 맞춤법 : Highlight->Underline 표시
+        text = repPreSelectStyle($('#pre_search').val(), text);
+
+        // 맞춤법 선택 : 선택한 부분 Underline->Highlight 표시
         var search = $(this).children('.resultInfo').children('.splWrong').text();
-        var replace = '<span class="spelChk" style="background:red; color:#fff;">'+search+'</span>';
-        text = text.replace(new RegExp(search,'gi'), replace);
+        text = repSelectStyle(search, text);
 
-        // 이전 맞춤법검색어
+        // 이전 맞춤법검색어 저장
         $('#pre_search').val(search);
 
         oEditor.setIR('');
@@ -70,24 +85,45 @@ $code = array(
     });
     /*맞춤법 적용 아이콘 클릭*/
     $(".applySpel").on("click",function () {
-        var search = $(this).parent().parent("li.splChkList").children('.resultInfo').children('.splWrong').text();
-        search = '<span class="spelChk" style="background:red; color:#fff;">'+search+'</span>';
-        var replace = $(this).parent().parent("li.splChkList").children('.resultInfo').children('.splRight').text();
         var text = oEditor.getIR();
+        var search = $(this).parent().parent("li.splChkList").children('.resultInfo').children('.splWrong').text();
+        var replace = $(this).parent().parent("li.splChkList").children('.resultInfo').children('.splRight').text();
 
-        text = text.replace(new RegExp(search,'gi'), replace);
+        text = repApplyStyle(search, replace, text);
+       
+        oEditor.setIR('');
+        oEditor.exec("PASTE_HTML", [text]);
+
+        $(this).hide();
+    });
+    /*맞춤법 닫기 아이콘 클릭*/
+    $(".closeSpel").on("click",function () {
+        var text = oEditor.getIR();
+        var search = $(this).parent().parent("li.splChkList").children('.resultInfo').children('.splWrong').text();
+
+        text = repApplyStyle(search, '', text);
 
         oEditor.setIR('');
         oEditor.exec("PASTE_HTML", [text]);
 
-        // 주석 제거 해야함
-        $(this).hide();
-
-    });
-    /*맞춤법 닫기 아이콘 클릭*/
-    $(".closeSpel").on("click",function () {
         $(this).parent().parent("li.splChkList").hide();
     });
+
+    /*맞춤법 검사 결과 창 닫기*/
+    $(".chkTit .closedBtn").on("click", function () {
+        var text = oEditor.getIR();
+        var aSplChk = document.getElementsByName('aSplChk[]');
+
+        text = repAllStyle(aSplChk, text);
+        text = removeStyleScript(text);
+
+        oEditor.setIR('');
+        oEditor.exec("PASTE_HTML", [text]);
+
+        $(".addOn-default").show();
+        $("#addOnWrap").hide();
+    });
+
 
     /*글감리스트 addOn 아이콘*/
     $(".search-icon ul li").on("click", function () {
@@ -100,12 +136,6 @@ $code = array(
         $(".selCateg").show();
     });
 
-
-    /*맞춤법 검사 결과 창 닫기*/
-    $(".chkTit .closedBtn").on("click", function () {
-        $(".addOn-default").show();
-        $("#addOnWrap").hide();
-    });
 
     $(document).mouseup(function (e) {
         var container = $(".selCateg");
@@ -127,8 +157,6 @@ $code = array(
     });
 
     function responsiveView() {
-
-
         $("#addOnWrap").css({
             'height' :  addonHeight,
             'overflow-x' : 'hidden',
