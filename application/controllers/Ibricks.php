@@ -114,7 +114,7 @@ class Ibricks extends CI_Controller {
         $sIdx = $this->input->post('s_idx');
 
         // test code
-        // $nIdx = 72;
+        // $nIdx = 76;
 
         if(!$nIdx) 
         {
@@ -125,7 +125,7 @@ class Ibricks extends CI_Controller {
         //$sResultJson = IbricksClass::spellCheckFromString($sIn);
         $sResultJson = IbricksClass::spellCheckFromString($nIdx, $sIdx);
         $aResultJson = (array) json_decode($sResultJson);
-        
+
         $aTemp = array();
         $aTemp2 = array();
         $aTemp3 = array();
@@ -144,9 +144,8 @@ class Ibricks extends CI_Controller {
             }
             else
                 unset($aResultJson['data'][$key]);
-                
         }
-        
+
         foreach($aResultJson['data'] as $key=>$val)
         {
             $aTemp[] = $val->sentence;     
@@ -172,6 +171,14 @@ class Ibricks extends CI_Controller {
                     $aRtn['data'][] = $val;
                     break;
                 }
+            }
+        }
+
+        foreach($aRtn['data'] as $key=>$obj)
+        {
+            if(count($obj->result)<1)
+            {
+                unset($aRtn['data'][$key]);
             }
         }
 
