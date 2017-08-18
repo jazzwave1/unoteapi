@@ -11,7 +11,7 @@
                         </div>
                     </div>
                 </a>-->
-                <h1><a href="#"><img src="<?=SURL?>/images/logo2.png" alt="유노트 로고"></a></h1>
+                <h1><a href="#"><img src="<?=SURL?>/images/logo2_white.png" alt="유노트 로고"></a></h1>
             </div>
             <div class="hcenter">
             </div>
