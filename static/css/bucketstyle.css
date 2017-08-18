@@ -483,9 +483,9 @@ a.croBtn{
 }
 .page-default .p-default{
     position: absolute;
-    left:55%;
+    left:50%;
     top:30%;
-    /*margin-left: -77px;*/
+    margin-left: -77px;
     font-size: 16px;
     font-weight: bold;
     z-index: 100;
@@ -503,10 +503,10 @@ a.croBtn{
 }
 .page-default .p-default-bg{
     position: absolute;
-    left:55%;
+    left:50%;
     top:50%;
     margin-top: -100px;
-    margin-left: -20px;
+    margin-left: -100px;
 
 }
 .page-default .p-default-bg img{
@@ -837,7 +837,7 @@ i.fa-star-o.on{
 @media screen and (max-width: 1600px) and (min-width: 1300px) {
 
     .dvinner{
-        padding-left: 380px;
+        padding-left: 500px;
         padding-right: 0;
     }
 
@@ -845,7 +845,7 @@ i.fa-star-o.on{
 @media screen and (max-width: 1299px) and (min-width: 700px) {
 
     .dvinner{
-        padding-left: 380px;
+        padding-left: 500px;
         padding-right: 0;
     }
     .page{

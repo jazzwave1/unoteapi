@@ -16,6 +16,10 @@ $aCategory = $aMenuList['Category']['sub'];
                                     <a class="editMynoteBtn" href="javascript:;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span class="toolTip hide">수정하기</span></a>
                                     <!--<div>수정하기</div>-->
                                 </li>
+                                <li class="downloadPdf">
+                                    <a class="downloadPdfBtn" href="javascript:;"><i class="fa fa-file-pdf-o" aria-hidden="true"></i><span class="toolTip hide">pdf다운받기</span></a>
+                                    <!--<div>pdf파일다운받기</div>-->
+                                </li>
                                 <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>">
                                     <a class="newWindowBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')" >
                                         <i class="fa fa-external-link fa-1g " aria-hidden="true"></i><span class="toolTip hide">새창으로열기</span>
