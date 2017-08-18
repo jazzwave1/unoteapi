@@ -63,7 +63,7 @@ i.fa-plus{
     color: #2980b9;
 }
 i.fa-pencil{
-    color:#ccc;
+    color:#555;
 }
 i.fa-times{
     color:#ccc;
@@ -259,7 +259,7 @@ i.fa-times{
     width: 150px;
     left:50%;
     top:50px;
-    margin-left: -75px;
+    margin-left: -110px;
     background: #fff;
     border: 1px solid #ececec;
     border-radius: 6px;
@@ -268,7 +268,7 @@ i.fa-times{
     z-index:500;
 }
 #header .hright .userBtn:after{
-    content:'';
+    /*content:'';
     position:absolute;
     width:0;
     height:0;
@@ -277,7 +277,7 @@ i.fa-times{
     left:50%;
     margin-left:-5px;
     border-color:transparent transparent #eee transparent;
-    top:-14px;
+    top:-14px;*/
 }
 #header .hright .userBtn .userBtn-inner{
     width: 100%;

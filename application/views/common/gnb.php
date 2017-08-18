@@ -35,7 +35,7 @@
                 <!--notice-->
                 <div class="notice">
                     <div class="noti-num">1</div>
-                    <a href="#"><i class="fa fa-bell-o" aria-hidden="true"></i></a>
+                    <a href="/unoteapi/Crawling/History"><i class="fa fa-bell-o" aria-hidden="true"></i></a>
                 </div>
                 <!--//notice-->
                 <!--search-->
