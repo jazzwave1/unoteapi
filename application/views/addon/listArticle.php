@@ -9,15 +9,15 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
 
                             <div class="chkTit chkTit2">참고글감 <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span></div>
                             <div class="bsinner">
-                                <!--
+
                                 <div class="bankSubTop">
-                                    <p class="bankSub-tit" onclick="listArticle('list');"><i class="fa fa-list-ul" aria-hidden="true"></i>글감리스트</p>
+                                    <!--<p class="bankSub-tit" onclick="listArticle('list');"><i class="fa fa-list-ul" aria-hidden="true"></i>글감리스트</p>-->
                                     <?php if($menu['type'] != 'list'): ?>
-                                    <p class="bankSub-categ"><i class="fa fa-angle-right" aria-hidden="true"></i><span><i class="<?=$menu['icon']?>" aria-hidden="true"></i><?=$menu['subtitle']?></span></p>
+                                    <p class="bankSub-categ"><!--<i class="fa fa-angle-right" aria-hidden="true"></i>--><span><!--<i class="<?/*=$menu['icon']*/?>" aria-hidden="true"></i>--><?=$menu['subtitle']?> |</span></p>
                                     <?php endif; ?>
-                                    <p class="bankSub-total">전체 | <span><?=$list_cnt?></span></p>
+                                    <p class="bankSub-total">총<span><?=$list_cnt?></span>글감</p>
                                 </div>
-                                <div class="subSearch clearfix">
+                                <!--<div class="subSearch clearfix">
                                     <div class="subSearch-left">
                                         <div class="search-inner">
                                             <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
@@ -68,15 +68,16 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                         </div>
                                                         <div class="cafeTxt">
                                                             <p class="tit"><?=$oList->craw_data->title?></p>
-                                                            <p></p>
                                                             <p class="date"><?=$oList->regdate?></p>
                                                         </div>
-                                                        <div class="bookMarkBtn" id="bookMark<?=$oList->t_idx?>"><?=($oList->bookmark == 'Y') ? '<i class="fa fa-star fa-1g aria-hidden=" true"=""></i>' : ''?></div>
+                                                        <!--<div class="bookMarkBtn" id="bookMark<?/*=$oList->t_idx*/?>"><?/*=($oList->bookmark == 'Y') ? '<i class="fa fa-star fa-1g aria-hidden=" true"=""></i>' : ''*/?></div>-->
                                                     </div>
                                                 </div>
                                                 <!-- </a> -->
                                                 <div class="detail" style="display:none;">
-                                                    <?=( isset($oList->craw_data->contents) ) ? $oList->craw_data->contents : ''?>
+                                                    <div class="detailTit"><?=$oList->craw_data->title?></div>
+                                                    <div class="detailTxt"><?=( isset($oList->craw_data->contents) ) ? $oList->craw_data->contents : ''?></div>
+                                                    <div class="detailBtn">글감 적용하기</div>
                                                 </div>
                                             </li>
                                         <?php endforeach; ?>
@@ -139,7 +140,11 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
     });
 
     $(".cafeInfo").on("click",function () {
-        $(this).siblings('.detail').show();
+        $(this).siblings('.detail').slideToggle();
     });
+    $(".detailBtn").on("click",function () {
+       alert("서비스 준비중입니다");
+    });
+
 
 </script>
