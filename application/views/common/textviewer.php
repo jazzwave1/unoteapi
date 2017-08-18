@@ -74,7 +74,7 @@ $aCategory = $aMenuList['Category']['sub'];
                     </div>
                     <?php else: ?>
                     <div class="dvinner">
-                        요기에 글감 없다일 경우
+                        <!--요기에 글감 없다일 경우-->
                     </div>
                     <?php endif; ?>
                 </div>
