@@ -1,5 +1,7 @@
 <?php
 $aCrawLogo = edu_get_config('craw_logo', 'unote');
+// echo '<pre>: '. print_r( $vdata, true ) .'</pre>';
+// die();
 ?>
 
                 <!--sublist-->
@@ -15,6 +17,8 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                             <div class="search-inner">
                                 <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
                                 <input type="search" id="search" placeholder="제목 검색" />
+                                <!--<i class="fa fa-search" aria-hidden="true"></i>
+                                <input type="text" id="search" placeholder="제목 검색"onkeypress="if(event.keyCode==13) {alert('search');}" />-->
                             </div>
                         </div>
                         <div class="sroll-inner">
