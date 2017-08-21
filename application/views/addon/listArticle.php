@@ -143,7 +143,8 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
         $(this).siblings('.detail').slideToggle();
     });
     $(".detailBtn").on("click",function () {
-       alert("서비스 준비중입니다");
+       var detailTxt = $(this).siblings('.detailTxt').text();
+       setDetailText(detailTxt);
     });
 
 
