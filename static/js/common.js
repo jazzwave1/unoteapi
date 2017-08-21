@@ -64,7 +64,17 @@ $(".userInfo").on("click",function () {
     $(".name i").toggleClass("fa-caret-down fa-caret-up");
 });
 
-
+/*퀵버튼*/
+$(".bankSubList>li").mouseenter(function () {
+    /* console.log("mouseenter");*/
+     $(this).children(".quickBtn").show();
+     $(".quickBtn").css({'background': 'rgba(0,0,0,0.2)'});
+ });
+$(".bankSubList>li").mouseleave(function () {
+    /* console.log("mouseenter");*/
+    $(this).children(".quickBtn").hide();
+    $(".quickBtn").css({'background': '#fff'});
+});
 
 
 $('#menubarIcon').on('click',clickMenubar);
