@@ -142,3 +142,10 @@ function chkLoginInfo()
     // view login page 
     //header('Location: '.HOSTURL.'/Login');
 }
+function replaceArticleHTML($sText)
+{
+    $sText = preg_replace("/<script([^>]*)>/i", '&lt;script$1&gt;', $sText);
+    $sText = preg_replace("/<\/script>/i", '&lt;/script&gt;', $sText);
+
+    return $sText;
+}

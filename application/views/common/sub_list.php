@@ -1,5 +1,7 @@
 <?php
 $aCrawLogo = edu_get_config('craw_logo', 'unote');
+// echo '<pre>: '. print_r( $vdata, true ) .'</pre>';
+// die();
 ?>
 
 
@@ -17,11 +19,13 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                             <div class="search-inner">
                                 <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
                                 <input type="search" id="search" placeholder="제목 검색" />
+                                <!--<i class="fa fa-search" aria-hidden="true"></i>
+                                <input type="text" id="search" placeholder="제목 검색"onkeypress="if(event.keyCode==13) {alert('search');}" />-->
                             </div>
                         </div>
                         <div class="sroll-inner">
                             <!--리스트가 화면 height넘어가면, class scroll-subList생김-->
-                            <div class="scroll-subList">
+                            <div id="scrollStyle"  class="scroll-subList">
                             <!--글감리스트-->
                             <ul class="bankSubList">
                             <?php if( is_array($vdata['sublist']) && count($vdata['sublist'])>0 ): ?>

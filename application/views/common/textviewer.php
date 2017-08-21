@@ -54,7 +54,7 @@ $aCategory = $aMenuList['Category']['sub'];
                                 </li>
                             </ul>
                         </div>
-                        <div class="page">
+                        <div id="scrollStyle" class="page">
                             <div class="p-top clearfix">
                                 <div class="top-inner">
                                     <div class="clearfix">

@@ -93,6 +93,10 @@ class Article extends CI_Controller {
         edu_get_instance('ArticleClass');
 
         $aArticleDetailInfo = ArticleClass::getArticleDetailInfo($t_idx);
+        if( isset($aArticleDetailInfo->craw_data->contents) )
+        {
+            $aArticleDetailInfo->craw_data->contents = replaceArticleHTML($aArticleDetailInfo->craw_data->contents);
+        }
 
         return $aArticleDetailInfo;
     } 
@@ -357,6 +361,16 @@ class Article extends CI_Controller {
             $aVdata['sublist'] = ArticleClass::getArticleCategoryInfo($usn, $category_idx);
         }
 
+        if( is_array($aVdata['sublist']) && count($aVdata['sublist'])>0 )
+        {
+            foreach ($aVdata['sublist'] as $key => $obj) {
+                if( isset($obj->craw_data->contents) )
+                {
+                    $aVdata['sublist'][$key]->craw_data->contents = replaceArticleHTML($obj->craw_data->contents);
+                }
+            }
+        }
+
         $aVdata['sublist_cnt'] = 0;
         if(is_array($aVdata['sublist']))
         {
@@ -372,9 +386,9 @@ class Article extends CI_Controller {
                     ,'crawdate' => $aArticleDetailInfo->craw_data->datetime
                     ,'regdate' => $aArticleDetailInfo->regdate
                     ,'title' => $aArticleDetailInfo->craw_data->title
-                    ,'contents' => $aArticleDetailInfo->craw_data->contents
+                    ,'contents' => replaceArticleHTML($aArticleDetailInfo->craw_data->contents)
                     ,'bookmark' => $aArticleDetailInfo->bookmark
-            );            
+            );
         }
 
         $data = array(

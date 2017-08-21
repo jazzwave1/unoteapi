@@ -83,8 +83,21 @@ class Note extends CI_Controller {
     }
     public function viewNote($n_idx)
     {
+
+        if(! $n_idx )
+        {
+            alert_close('존재하지 않은 노트입니다.');
+            die;
+        }
+
         $aVdata = array();
         $aNoteDetailInfo = $this->_getNoteDetailInfo($n_idx);
+
+        if($aNoteDetailInfo['is_use'] == 'N' )
+        {
+            alert_close('존재하지 않은 노트입니다.');
+            die;
+        }
 
         $aVdata['n_idx'] = $aNoteDetailInfo['n_idx'];
         $aVdata['title'] = $aNoteDetailInfo['title'];
