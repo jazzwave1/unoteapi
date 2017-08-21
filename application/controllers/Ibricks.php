@@ -322,7 +322,7 @@ class Ibricks extends CI_Controller {
         $category_idx = $this->input->post('category_idx');
 
         //test code
-        // $sType = 'category';
+        // $sType = 'list';
         // $category_idx = '25';
 
         if(!$usn) 
@@ -359,6 +359,13 @@ class Ibricks extends CI_Controller {
         if(is_array($aArticle['list']))
         {
             $aArticle['list_cnt'] = count($aArticle['list']);
+        }
+
+        foreach ($aArticle['list'] as $key => $obj) {
+            if( isset($obj->craw_data->contents) )
+            {
+                $aArticle['list'][$key]->craw_data->contents = replaceArticleHTML($obj->craw_data->contents);
+            }
         }
 
         //$sResultJson = IbricksClass::spellCheckFromString($sIn);
