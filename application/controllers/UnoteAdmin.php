@@ -14,12 +14,11 @@ class UnoteAdmin extends CI_Controller {
 
         $this->aMenu = array(
             array( 
-                 'title'       => '검색 & DashBoard'
-                ,'title_class' => 'fa fa-search' 
+                 'title'       => 'DashBoard'
+                ,'title_class' => 'fa fa-dashboard' 
                 ,'active'      => true
                 ,'child'       => array( 
                      array('link' => HOSTURL.'/UnoteAdmin/UnoteDashboard', 'title' => 'DashBoard')
-                    ,array('link' => HOSTURL.'/unoteadmin/userlist', 'title' => '프로그램별 검색')
                 )
             )
             ,array( 
@@ -43,11 +42,16 @@ class UnoteAdmin extends CI_Controller {
             ,'sTitle' => '[ Tip : 팁입니다. ]'
             ,'navi'   => array('검색&DashBoard', 'Dashboard')
         );
+        
+        $aResult = array(
+             'sArticleString' => $this->_getArticleCnt()
+            ,'sNoteString'    => $this->_getNoteCnt()
+        );
 
         $data = array(
              'menu'           => $this->load->view('admin/menu', $aMenu , true)
             ,'content_header' => $this->load->view('admin/content_header', $aContentHeader , true)
-            ,'main_content'   => $this->load->view('admin/unote_dashboard', $temp , true) 
+            ,'main_content'   => $this->load->view('admin/unote_dashboard', $aResult , true) 
             ,'footer'         => $this->load->view('admin/footer', $temp, true)
         );
 
@@ -94,7 +98,16 @@ class UnoteAdmin extends CI_Controller {
 
         $this->load->view('admin/layout', $data);  
     }
-    
+
+    private function _getArticleCnt()
+    {
+        return $this->admin_model->getArticleCnt();     
+    }
+    private function _getNoteCnt()
+    {
+        return $this->admin_model->getNoteCnt();     
+    }
+
     //////////////////
     // RPC Function //
     //////////////////

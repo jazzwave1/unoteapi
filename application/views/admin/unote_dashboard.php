@@ -6,7 +6,7 @@
         <!-- DONUT CHART -->
         <div class="box box-danger">
           <div class="box-header with-border">
-            <h3 class="box-title">API Call Count</h3>
+            <h3 class="box-title">글감 수집 현황</h3>
 
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -22,10 +22,32 @@
         <!-- /.box -->
     </div>
 
+
+    <div class="col-md-6">
+        <!-- LINE CHART -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">등록중인 글</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <div class="box-body chart-responsive">
+                <div class="chart" id="line-chart" style="height: 300px;"></div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    
+
     <div class="col-md-6">
         <div class="box box-success">
           <div class="box-header with-border">
-            <h3 class="box-title">수집윤문</h3>
+            <h3 class="box-title">맞춤법 & 윤문추천 Count</h3>
 
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -46,12 +68,14 @@ $(function () {
     var donut = new Morris.Donut({
         element: 'sales-chart',
         resize: true,
-        colors: ["#3c8dbc", "#f56954", "#00a65a"],
-        data: [
-            {label: "맞춤법검사", value: 12},
-            {label: "윤문추천", value: 30},
-            {label: "글 수집", value: 20}
-        ],
+        colors: ["#3c8dbc","#00a65a","#f56954"],
+        //data: [
+        //    {label: "Facebook", value: 12},
+        //    {label: "Naver Blog", value: 30},
+        //    {label: "Daum Cafe", value: 20}
+        //],
+        data : <?=$sArticleString?>
+        ,
         hideHover: 'auto'
     });
     //BAR CHART
@@ -73,6 +97,30 @@ $(function () {
         labels: ['CPU', 'DISK'],
         hideHover: 'auto'
     });
+    // LINE CHART
+    var line = new Morris.Line({
+        element: 'line-chart',
+        resize: true,
+//      data: [
+//      {y: '2011 Q1', item1: 2666},
+//      {y: '2011 Q2', item1: 2778},
+//      {y: '2011 Q3', item1: 4912},
+//      {y: '2011 Q4', item1: 3767},
+//      {y: '2012 Q1', item1: 6810},
+//      {y: '2012 Q2', item1: 5670},
+//      {y: '2012 Q3', item1: 4820},
+//      {y: '2012 Q4', item1: 15073},
+//      {y: '2013 Q1', item1: 10687},
+//      {y: '2013 Q2', item1: 8432}
+//      ],
+        data : <?=$sNoteString?>,
+        xkey: 'y',
+        ykeys: ['item1'],
+        labels: ['Item 1'],
+        lineColors: ['#3c8dbc'],
+        hideHover: 'auto'
+    });
+    
 });
 </script>
 <!-- Morris.js charts -->

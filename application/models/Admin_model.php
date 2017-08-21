@@ -3,29 +3,75 @@ class Admin_model extends CI_model
 {
     public function __construct()
     {
-    //$this->file_path    = "/home/epubweb/ftp/titanbooks/";
-    //$this->img_url_path = "http://ebook.eduniety.net/ftp/titanbooks/";
-
         $this->admin_dao = edu_get_instance('admin_dao', 'model');
     }
 
-    public function getBookCount($sSDate, $sEDate)
+    public function getArticleCnt()
     {
-        if(!$sSDate || !$sEDate) return false;
+        $aResult = $this->admin_dao->getArticleCnt();    
 
-        $aInput = array('sDate'=>$sSDate."000000",'eDate'=>$sEDate."235959") ;
-        return $this->admin_dao->getBookCount($aInput);
-    }
-    public function getBookCountMeta($sSDate, $sEDate)
+        return $this->_setArticleCntString($aResult);
+    }     
+    private function _setArticleCntString($aResult)
     {
-        if(!$sSDate || !$sEDate) return false;
+        $aTemp = array(
+             1 => 0
+            ,2 => 0
+            ,3 => 0
+        );
+        $aRtn = array(
+             array( 'label'=>'Facebook'   , 'value'=>0) 
+            ,array( 'label'=>'Naver Blog' , 'value'=>0) 
+            ,array( 'label'=>'Daum Cafe'  , 'value'=>0) 
+        );
+        if(count($aResult)>1)
+        {
+            for($i=0 ; $i<count($aResult); $i++)
+            {
+                switch($aResult[$i]->site_id)
+                {
+                    case 1:
+                        $aTemp[1] += $aResult[$i]->cnt; 
+                        break;
+                    case 2:
+                        $aTemp[2] += $aResult[$i]->cnt; 
+                        break;
+                    case 3:
+                        $aTemp[3] += $aResult[$i]->cnt; 
+                        break;
+                }
+            }
+        } 
+        //{label: "Facebook", value: 12},
+        //{label: "Naver Blog", value: 30},
+        //{label: "Daum Cafe", value: 20}
 
-        $aInput = array('sDate'=>$sSDate."000000",'eDate'=>$sEDate."235959") ;
-        return $this->admin_dao->getBookCountMeta($aInput);
+        if(count($aTemp)>=1)
+        {
+            $aRtn = array(
+                 array( 'label'=>'Facebook'   , 'value'=>$aTemp[3]) 
+                ,array( 'label'=>'Naver Blog' , 'value'=>$aTemp[1]) 
+                ,array( 'label'=>'Daum Cafe'  , 'value'=>$aTemp[2]) 
+            );
+        }
+        
+        return json_encode($aRtn);
     }
-    public function getAws()
+    public function getNoteCnt()
     {
-        $aInput = array('account'=>'1') ;
-        return $this->admin_dao->getAws($aInput);
+        $aResult = $this->admin_dao->getNoteCnt();    
+
+        return $this->_setNoteCntString($aResult);
     }
+    private function _setNoteCntString($aResult)
+    {
+        $aTemp = array(); 
+        foreach($aResult as $key=>$val)
+        {
+            $aTemp[] = array('y'=>$val->month, 'item1'=>$val->cnt); 
+        }
+        return json_encode($aTemp);
+    } 
+    
+    
 }
