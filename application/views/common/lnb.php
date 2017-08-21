@@ -249,6 +249,7 @@ function callCrawl()
     if( $('#site').val() == 3 || $('#site').val() == "" ){
         var s_id  = "AT"; 
         var s_pwd = $('#facebookToken').val(); 
+        $('#site').val(3) ;
     }
     else if( $('#site').val() == 1)
     {
