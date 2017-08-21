@@ -245,7 +245,12 @@ function callCrawl()
     var test = new Array(); 
     var s_id = "";
     var s_pwd = ""; 
-    if( $('#site').val() == 1 || $('#site').val() == "" )
+    
+    if( $('#site').val() == 3 || $('#site').val() == "" ){
+        var s_id  = "AT"; 
+        var s_pwd = $('#facebookToken').val(); 
+    }
+    else if( $('#site').val() == 1)
     {
         $('#site').val(1);
         var s_id  = $('#naverUserId').val(); 
@@ -255,9 +260,6 @@ function callCrawl()
         var s_id  = $('#daumUserId').val(); 
         var s_pwd = $('#daumUserPwd').val(); 
         noticeAlert(s_id, s_pwd);
-    }else if( $('#site').val() == 3 ){
-        var s_id  = "AT"; 
-        var s_pwd = $('#facebookToken').val(); 
     }
             
     $.post(
