@@ -4,6 +4,8 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
 // die();
 ?>
 
+
+
                 <!--sublist-->
                 <div id="bankSub" class="full-left-sublist my-note">
                     <div class="bsinner">
@@ -30,20 +32,57 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                             <?php foreach ($vdata['sublist'] as $oSublist): ?>
                                 <!--안읽은 리스트 class="yetReadList"-->
                                 <li class="sublist-li <?=($this->uri->segment(2) == 'List' && $oSublist->readchk == '') ? 'yetReadList' : ''?>" data-t_idx="<?=$oSublist->t_idx?>" data-method="<?=$this->uri->segment(2)?>">
+                                    <!--퀵버튼-->
+                                    <div class="hide quickBtn clearfix">
+                                        <ul class="clearfix">
+                                            <li class="bookMark">
+                                                <a class="bookMarkBtn" href="javascript:;"><i aria-hidden="true" class="fa fa-star-o fa-1g <?=( isset($vdata['aDetail']['bookmark']) && $vdata['aDetail']['bookmark'] == 'Y' ) ? 'on' : ''?>"></i><span class="toolTip hide">북마크</span></a>
+                                                <!--<div>북마크</div>-->
+                                            </li>
+                                            <li class="moveCateg">
+                                                <a class="moveCategBtn" href="javascript:;"><i class="fa fa-folder-o" aria-hidden="true"></i><span class="hide toolTip">카테고리</span></a>
+                                                <!--<div>카테고리 이동</div>-->
+                                                <!--카테고리 이동 안내 창-->
+                                                <div class="selCateg">
+                                                    <div class="headTit">대상 카테고리 이동</div>
+                                                    <div class="selCateg-inner">
+                                                        <div class="selList">
+                                                            <ul>
+                                                                <!--<li class="new"><i class="fa fa-plus-circle" aria-hidden="true"></i>새 카테고리</li>-->
+                                                                <?php foreach($aCategory as $c_idx => $aData): ?>
+                                                                    <li class="goCateg" data-c_idx="<?=$c_idx?>" ><i class="fa fa-folder-open" aria-hidden="true"></i><?=$aData['subtitle']?></li>
+                                                                <?php endforeach; ?>
+                                                            </ul>
+                                                        </div>
+                                                        <!--<div class="selBtn">
+                                                            <div>확인</div>
+                                                            <div>취소</div>
+                                                        </div>-->
+                                                    </div>
+                                                </div><!--//카테고리 이동 안내 창-->
+                                            </li>
+                                            <li class="articleDelBtn" >
+                                                <a href="javascript:;"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a>
+                                                <!--<div>휴지통</div>-->
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--//퀵버튼-->
                                     <a href="javascript:void(0)">
                                         <div class="cafeInfo">
                                             <div class="cafeinner clearfix">
                                                 <div class="cafeLogo">
                                                     <p>
-                                                    <img src="<?=$aCrawLogo[$oSublist->craw_data->corporation]?>">
+                                                        <img src="<?=$aCrawLogo[$oSublist->craw_data->corporation]?>">
                                                     </p>
                                                 </div>
                                                 <div class="cafeTxt">
                                                     <p class="tit"><?=$oSublist->craw_data->title?></p>
-                                                    <p></p>
-                                                    <p class="date"><?=$oSublist->craw_data->datetime?></p>
                                                 </div>
-                                                <div class="bookMarkBtn" id="bookMark<?=$oSublist->t_idx?>"><?=($oSublist->bookmark == 'Y') ? '<i class="fa fa-star fa-1g aria-hidden="true"></i>' : ''?></div>
+                                                <div class="cafeDate">
+                                                    <p><?=$oSublist->craw_data->datetime?></p>
+                                                </div>
+                                               <!-- <div class="bookMarkBtn" id="bookMark<?/*=$oSublist->t_idx*/?>"><?/*=($oSublist->bookmark == 'Y') ? '<i class="fa fa-star fa-1g aria-hidden="true"></i>' : ''*/?></div>-->
                                                 <!--<div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div> -->
                                             </div>
                                         </div>
@@ -63,3 +102,5 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                     </div>
                 </div>
                 <!--//sublist-->
+
+

@@ -226,7 +226,6 @@ a.croBtn{
     background-color: #fff;
     padding: 10px;
     text-align: left;
-    border-top: 1px solid #eee;
 }
 .listFilter p:first-child{
     display: inline-block;
@@ -277,14 +276,38 @@ a.croBtn{
 .bankSubList{
 
 }
-.bankSubList .on{
+.bankSubList li{
+    position: relative;
+}
+.bankSubList li.on{
     background-color:#d7eaf6;
     border-right: 3px solid #2980b9;
+}
+.bankSubList li .quickBtn{
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+}
+.bankSubList li .quickBtn  ul{
+    position: absolute;
+    right: 10px;
+    top:10px;
+}
+.bankSubList li .quickBtn  ul li{
+    float: left;
+    padding:0 5px;
+}
+.bankSubList li .quickBtn  ul li i{
+    font-size: 16px;
+    font-weight: bold;
+
 }
 .bankSubList a{
     display: block;
     text-align: left;
 }
+
 .bankSubList  .yetReadList{
     background-color:#eee;
     border-bottom:1px solid #fff;
@@ -359,11 +382,14 @@ a.croBtn{
     border-bottom: 1px solid #eee;
     padding: 10px 0
 }
-.cafeInfo div{
+/*.cafeInfo div{
     float: left;
-}
+}*/
 .cafeInfo .cafeinner{
-    padding: 0 10px;
+   width: 100%;
+}
+.cafeInfo .cafeinner>div{
+    float: left;
 }
 .cafeInfo .cafeLogo{
     width: 60px;
@@ -383,8 +409,9 @@ a.croBtn{
 }
 .cafeInfo .cafeTxt{
     width: 180px;
+    line-height: 1.5;
     padding-top: 10px;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
 }
 .cafeInfo .cafeTxt .tit{
     font-weight: bold;
@@ -395,11 +422,13 @@ a.croBtn{
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     word-wrap:break-word;
+    padding-right: 10px;
 }
-.cafeInfo .cafeTxt .date{
+.cafeInfo .cafeDate{
+    display: inline-block;
+    width: 50px;
+    padding-top: 10px;
     font-size: 11px;
-}
-.cafeInfo .cafeTxt p{
 }
 .cafeInfo div.bookMarkBtn{
     width: 20px;
