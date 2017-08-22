@@ -72,6 +72,37 @@ class Admin_model extends CI_model
         }
         return json_encode($aTemp);
     } 
-    
-    
+    public function getApiCallCnt()
+    {
+        $aResult = $this->admin_dao->getApiCallCnt();    
+        
+        return $this->_setApiCallCntString($aResult);
+    }   
+    private function _setApiCallCntString($aResult)
+    {
+        // init
+        $aTemp = array(date('Ym-d')=>array());
+        
+        for($i=0 ; $i<count($aResult) ; $i++)
+        {
+            array_push($aTemp[$aResult[$i]->day], array('api'=>$aResult[$i]->api , 'cnt'=>$aResult[$i]->cnt));
+        }
+
+        // init 
+        $aRtn = array();
+        $b_cnt = 0;
+        $s_cnt = 0;
+        
+        foreach($aTemp as $key=>$val)
+        {
+            foreach($val as $k=>$v)
+            {
+                if($v['api'] == 'beauticheck') $b_cnt = $v['cnt'];
+                if($v['api'] == 'spellcheck') $s_cnt = $v['cnt'];
+            }
+            
+            $aRtn[] = array('y'=>$key,'a'=>$b_cnt, 'b'=>$s_cnt); 
+        }
+        return json_encode($aRtn) ;
+    } 
 }

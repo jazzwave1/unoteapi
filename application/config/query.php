@@ -460,12 +460,22 @@ $config['query'] = array(
         )
         ,'getNoteCnt' => array(
             'query' => "
-                 SELECT date_format(regdate, '%Y%m-%d') as month, count(*) as cnt 
+                 SELECT date_format(regdate, '%Y-%m-%d') as month, count(*) as cnt 
                    FROM eduniety.note
                   WHERE deldate is null
                     AND n_idx >= ?
-                  GROUP by date_format(regdate, '%Y%m-%d')"
+                  GROUP by date_format(regdate, '%Y-%m-%d')"
             ,'data' => array('n_idx')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
+        ,'getApiCallCnt' => array(
+            'query' => "
+                SELECT api , date_format(regdate, '%Y%m-%d')as day, count(*) as cnt
+                FROM eduniety.api_call_history
+                where usn >= ?
+                group by api , date_format(regdate, '%Y%m-%d')"
+            ,'data' => array('usn')
             ,'btype'=> 'i'
             ,'null' => array()
         )

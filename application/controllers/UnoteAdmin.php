@@ -46,6 +46,7 @@ class UnoteAdmin extends CI_Controller {
         $aResult = array(
              'sArticleString' => $this->_getArticleCnt()
             ,'sNoteString'    => $this->_getNoteCnt()
+            ,'sApiCallString' => $this->_getApiCallCnt()
         );
 
         $data = array(
@@ -106,6 +107,10 @@ class UnoteAdmin extends CI_Controller {
     private function _getNoteCnt()
     {
         return $this->admin_model->getNoteCnt();     
+    }
+    private function _getApiCallCnt()
+    {
+        return $this->admin_model->getApiCallCnt();     
     }
 
     //////////////////

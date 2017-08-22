@@ -12,15 +12,22 @@ class Admin_dao extends Common_dao
     
     public function getArticleCnt()
     {
-        $aInput = array('site_id'=>1);
+        $aInput = array('site_id' => 1);
         $aConfig = $this->queryInfoAdmin['getArticleCnt'];
 
         return $this->actModelFuc($aConfig, $aInput);
     }
     public function getNoteCnt()
     {
-        $aInput = array('n_idx'=>1);
+        $aInput = array('n_idx' => 1);
         $aConfig = $this->queryInfoAdmin['getNoteCnt'];
+
+        return $this->actModelFuc($aConfig, $aInput);
+    }
+    public function getApiCallCnt()
+    {
+        $aInput = array('usn' => 1);
+        $aConfig = $this->queryInfoAdmin['getApiCallCnt'];
 
         return $this->actModelFuc($aConfig, $aInput);
     }
