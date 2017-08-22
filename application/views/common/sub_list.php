@@ -44,7 +44,6 @@ $aCategory = $aMenuList['Category']['sub'];
                                                 </li>
                                             <?php else: ?>
                                             <li>
-                                                <?=$oSublist->bookmark?>
                                                 <a class="bookMarkBtn on" href="javascript:articleBookmark('<?=$oSublist->t_idx?>');"><i aria-hidden="true" class="fa fa-star-o fa-1g <?=( isset($vdata['aDetail']['bookmark']) && $vdata['aDetail']['bookmark'] == 'Y' ) ? 'on' : ''?>"></i></a>
                                                 <!--<div>북마크</div>-->
                                             </li>
@@ -58,7 +57,7 @@ $aCategory = $aMenuList['Category']['sub'];
                                     <!--//퀵버튼-->
                                     <a href="javascript:void(0)">
                                         <div class="cafeInfo">
-                                            <div class="bookMarkChk hide">
+                                            <div class="bookMarkChk <?=($oSublist->bookmark == 'Y') ? '' : 'hide'?>" id="bookMark<?=$oSublist->t_idx?>">
                                                 <div><i class="fa fa-star" aria-hidden="true"></i></div>
                                             </div>
                                             <div class="cafeinner clearfix">

@@ -371,13 +371,13 @@ function articleBookmark(t_idx)
 
           if(data.type == 'chk')
           {
-              $('#bookMark'+t_idx).html('<i class="fa fa-star fa-1g" aria-hidden="true"></i>');
-              $('.bookMark').children().children('i').addClass('on');
+              $('#bookMark'+t_idx).show();
+              // $('.bookMark').children().children('i').addClass('on');
           }
           else if(data.type == 'unchk')
           {
-              $('#bookMark'+t_idx).html('');
-              $('.bookMark').children().children('i').removeClass('on');
+              $('#bookMark'+t_idx).hide();
+              // $('.bookMark').children().children('i').removeClass('on');
           }
         }
         // 삭제 실패
