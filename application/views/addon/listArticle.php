@@ -68,14 +68,14 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                         </div>
                                                         <div class="cafeTxt">
                                                             <p class="tit"><?=$oList->craw_data->title?></p>
-                                                            <p class="date"><?=$oList->regdate?></p>
+                                                            <!--<p class="date"><?=$oList->regdate?></p>-->
                                                         </div>
                                                         <!--<div class="bookMarkBtn" id="bookMark<?/*=$oList->t_idx*/?>"><?/*=($oList->bookmark == 'Y') ? '<i class="fa fa-star fa-1g aria-hidden=" true"=""></i>' : ''*/?></div>-->
                                                     </div>
                                                 </div>
                                                 <!-- </a> -->
                                                 <div class="detail" style="display:none;">
-                                                    <div class="detailTit"><?=$oList->craw_data->title?></div>
+                                                    <div class="detailTit"><?=$oList->craw_data->title?> <span class="detailDate"><?=$oList->craw_data->datetime?></span></div>
                                                     <div class="detailTxt"><?=( isset($oList->craw_data->contents) ) ? $oList->craw_data->contents : ''?></div>
                                                     <div class="detailBtn">글감 적용하기</div>
                                                 </div>
@@ -143,7 +143,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
         $(this).siblings('.detail').slideToggle();
     });
     $(".detailBtn").on("click",function () {
-       var detailTxt = $(this).siblings('.detailTxt').text();
+       var detailTxt = $(this).siblings('.detailTxt').html();
        setDetailText(detailTxt);
     });
 

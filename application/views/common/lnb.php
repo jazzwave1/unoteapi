@@ -58,7 +58,9 @@ if($this->uri->segment(2) == 'Category')
                                     <a href="<?=HOSTURL?>/<?=$controller?>/<?=$method?>">
                                     <i class="<?=$aMenuSubData['icon']?>" aria-hidden="true"></i><?=$aMenuSubData['subtitle']?><span class="lnb-cnt"><?=$aMenuSubData['total_cnt']?></span>
                     <?php if($controller.'/'.$method == 'Article/List'): ?>
+                        <?php if($aMenuSubData['unread_cnt']>0): ?>
                                     <span class="num"><em>N</em><?=$aMenuSubData['unread_cnt']?></span>
+                        <?php endif; ?>
                     <?php endif; ?>
                                     </a>
                                 </li>

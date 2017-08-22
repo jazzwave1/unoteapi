@@ -371,6 +371,9 @@ class Article extends CI_Controller {
             }
         }
 
+        // echo '<pre>: '. print_r( $aVdata['sublist'], true ) .'</pre>';
+        // die();
+
         $aVdata['sublist_cnt'] = 0;
         if(is_array($aVdata['sublist']))
         {
@@ -386,6 +389,7 @@ class Article extends CI_Controller {
                     ,'crawdate' => $aArticleDetailInfo->craw_data->datetime
                     ,'regdate' => $aArticleDetailInfo->regdate
                     ,'title' => $aArticleDetailInfo->craw_data->title
+                    ,'url' => '<a href="'.$aArticleDetailInfo->craw_data->url.'" target="_blank">링크 바로가기</a>'
                     ,'contents' => replaceArticleHTML($aArticleDetailInfo->craw_data->contents)
                     ,'bookmark' => $aArticleDetailInfo->bookmark
             );

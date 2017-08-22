@@ -382,6 +382,17 @@ class Ibricks extends CI_Controller {
             $aArticle['list'] = ArticleClass::getArticleCategoryInfo($usn, $category_idx);
         }
 
+        if( is_array($aArticle['list']) && count($aArticle['list'])>0 )
+        {
+            foreach ($aArticle['list'] as $key => $obj) {
+                if( isset($obj->craw_data->contents) )
+                {
+                    $aArticle['list'][$key]->craw_data->contents = nl2br($obj->craw_data->contents);
+                    $aArticle['list'][$key]->craw_data->contents = replaceArticleHTML($obj->craw_data->contents);
+                }
+            }
+        }
+
         $aArticle['menu']['type'] = $sType;
         $aArticle['category'] = $aMenuList['Category']['sub'];
         
@@ -389,13 +400,6 @@ class Ibricks extends CI_Controller {
         if(is_array($aArticle['list']))
         {
             $aArticle['list_cnt'] = count($aArticle['list']);
-        }
-
-        foreach ($aArticle['list'] as $key => $obj) {
-            if( isset($obj->craw_data->contents) )
-            {
-                $aArticle['list'][$key]->craw_data->contents = replaceArticleHTML($obj->craw_data->contents);
-            }
         }
 
         //$sResultJson = IbricksClass::spellCheckFromString($sIn);

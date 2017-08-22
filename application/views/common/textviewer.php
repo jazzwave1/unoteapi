@@ -5,6 +5,9 @@ $method = strtolower($this->uri->segment(2));
 $this->load->library('MenuClass');
 $aMenuList = MenuClass::getMenuList($usn);
 $aCategory = $aMenuList['Category']['sub'];
+
+// echo '<pre>: '. print_r( $vdata['aDetail'], true ) .'</pre>';
+// die();
 ?>
                 <!--detailView-->
                 <div id="detailView">
@@ -61,6 +64,7 @@ $aCategory = $aMenuList['Category']['sub'];
                                         <div class="p-info" data-n_idx="<?=( isset($vdata['aDetail']['n_idx']) ) ? $vdata['aDetail']['n_idx'] : ''?>" data-t_idx="<?=( isset($vdata['aDetail']['t_idx']) ) ? $vdata['aDetail']['t_idx'] : ''?>" data-type="<?=$method?>" data-controller="<?=$controller?>">
                                             <p class="p-date"><?=( isset($vdata['aDetail']) ) ? $vdata['aDetail']['crawdate'] : ''?></p>
                                             <p class="p-tit"><?=( isset($vdata['aDetail']) ) ? $vdata['aDetail']['title'] : ''?></p>
+                                            <p class="p-url"><?=( isset($vdata['aDetail']) ) ? $vdata['aDetail']['url'] : ''?></p>
                                         </div>
                                     </div>
                                 </div>

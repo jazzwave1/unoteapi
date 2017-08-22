@@ -47,10 +47,14 @@ class  Article_model extends CI_model{
                     {
                         $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
                     }
+                    else
+                    {
+                        $aArticleInfo[$key]->craw_data->title = '내용없음';
+                    }
 
                     $datetime = $oData->craw_data->datetime;
                     $date = new DateTime($datetime);
-                    $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d. H:i');
+                    $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d.');
                 }
                 $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
@@ -87,10 +91,14 @@ class  Article_model extends CI_model{
                     {
                         $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
                     }
+                    else
+                    {
+                        $aArticleInfo[$key]->craw_data->title = '내용없음';
+                    }
 
                     $datetime = $oData->craw_data->datetime;
                     $date = new DateTime($datetime);
-                    $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d. H:i');
+                    $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d.');
                 }
                 $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
@@ -127,10 +135,14 @@ class  Article_model extends CI_model{
                     {
                         $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
                     }
+                    else
+                    {
+                        $aArticleInfo[$key]->craw_data->title = '내용없음';
+                    }
 
                     $datetime = $oData->craw_data->datetime;
                     $date = new DateTime($datetime);
-                    $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d. H:i');
+                    $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d.');
                 }
                 $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
@@ -161,6 +173,21 @@ class  Article_model extends CI_model{
             foreach ($aArticleInfo as $key => $oData)
             {
                 $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
+                if($oData->craw_data->corporation == '페이스북')
+                {
+                    if(isset($oData->craw_data->contents))
+                    {
+                        $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
+                    }
+                    else
+                    {
+                        $aArticleInfo[$key]->craw_data->title = '내용없음';
+                    }
+
+                    $datetime = $oData->craw_data->datetime;
+                    $date = new DateTime($datetime);
+                    $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d.');
+                }
                 $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
         }
@@ -192,16 +219,17 @@ class  Article_model extends CI_model{
                     }
                     else
                     {
-                        $url = '<a href="'.$oData->craw_data->url.'" target="_blank">페이스북 링크 바로가기</a><br><br>';
-                        $aArticleDetailInfo[$key]->craw_data->title = $url;
+                        $aArticleDetailInfo[$key]->craw_data->title = '내용없음';
                     }
 
                     $datetime = $oData->craw_data->datetime;
                     $date = new DateTime($datetime);
-                    $aArticleDetailInfo[$key]->craw_data->datetime = $date->format('Y.m.d. H:i');
+                    $aArticleDetailInfo[$key]->craw_data->datetime = $date->format('Y.m.d.');
                 }
 
                 $aArticleDetailInfo[$key]->craw_data->contents = $contents;
+                $aArticleDetailInfo[$key]->url = '<a href="'.$oData->craw_data->url.'" target="_blank">링크 바로가기</a>';
+
                 $aArticleDetailInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
         }
@@ -215,7 +243,7 @@ class  Article_model extends CI_model{
     {
         if(!$t_idx) return false;
 
-        $aInput = array('t_idx' => $t_idx, 'deltype' => 'DEL', 'deldate' => date('Y-m-d H:i:s') );
+        $aInput = array('t_idx' => $t_idx, 'deltype' => 'DEL', 'deldate' => date('Y.m.d. H:i:s') );
 
         if( $this->article_dao->deleteArticle($aInput) )
             return true;

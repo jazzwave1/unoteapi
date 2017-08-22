@@ -29,7 +29,7 @@ class Note_model extends CI_model
                     $sSummary = strip_tags($aNoteSummary[0]->contents);
                 }
 
-                $aNoteInfo[$key]->regdate = substr($obj->regdate,0,4).'.'.substr($obj->regdate,5,2).'.'.substr($obj->regdate,8,2);
+                $aNoteInfo[$key]->regdate = substr($obj->regdate,0,4).'.'.substr($obj->regdate,5,2).'.'.substr($obj->regdate,8,2).'.';
                 $aNoteInfo[$key]->summary = $sSummary;
                 $aNoteInfo[$key]->thumbnail = '';
             }
@@ -65,7 +65,7 @@ class Note_model extends CI_model
             $aRes['is_use'] = 'Y';
             $aRes['n_idx'] = $aNoteInfo[0]->n_idx;
             $aRes['title'] = $aNoteInfo[0]->title;
-            $aRes['regdate'] = substr($aNoteInfo[0]->regdate,0,4).'.'.substr($aNoteInfo[0]->regdate,5,2).'.'.substr($aNoteInfo[0]->regdate,8,2);
+            $aRes['regdate'] = substr($aNoteInfo[0]->regdate,0,4).'.'.substr($aNoteInfo[0]->regdate,5,2).'.'.substr($aNoteInfo[0]->regdate,8,2).'.';
 
             $aRes['text'] = '';
             if( isset($aNoteDetailInfo) && is_array($aNoteDetailInfo) )

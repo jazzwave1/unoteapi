@@ -206,6 +206,7 @@ $('.sublist-li').on('click', function(event){
             $('.p-info').data('t_idx', t_idx);
             $('.p-date').text(data.aArticleDetail['craw_data']['datetime']);
             $('.p-tit').html(data.aArticleDetail['craw_data']['title']);
+            $('.p-url').html(data.aArticleDetail['url']);
             $('.p-inner').html(data.aArticleDetail['craw_data']['contents']);
 
             // console.log(data.aArticleDetail); 
