@@ -75,7 +75,7 @@ i{font-size: 12px;}
 
 #scrollStyle::-webkit-scrollbar-thumb
 {
-    background-color: #253137;
+    background-color: darkgray;
    /* border: 2px solid #555555;*/
 }
 
@@ -117,7 +117,7 @@ i.fa-times{
 }
 #header div{float: left;}
 #header .hleft{
-    width: 229px;
+    width: 230px;
     height:61px;
     background: #263238;
 

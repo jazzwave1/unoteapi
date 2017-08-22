@@ -14,7 +14,6 @@
 }
 .full-left-nav .lnb-inner{
     height: 100%;
-    border-right: 1px solid #eee;
     padding: 80px 0 0;
 }
 .full-left-nav .lnb-sideinner{
@@ -286,39 +285,49 @@ a.croBtn{
 .bankSubList{
 
 }
-.bankSubList li{
+.bankSubList>li{
     position: relative;
 }
-.bankSubList li.on{
-    background-color:#d7eaf6;
+.bankSubList>li.on{
+
+    background-color:#263238;
+    color: #fff;
     /*border-right: 3px solid #2980b9;*/
 }
-.bankSubList li .quickBtn{
+.bankSubList>li.on .cafeInfo .cafeTxt .tit{
+    color: #fff;
+}
+.bankSubList>li.on .cafeInfo .cafeDate{
+    color: #fff;
+}
+.bankSubList>li .quickBtn{
     position: absolute;
     width: 100%;
     height: 81px;
     z-index: 1000;
 }
-.bankSubList li .quickBtn  ul{
+.bankSubList>li .quickBtn  ul{
     position: absolute;
-    right: 10px;
-    top:28px;
-    border: 1px solid #ccc;
+    right: 20px;
+    top:40px;
+   /* border: 1px solid #ccc;
     border-radius: 5px;
-    background: #eee;
+    background: #eee;*/
 }
-.bankSubList li .quickBtn  ul li{
+.bankSubList>li .quickBtn  ul li{
     float: left;
-    padding:5px;
-    border-left: 1px solid #ccc;
-
+    /*border-left: 1px solid #ccc;*/
 }
-.bankSubList li .quickBtn  ul li:first-child{
+.bankSubList>li .quickBtn  ul li a{
+    display: inline-block;
+    padding: 5px;
+}
+.bankSubList>li .quickBtn  ul li:first-child{
     border-left:0px;
 }
-.bankSubList li .quickBtn  ul li i{
-    font-size: 16px;
-    color: #555;
+.bankSubList>li .quickBtn  ul li i{
+    font-size: 18px;
+    color: #8c8c8c;
 }
 .bankSubList a{
     display: block;
@@ -421,29 +430,28 @@ a.croBtn{
 .cafeInfo .cafeLogo img{
     width: 100%;
     height:100%;
-    border-radius:50%;
+   /* border-radius:50%;*/
 }
 .cafeInfo .cafeTxt{
-    width: 180px;
+    width: 220px;
     line-height: 1.5;
     padding-top: 10px;
     /*padding-left: 10px;*/
 }
 .cafeInfo .cafeTxt .tit{
     font-weight: bold;
-    display: -webkit-box;
+    display: inline-block;
     /*max-height: px;*/
-    -webkit-line-clamp: 2;
+   /* -webkit-line-clamp: 2;*/
+    width: 100%;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    word-wrap:break-word;
-    padding-right: 10px;
+    font-size: 13px;
+   /* padding-right: 10px;*/
 }
 .cafeInfo .cafeDate{
     display: inline-block;
-    width: 40px;
-    padding-top: 10px;
     font-size: 11px;
 }
 .cafeInfo div.bookMarkBtn{
@@ -591,7 +599,6 @@ a.croBtn{
     padding-top: 20px;
 }
 .p-btn>ul{
-    float: right;
     padding-bottom: 20px;
 }
 .p-btn ul li{

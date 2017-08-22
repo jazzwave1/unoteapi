@@ -76,9 +76,9 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                 <div class="cafeTxt">
                                                     <p class="tit"><?=$oSublist->craw_data->title?></p>
                                                 </div>
-                                                <!--<div class="cafeDate">
+                                                <div class="cafeDate">
                                                     <p><?=$oSublist->craw_data->datetime?></p>
-                                                </div>-->
+                                                </div>
                                                <!-- <div class="bookMarkBtn" id="bookMark<?/*=$oSublist->t_idx*/?>"><?/*=($oSublist->bookmark == 'Y') ? '<i class="fa fa-star fa-1g aria-hidden="true"></i>' : ''*/?></div>-->
                                                 <!--<div class="deleteBtn"><i class="fa fa-trash-o" aria-hidden="true"></i></div> -->
                                             </div>

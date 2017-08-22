@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
-    <title>Guide</title>
+    <title>Unote</title>
     <link href="<?=SURL?>/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
     <link href="<?=SURL?>/css/common.css" rel="stylesheet">

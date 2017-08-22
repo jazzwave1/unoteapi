@@ -68,12 +68,12 @@ $(".userInfo").on("click",function () {
 $(".bankSubList>li").mouseenter(function () {
     /* console.log("mouseenter");*/
      $(this).children(".quickBtn").show();
-     $(".quickBtn").css({'background': 'rgba(255,255,255,0.7)'});
+    /* $(".quickBtn").css({'background': 'rgba(0,0,0,0.4)'});*/
  });
 $(".bankSubList>li").mouseleave(function () {
     /* console.log("mouseenter");*/
     $(this).children(".quickBtn").hide();
-    $(".quickBtn").css({'background': '#fff'});
+    /*$(".quickBtn").css({'background': '#fff'});*/
 });
 
 
