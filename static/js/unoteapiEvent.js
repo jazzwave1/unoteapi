@@ -197,7 +197,7 @@ $('.sublist-li').on('click', function(event){
         if (status == "success" && data.code == 1)
         {
             // 글감리스트 미확인 cnt
-            if(data.unread_cnt) $('.num').html(data.unread_cnt);
+            if(data.unread_cnt) $('.num').html('<em>N</em>'+data.unread_cnt);
 
             // 북마크 css
             if(data.aArticleDetail['bookmark'] == 'Y')  $('.bookMark').children().children('i').addClass('on');

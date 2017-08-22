@@ -45,7 +45,7 @@ class  Article_model extends CI_model{
                 {
                     if(isset($oData->craw_data->contents))
                     {
-                        $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
+                        $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 50, 'utf-8');;
                     }
                     else
                     {
@@ -89,7 +89,7 @@ class  Article_model extends CI_model{
                 {
                     if(isset($oData->craw_data->contents))
                     {
-                        $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
+                        $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 50, 'utf-8');;
                     }
                     else
                     {
@@ -133,7 +133,7 @@ class  Article_model extends CI_model{
                 {
                     if(isset($oData->craw_data->contents))
                     {
-                        $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
+                        $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 50, 'utf-8');;
                     }
                     else
                     {
@@ -177,7 +177,7 @@ class  Article_model extends CI_model{
                 {
                     if(isset($oData->craw_data->contents))
                     {
-                        $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
+                        $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 50, 'utf-8');;
                     }
                     else
                     {
@@ -215,7 +215,7 @@ class  Article_model extends CI_model{
                 {
                     if(isset($oData->craw_data->contents))
                     {
-                        $aArticleDetailInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 20, 'utf-8');;
+                        $aArticleDetailInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 50, 'utf-8');;
                     }
                     else
                     {

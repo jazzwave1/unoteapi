@@ -75,7 +75,8 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                 </div>
                                                 <!-- </a> -->
                                                 <div class="detail" style="display:none;">
-                                                    <div class="detailTit"><?=$oList->craw_data->title?> <span class="detailDate"><?=$oList->craw_data->datetime?></span></div>
+                                                    <div class="detailTit"><?=$oList->craw_data->title?></div>
+                                                    <div class="detailDate"><?=$oList->craw_data->datetime?></div>
                                                     <div class="detailTxt"><?=( isset($oList->craw_data->contents) ) ? $oList->craw_data->contents : ''?></div>
                                                     <div class="detailBtn">글감 적용하기</div>
                                                 </div>
