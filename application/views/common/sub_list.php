@@ -39,17 +39,17 @@ $aCategory = $aMenuList['Category']['sub'];
                                         <ul class="clearfix">
                                             <?php if($this->uri->segment(2) == 'Trash'): ?>
                                                 <li>
-                                                    <a href="javascript:trashDelete('<?=$oSublist->t_idx?>');"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a>
+                                                    <a href="javascript:trashDelete('<?=$oSublist->t_idx?>');"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i></a>
                                                     <!--<div>휴지통</div>-->
                                                 </li>
                                             <?php else: ?>
                                             <li>
                                                 <?=$oSublist->bookmark?>
-                                                <a class="bookMarkBtn" href="javascript:articleBookmark('<?=$oSublist->t_idx?>');"><i aria-hidden="true" class="fa fa-star-o fa-1g <?=( isset($vdata['aDetail']['bookmark']) && $vdata['aDetail']['bookmark'] == 'Y' ) ? 'on' : ''?>"></i><span class="toolTip hide">북마크</span></a>
+                                                <a class="bookMarkBtn on" href="javascript:articleBookmark('<?=$oSublist->t_idx?>');"><i aria-hidden="true" class="fa fa-star-o fa-1g <?=( isset($vdata['aDetail']['bookmark']) && $vdata['aDetail']['bookmark'] == 'Y' ) ? 'on' : ''?>"></i></a>
                                                 <!--<div>북마크</div>-->
                                             </li>
                                             <li>
-                                                <a href="javascript:articleDelete('<?=$oSublist->t_idx?>');"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a>
+                                                <a href="javascript:articleDelete('<?=$oSublist->t_idx?>');"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i></a>
                                                 <!--<div>휴지통</div>-->
                                             </li>
                                             <?php endif; ?>
@@ -58,6 +58,9 @@ $aCategory = $aMenuList['Category']['sub'];
                                     <!--//퀵버튼-->
                                     <a href="javascript:void(0)">
                                         <div class="cafeInfo">
+                                            <div class="bookMarkChk hide">
+                                                <div><i class="fa fa-star" aria-hidden="true"></i></div>
+                                            </div>
                                             <div class="cafeinner clearfix">
                                                 <div class="cafeLogo">
                                                     <p>

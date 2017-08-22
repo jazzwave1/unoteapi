@@ -322,6 +322,9 @@ a.croBtn{
     display: inline-block;
     padding: 5px;
 }
+.bankSubList>li .quickBtn  ul li .bookMarkBtn.on{
+    color: #fdd66d;
+}
 .bankSubList>li .quickBtn  ul li:first-child{
     border-left:0px;
 }
@@ -407,6 +410,14 @@ a.croBtn{
     border-bottom: 1px solid #eee;
     padding: 10px 0
 }
+.cafeInfo .bookMarkChk{
+    position: absolute;
+    left:5px;
+    top:5px;
+}
+.cafeInfo .bookMarkChk i{
+    color: #fdd66d;
+}
 /*.cafeInfo div{
     float: left;
 }*/
@@ -454,7 +465,7 @@ a.croBtn{
     display: inline-block;
     font-size: 11px;
 }
-.cafeInfo div.bookMarkBtn{
+/*.cafeInfo div.bookMarkBtn{
     width: 20px;
     position: absolute;
     right: 10px;
@@ -464,7 +475,7 @@ a.croBtn{
 .cafeInfo div.bookMarkBtn i{
     color: #fdd66d;
     font-size: 16px;
-}
+}*/
 
 /*
 .cafeInfo div.deleteBtn i{
