@@ -443,4 +443,32 @@ $config['query'] = array(
         )
 
     )
+    ,'admin' => array(
+        'getArticleCnt' => array(
+            'query' => '
+                SELECT m.site_id , q.cnt 
+                  FROM msgq m , (
+                    SELECT q_idx, count(*) as cnt 
+                      FROM text_bank
+                     GROUP BY q_idx ) q
+                 WHERE m.q_idx = q.q_idx
+                   and m.site_id >= ?' 
+            
+            ,'data' => array('site_id')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
+        ,'getNoteCnt' => array(
+            'query' => "
+                 SELECT date_format(regdate, '%Y%m-%d') as month, count(*) as cnt 
+                   FROM eduniety.note
+                  WHERE deldate is null
+                    AND n_idx >= ?
+                  GROUP by date_format(regdate, '%Y%m-%d')"
+            ,'data' => array('n_idx')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
+
+    )
 );

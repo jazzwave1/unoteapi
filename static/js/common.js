@@ -14,12 +14,12 @@ var scrollHeight = wHeight - 141;
 $(".page, .page-default").css({
     'height' :  detailViewHeight,
     'overflow-x' : 'hidden',
-    'overflow-y' : 'scroll',
+    'overflow-y' : 'auto',
 });
 $(".scroll-subList").css({
     'height' :  scrollHeight,
     'overflow-x' : 'hidden',
-    'overflow-y' : 'scroll',
+    'overflow-y' : 'auto',
 });
 
 function responsiveView() {
@@ -29,12 +29,12 @@ function responsiveView() {
     $(".page, .page-default").css({
         'height' :  detailViewHeight,
         'overflow-x' : 'hidden',
-        'overflow-y' : 'scroll',
+        'overflow-y' : 'auto',
     });
     $(".scroll-subList").css({
         'height' :  scrollHeight,
         'overflow-x' : 'hidden',
-        'overflow-y' : 'scroll',
+        'overflow-y' : 'auto',
     });
 }
 
