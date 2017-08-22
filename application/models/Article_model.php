@@ -243,7 +243,7 @@ class  Article_model extends CI_model{
     {
         if(!$t_idx) return false;
 
-        $aInput = array('t_idx' => $t_idx, 'deltype' => 'DEL', 'deldate' => date('Y-m-d H:i:s') );
+        $aInput = array('t_idx' => $t_idx, 'deltype' => 'DEL', 'deldate' => date('Y.m.d. H:i:s') );
 
         if( $this->article_dao->deleteArticle($aInput) )
             return true;
