@@ -469,6 +469,16 @@ $config['query'] = array(
             ,'btype'=> 'i'
             ,'null' => array()
         )
-
+        
+    )
+    ,'log' => array(
+        'setApiLog' => array(
+             'query' => 'INSERT INTO api_call_history ( usn, api, input, output, c_code, regdate) 
+                        VALUES (?,?,?,?,?,?)'
+            ,'data' => array('usn','api','input','output','c_code','regdate')
+            ,'btype'=> 'isssss'
+            ,'null' => array('output')
+         )
+        
     )
 );

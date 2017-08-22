@@ -9,6 +9,7 @@ class Ibricks extends CI_Controller {
        
         $this->load->library('MSGQClass');
         $this->load->library('IbricksClass');
+        $this->load->library('log/ApilogClass');
 
         ////////////////////////////////////
         // chk Login Info
@@ -116,15 +117,30 @@ class Ibricks extends CI_Controller {
         // test code
         // $nIdx = 76;
 
+
+        // set api call log --------------------//
+        $usn      = $this->oMemberInfo->usn;
+        $sApiName = 'spellcheck';
+        $aInput   = json_encode(array($_POST));
+        $c_code   = 'Ibricks';
+        $regdate  = date('Y-m-d H:i:s');  
+        //--------------------------------------//
+
         if(!$nIdx) 
         {
             response_json(array('code'=>999, 'msg'=>'input param check')); 
+
+            $sOutput = json_encode(array('code'=>999, 'msg'=>'input param check'));
+            ApilogClass::setApiLog($usn, $sApiName, $aInput, $sOutput, $c_code, $regdate);
             die;
         }
 
         //$sResultJson = IbricksClass::spellCheckFromString($sIn);
         $sResultJson = IbricksClass::spellCheckFromString($nIdx, $sIdx);
         $aResultJson = (array) json_decode($sResultJson);
+        
+        $sOutput = $sResultJson;
+        ApilogClass::setApiLog($usn, $sApiName, $aInput, $sOutput, $c_code, $regdate);
 
         $aTemp = array();
         $aTemp2 = array();
@@ -250,10 +266,21 @@ class Ibricks extends CI_Controller {
 
         // test code
         //$nIdx = 26;
+        
+        // set api call log --------------------//
+        $usn      = $this->oMemberInfo->usn;
+        $sApiName = 'beauticheck';
+        $aInput   = json_encode(array($_POST));
+        $c_code   = 'Ibricks';
+        $regdate  = date('Y-m-d H:i:s');  
+        //--------------------------------------//
+
 
         if(!$nIdx) 
         {
             response_json(array('code'=>999, 'msg'=>'input param check')); 
+            $sOutput = json_encode(array('code'=>999, 'msg'=>'input param check'));
+            ApilogClass::setApiLog($usn, $sApiName, $aInput, $sOutput, $c_code, $regdate);
             die;
         }
 
@@ -261,6 +288,9 @@ class Ibricks extends CI_Controller {
         $sResultJson = IbricksClass::beautifySentence($nIdx, $sIdx);
         $aResultJson = (array) json_decode($sResultJson);
 //        echo $sResultJson;
+        
+        $sOutput = $sResultJson;
+        ApilogClass::setApiLog($usn, $sApiName, $aInput, $sOutput, $c_code, $regdate);
 
         // no_error & null array unset 
 
