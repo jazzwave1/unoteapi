@@ -681,7 +681,7 @@ a.moveCategBtn.on{
     display: none;
     position: absolute;
     width: 200px;
-    left:50%;
+    left: 100px;
     top:30px;
     margin-left: -100px;
     background: #fff;
