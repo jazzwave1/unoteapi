@@ -1,6 +1,6 @@
                             <div class="chkTit">윤문 추천 결과<span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span></div>
                             <div class="addOnIcon clearfix">
-                                <a class="btn" href="javascript:beautiChk();" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i></a>
+                                <a class="btn" href="javascript:submitContents('beautiChk');" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i></a>
                                 <!--<a href="javascript:;">전체적용</a>-->
                             </div>
                            <!-- <div class="beautiChkInfo">
