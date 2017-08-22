@@ -322,7 +322,7 @@ a.croBtn{
     display: inline-block;
     padding: 5px;
 }
-.bankSubList>li .quickBtn  ul li .bookMarkBtn.on{
+.bankSubList>li .quickBtn  ul li .bookMarkBtn.on i{
     color: #fdd66d;
 }
 .bankSubList>li .quickBtn  ul li:first-child{
