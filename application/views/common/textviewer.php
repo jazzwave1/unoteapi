@@ -15,10 +15,12 @@ $aCategory = $aMenuList['Category']['sub'];
                     <div class="dvinner">
                         <div class="p-btn clearfix">
                             <ul class="clearfix">
+                                <!--
                                 <li class="bookMark">
                                     <a class="bookMarkBtn" href="javascript:;"><i aria-hidden="true" class="fa fa-star-o fa-1g <?=( isset($vdata['aDetail']['bookmark']) && $vdata['aDetail']['bookmark'] == 'Y' ) ? 'on' : ''?>"></i><span class="toolTip hide">북마크</span></a>
-                                    <!--<div>북마크</div>-->
                                 </li>
+                                -->
+                                <!--<div>북마크</div>-->
                                 <li class="moveCateg">
                                     <a class="moveCategBtn" href="javascript:;"><i class="fa fa-folder-o" aria-hidden="true"></i><span class="hide toolTip">카테고리</span></a>
                                     <!--<div>카테고리 이동</div>-->
@@ -51,10 +53,12 @@ $aCategory = $aMenuList['Category']['sub'];
                                     <a class="copyLinkBtn" href="javascript:;"><i class="fa fa-link" aria-hidden="true"></i><span class="toolTip hide">링크복사</span></a>
                                     <!--<div>링크복사</div>-->
                                 </li>
+                                <!--
                                 <li class="articleDelBtn" >
                                     <a href="javascript:;"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a>
-                                    <!--<div>휴지통</div>-->
                                 </li>
+                                -->
+                                <!--<div>휴지통</div>-->
                             </ul>
                         </div>
                         <div id="scrollStyle" class="page">

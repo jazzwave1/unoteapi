@@ -295,14 +295,13 @@ function noteDelete()
 // 글 삭제
 $(".articleDelBtn").on("click", function(){
   var type = $('.p-info').data('type');
+  var t_idx = $('.p-info').data('t_idx');
 
-  if(type == 'trash')      trashDelete();
-  else                     articleDelete();
+  if(type == 'trash')      trashDelete(t_idx);
+  else                     articleDelete(t_idx);
 });
-function trashDelete()
+function trashDelete(t_idx)
 {
-    var t_idx = $('.p-info').data('t_idx');
-
     if(confirm('휴지통에서 삭제한 글감은 복구가 절대 불가능합니다. 삭제하시겠습니까?'))
     {
         $.post(
@@ -327,10 +326,8 @@ function trashDelete()
 }
 
 // $(".articleDelBtn").on("click", articleDelete);
-function articleDelete()
+function articleDelete(t_idx)
 {
-    var t_idx = $('.p-info').data('t_idx');
-
     if(confirm('삭제된 글감은 휴지통으로 이동됩니다.'))
     {
         $.post(
@@ -355,11 +352,13 @@ function articleDelete()
 }
 
 // 북마크
-$(".bookMark").on("click", articleBookmark);
-function articleBookmark()
-{
-    var t_idx = $('.p-info').data('t_idx');
+$(".bookMark").on("click", function(){
+  var t_idx = $('.p-info').data('t_idx');
+  articleBookmark(t_idx);
+});
 
+function articleBookmark(t_idx)
+{
     $.post(
       "/unoteapi/Article/rpcBookmarkArticle"
       ,{
