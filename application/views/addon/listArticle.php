@@ -143,7 +143,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
         $(this).siblings('.detail').slideToggle();
     });
     $(".detailBtn").on("click",function () {
-       var detailTxt = $(this).siblings('.detailTxt').text();
+       var detailTxt = $(this).siblings('.detailTxt').html();
        setDetailText(detailTxt);
     });
 
