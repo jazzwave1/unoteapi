@@ -372,11 +372,13 @@ function articleBookmark(t_idx)
           if(data.type == 'chk')
           {
               $('#bookMark'+t_idx).show();
+              $('#bookMarkBtn'+t_idx).addClass('on');
               // $('.bookMark').children().children('i').addClass('on');
           }
           else if(data.type == 'unchk')
           {
               $('#bookMark'+t_idx).hide();
+              $('#bookMarkBtn'+t_idx).removeClass('on');
               // $('.bookMark').children().children('i').removeClass('on');
           }
         }

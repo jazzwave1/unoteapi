@@ -44,7 +44,7 @@ $aCategory = $aMenuList['Category']['sub'];
                                                 </li>
                                             <?php else: ?>
                                             <li>
-                                                <a class="bookMarkBtn on" href="javascript:articleBookmark('<?=$oSublist->t_idx?>');"><i aria-hidden="true" class="fa fa-star-o fa-1g <?=( isset($vdata['aDetail']['bookmark']) && $vdata['aDetail']['bookmark'] == 'Y' ) ? 'on' : ''?>"></i></a>
+                                                <a class="bookMarkBtn <?=( isset($vdata['aDetail']['bookmark']) && $oSublist->bookmark == 'Y' ) ? 'on' : ''?>" id="bookMarkBtn<?=$oSublist->t_idx?>" href="javascript:articleBookmark('<?=$oSublist->t_idx?>');"><i aria-hidden="true" class="fa fa-star-o fa-1g"></i></a>
                                                 <!--<div>북마크</div>-->
                                             </li>
                                             <li>
