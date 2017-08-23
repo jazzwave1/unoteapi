@@ -73,7 +73,7 @@ $aLogoMini = edu_get_config('craw_logo_mini', 'unote');
                                 <?php endforeach;?>
                                 <?php else : ?>
                                     <tr>
-                                        <td colspan=6><div class="" align="center">요청 데이터가 없습니다.</div></td>
+                                        <td colspan="7"><div class="" align="center">요청 데이터가 없습니다.</div></td>
                                     </tr>
                                 <?php endif;?>
                                
