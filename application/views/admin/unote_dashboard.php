@@ -61,6 +61,30 @@
           <!-- /.box-body -->
         </div>
     </div>
+
+
+    <div class="col-md-6">
+        <!-- AREA CHART -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">윤문학습누적데이터</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body chart-responsive">
+              <div class="chart" id="revenue-chart" style="height: 300px;"></div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+          <!-- /.box -->  
+
+    </div>
+
+
 <script>
 $(function () {
     "use strict";
@@ -78,6 +102,30 @@ $(function () {
         ,
         hideHover: 'auto'
     });
+
+    var area = new Morris.Area({
+        element: 'revenue-chart',
+        resize: true,
+        data: [
+            {y: '2011 Q1', item1: 2666},
+            {y: '2011 Q2', item1: 2778},
+            {y: '2011 Q3', item1: 4912},
+            {y: '2011 Q4', item1: 5767},
+            {y: '2012 Q1', item1: 6810},
+            {y: '2012 Q2', item1: 6670},
+            {y: '2012 Q3', item1: 7820},
+            {y: '2012 Q4', item1: 8073},
+            {y: '2013 Q1', item1: 9687},
+            {y: '2013 Q2', item1: 12432}
+        ],
+        xkey: 'y',
+        ykeys: ['item1'],
+        labels: ['윤문학습량'],
+        lineColors: ['#a0d0e0'],
+        hideHover: 'auto'
+    });
+
+
     //BAR CHART
     var bar = new Morris.Bar({
         element: 'bar-chart',
