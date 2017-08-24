@@ -471,10 +471,10 @@ $config['query'] = array(
         )
         ,'getApiCallCnt' => array(
             'query' => "
-                SELECT api , date_format(regdate, '%Y%m-%d')as day, count(*) as cnt
+                SELECT api , date_format(regdate, '%Y-%m-%d')as day, count(*) as cnt
                 FROM eduniety.api_call_history
                 where usn >= ?
-                group by api , date_format(regdate, '%Y%m-%d')"
+                group by api , date_format(regdate, '%Y-%m-%d')"
             ,'data' => array('usn')
             ,'btype'=> 'i'
             ,'null' => array()
