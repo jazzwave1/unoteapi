@@ -81,8 +81,12 @@ class Admin_model extends CI_model
     private function _setApiCallCntString($aResult)
     {
         // init
-        $aTemp = array(date('Ym-d')=>array());
-        
+        $aTemp = array();
+        foreach($aResult as $key=>$val)
+        {
+            $aTemp[$val->day] = array();
+        }
+
         for($i=0 ; $i<count($aResult) ; $i++)
         {
             array_push($aTemp[$aResult[$i]->day], array('api'=>$aResult[$i]->api , 'cnt'=>$aResult[$i]->cnt));
