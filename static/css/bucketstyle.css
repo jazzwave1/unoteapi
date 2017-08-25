@@ -609,6 +609,7 @@ a.croBtn{
     font-weight: normal;
     font-style: italic;
     text-decoration: underline;
+    padding-bottom: 30px;
 }
 /*detailView icon Button*/
 .p-btn{

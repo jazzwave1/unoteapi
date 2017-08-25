@@ -8,7 +8,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
 ?>
 
                             <div class="chkTit chkTit2">참고글감 <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span></div>
-                            <div class="bsinner">
+                            <div class="bsinner scrollStyle">
 
                                 <div class="bankSubTop">
                                     <!--<p class="bankSub-tit" onclick="listArticle('list');"><i class="fa fa-list-ul" aria-hidden="true"></i>글감리스트</p>-->
@@ -96,25 +96,21 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
 
 <script>
     var wHeight = $(window).height();
-    var addonHeight = wHeight-60;
-    $("#addOnWrap").css({
+    var addonHeight = wHeight-101;
+    $(".bsinner").css({
         'height' :  addonHeight,
         'overflow-x' : 'hidden',
         'overflow-y' : 'scroll',
-        'position': 'absolute',
-        'top': '0',
-        'right': '0'
+
     });
 
     function responsiveView() {
 
-        $("#addOnWrap").css({
+        $(".bsinner").css({
             'height' :  addonHeight,
             'overflow-x' : 'hidden',
             'overflow-y' : 'scroll',
-            'position': 'absolute',
-            'top': '0',
-            'right': '0'
+
         });
         /*$(".addOnCon").height(editorHeight);*/
     }

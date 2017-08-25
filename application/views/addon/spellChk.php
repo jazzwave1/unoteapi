@@ -17,48 +17,55 @@ if(is_array($data) && count($data)>0){
 ?>
 
 
-                <div class="chkTit">맞춤법 검사 결과 <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span></div>
-                <div class="addOnIcon clearfix">
+                <div class="chkTit clearfix">
+                    맞춤법 검사 결과
+                    <span  class="upBtn"><i class="fa fa-level-up" aria-hidden="true"></i> 고도화</span>
+                    <span  class="addOnIcon"><a class="reBtn" href="javascript:submitContents('spellChk');" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i> 재검사</a></span>
+                    <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
+                </div>
+                <!--<div class="addOnIcon clearfix">
 				    <a class="btn" href="javascript:submitContents('spellChk');" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i></a>
-				    <!--<a href="javascript:;">전체적용</a>-->
-				</div>
+				    <!--<a href="javascript:;">전체적용</a>
+				</div>-->
 				<!--<div class="splChkInfo">
 				    <p>총 글자수 : <span>951</span>, 수정<span>0</span>, 제안<span>4</span></p>
 				</div>-->
-				<div class="splChkBox">
+                <div class="bsinner scrollStyle">
+				    <div class="splChkBox">
 
-                <?php foreach ($aSplChk as $chkText): ?>
-                <input type="hidden" name="aSplChk[]" value="<?=$chkText?>" />
-                <?php endforeach; ?>
+                    <?php foreach ($aSplChk as $chkText): ?>
+                    <input type="hidden" name="aSplChk[]" value="<?=$chkText?>" />
+                    <?php endforeach; ?>
 
-                <input type="hidden" id="pre_search" name="pre_search" />
-				    <ul>
-                    <?php if(is_array($data) && count($data)>0): ?> 
-					<?php foreach($data as $oSpell): ?>
-					    <?php foreach($oSpell->result as $key => $oData): ?>
-						<li class="splChkList">
-						    <div class="applyBtn hide" data-s_idx="<?=$oSpell->s_idx?>">
-							<i class="fa fa-check applySpel" aria-hidden="true"></i>
-							<i class="fa fa-times closeSpel" aria-hidden="true"></i>
-						    </div>
-						    <div class="resultInfo">
-							<p class="splWrong"><?=$oData->input?></p>
-							<p class="splRight"><?=$oData->output?></p>
-							<p class="exspl"><i class="fa fa-bullhorn notiIcon" aria-hidden="true"></i><?=$code[$oData->etype]?></p>
-							<!-- <p class="exspl">*<?=$oData->etype?></p> -->
-						    </div>
-						</li>
-					    <?php endforeach; ?>
-					<?php endforeach; ?>
-                    <?php else :?> 
-                        <li class="emptySpell">
-                            <div class="resultInfo">
-                                <p class="getTxt">검사결과가 없습니다.</p>
-                            </div>
-                        </li> 
-                    <?php endif;?> 
-				    </ul>
-				</div>
+                    <input type="hidden" id="pre_search" name="pre_search" />
+                        <ul>
+                        <?php if(is_array($data) && count($data)>0): ?>
+                        <?php foreach($data as $oSpell): ?>
+                            <?php foreach($oSpell->result as $key => $oData): ?>
+                            <li class="splChkList">
+                                <div class="applyBtn hide" data-s_idx="<?=$oSpell->s_idx?>">
+                                <i class="fa fa-check applySpel" aria-hidden="true"></i>
+                                <i class="fa fa-times closeSpel" aria-hidden="true"></i>
+                                </div>
+                                <div class="resultInfo">
+                                <p class="splWrong"><?=$oData->input?></p>
+                                <p class="splRight"><?=$oData->output?></p>
+                                <p class="exspl"><i class="fa fa-bullhorn notiIcon" aria-hidden="true"></i><?=$code[$oData->etype]?></p>
+                                <!-- <p class="exspl">*<?=$oData->etype?></p> -->
+                                </div>
+                            </li>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
+                        <?php else :?>
+                            <li class="emptySpell">
+                                <div class="resultInfo">
+                                    <p class="getTxt">검사결과가 없습니다.</p>
+                                </div>
+                            </li>
+                        <?php endif;?>
+                        </ul>
+                    </div>
+                </div>
 <script>
     /*add Jiyun*/
     /*맞춤법 검사 리스트*/
@@ -150,24 +157,20 @@ if(is_array($data) && count($data)>0){
     });
 
     var wHeight = $(window).height();
-    var addonHeight = wHeight-60;
-    $("#addOnWrap").css({
+    var addonHeight = wHeight-101;
+    $(".bsinner").css({
         'height' :  addonHeight,
         'overflow-x' : 'hidden',
         'overflow-y' : 'scroll',
-        'position': 'absolute',
-        'top': '0',
-        'right': '0'
+
     });
 
     function responsiveView() {
-        $("#addOnWrap").css({
+        $(".bsinner").css({
             'height' :  addonHeight,
             'overflow-x' : 'hidden',
             'overflow-y' : 'scroll',
-            'position': 'absolute',
-            'top': '0',
-            'right': '0'
+
         });
         /*$(".addOnCon").height(editorHeight);*/
     }
