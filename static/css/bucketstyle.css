@@ -21,7 +21,7 @@
 }
 .lnbItem{
     text-align: left;
-    padding-bottom: 10px;
+    padding: 10px 0;
     border-bottom: 3px solid #253137;
     margin-bottom: 10px;
 }
@@ -29,11 +29,13 @@
     display: block;
     text-align: left;
     color: #fff;
+    padding: 5px 0 5px 5px;
 }
 .lnbItem .lnbItemTit{
     font-weight: bold;
     padding-bottom: 10px;
     color: #fff;
+    font-size: 16px;
 }
 .lnbItem .lnbItemTit .addCateg{
     float: right;
@@ -64,7 +66,6 @@
 }
 .lnbItem .lnbItemList li{
     position: relative;
-    padding: 0 0 5px 5px;
 }
 
 .lnbItem .lnbItemList li i{
@@ -91,8 +92,8 @@
     font-size: 9px;
 }
 .lnbItem .lnbItemList li .lnb-cnt{
-    padding-left: 5px;
-    color: #555;
+    padding-left: 7px;
+    color: #7f888d;
     font-weight: bold;
     font-style: normal;
 }
@@ -169,6 +170,8 @@ a.croBtn{
 }
 .lnbItem .categList li .categBtn span i{
     color: #ccc;
+    padding-right: 0px;
+    padding-left: 5px;
 }
 .lnbItem .categList li .categBtn span a{
     display: inline-block;
@@ -601,6 +604,12 @@ a.croBtn{
 }
 .p-top .p-info .p-tit{
     font-size: 18px;
+}
+.p-top .p-info .p-url{
+    font-weight: normal;
+    font-style: italic;
+    text-decoration: underline;
+    padding-bottom: 30px;
 }
 /*detailView icon Button*/
 .p-btn{

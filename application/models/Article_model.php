@@ -46,7 +46,8 @@ class  Article_model extends CI_model{
                     if(isset($oData->craw_data->contents))
                     {
                         $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 50, 'utf-8');;
-                        $aArticleInfo[$key]->craw_data->cnt = mb_strlen($oData->craw_data->contents);
+                        $cnt = mb_strlen($oData->craw_data->contents);
+                        $aArticleInfo[$key]->craw_data->cnt = ($cnt<1000) ? $cnt : '999+';
                     }
                     else
                     {
@@ -230,8 +231,7 @@ class  Article_model extends CI_model{
                 }
 
                 $aArticleDetailInfo[$key]->craw_data->contents = $contents;
-                $aArticleDetailInfo[$key]->url = '<a href="'.$oData->craw_data->url.'" target="_blank">링크 바로가기</a>';
-
+                $aArticleDetailInfo[$key]->url = '<a href="'.$oData->craw_data->url.'" target="_blank">원본 링크 바로가기<i class="fa fa-share" aria-hidden="true"></i></a>';
                 $aArticleDetailInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
         }

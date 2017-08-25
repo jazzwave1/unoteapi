@@ -8,7 +8,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
 ?>
 
                             <div class="chkTit chkTit2">참고글감 <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span></div>
-                            <div class="bsinner">
+                            <div class="bsinner scrollStyle">
 
                                 <div class="bankSubTop">
                                     <!--<p class="bankSub-tit" onclick="listArticle('list');"><i class="fa fa-list-ul" aria-hidden="true"></i>글감리스트</p>-->
@@ -67,7 +67,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                             <p><img src="<?=$aCrawLogo[$oList->craw_data->corporation]?>"></p>
                                                         </div>
                                                         <div class="cafeTxt">
-                                                            <p class="tit"><?=$oList->craw_data->title?> <?=$oList->craw_data->cnt?>자</p>
+                                                            <p class="tit"><?=$oList->craw_data->title?> <span><?=$oList->craw_data->cnt?>자</span></p>
                                                             <!--<p class="date"><?=$oList->regdate?></p>-->
                                                         </div>
                                                         <!--<div class="bookMarkBtn" id="bookMark<?/*=$oList->t_idx*/?>"><?/*=($oList->bookmark == 'Y') ? '<i class="fa fa-star fa-1g aria-hidden=" true"=""></i>' : ''*/?></div>-->
@@ -96,25 +96,21 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
 
 <script>
     var wHeight = $(window).height();
-    var addonHeight = wHeight-60;
-    $("#addOnWrap").css({
+    var addonHeight = wHeight-101;
+    $(".bsinner").css({
         'height' :  addonHeight,
         'overflow-x' : 'hidden',
         'overflow-y' : 'scroll',
-        'position': 'absolute',
-        'top': '0',
-        'right': '0'
+
     });
 
     function responsiveView() {
 
-        $("#addOnWrap").css({
+        $(".bsinner").css({
             'height' :  addonHeight,
             'overflow-x' : 'hidden',
             'overflow-y' : 'scroll',
-            'position': 'absolute',
-            'top': '0',
-            'right': '0'
+
         });
         /*$(".addOnCon").height(editorHeight);*/
     }

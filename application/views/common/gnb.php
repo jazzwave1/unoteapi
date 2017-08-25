@@ -33,15 +33,15 @@
                 </div>
                 <!--//로그아웃창-->
                 <!--notice-->
-                <div class="notice">
+                <!-- <div class="notice">
                     <div class="noti-num">1</div>
                     <a href="/unoteapi/Crawling/History"><i class="fa fa-bell-o" aria-hidden="true"></i></a>
-                </div>
+                </div>-->
                 <!--//notice-->
                 <!--search-->
-                <div class="search">
+                <!--<div class="search">
                     <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-                </div>
+                </div>-->
                 <!--//search-->
 
             </div>

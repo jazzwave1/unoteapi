@@ -265,7 +265,7 @@ i.fa-times{
     border-radius: 50%;
 }
 #header .hright .userInfo .name{
-    padding-right: 20px;
+   /* padding-right: 20px;*/
 }
 #header .hright .userInfo .name a{
     display: block;

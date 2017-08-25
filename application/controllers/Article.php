@@ -389,7 +389,7 @@ class Article extends CI_Controller {
                     ,'crawdate' => $aArticleDetailInfo->craw_data->datetime
                     ,'regdate' => $aArticleDetailInfo->regdate
                     ,'title' => $aArticleDetailInfo->craw_data->title
-                    ,'url' => '<a href="'.$aArticleDetailInfo->craw_data->url.'" target="_blank">링크 바로가기</a>'
+                    ,'url' => '<a href="'.$aArticleDetailInfo->craw_data->url.'" target="_blank">원본 링크 바로가기<i class="fa fa-share" aria-hidden="true"></i></a>'
                     ,'contents' => replaceArticleHTML($aArticleDetailInfo->craw_data->contents)
                     ,'bookmark' => $aArticleDetailInfo->bookmark
             );
