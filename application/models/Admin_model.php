@@ -108,5 +108,41 @@ class Admin_model extends CI_model
             $aRtn[] = array('y'=>$key,'a'=>$b_cnt, 'b'=>$s_cnt); 
         }
         return json_encode($aRtn) ;
-    } 
+    }
+    public function getAccountTotalCnt()
+    {
+        $aResult = $this->admin_dao->getAccountTotalCnt();    
+        return $aResult[0]->cnt;
+    }
+    public function getNoteTotalCnt()
+    {
+        $aResult = $this->admin_dao->getNoteTotalCnt();    
+        return $aResult[0]->cnt;
+    }
+    public function getBSTotalCnt()
+    {
+        // test code
+        //return number_format(12340);
+        
+        $this->load->library('IbricksClass');
+        $sJsonResult = IbricksClass::getBSCnt();
+        $oResult = json_decode($sJsonResult);
+
+        $cnt = $oResult->data->data_count; 
+        
+        return number_format($cnt);
+    }
+    public function getServerStatus()
+    {
+        $this->load->library('IbricksClass');
+        $sJsonResult = IbricksClass::getServerStatus();
+        $oResult = json_decode($sJsonResult);
+
+        if($oResult->data->status == 'OK')
+            return "정상";
+        else
+            return "<font color='red'><string> 응답없음</string></font>";
+
+
+    }
 }

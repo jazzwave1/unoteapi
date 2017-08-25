@@ -22,7 +22,7 @@ class UnoteAdmin extends CI_Controller {
                 )
             )
             ,array( 
-                 'title'       => 'IbricksAPI'
+                 'title'       => 'IbricksAPI Test'
                 ,'title_class' => 'fa fa-list' 
                 ,'active'      => false
                 ,'child'       => array( 
@@ -47,6 +47,11 @@ class UnoteAdmin extends CI_Controller {
              'sArticleString' => $this->_getArticleCnt()
             ,'sNoteString'    => $this->_getNoteCnt()
             ,'sApiCallString' => $this->_getApiCallCnt()
+            
+            ,'nAccount'       => $this->_getAccountTotalCnt()
+            ,'nNote'          => $this->_getNoteTotalCnt()
+            ,'sBSCnt'         => $this->_getBeautifySentenceCnt()
+            ,'sServerStatus'  => $this->_getServerStatus()
         );
 
         $data = array(
@@ -112,6 +117,24 @@ class UnoteAdmin extends CI_Controller {
     {
         return $this->admin_model->getApiCallCnt();     
     }
+    private function _getAccountTotalCnt()
+    {
+        return $this->admin_model->getAccountTotalCnt();     
+    }
+    private function _getNoteTotalCnt()
+    {
+        return $this->admin_model->getNoteTotalCnt();     
+    }
+    private function _getBeautifySentenceCnt()
+    {
+        return $this->admin_model->getBSTotalCnt();     
+    }
+    private function _getServerStatus()
+    {
+        return $this->admin_model->getServerStatus();     
+    }
+
+
 
     //////////////////
     // RPC Function //

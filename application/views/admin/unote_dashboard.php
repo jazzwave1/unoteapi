@@ -1,6 +1,60 @@
   <!-- Morris charts -->
   <link rel="stylesheet" href="<?=IMGURL?>/plugins/morris/morris.css">
 
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Members</span>
+              <span class="info-box-number"><?=$nAccount?></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa fa-file-text-o"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">등록된 노트</span>
+              <span class="info-box-number"><?=$nNote?></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="fa fa-floppy-o"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">전체 학습윤문</span>
+              <span class="info-box-number"><?=$sBSCnt?></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">미들웨어상태</span>
+              <span class="info-box-number"><?=$sServerStatus?></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
 
     <div class="col-md-6">
         <!-- DONUT CHART -->
