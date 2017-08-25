@@ -67,7 +67,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
                                                             <p><img src="<?=$aCrawLogo[$oList->craw_data->corporation]?>"></p>
                                                         </div>
                                                         <div class="cafeTxt">
-                                                            <p class="tit"><?=$oList->craw_data->title?></p>
+                                                            <p class="tit"><?=$oList->craw_data->title?> <?=$oList->craw_data->cnt?>자</p>
                                                             <!--<p class="date"><?=$oList->regdate?></p>-->
                                                         </div>
                                                         <!--<div class="bookMarkBtn" id="bookMark<?/*=$oList->t_idx*/?>"><?/*=($oList->bookmark == 'Y') ? '<i class="fa fa-star fa-1g aria-hidden=" true"=""></i>' : ''*/?></div>-->
