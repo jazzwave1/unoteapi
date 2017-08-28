@@ -308,7 +308,6 @@ $config['query'] = array(
                          WHERE usn = ?
                            AND bookmark = ?
                            AND deltype is NULL
-                           AND category_idx is NULL
                          ORDER BY t_idx DESC'
             ,'data' => array('usn','bookmark')
             ,'btype'=> 'is'
@@ -320,7 +319,6 @@ $config['query'] = array(
                          WHERE usn = ?
                            AND bookmark = ?
                            AND deltype is NULL
-                           AND category_idx is NULL
                          ORDER BY t_idx DESC'
             ,'data' => array('usn','bookmark')
             ,'btype'=> 'is'
