@@ -162,16 +162,10 @@ $(function () {
         element: 'revenue-chart',
         resize: true,
         data: [
-            {y: '2011 Q1', item1: 2666},
-            {y: '2011 Q2', item1: 2778},
-            {y: '2011 Q3', item1: 4912},
-            {y: '2011 Q4', item1: 5767},
-            {y: '2012 Q1', item1: 6810},
-            {y: '2012 Q2', item1: 6670},
-            {y: '2012 Q3', item1: 7820},
-            {y: '2012 Q4', item1: 8073},
-            {y: '2013 Q1', item1: 9687},
-            {y: '2013 Q2', item1: 12432}
+            {y: '2017 Q1', item1: 2666},
+            {y: '2017 Q2', item1: 2778},
+            {y: '2017 Q3', item1: 4912},
+            {y: '2017 Q4', item1: 5767}
         ],
         xkey: 'y',
         ykeys: ['item1'],
