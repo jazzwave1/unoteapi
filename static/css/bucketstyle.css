@@ -311,7 +311,7 @@ a.croBtn{
 }
 .bankSubList>li .quickBtn  ul{
     position: absolute;
-    right: 20px;
+    right: 10px;
     top:40px;
    /* border: 1px solid #ccc;
     border-radius: 5px;

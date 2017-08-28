@@ -163,8 +163,8 @@ if($this->uri->segment(2) == 'Category')
                             <div class="log-form n-log-form">
                                 <form action="" method="post">
                                     <fieldset>
-                                        <input id="naverUserId" type="text" name="id" placeholder="아이디">
-                                        <input id="naverUserPwd" type="password" name="pwd" placeholder="비밀번호">
+                                        <input id="naverUserId" type="text" name="id" placeholder="아이디" onkeydown="onKeyDown();">
+                                        <input id="naverUserPwd" type="password" name="pwd" placeholder="비밀번호" onkeydown="onKeyDown();">
                                         <p class="log-formBtn">
                                             <a href="javascript:callCrawl();">로그인</a>
                                         </p>
@@ -191,8 +191,8 @@ if($this->uri->segment(2) == 'Category')
                             <div class="log-form d-log-form">
                                 <form action="" method="post">
                                     <fieldset>
-                                        <input id="daumUserId" type="text" name="id" placeholder="아이디" disabled>
-                                        <input id="daumUserPwd" type="password" name="pwd" placeholder="비밀번호" disabled>
+                                        <input id="daumUserId" type="text" name="id" placeholder="아이디" onkeydown="onKeyDown();" disabled>
+                                        <input id="daumUserPwd" type="password" name="pwd" placeholder="비밀번호" onkeydown="onKeyDown();" disabled>
                                         <p class="log-formBtn">
                                             <a href="javascript:callCrawl();">로그인</a>
                                         </p>
@@ -215,9 +215,12 @@ if($this->uri->segment(2) == 'Category')
     
 <script>
 
-
-
-
+function onKeyDown()
+{
+    if(window.event.keyCode == 13){
+        callCrawl();
+    }
+}
 
 function setSite(site)
 {
