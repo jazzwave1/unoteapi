@@ -320,13 +320,13 @@ class Ibricks extends CI_Controller {
 
 
         // dummy 추가함  ------------------------------- //
-        if($aRtn)
-        {
-            foreach($aRtn['data'] as $key=>$val)
-            {
-                $aRtn['data'][$key]['output'][] = "임시 테스트 라인을 추가합니다.";
-            }
-        } 
+        // if($aRtn)
+        // {
+        //     foreach($aRtn['data'] as $key=>$val)
+        //     {
+        //         $aRtn['data'][$key]['output'][] = "임시 테스트 라인을 추가합니다.";
+        //     }
+        // } 
         // dummy 추가함  ------------------------------- //
 
         $data = array(
