@@ -8,6 +8,7 @@ $aCrawLogo = edu_get_config('craw_logo', 'unote');
 ?>
 
                             <div class="chkTit chkTit2">참고글감 <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span></div>
+
                             <div class="bsinner scrollStyle">
 
                                 <div class="bankSubTop">
