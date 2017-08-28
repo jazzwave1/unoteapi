@@ -84,4 +84,13 @@ class Category_model extends CI_model{
         return $this->category_dao->goCategory($aInput);
     }
 
+    public function cancleCategory($t_idx)
+    {
+        if(!$t_idx) return false;
+
+        $aInput = array(
+            't_idx' => $t_idx
+        );
+        return $this->category_dao->cancleCategory($aInput);
+    }
 }

@@ -221,8 +221,8 @@ class Article extends CI_Controller {
     public function rpcGoCategoryArticle()
     {
         $category_idx = $this->input->post('c_idx');
-        $t_idx = $this->input->post('t_idx');  
-
+        $t_idx = $this->input->post('t_idx');
+        
         if($this->_goCategory($category_idx, $t_idx))
         {
             $aResult = array(
@@ -244,7 +244,11 @@ class Article extends CI_Controller {
     private function _goCategory($category_idx, $t_idx)
     {
         edu_get_instance('CategoryClass');
-        $bRes = CategoryClass::goCategory($category_idx, $t_idx);
+        if($category_idx > 0)
+            $bRes = CategoryClass::goCategory($category_idx, $t_idx);
+        else
+            $bRes = CategoryClass::cancleCategory($t_idx);
+
         return $bRes;
     }
 
