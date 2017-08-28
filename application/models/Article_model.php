@@ -43,22 +43,24 @@ class  Article_model extends CI_model{
                 $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
                 if($oData->craw_data->corporation == '페이스북')
                 {
+                    $aArticleInfo[$key]->craw_data->title = '내용없음';
                     if(isset($oData->craw_data->contents))
                     {
                         $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 50, 'utf-8');
-                        $cnt = mb_strlen($oData->craw_data->contents);
-                        $aArticleInfo[$key]->craw_data->cnt = ($cnt<1000) ? $cnt : '999+';
-                    }
-                    else
-                    {
-                        $aArticleInfo[$key]->craw_data->title = '내용없음';
-                        $aArticleInfo[$key]->craw_data->cnt = 0;
                     }
 
                     $datetime = $oData->craw_data->datetime;
                     $date = new DateTime($datetime);
                     $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d.');
                 }
+
+                $aArticleInfo[$key]->craw_data->cnt = 0;
+                if(isset($oData->craw_data->contents))
+                {
+                    $cnt = mb_strlen($oData->craw_data->contents);
+                    $aArticleInfo[$key]->craw_data->cnt = ($cnt<1000) ? $cnt : '999+';
+                }
+
                 $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
         }
@@ -90,22 +92,24 @@ class  Article_model extends CI_model{
                 $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
                 if($oData->craw_data->corporation == '페이스북')
                 {
+                    $aArticleInfo[$key]->craw_data->title = '내용없음';
                     if(isset($oData->craw_data->contents))
                     {
                         $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 50, 'utf-8');
-                        $cnt = mb_strlen($oData->craw_data->contents);
-                        $aArticleInfo[$key]->craw_data->cnt = ($cnt<1000) ? $cnt : '999+';                        
-                    }
-                    else
-                    {
-                        $aArticleInfo[$key]->craw_data->title = '내용없음';
-                        $aArticleInfo[$key]->craw_data->cnt = 0;
                     }
 
                     $datetime = $oData->craw_data->datetime;
                     $date = new DateTime($datetime);
                     $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d.');
                 }
+
+                $aArticleInfo[$key]->craw_data->cnt = 0;
+                if(isset($oData->craw_data->contents))
+                {
+                    $cnt = mb_strlen($oData->craw_data->contents);
+                    $aArticleInfo[$key]->craw_data->cnt = ($cnt<1000) ? $cnt : '999+';
+                }
+
                 $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
         }
@@ -137,22 +141,24 @@ class  Article_model extends CI_model{
                 $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
                 if($oData->craw_data->corporation == '페이스북')
                 {
+                    $aArticleInfo[$key]->craw_data->title = '내용없음';
                     if(isset($oData->craw_data->contents))
                     {
                         $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 50, 'utf-8');
-                        $cnt = mb_strlen($oData->craw_data->contents);
-                        $aArticleInfo[$key]->craw_data->cnt = ($cnt<1000) ? $cnt : '999+';
-                    }
-                    else
-                    {
-                        $aArticleInfo[$key]->craw_data->title = '내용없음';
-                        $aArticleInfo[$key]->craw_data->cnt = 0;
                     }
 
                     $datetime = $oData->craw_data->datetime;
                     $date = new DateTime($datetime);
                     $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d.');
                 }
+
+                $aArticleInfo[$key]->craw_data->cnt = 0;
+                if(isset($oData->craw_data->contents))
+                {
+                    $cnt = mb_strlen($oData->craw_data->contents);
+                    $aArticleInfo[$key]->craw_data->cnt = ($cnt<1000) ? $cnt : '999+';
+                }
+
                 $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
         }
@@ -184,22 +190,24 @@ class  Article_model extends CI_model{
                 $aArticleInfo[$key]->craw_data = json_decode($oData->craw_data);
                 if($oData->craw_data->corporation == '페이스북')
                 {
+                    $aArticleInfo[$key]->craw_data->title = '내용없음';
                     if(isset($oData->craw_data->contents))
                     {
                         $aArticleInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 50, 'utf-8');
-                        $cnt = mb_strlen($oData->craw_data->contents);
-                        $aArticleInfo[$key]->craw_data->cnt = ($cnt<1000) ? $cnt : '999+';
-                    }
-                    else
-                    {
-                        $aArticleInfo[$key]->craw_data->title = '내용없음';
-                        $aArticleInfo[$key]->craw_data->cnt = 0;
                     }
 
                     $datetime = $oData->craw_data->datetime;
                     $date = new DateTime($datetime);
                     $aArticleInfo[$key]->craw_data->datetime = $date->format('Y.m.d.');
                 }
+
+                $aArticleInfo[$key]->craw_data->cnt = 0;
+                if(isset($oData->craw_data->contents))
+                {
+                    $cnt = mb_strlen($oData->craw_data->contents);
+                    $aArticleInfo[$key]->craw_data->cnt = ($cnt<1000) ? $cnt : '999+';
+                }
+
                 $aArticleInfo[$key]->regdate = substr($oData->regdate,0,4).'.'.substr($oData->regdate,5,2).'.'.substr($oData->regdate,8,2);
             }
         }
@@ -225,13 +233,10 @@ class  Article_model extends CI_model{
 
                 if($oData->craw_data->corporation == '페이스북')
                 {
+                    $aArticleDetailInfo[$key]->craw_data->title = '내용없음';
                     if(isset($oData->craw_data->contents))
                     {
                         $aArticleDetailInfo[$key]->craw_data->title = mb_substr($oData->craw_data->contents, 0, 50, 'utf-8');
-                    }
-                    else
-                    {
-                        $aArticleDetailInfo[$key]->craw_data->title = '내용없음';
                     }
 
                     $datetime = $oData->craw_data->datetime;

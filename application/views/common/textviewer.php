@@ -31,8 +31,9 @@ $aCategory = $aMenuList['Category']['sub'];
                                             <div class="selList">
                                                 <ul>
                                                     <!--<li class="new"><i class="fa fa-plus-circle" aria-hidden="true"></i>새 카테고리</li>-->
+                                                    <li class="goCateg" data-c_idx="0"><i class="fa fa-list" aria-hidden="true"></i>글감리스트</li>
                                                     <?php foreach($aCategory as $c_idx => $aData): ?>
-                                                        <li class="goCateg" data-c_idx="<?=$c_idx?>" ><i class="fa fa-folder-open" aria-hidden="true"></i><?=$aData['subtitle']?></li>
+                                                        <li class="goCateg" data-c_idx="<?=$c_idx?>"><i class="fa fa-folder-open" aria-hidden="true"></i><?=$aData['subtitle']?></li>
                                                     <?php endforeach; ?>
                                                 </ul>
                                             </div>

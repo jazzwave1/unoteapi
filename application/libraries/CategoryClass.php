@@ -52,4 +52,11 @@ class CategoryClass {
 
         return $aCategoryInfo;
     }
+
+    public static function cancleCategory($t_idx)
+    {
+        $category_model = edu_get_instance('category_model', 'model');
+        return $category_model->cancleCategory($t_idx);
+    }
+
 }

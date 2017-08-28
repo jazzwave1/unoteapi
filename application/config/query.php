@@ -258,6 +258,14 @@ $config['query'] = array(
            ,'btype'=> 'ii'
            ,'null' => array()
         )
+        ,'cancleCategory' => array(
+            'query' => 'UPDATE text_bank
+                           SET category_idx = NULL
+                         WHERE t_idx = ?'
+           ,'data' => array('t_idx')
+           ,'btype'=> 'i'
+           ,'null' => array()
+        )
     )
     ,'article' => array(
         'updateTextbankForCidx' => array(
@@ -308,7 +316,6 @@ $config['query'] = array(
                          WHERE usn = ?
                            AND bookmark = ?
                            AND deltype is NULL
-                           AND category_idx is NULL
                          ORDER BY t_idx DESC'
             ,'data' => array('usn','bookmark')
             ,'btype'=> 'is'
@@ -320,7 +327,6 @@ $config['query'] = array(
                          WHERE usn = ?
                            AND bookmark = ?
                            AND deltype is NULL
-                           AND category_idx is NULL
                          ORDER BY t_idx DESC'
             ,'data' => array('usn','bookmark')
             ,'btype'=> 'is'
