@@ -311,7 +311,7 @@ a.croBtn{
 }
 .bankSubList>li .quickBtn  ul{
     position: absolute;
-    right: 10px;
+    right: 20px;
     top:40px;
    /* border: 1px solid #ccc;
     border-radius: 5px;
@@ -585,7 +585,7 @@ a.croBtn{
 .page .p-top{
     /*position: fixed;*/
     width: 100%;
-    height: 80px;
+   
     padding-top: 30px;
     /* border-bottom: 1px solid #ccc;*/
     /*    background-color: #eee;*/
@@ -724,10 +724,14 @@ i.fa-star-o.on{
 }*/
 .selCateg .selList ul li{
     float: none;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     text-align: left;
     font-weight: bold;
     cursor: pointer;
+}
+.selCateg .selList ul li.bgCateg{
+    display: block;
+    background: url('../images/bg_line2.png') repeat-x 0 0;
 }
 .selCateg .selList ul li i{
     padding-right: 5px;
