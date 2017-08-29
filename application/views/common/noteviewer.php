@@ -11,15 +11,12 @@ $aCategory = $aMenuList['Category']['sub'];
                     <?php if($vdata['sublist_cnt'] > 0): ?>
                     <div class="dvinner">
                         <div class="p-btn clearfix">
-                            <ul class="clearfix">
+                            <ul class="addOnBtn clearfix">
                                 <li class="editMynote">
                                     <a class="editMynoteBtn" href="javascript:;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span class="toolTip hide">수정하기</span></a>
                                     <!--<div>수정하기</div>-->
                                 </li>
-                                <li class="downloadPdf">
-                                    <a class="downloadPdfBtn" href="javascript:;"><i class="fa fa-file-pdf-o" aria-hidden="true"></i><span class="toolTip hide">pdf다운받기</span></a>
-                                    <!--<div>pdf파일다운받기</div>-->
-                                </li>
+
                                 <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>">
                                     <a class="newWindowBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')" >
                                         <i class="fa fa-external-link fa-1g " aria-hidden="true"></i><span class="toolTip hide">새창으로열기</span>
@@ -33,6 +30,12 @@ $aCategory = $aMenuList['Category']['sub'];
                                 <li class="noteDelBtn" >
                                     <a href="javascript:;"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a>
                                     <!--<div>휴지통</div>-->
+                                </li>
+                            </ul>
+                            <!--단행본미리보기-->
+                            <ul class="preViewBtn">
+                                <li class="downloadPdf">
+                                    <a class="downloadPdfBtn" href="javascript:;"><i class="fa fa-eye" aria-hidden="true"></i>미리보기<!--<span class="toolTip hide">단행본 미리보기</span>--></a>
                                 </li>
                             </ul>
                         </div>

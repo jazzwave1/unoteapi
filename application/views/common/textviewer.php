@@ -14,7 +14,7 @@ $aCategory = $aMenuList['Category']['sub'];
                     <?php if($vdata['sublist_cnt'] > 0): ?>
                     <div class="dvinner">
                         <div class="p-btn clearfix">
-                            <ul class="clearfix">
+                            <ul class="addOnBtn clearfix">
                                 <!--
                                 <li class="bookMark">
                                     <a class="bookMarkBtn" href="javascript:;"><i aria-hidden="true" class="fa fa-star-o fa-1g <?=( isset($vdata['aDetail']['bookmark']) && $vdata['aDetail']['bookmark'] == 'Y' ) ? 'on' : ''?>"></i><span class="toolTip hide">북마크</span></a>
