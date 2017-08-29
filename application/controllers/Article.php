@@ -98,6 +98,14 @@ class Article extends CI_Controller {
             $aArticleDetailInfo->craw_data->contents = replaceArticleHTML($aArticleDetailInfo->craw_data->contents);
         }
 
+        // img
+        $aArticleDetailInfo->craw_data->img_contents = '';
+        if( isset($aArticleDetailInfo->craw_data->image) )
+        {
+            foreach ($aArticleDetailInfo->craw_data->image as $src) {
+                $aArticleDetailInfo->craw_data->img_contents .= '<br><img class="img_contents" src="'.$src.'" width="100%">';
+            }
+        }
         return $aArticleDetailInfo;
     } 
     public function rpcDeleteArticle()
@@ -394,7 +402,7 @@ class Article extends CI_Controller {
                     ,'regdate' => $aArticleDetailInfo->regdate
                     ,'title' => $aArticleDetailInfo->craw_data->title
                     ,'url' => '<a href="'.$aArticleDetailInfo->craw_data->url.'" target="_blank">원본 링크 바로가기<i class="fa fa-share" aria-hidden="true"></i></a>'
-                    ,'contents' => replaceArticleHTML($aArticleDetailInfo->craw_data->contents)
+                    ,'contents' => replaceArticleHTML($aArticleDetailInfo->craw_data->contents).$aArticleDetailInfo->craw_data->img_contents
                     ,'bookmark' => $aArticleDetailInfo->bookmark
             );
         }
