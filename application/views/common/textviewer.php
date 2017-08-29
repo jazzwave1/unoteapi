@@ -32,10 +32,13 @@ $aCategory = $aMenuList['Category']['sub'];
                                                 <ul>
                                                     <!--<li class="new"><i class="fa fa-plus-circle" aria-hidden="true"></i>새 카테고리</li>-->
                                                     <li class="goCateg" data-c_idx="0"><i class="fa fa-list" aria-hidden="true"></i>글감리스트</li>
+                                                    <?php if(is_array($aCategory) && count($aCategory)>0): ?>
+                                                    <li class="bgCateg"></li>
                                                     <?php foreach($aCategory as $c_idx => $aData): ?>
-                                                        <li class="bgCateg"></li>
+                                                        
                                                         <li class="goCateg" data-c_idx="<?=$c_idx?>"><i class="fa fa-folder-open" aria-hidden="true"></i><?=$aData['subtitle']?></li>
                                                     <?php endforeach; ?>
+                                                    <?php endif; ?>
                                                 </ul>
                                             </div>
                                             <!--<div class="selBtn">
@@ -45,7 +48,7 @@ $aCategory = $aMenuList['Category']['sub'];
                                         </div>
                                     </div><!--//카테고리 이동 안내 창-->
                                 </li>
-                                <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>">
+                                <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewArticle">
                                     <a class="newWindowBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')" >
                                         <i class="fa fa-external-link fa-1g " aria-hidden="true"></i><span class="toolTip hide">새창으로열기</span>
                                     </a>

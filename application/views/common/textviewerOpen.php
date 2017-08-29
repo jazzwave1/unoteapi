@@ -32,7 +32,7 @@
         top:-26px;
         width: 700px;
         height:40px;
-        background: url("../../static/images/bg_punch_top.png") repeat-x 8px 0;
+        background: url("<?=SURL?>/images/bg_punch_top.png") repeat-x 8px 0;
     }
     .openpage{
         height: 100%;

@@ -17,13 +17,13 @@ $aCategory = $aMenuList['Category']['sub'];
                                     <!--<div>수정하기</div>-->
                                 </li>
 
-                                <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>">
+                                <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewNote">
                                     <a class="newWindowBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')" >
                                         <i class="fa fa-external-link fa-1g " aria-hidden="true"></i><span class="toolTip hide">새창으로열기</span>
                                     </a>
                                     <!--<div>새창</div>-->
                                 </li>
-                                <li class="copyLink" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>">
+                                <li class="copyLink" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewNote">
                                     <a class="copyLinkBtn" href="javascript:;"><i class="fa fa-link" aria-hidden="true"></i><span class="toolTip hide">링크복사</span></a>
                                     <!--<div>링크복사</div>-->
                                 </li>
@@ -33,9 +33,9 @@ $aCategory = $aMenuList['Category']['sub'];
                                 </li>
                             </ul>
                             <!--단행본미리보기-->
-                            <ul class="preViewBtn">
+                            <ul class="preViewBtn" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewBook">
                                 <li class="downloadPdf">
-                                    <a class="downloadPdfBtn" href="javascript:;"><i class="fa fa-eye" aria-hidden="true"></i>미리보기<!--<span class="toolTip hide">단행본 미리보기</span>--></a>
+                                    <a class="downloadPdfBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')"><i class="fa fa-eye" aria-hidden="true"></i>미리보기<!--<span class="toolTip hide">단행본 미리보기</span>--></a>
                                 </li>
                             </ul>
                         </div>
