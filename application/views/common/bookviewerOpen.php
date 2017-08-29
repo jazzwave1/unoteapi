@@ -29,7 +29,8 @@
 
     .bookWrap{
         width: 100%;
-        height:100%;
+        height: 100%;
+        overflow: auto;
         margin: 0 auto;
         text-align: center;
         background: #eee;
@@ -37,14 +38,14 @@
     .bookBg{
         position: relative;
         width: 720px;
-        height:100%;
+        height: 950px;
         /*background: url('../../static/images/bg_book.png') no-repeat 50% 50%;
         background-size: contain;*/
         margin: 0 auto;
     }
     .bookBg img.bg{
         width: 100%;
-        height: 100%;
+        height: 950px;
     }
     .bookBg .bookTxt{
         position: absolute;
@@ -58,9 +59,7 @@
         height: 100%;
     }
     .book-padding{
-        padding: 150px;
-        height: 650px;
-
+        padding: 88px;
     }
     .bookTop{
         text-align: left;
@@ -71,7 +70,7 @@
         font-weight: bold;
     }
     .bookBottom .txt{
-        height: 580px;
+        height: 700px;
         overflow: hidden;
         text-align: justify;
         line-height: 1.8;
@@ -112,9 +111,26 @@
                             LG디스플레이는 내년부터 이들 자동차 제조사에 차량용 OLED 조명을 본격 공급할 것으로 전해졌다.
                             G디스플레이는 내년부터 이들 자동차 제조사에 차량용 OLED 조명을 본격 공급할 것으로 전해졌다.
                             앞서 LG디스플레이는 최근 독일에서 플렉서블 OLED 조명 패널을 적용한 자동차 후미등 시제품을 공개하기도 했다.
-                            LG디스플레이는 내년부터 이들 자동차 제조사에 차량용 OLED 조명을 본격 공급할 것으로 전해졌다.G디스플레이는 내년부터 이들 자동차 제조사에 차량용 OLED 조명을 본격 공급할 것으로 전해졌다.
+
+                            ///////////////////////////
+                            앞서 LG디스플레이는 최근 독일에서 플렉서블 OLED 조명 패널을 적용한 자동차 후미등 시제품을 공개하기도 했다.
+
+                            ///////////////////////////
+                            앞서 LG디스플레이는 최근 독일에서 플렉서블 OLED 조명 패널을 적용한 자동차 후미등 시제품을 공개하기도 했다.
+
+                            ///////////////////////////
                             앞서 LG디스플레이는 최근 독일에서 플렉서블 OLED 조명 패널을 적용한 자동차 후미등 시제품을 공개하기도 했다.
                             LG디스플레이는 내년부터 이들 자동차 제조사에 차량용 OLED 조명을 본격 공급할 것으로 전해졌다.
+                            G디스플레이는 내년부터 이들 자동차 제조사에 차량용 OLED 조명을 본격 공급할 것으로 전해졌다.
+                            앞서 LG디스플레이는 최근 독일에서 플렉서블 OLED 조명 패널을 적용한 자동차 후미등 시제품을 공개하기도 했다.
+
+                            ///////////////////////////
+                            앞서 LG디스플레이는 최근 독일에서 플렉서블 OLED 조명 패널을 적용한 자동차 후미등 시제품을 공개하기도 했다.
+
+                            ///////////////////////////
+                            앞서 LG디스플레이는 최근 독일에서 플렉서블 OLED 조명 패널을 적용한 자동차 후미등 시제품을 공개하기도 했다.
+
+                            ///////////////////////////s
                         </div>
                     </div>
                 </div>
