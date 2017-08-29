@@ -110,6 +110,35 @@ class Note extends CI_Controller {
 
         $this->load->view('common/textviewerOpen', $data);
     }
+    public function viewBook($n_idx)
+    {
+
+        if(! $n_idx )
+        {
+            alert_close('존재하지 않은 노트입니다.');
+            die;
+        }
+
+        $aVdata = array();
+        $aNoteDetailInfo = $this->_getNoteDetailInfo($n_idx);
+
+        if($aNoteDetailInfo['is_use'] == 'N' )
+        {
+            alert_close('존재하지 않은 노트입니다.');
+            die;
+        }
+
+        $aVdata['n_idx'] = $aNoteDetailInfo['n_idx'];
+        $aVdata['title'] = $aNoteDetailInfo['title'];
+        $aVdata['regdate'] = $aNoteDetailInfo['regdate'];
+        $aVdata['contents'] = $aNoteDetailInfo['text'];
+
+        $data = array(
+             'vdata' => $aVdata
+        );
+
+        $this->load->view('common/bookviewerOpen', $data);
+    }
     public function setWriteHistory($usn, $n_idx)
     {
        return $this->oWriteHistoryLog->setWriteHistory($usn, $n_idx) ;
