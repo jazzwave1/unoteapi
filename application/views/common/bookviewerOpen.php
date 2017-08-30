@@ -90,6 +90,9 @@
         text-align: justify;
         line-height: 1.8;
     }
+    .bookBottom2 .txt{
+        height: 835px;
+    }
     .bookBottom .txt img{
         width: 100%;
         padding-bottom: 20px;
@@ -118,10 +121,7 @@
         <div class="bookTxt2">
             <div class="book-inner">
                 <div class="book-padding">
-                    <div class="bookTop">
-                        <p class="tit"><?=$vdata['title']?></p>
-                    </div>
-                    <div class="bookBottom">
+                    <div class="bookBottom2">
                         <div class="txt">
                             <!--이미가 있을 경우-->
                             <!--<img src="../../static/images/img_thum.jpg">-->
