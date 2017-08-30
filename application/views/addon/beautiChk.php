@@ -1,7 +1,9 @@
                             <div class="chkTit clearfix">
                                 윤문 추천 결과
-                                <span  class="addOnIcon"><a class="reBtn" href="javascript:submitContents('beautiChk');" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i> 재검사</a></span>
                                 <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="addOnBtn">
+                                <span  class="addOnIcon"><a class="reBtn" href="javascript:submitContents('beautiChk');" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i> 재검사</a></span>
                             </div>
                             <!--<div class="addOnIcon clearfix">
                                 <a class="btn" href="javascript:submitContents('beautiChk');" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i></a>
@@ -64,7 +66,7 @@
     });
 
     var wHeight = $(window).height();
-    var addonHeight = wHeight-101;
+    var addonHeight = wHeight-157;
     $(".bsinner").css({
         'height' :  addonHeight,
         'overflow-x' : 'hidden',

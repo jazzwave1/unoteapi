@@ -68,6 +68,9 @@ class Article extends CI_Controller {
         $method = $this->input->post('method');
         $usn = $this->oMemberInfo->usn;
 
+        // test code
+        // $t_idx = 186;
+
         $aResult = array(
              "code"  => 1
             ,"msg"   => "OK"
@@ -97,6 +100,24 @@ class Article extends CI_Controller {
         {
             $aArticleDetailInfo->craw_data->contents = replaceArticleHTML($aArticleDetailInfo->craw_data->contents);
         }
+
+        // img
+        $aArticleDetailInfo->craw_data->img_contents = '';
+        if( isset($aArticleDetailInfo->craw_data->image) )
+        {
+            foreach ($aArticleDetailInfo->craw_data->image as $src) {
+                $aArticleDetailInfo->craw_data->img_contents .= '<br><img class="img_contents" src="'.$src.'" width="100%" />';
+            }
+        }
+
+        // video
+        // $aArticleDetailInfo->craw_data->video_contents = '';
+        // if( isset($aArticleDetailInfo->craw_data->video) )
+        // {
+        //     foreach ($aArticleDetailInfo->craw_data->video as $src) {
+        //         $aArticleDetailInfo->craw_data->video_contents .= '<br><video src="'.$src.'" controls autoplay></video>';
+        //     }
+        // }
 
         return $aArticleDetailInfo;
     } 
@@ -394,7 +415,8 @@ class Article extends CI_Controller {
                     ,'regdate' => $aArticleDetailInfo->regdate
                     ,'title' => $aArticleDetailInfo->craw_data->title
                     ,'url' => '<a href="'.$aArticleDetailInfo->craw_data->url.'" target="_blank">원본 링크 바로가기<i class="fa fa-share" aria-hidden="true"></i></a>'
-                    ,'contents' => replaceArticleHTML($aArticleDetailInfo->craw_data->contents)
+                    ,'contents' => replaceArticleHTML($aArticleDetailInfo->craw_data->contents).$aArticleDetailInfo->craw_data->img_contents
+                    // ,'contents' => replaceArticleHTML($aArticleDetailInfo->craw_data->contents).$aArticleDetailInfo->craw_data->img_contents.$aArticleDetailInfo->craw_data->video_contents
                     ,'bookmark' => $aArticleDetailInfo->bookmark
             );
         }

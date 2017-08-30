@@ -207,7 +207,8 @@ $('.sublist-li').on('click', function(event){
             $('.p-date').text(data.aArticleDetail['craw_data']['datetime']);
             $('.p-tit').html(data.aArticleDetail['craw_data']['title']);
             $('.p-url').html(data.aArticleDetail['url']);
-            $('.p-inner').html(data.aArticleDetail['craw_data']['contents']);
+            $('.p-inner').html(data.aArticleDetail['craw_data']['contents']+data.aArticleDetail['craw_data']['img_contents']);
+            // $('.p-inner').html(data.aArticleDetail['craw_data']['contents']+data.aArticleDetail['craw_data']['img_contents']+data.aArticleDetail['craw_data']['video_contents']);
 
             // console.log(data.aArticleDetail); 
         }
@@ -226,7 +227,8 @@ function getContentsUrl(contents)
     var n_idx = $('.p-info').data('n_idx');
     var hosturl = $(contents).data('hosturl');
     var controller = $(contents).data('controller');
-    var url = hosturl+'/'+controller+'/view'+controller+'/';
+    var type = $(contents).data('type');
+    var url = hosturl+'/'+controller+'/'+type+'/';
     if(controller == 'Note')  url += n_idx;
     else if(controller == 'Article')  url += t_idx;
 
@@ -261,6 +263,16 @@ function copyLink()
       return;
     }
     prompt("Ctrl+C를 눌러 링크를 복사하세요.", retUrl);
+}
+
+// 새창 열기
+// $("a태그 클래스명").prop('href', 변경되는 url);
+$(".preViewBtn").on("click", preViewBtn);
+function preViewBtn()
+{
+    var retUrl = getContentsUrl(this);
+
+    $(".downloadPdfBtn").prop("href",retUrl);
 }
 
 // 노트 삭제
@@ -469,3 +481,11 @@ function delHistoryArticle(q_idx)
 
 
 }
+
+
+
+
+
+$(".distriBtn").on("click", function () {
+    $(".preViewBox").toggleClass("on");
+});

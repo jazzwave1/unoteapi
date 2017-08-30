@@ -17,7 +17,7 @@
                         </div>
                         <div class="sroll-inner">
                             <!--리스트가 화면 height넘어가면, class scroll-subList생김-->
-                            <div class="scroll-subList">
+                            <div id="scrollStyle" class="scroll-subList">
                                 <!--글감리스트-->
                                 <ul class="my-note-subList">
                                 <?php if( is_array($vdata['sublist']) && count($vdata['sublist'])>0 ): ?>

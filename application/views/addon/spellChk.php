@@ -19,10 +19,13 @@ if(is_array($data) && count($data)>0){
 
                 <div class="chkTit clearfix">
                     맞춤법 검사 결과
-                    <span  class="upBtn"><i class="fa fa-level-up" aria-hidden="true"></i> 고도화</span>
-                    <span  class="addOnIcon"><a class="reBtn" href="javascript:submitContents('spellChk');" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i> 재검사</a></span>
                     <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
                 </div>
+                <div class="addOnBtn">
+                    <span  class="upBtn"><i class="fa fa-level-up" aria-hidden="true"></i> 고도화</span>
+                    <span  class="addOnIcon"><a class="reBtn" href="javascript:submitContents('spellChk');" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i> 재검사</a></span>
+                </div>
+
                 <!--<div class="addOnIcon clearfix">
 				    <a class="btn" href="javascript:submitContents('spellChk');" title="재검사"><i class="fa fa-repeat" aria-hidden="true"></i></a>
 				    <!--<a href="javascript:;">전체적용</a>
@@ -32,7 +35,46 @@ if(is_array($data) && count($data)>0){
 				</div>-->
                 <div class="bsinner scrollStyle">
 				    <div class="splChkBox">
-
+                        <div class="splData-wrap">
+                        <!--나라인포테크검사-->
+                        <div class="splData">
+                            <div class="spld-inner">
+                                <p class="splWrong-data">제공하지 안았다</p>
+                                <p class="splRight-data">제공하지 않았다</p>
+                                <div class="detail-data">
+                                    <div>
+                                        <p class="detail-tit">도움말</p>
+                                        <p class="detail-txt">'않다'는 부정을 나타내는 보조동사로 앞에 본동사가 와야 하며 이 때 본동사는 보조적 연결어미 '-지'를 수반합니다. '안다'는 '알다' 의 현재 활용형으로 본동사로 쓰입니다.
+                                            그래서 다른 본동사는 거의 필요가 없으며 '안다' 앞에 나타나는 '-지'는 의존 명사 이므로 '-지' 앞에 말과 띄어 씁니다.</p>
+                                    </div>
+                                    <div class="detailExp">
+                                        (예)
+                                        <p>공부하지 안다.  -> 공부하지 않는다.</p>
+                                        <p>공부한 지 않다. -> 공부한 지 안다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="splData">
+                            <div class="spld-inner">
+                                <p class="splWrong-data">제공하지 안았다</p>
+                                <p class="splRight-data">제공하지 않았다</p>
+                                <div class="detail-data">
+                                    <div>
+                                        <p class="detail-tit">도움말</p>
+                                        <p class="detail-txt">'않다'는 부정을 나타내는 보조동사로 앞에 본동사가 와야 하며 이 때 본동사는 보조적 연결어미 '-지'를 수반합니다. '안다'는 '알다' 의 현재 활용형으로 본동사로 쓰입니다.
+                                            그래서 다른 본동사는 거의 필요가 없으며 '안다' 앞에 나타나는 '-지'는 의존 명사 이므로 '-지' 앞에 말과 띄어 씁니다.</p>
+                                    </div>
+                                    <div class="detailExp">
+                                        (예)
+                                        <p>공부하지 안다.  -> 공부하지 않는다.</p>
+                                        <p>공부한 지 않다. -> 공부한 지 안다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <!--//나라인포테크검사-->
+                        </div>
                     <?php foreach ($aSplChk as $chkText): ?>
                     <input type="hidden" name="aSplChk[]" value="<?=$chkText?>" />
                     <?php endforeach; ?>
@@ -156,8 +198,12 @@ if(is_array($data) && count($data)>0){
         }
     });
 
+    /*고도화 이벤트*/
+    $(".upBtn").on("click", function () {
+        $(".splData-wrap").slideToggle();
+    });
     var wHeight = $(window).height();
-    var addonHeight = wHeight-101;
+    var addonHeight = wHeight-157;
     $(".bsinner").css({
         'height' :  addonHeight,
         'overflow-x' : 'hidden',

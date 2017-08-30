@@ -384,14 +384,25 @@ class Ibricks extends CI_Controller {
 
         if( is_array($aArticle['list']) && count($aArticle['list'])>0 )
         {
-            foreach ($aArticle['list'] as $key => $obj) {
+            foreach ($aArticle['list'] as $key => $obj)
+            {
                 if( isset($obj->craw_data->contents) )
                 {
                     $aArticle['list'][$key]->craw_data->contents = nl2br($obj->craw_data->contents);
                     $aArticle['list'][$key]->craw_data->contents = replaceArticleHTML($obj->craw_data->contents);
                 }
+
+                // img
+                $aArticle['list'][$key]->craw_data->img_contents = '';
+                if( isset($obj->craw_data->image) )
+                {
+                    foreach ($obj->craw_data->image as $src) {
+                        $aArticle['list'][$key]->craw_data->img_contents .= '<br><img class="img_contents" src="'.$src.'" width="100%" />';
+                    }
+                }
             }
         }
+
 
         $aArticle['menu']['type'] = $sType;
         $aArticle['category'] = $aMenuList['Category']['sub'];
