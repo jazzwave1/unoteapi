@@ -22,11 +22,11 @@ $aCategory = $aMenuList['Category']['sub'];
                                 -->
                                 <!--<div>북마크</div>-->
                                 <li class="moveCateg">
-                                    <a class="moveCategBtn" href="javascript:;"><i class="fa fa-folder-o" aria-hidden="true"></i><span class="hide toolTip">카테고리</span></a>
+                                    <a class="moveCategBtn" href="javascript:;"><i class="fa fa-folder-o" aria-hidden="true"></i><!--<span class="hide toolTip"></span>-->내 글감 이동</a>
                                     <!--<div>카테고리 이동</div>-->
                                     <!--카테고리 이동 안내 창-->
                                     <div class="selCateg">
-                                        <div class="headTit">폴더 이동</div>
+                                        <div class="headTit">내 글감 이동</div>
                                         <div class="selCateg-inner">
                                             <div class="selList">
                                                 <ul>
@@ -48,16 +48,14 @@ $aCategory = $aMenuList['Category']['sub'];
                                         </div>
                                     </div><!--//카테고리 이동 안내 창-->
                                 </li>
-                                <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewArticle">
+                                <!--<li class="newWindow" data-hosturl="<?/*=HOSTURL*/?>" data-controller="<?/*=$this->uri->segment(1)*/?>" data-type="viewArticle">
                                     <a class="newWindowBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')" >
                                         <i class="fa fa-external-link fa-1g " aria-hidden="true"></i><span class="toolTip hide">새창으로열기</span>
                                     </a>
-                                    <!--<div>새창</div>-->
                                 </li>
-                                <li class="copyLink" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>">
+                                <li class="copyLink" data-hosturl="<?/*=HOSTURL*/?>" data-controller="<?/*=$this->uri->segment(1)*/?>">
                                     <a class="copyLinkBtn" href="javascript:;"><i class="fa fa-link" aria-hidden="true"></i><span class="toolTip hide">링크복사</span></a>
-                                    <!--<div>링크복사</div>-->
-                                </li>
+                                </li>-->
                                 <!--
                                 <li class="articleDelBtn" >
                                     <a href="javascript:;"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a>

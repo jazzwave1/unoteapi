@@ -16,28 +16,32 @@ $aCategory = $aMenuList['Category']['sub'];
                                     <a class="editMynoteBtn" href="javascript:;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span class="toolTip hide">수정하기</span></a>
                                     <!--<div>수정하기</div>-->
                                 </li>
-
-                                <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewNote">
-                                    <a class="newWindowBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')" >
-                                        <i class="fa fa-external-link fa-1g " aria-hidden="true"></i><span class="toolTip hide">새창으로열기</span>
-                                    </a>
-                                    <!--<div>새창</div>-->
-                                </li>
-                                <li class="copyLink" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewNote">
-                                    <a class="copyLinkBtn" href="javascript:;"><i class="fa fa-link" aria-hidden="true"></i><span class="toolTip hide">링크복사</span></a>
-                                    <!--<div>링크복사</div>-->
-                                </li>
                                 <li class="noteDelBtn" >
                                     <a href="javascript:;"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a>
                                     <!--<div>휴지통</div>-->
                                 </li>
                             </ul>
+                            <div class="distriBtn">
+                                <div class="ellipsisIcon"><img src="../static/images/icon_more.png"></div>
+                            </div>
                             <!--단행본미리보기-->
-                            <ul class="preViewBtn" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewBook">
-                                <li class="downloadPdf">
-                                    <a class="downloadPdfBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')"><i class="fa fa-eye" aria-hidden="true"></i>미리보기<!--<span class="toolTip hide">단행본 미리보기</span>--></a>
-                                </li>
-                            </ul>
+                            <div class="preViewBox">
+                                <ul>
+                                    <li class="copyLink" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewNote">
+                                        <a class="copyLinkBtn" href="javascript:;"><i class="fa fa-link" aria-hidden="true"></i><!--<span class="toolTip hide"></span>-->링크복사</a>
+                                    </li>
+                                    <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewNote">
+                                        <a class="newWindowBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')" >
+                                            <i class="fa fa-external-link fa-1g " aria-hidden="true"></i><!--<span class="toolTip hide"></span>-->새창으로열기
+                                        </a>
+                                    </li>
+                                    <li class="preViewBtn" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewBook">
+                                        <div class="downloadPdf">
+                                            <a class="downloadPdfBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')"><i class="fa fa-eye" aria-hidden="true"></i>단행본 미리보기</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div id="scrollStyle" class="page">
                             <div class="p-top clearfix">
@@ -70,3 +74,4 @@ $aCategory = $aMenuList['Category']['sub'];
                     <?php endif; ?>
                 </div>
                 <!--//detailView-->
+

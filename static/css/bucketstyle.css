@@ -605,7 +605,7 @@ a.croBtn{
 .p-top .p-info .p-tit{
     font-size: 18px;
 }
-.p-top .p-info .p-url{
+.p-top .p-info .p-url {
     font-weight: normal;
     font-style: italic;
     text-decoration: underline;
@@ -613,6 +613,7 @@ a.croBtn{
 }
 /*detailView icon Button*/
 .p-btn{
+    position: relative;
     margin: 0 auto;
     max-width: 740px;
     min-width: 300px;
@@ -620,37 +621,88 @@ a.croBtn{
 }
 .p-btn .addOnBtn{
     float: left;
-    padding: 10px 0;
+   /* padding: 10px 0;*/
 }
-.p-btn ul.preViewBtn{
+.p-btn .distriBtn{
     float: right;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.p-btn .distriBtn .ellipsisIcon{
     padding-right: 10px;
 }
-.p-btn ul.preViewBtn li a{
+.p-btn .distriBtn .ellipsisIcon img{
+    vertical-align: middle;
+}
+.p-btn .preViewBox{
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    width: 150px;
+    margin-right: -70px;
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04), -6px 8px 15px rgba(0, 0, 0, 0.04), 6px 8px 15px rgba(0, 0, 0, 0.04);
+    text-align: left;
+   /* float: right;*/
+    /*padding-right: 10px;*/
+}
+.p-btn .preViewBox.on{
+    display: block;
+}
+.p-btn .preViewBox ul{
+   /* padding: 10px 0;*/
+}
+.p-btn .preViewBox ul li{
+}
+.p-btn .preViewBox ul li:hover{
+    background: #ccc;
+    border-radius: 5px;
+}
+.p-btn .preViewBox ul li a{
+    display: block;
+    padding: 8px 10px;
+}
+.p-btn .preViewBox ul li a i{
+    padding-right: 10px;
+}
+.p-btn ul.preViewBtn.on{
+    display: block;
+}
+/*.p-btn ul.preViewBtn li a{
     display: block;
     border: 1px solid #c8c8c8;
     border-radius: 5px;
     padding: 5px;
-}
-.p-btn ul.preViewBtn li a:hover{
+}*/
+/*.p-btn ul.preViewBtn li a:hover{
     color: #0d94d0;
     border: 1px solid #0d94d0;
-}
-.p-btn ul.addOnBtn li{
+}*/
+.p-btn ul.addOnBtn>li{
     float: left;
     text-align: center;
-    padding-left: 5px;
+    margin-left: 5px;
+    /*padding-left: 5px;*/
 }
-.p-btn ul.addOnBtn li a{
+.p-btn ul.addOnBtn>li a{
     position: relative;
     display: block;
-    color:  dimgray;
+    color: dimgray;
+    /* padding: 5px; */
+    padding: 5px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-.p-btn ul.addOnBtn li a:hover{
+.p-btn ul.addOnBtn>li a:hover{
     color: #0d94d0;
 }
-.p-btn ul.addOnBtn li a.on{
+.p-btn ul.addOnBtn>li a.on{
     color: #0d94d0;
+    border: 1px solid #0d94d0;
 }
 .p-btn>ul>li>a .toolTip{
     position: absolute;
@@ -706,7 +758,7 @@ a.moveCategBtn.on{
     position: absolute;
     width: 200px;
     left: 100px;
-    top:30px;
+    top:33px;
     margin-left: -100px;
     background: #fff;
     border: 1px solid #ececec;
@@ -730,26 +782,35 @@ i.fa-star-o.on{
     font-weight: bold;
 }
 .selCateg .selCateg-inner{
-    padding: 10px 20px 10px;
+    /*padding: 10px 20px 10px;*/
 }
 /*.selCateg .selList ul li.new{
     padding-left: 0;
     padding-bottom: 10px;
     font-weight: lighter;
 }*/
+.selCateg .selList{
+    /*padding: 10px 0;*/
+}
 .selCateg .selList ul li{
     float: none;
-    padding-bottom: 10px;
+    padding: 8px 0;
     text-align: left;
     font-weight: bold;
     cursor: pointer;
 }
+.selCateg .selList ul li:hover{
+    background: #eee;
+    border-radius: 0px 0px 5px 5px;
+}
 .selCateg .selList ul li.bgCateg{
+    margin-top: 5px;
     display: block;
     background: url('../images/bg_line2.png') repeat-x 0 0;
 }
 .selCateg .selList ul li i{
     padding-right: 5px;
+    padding-left: 20px;
 }
 .selCateg .selBtn{
     padding-top: 10px;

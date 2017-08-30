@@ -481,3 +481,11 @@ function delHistoryArticle(q_idx)
 
 
 }
+
+
+
+
+
+$(".distriBtn").on("click", function () {
+    $(".preViewBox").toggleClass("on");
+});
