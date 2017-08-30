@@ -26,12 +26,36 @@ class UnoteAdmin extends CI_Controller {
                 ,'title_class' => 'fa fa-list' 
                 ,'active'      => false
                 ,'child'       => array( 
-                    array('link' => HOSTURL.'/UnoteAdmin/ApiTestIbSpellCheck', 'title' => '맞춤법검사')
-                   ,array('link' => HOSTURL.'/UnoteAdmin/ApiTestIbBeautifySentence', 'title' => '윤문추천')
+                    array('link' => HOSTURL.'/UnoteAdmin/ApiTestIbFacebookPageCrawl', 'title' => 'Facebook Page 크롤링 테스트')
+                //  array('link' => HOSTURL.'/UnoteAdmin/ApiTestIbSpellCheck', 'title' => '맞춤법검사')
+                // ,array('link' => HOSTURL.'/UnoteAdmin/ApiTestIbBeautifySentence', 'title' => '윤문추천')
                 )
             )
         );  
     }
+    
+    public function ApiTestIbFacebookPageCrawl()
+    {
+        $aMenu = $this->_setMenuActive(1);
+        $temp = "";
+        
+        $aContentHeader= array(
+             'bTitle' => 'Ibricks API 페이스북 페이지 크롤링 테스트'
+            ,'sTitle' => '[ Tip : 팁입니다. ]'
+            ,'navi'   => array('IbricksAPI', '페이스북페이지 크롤링 테스트')
+        );
+
+        $data = array(
+             'menu'           => $this->load->view('admin/menu', $aMenu , true)
+            ,'content_header' => $this->load->view('admin/content_header', $aContentHeader , true)
+            ,'main_content'   => $this->load->view('admin/facebookpagecrawl', $temp , true) 
+            ,'footer'         => $this->load->view('admin/footer', $temp, true)
+        );
+
+        $this->load->view('admin/layout', $data);
+       
+    }
+
     public function UnoteDashboard()
     {
         $aMenu = $this->_setMenuActive(0);
@@ -154,7 +178,6 @@ class UnoteAdmin extends CI_Controller {
         response_json(array('code'=>1, 'msg'=>'input param check', 'result'=>(array)$oResultJson)); 
         die;
     }
-
     private function _setMenuActive($num)
     {
       $aMenu = array('aMenu'=>$this->aMenu);
