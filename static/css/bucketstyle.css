@@ -808,6 +808,7 @@ i.fa-star-o.on{
     margin-top: 5px;
     display: block;
     background: url('../images/bg_line2.png') repeat-x 0 0;
+    padding-bottom: 0px;
 }
 .selCateg .selList ul li i{
     padding-right: 5px;
