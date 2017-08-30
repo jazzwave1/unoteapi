@@ -271,7 +271,6 @@ $(".preViewBtn").on("click", preViewBtn);
 function preViewBtn()
 {
     var retUrl = getContentsUrl(this);
-    alert(retUrl);
 
     $(".downloadPdfBtn").prop("href",retUrl);
 }
