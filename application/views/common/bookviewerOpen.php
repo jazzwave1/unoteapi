@@ -35,31 +35,46 @@
         text-align: center;
         background: #eee;
     }
+    .whiteWrap{
+        width: 1440px;
+        padding: 20px;
+        background: #fff;
+        margin: 0 auto;
+    }
     .bookBg{
         position: relative;
-        width: 720px;
-        height: 950px;
+        width: 1440px;
+        height: 1095px;
         /*background: url('../../static/images/bg_book.png') no-repeat 50% 50%;
         background-size: contain;*/
-        margin: 0 auto;
+
     }
     .bookBg img.bg{
         width: 100%;
-        height: 950px;
+        height: 1095px;
     }
-    .bookBg .bookTxt{
+    .bookBg .bookTxt1{
         position: absolute;
         top:0;
         left: 0;
         width: 720px;
         height: 100%;
+       /* background: #fff;*/
     }
-    .bookBg .bookTxt .book-inner{
+    .bookBg .bookTxt2{
+        position: absolute;
+        top:0;
+        left: 720px;
+        width: 720px;
+        height: 100%;
+        /*background: #fff;*/
+    }
+    .bookBg .bookTxt1 .book-inner{
        /* background: #ccc;*/
         height: 100%;
     }
     .book-padding{
-        padding: 88px;
+        padding: 130px;
     }
     .bookTop{
         text-align: left;
@@ -70,7 +85,7 @@
         font-weight: bold;
     }
     .bookBottom .txt{
-        height: 700px;
+        height: 765px;
         overflow: hidden;
         text-align: justify;
         line-height: 1.8;
@@ -81,9 +96,10 @@
     }
 </style>
 <div class="bookWrap">
+    <div class="whiteWrap">
     <div class="bookBg">
-        <img class="bg" src="<?=SURL?>/images/bg_book.png">
-        <div class="bookTxt">
+        <img class="bg" src="<?=SURL?>/images/bg_book_both.png">
+        <div class="bookTxt1">
             <div class="book-inner">
                 <div class="book-padding">
                     <div class="bookTop">
@@ -99,5 +115,22 @@
                 </div>
             </div>
         </div>
+        <div class="bookTxt2">
+            <div class="book-inner">
+                <div class="book-padding">
+                    <div class="bookTop">
+                        <p class="tit"><?=$vdata['title']?></p>
+                    </div>
+                    <div class="bookBottom">
+                        <div class="txt">
+                            <!--이미가 있을 경우-->
+                            <!--<img src="../../static/images/img_thum.jpg">-->
+                            <?=$vdata['contents']?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </div>
