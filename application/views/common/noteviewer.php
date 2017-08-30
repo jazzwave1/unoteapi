@@ -13,11 +13,11 @@ $aCategory = $aMenuList['Category']['sub'];
                         <div class="p-btn clearfix">
                             <ul class="addOnBtn clearfix">
                                 <li class="editMynote">
-                                    <a class="editMynoteBtn" href="javascript:;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span class="toolTip hide">수정하기</span></a>
+                                    <a class="editMynoteBtn" href="javascript:;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><!--<span class="toolTip hide"></span>-->수정하기</a>
                                     <!--<div>수정하기</div>-->
                                 </li>
                                 <li class="noteDelBtn" >
-                                    <a href="javascript:;"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><span class="toolTip hide">휴지통</span></a>
+                                    <a href="javascript:;"><i class="fa fa-trash-o fa-1g" aria-hidden="true"></i><!--<span class="toolTip hide"></span>-->휴지통</a>
                                     <!--<div>휴지통</div>-->
                                 </li>
                             </ul>

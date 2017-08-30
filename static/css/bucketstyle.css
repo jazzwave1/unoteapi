@@ -684,7 +684,7 @@ a.croBtn{
 .p-btn ul.addOnBtn>li{
     float: left;
     text-align: center;
-    margin-left: 5px;
+    margin-right: 5px;
     /*padding-left: 5px;*/
 }
 .p-btn ul.addOnBtn>li a{
@@ -699,6 +699,7 @@ a.croBtn{
 }
 .p-btn ul.addOnBtn>li a:hover{
     color: #0d94d0;
+    border: 1px solid #0d94d0;
 }
 .p-btn ul.addOnBtn>li a.on{
     color: #0d94d0;
