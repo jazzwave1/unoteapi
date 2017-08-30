@@ -83,18 +83,21 @@
         height: 70px;
         font-size: 18px;
         font-weight: bold;
+        text-align: center;
     }
     .bookBottom .txt{
-        height: 765px;
+        height: 685px;
         overflow: hidden;
         text-align: justify;
         line-height: 1.8;
+        padding-top: 80px;
     }
     .bookBottom2 .txt{
         height: 835px;
         overflow: hidden;
         text-align: justify;
         line-height: 1.8;
+        font-size: 12pt;
     }
     .bookBottom .txt img{
         width: 100%;
