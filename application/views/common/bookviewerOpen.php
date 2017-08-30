@@ -92,6 +92,9 @@
     }
     .bookBottom2 .txt{
         height: 835px;
+        overflow: hidden;
+        text-align: justify;
+        line-height: 1.8;
     }
     .bookBottom .txt img{
         width: 100%;
