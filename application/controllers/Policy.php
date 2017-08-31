@@ -14,16 +14,32 @@ class Policy extends CI_Controller {
     }
     public function privacy()
     {
-       /* $text = $this->_getPrivacyFile($this->privacy[0]) ; */
+
+        $sDate = $this->privacy[0];
+        
+        if(!$sDate) 
+        {
+            echo "약관 버전을 확인 해 주세요";
+            die;
+        }
+
+        $sFileName = 'privacy_' . $sDate ;
+        
+        $this->load->view('policy/'.$sFileName);
+
+        /* $text = $this->_getPrivacyFile($this->privacy[0]) ; */
 
         // $data = array(
         //     ‘txt’ => $text
         // );
-        $this->load->view('policy/privacy');
 
     } 
     private function _getPrivacyFile($sFileName)
     {
+        /* 
+        txt -> html 로 변경하기 위해서 해당 로직은 
+        홀딩 합니다. 
+
         if(!$sFileName) return false;
 
         $rtn = '';
@@ -38,6 +54,8 @@ class Policy extends CI_Controller {
         }
         fclose($myfile); 
         return $rtn;
+        
+        */ 
     } 
 }
 ?>
