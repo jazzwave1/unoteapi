@@ -33,8 +33,9 @@ class Crawling extends CI_Controller{
             die;
         }
 
-        // init 
-        $pagination = '';
+        // init
+        if(!$pagination || $pagination == 0) $pagination = '';
+
         $this->load->library('MenuClass');
         $aMenuList = MenuClass::getMenuList($usn);
         // $aList['menu'] = $aMenuList['Crawling']['sub']['History'];
@@ -112,21 +113,18 @@ class Crawling extends CI_Controller{
     }
     private function _setPagination($aList, $nPageNum)
     {
-       // echo "<pre>";
-       // print_r($aList);
         if(count($aList) == 0) return false;
         if($nPageNum == 0) $nPageNum=1;
 
-
         $nSNum = ($nPageNum*$this->nPageNum) - 10;
+        
         $nENum = ($nPageNum*$this->nPageNum) ;
-
+        if($nENum <= count($aList)) $nENum = count($aList);
         foreach($aList as $key=>$val)
         {
             
             if($key >= $nSNum  && $key < $nENum) 
             {
-         //       echo $key." | ";
                 $aRtn[] = $aList[$key]; 
             }
         }
