@@ -14,12 +14,12 @@ class Policy extends CI_Controller {
     }
     public function privacy()
     {
-        $text = $this->_getPrivacyFile($this->privacy[0]) ; 
-        
-        $data = array(
-            'txt' => $text
-        );
-        $this->load->view('policy/privacy', $data);
+       /* $text = $this->_getPrivacyFile($this->privacy[0]) ; */
+
+        // $data = array(
+        //     ‘txt’ => $text
+        // );
+        $this->load->view('policy/privacy');
 
     } 
     private function _getPrivacyFile($sFileName)
