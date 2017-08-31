@@ -36,7 +36,7 @@
                                             <div class="resultInfo">
                                             <p class="getTxt">입력 : <?=$val['sentence']?></p>
                                                 <div class="recommedTxt">
-                                                    <p class="recomTit"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 윤문 추천 결과</p>
+                                                    <p class="recomTit"><!--<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>--> 윤문 추천 결과</p>
                                                     <ul>
                                                         <?php foreach($val['output'] as $k=>$v) : ?>
                                                         <li><?=$k+1?>. <?=$v?></li>
