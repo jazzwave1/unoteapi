@@ -37,7 +37,7 @@
     }
     .whiteWrap{
         width: 1440px;
-        padding: 20px;
+        padding: 20px 50px;
         background: #fff;
         margin: 0 auto;
     }
