@@ -112,7 +112,6 @@ class Note extends CI_Controller {
     }
     public function viewBook($n_idx)
     {
-
         if(! $n_idx )
         {
             alert_close('존재하지 않은 노트입니다.');
