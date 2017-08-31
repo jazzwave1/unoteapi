@@ -86,22 +86,35 @@
         text-align: center;
     }
     .bookBottom .txt{
-        height: 685px;
+        height: 600px;
         overflow: hidden;
         text-align: justify;
         line-height: 1.8;
         padding-top: 80px;
     }
     .bookBottom2 .txt{
-        height: 835px;
+        height: 750px;
         overflow: hidden;
         text-align: justify;
         line-height: 1.8;
-        font-size: 12pt;
+        font-size: 14px;
     }
     .bookBottom .txt img{
         width: 100%;
         padding-bottom: 20px;
+    }
+    .pageNum{
+        font-weight: bold;
+        padding-top: 85px;
+    }
+    .pageNum span{
+        padding-right: 10px;
+    }
+    .pageNumleft{
+        text-align: left;
+    }
+    .pageNumright{
+        text-align: right;
     }
 </style>
 <div class="bookWrap">
@@ -120,6 +133,7 @@
                             <!--<img src="../../static/images/img_thum.jpg">-->
                             <?=$vdata['contents']?>
                         </div>
+                        <div class="pageNum pageNumleft"><span>1</span><span>내노트</span></div>
                     </div>
                 </div>
             </div>
@@ -138,6 +152,7 @@
                             &nbsp;오늘날 학교의 기원<br/>
                             &nbsp;오늘날 학교는 100년 이전의 개별화, 맞춤식과는 정반대 목적을 위해 디자인되었다. 즉 학교는 가르치고 시험 치는 방식을 표준화하기위해 고안되었다. 20세기에 접어들 당시 한 칸 교실로 이루어진 작은 학교는 각 학생을 위한 맞춤식 교육에 적합했다. 그러나 많은 수의 학생을 교육시키기에 경제적으로 효율적이지 않았다. 1900년에는 미
                         </div>
+                        <div class="pageNum pageNumright"><span>내노트</span><span>2</span></div>
                     </div>
                 </div>
             </div>
