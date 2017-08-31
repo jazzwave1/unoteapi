@@ -1,6 +1,18 @@
 <div class="col-lg-6">
     <div class="box box-info">
         <div class="box-body">
+            <form action="" method="post">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Target User Account (USN)</label>
+                  <input class="form-control" id="usn" name="usn" value='1'>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="box box-info">
+        <div class="box-body">
             <p class="margin">페이스북으로 로그인을 합니다.</p>
             <form action="" method="post">
                 <div class="form-group">
@@ -71,7 +83,7 @@ function callCrawl()
            "site"   : 3 
            ,"s_id"  : s_id 
            ,"s_pwd" : s_pwd 
-           ,"usn"   : 1 
+           ,"usn"   : $('#usn').val() 
            ,"filter" : test 
        }
       ,function(data, status) {
