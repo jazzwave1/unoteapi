@@ -34,9 +34,17 @@
                                         <?php foreach($aBeauti['data'] as $key=>$val): ?>
                                         <li class="beautiBoxList">
                                             <div class="resultInfo">
-                                                <p class="getTxt"> <strong>원문</strong> : <?=$val['sentence']?></p>
+                                                <p class="recommedBtn">
+                                                    <span class="showBtn"><i class="fa fa-eye" aria-hidden="true"></i>표시</span>
+                                                    <span class="hideBtn"><i class="fa fa-eye-slash" aria-hidden="true"></i>표시끄기</span>
+                                                </p>
+                                                <div class="orignTxt">
+                                                    <p><strong>원문</strong></p>
+                                                    <p class="getTxt"><?=$val['sentence']?></p>
+                                                </div>
                                                 <div class="recommedTxt">
                                                     <!--<p class="recomTit">윤문 추천 결과</p>-->
+                                                    <p class="recomTit"><strong>결과</strong></p>
                                                     <ul>
                                                         <?php foreach($val['output'] as $k=>$v) : ?>
                                                         <li><?=$k+1?>. <?=$v?></li>
@@ -49,7 +57,7 @@
                                         <?php else :?>
                                         <li class="beautiBoxList">
                                             <div class="resultInfo">
-                                            <p class="getTxt">추천결과가 없습니다.</p>
+                                                <p class="getTxt2">추천결과가 없습니다.</p>
                                             </div>
                                         </li>
                                         <?php endif;?>
@@ -85,4 +93,12 @@
     }
     $(window).on('load', responsiveView);
     $(window).on('resize', responsiveView);
+
+    /*표시*/
+    $(".showBtn").on("click", function () {
+        alert("준비중");
+    });
+    $(".hideBtn").on("click", function () {
+        alert("준비중");
+    });
 </script>
