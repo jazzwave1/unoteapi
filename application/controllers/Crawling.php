@@ -55,7 +55,8 @@ class Crawling extends CI_Controller{
             $config['total_rows'] = count($aList);
             $config['per_page'] = $this->nPageNum; 
             $config['use_page_numbers'] = TRUE;
-            
+            $config['num_links'] = 5;
+
             // pagination customizing
             $config['num_tag_open'] = '<li>&nbsp;';
             $config['num_tag_close'] = '&nbsp;</li>';
