@@ -247,6 +247,7 @@ $(".newWindow").on("click", newWindow);
 function newWindow()
 {
     var retUrl = getContentsUrl(this);
+    alert(retUrl);
 
     $(".newWindowBtn").prop("href",retUrl);
 }
@@ -256,6 +257,7 @@ $(".copyLink").on("click", copyLink);
 function copyLink()
 {
     var retUrl = getContentsUrl(this);
+    alert(retUrl);
 
     if( is_ie() ) {
       window.clipboardData.setData("Text", retUrl);
@@ -271,6 +273,7 @@ $(".preViewBtn").on("click", preViewBtn);
 function preViewBtn()
 {
     var retUrl = getContentsUrl(this);
+    alert(retUrl);
 
     $(".downloadPdfBtn").prop("href",retUrl);
 }
