@@ -1,3 +1,4 @@
+
 #lnb{
     /*box-shadow: 1px 1px 5px  #888888;*/
     z-index: 500;
@@ -261,7 +262,9 @@ a.croBtn{
     font-weight: bold;
 }
 .listFilter p.totalList{
-    float: right;
+    /*float: right;*/
+    position: absolute;
+    right: 10px;
 }
 .subSearch{
     text-align: left;
@@ -667,6 +670,14 @@ a.croBtn{
 }
 .p-btn .preViewBox ul li a i{
     padding-right: 10px;
+}
+.p-btn .preViewBox ul li a i.fa-mobile{
+    font-size: 20px;
+    padding-right: 18px;
+}
+.p-btn .preViewBox ul li a i.fa-file-text-o{
+    font-size: 14px;
+    padding-right: 15px;
 }
 .p-btn ul.preViewBtn.on{
     display: block;

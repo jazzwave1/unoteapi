@@ -32,12 +32,12 @@ $aCategory = $aMenuList['Category']['sub'];
                                     </li>
                                     <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewNote">
                                         <a class="newWindowBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')" >
-                                            <i class="fa fa-external-link fa-1g " aria-hidden="true"></i><!--<span class="toolTip hide"></span>-->새창으로열기
+                                            <i class="fa fa-mobile" aria-hidden="true"></i><!--<span class="toolTip hide"></span>-->모바일 미리보기
                                         </a>
                                     </li>
                                     <li class="preViewBtn" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewBook">
                                         <div class="downloadPdf">
-                                            <a class="downloadPdfBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')"><i class="fa fa-eye" aria-hidden="true"></i>단행본 미리보기</a>
+                                            <a class="downloadPdfBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')"><i class="fa fa-file-text-o" aria-hidden="true"></i>단행본 미리보기</a>
                                         </div>
                                     </li>
                                 </ul>
