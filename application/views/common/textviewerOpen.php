@@ -158,4 +158,10 @@
         'height':dHeight,
 
     });
+    $(window).on('resize',function () {
+        $(".openpage").css({
+            'height':dHeight,
+
+        });
+    });
 </script>
