@@ -88,8 +88,19 @@ $aLogoMini = edu_get_config('craw_logo_mini', 'unote');
                                     <li class="arrow"><i class="fa fa-arrow-right" aria-hidden="true"></i></li>  
                                     <?php endif; ?>
                                     
+                                    <?php
+                                    if($pagination_num == '' || $pagination_num == 1) :?>
+                                    <li class="arrow"><i class="fa fa-arrow-left" aria-hidden="true"></i></li>
+                                    <?php endif ?>
+
                                     <?=$pagination?>
-                                </ul>
+
+                                    <?php
+                                    if($pagination_num == $last_page_num ) :?>
+                                    <li class="arrow"><i class="fa fa-arrow-right" aria-hidden="true"></i></li>
+                                    <?php endif ?>
+
+                                    </ul>
                             </div>
                         </div>
                     </div>

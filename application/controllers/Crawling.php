@@ -22,7 +22,7 @@ class Crawling extends CI_Controller{
         header('Location: '.HOSTURL.'/Crawling/History');
     }
 
-    public function History($pagination=0)
+    public function History($pagination_num = 0)
     {
         // test code
         $usn = $this->oMemberInfo->usn;
@@ -34,7 +34,7 @@ class Crawling extends CI_Controller{
         }
 
         // init
-        if(!$pagination || $pagination == 0) $pagination = '';
+        if(!$pagination_num || $pagination_num == 0) $pagination_num = '';
 
         $this->load->library('MenuClass');
         $aMenuList = MenuClass::getMenuList($usn);
@@ -56,6 +56,13 @@ class Crawling extends CI_Controller{
             $config['per_page'] = $this->nPageNum; 
             $config['use_page_numbers'] = TRUE;
             $config['num_links'] = 5;
+            $config['fixed_page_num'] = 10;
+            
+            $config['disable_first_link'] = TRUE;
+            $config['disable_last_link'] = TRUE;
+            
+            $config['display_prev_always'] = TRUE;
+            $config['display_next_always'] = TRUE;
 
             // pagination customizing
             $config['num_tag_open'] = '<li>&nbsp;';
@@ -68,21 +75,24 @@ class Crawling extends CI_Controller{
             $config['next_link'] = '<li class="arrow">
                                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                     </li>'; 
-            
+
+            $last_page_num = floor(count($aList) / $this->nPageNum ) + 1; 
+           
             // display count 로 변경 
-            $aList = $this->_setPagination($aList, $pagination);
+            $aList = $this->_setPagination($aList, $pagination_num);
 
             $this->pagination->initialize($config); 
-             
             
             $pagination = $this->pagination->create_links();
-            
+
         }
         
         $data = array(
              'vdata' => $aList
             ,'usn'   => $usn
             ,'pagination' => $pagination
+            ,'pagination_num' => $pagination_num
+            ,'last_page_num'  => $last_page_num
             ,'aMenuList' => $aMenuList
             ,'contents' => 'crawling/clist'
         );
