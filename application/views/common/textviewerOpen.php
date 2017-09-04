@@ -151,10 +151,10 @@
 <script>
     var dHeight = $(document).height();
 
-    $(".openWrap").css({
+   /* $(".openWrap").css({
         'height':dHeight,
-    });
-    $(".openView").css({
+    });*/
+    $(".openpage").css({
         'height':dHeight,
 
     });
