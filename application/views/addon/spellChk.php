@@ -101,7 +101,7 @@ if(is_array($data) && count($data)>0){
                         <?php else :?>
                             <li class="emptySpell">
                                 <div class="resultInfo">
-                                    <p class="getTxt">검사결과가 없습니다.</p>
+                                    <p class="getTxt1">검사결과가 없습니다.</p>
                                 </div>
                             </li>
                         <?php endif;?>

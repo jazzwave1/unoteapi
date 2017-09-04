@@ -31,13 +31,15 @@ $aCategory = $aMenuList['Category']['sub'];
                                         <a class="copyLinkBtn" href="javascript:;"><i class="fa fa-link" aria-hidden="true"></i><!--<span class="toolTip hide"></span>-->링크복사</a>
                                     </li>
                                     <li class="newWindow" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewNote">
-                                        <a class="newWindowBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')" >
+                                        <!-- <a class="newWindowBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')" > -->
+                                        <a class="newWindowBtn" target="_blank" href="javascript:window.open('/unoteapi/Note/viewNote/<?=$vdata['aDetail']['n_idx']?>','window','width=750,height=750,left=0,top=0')" >
                                             <i class="fa fa-mobile" aria-hidden="true"></i><!--<span class="toolTip hide"></span>-->모바일 미리보기
                                         </a>
                                     </li>
                                     <li class="preViewBtn" data-hosturl="<?=HOSTURL?>" data-controller="<?=$this->uri->segment(1)?>" data-type="viewBook">
                                         <div class="downloadPdf">
-                                            <a class="downloadPdfBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')"><i class="fa fa-file-text-o" aria-hidden="true"></i>단행본 미리보기</a>
+                                            <!-- <a class="downloadPdfBtn" target="_blank" href="javascript:window.open(this.href,'window','width=750,height=750,left=0,top=0')"><i class="fa fa-file-text-o" aria-hidden="true"></i>단행본 미리보기</a> -->
+                                            <a class="downloadPdfBtn" target="_blank" href="javascript:window.open('/unoteapi/Note/viewBook/<?=$vdata['aDetail']['n_idx']?>','window','width=750,height=750,left=0,top=0')"><i class="fa fa-file-text-o" aria-hidden="true"></i>단행본 미리보기</a>
                                         </div>
                                     </li>
                                 </ul>

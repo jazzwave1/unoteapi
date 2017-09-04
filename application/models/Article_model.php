@@ -281,7 +281,7 @@ class  Article_model extends CI_model{
     {
         if(!$t_idx) return false;
 
-        $aInput = array('t_idx' => $t_idx, 'bookmark' => 'Y');
+        $aInput = array('t_idx' => $t_idx, 'bookmark' => 'Y', 'editdate' => date('Y-m-d H:i:s'));
 
         if( $this->article_dao->chkBookmarkArticle($aInput) )
             return true;
@@ -292,7 +292,7 @@ class  Article_model extends CI_model{
     {
         if(!$t_idx) return false;
 
-        $aInput = array('t_idx' => $t_idx);
+        $aInput = array('t_idx' => $t_idx, 'editdate' => date('Y-m-d H:i:s'));
 
         if( $this->article_dao->unchkBookmarkArticle($aInput) )
             return true;
