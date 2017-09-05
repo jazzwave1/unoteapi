@@ -153,4 +153,14 @@ class Admin_model extends CI_model
 
 
     }
+    public function getApiCallCntTotal()
+    {
+        $aResult = $this->admin_dao->getApiCallCntTotal();    
+        $aRtn = array();
+        foreach($aResult as $key=>$val)
+        {
+            $aRtn[$val->api] = $val->cnt;
+        }
+        return $aRtn;
+    }
 }

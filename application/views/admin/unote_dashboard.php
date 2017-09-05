@@ -54,6 +54,35 @@
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
+        
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-blue"><i class="fa fa-fw fa-pencil"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">맞춤법검사실행(전체)</span>
+              <span class="info-box-number"><?=$aApiTotal['spellcheck']?></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-dark"><i class="fa fa-fw fa-pencil"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">윤문추천실행(전체)</span>
+              <span class="info-box-number"><?=$aApiTotal['beauticheck']?></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+
 
       </div>
 

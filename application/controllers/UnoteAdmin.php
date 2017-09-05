@@ -79,6 +79,7 @@ class UnoteAdmin extends CI_Controller {
             ,'nNote'          => $this->_getNoteTotalCnt()
             ,'sBSCnt'         => $this->_getBeautifySentenceCnt()
             ,'sServerStatus'  => $this->_getServerStatus()
+            ,'aApiTotal'      => $this->_getApiCallCntTotal()
         );
 
         $data = array(
@@ -131,7 +132,10 @@ class UnoteAdmin extends CI_Controller {
 
         $this->load->view('admin/layout', $data);  
     }
-
+    private function _getApiCallCntTotal()
+    {
+        return $this->admin_model->getApiCallCntTotal();     
+    }
     private function _getArticleCnt()
     {
         return $this->admin_model->getArticleCnt();     

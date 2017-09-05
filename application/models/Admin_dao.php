@@ -50,4 +50,11 @@ class Admin_dao extends Common_dao
 
         return $this->actModelFuc($aConfig, $aInput);
     }
+    public function getApiCallCntTotal()
+    {
+        $aInput = array('usn' => 1);
+        $aConfig = $this->queryInfoAdmin['getApiCallCntTotal'];
+
+        return $this->actModelFuc($aConfig, $aInput);
+    }
 }
