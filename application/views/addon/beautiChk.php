@@ -124,7 +124,9 @@ if(is_array($aBeauti['data']) && count($aBeauti['data'])>0){
         var text = removeBrTag(oEditor.getIR());
 
         // 이전 선택된 윤문추천 문장 표시 해제
-        text = repPreHighlightStyle($('#pre_line').val(), text);
+        if($('#pre_line').val()){
+            text = repPreHighlightStyle($('#pre_line').val(), text);
+        }
 
         var search = $(this).parent('.recommedBtn').siblings('.orignTxt').children('.getTxt').text();
         text = repHighlightStyle(search, text);
