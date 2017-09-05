@@ -25,16 +25,20 @@ class Admin_dao extends Common_dao
 
         return $this->actModelFuc($aConfig, $aInput);
     }
-    public function getNoteCnt()
+    public function getNoteCnt($regdate)
     {
-        $aInput = array('n_idx' => 1);
+        if(!$regdate) return false;
+
+        $aInput = array('regdate' => $regdate);
         $aConfig = $this->queryInfoAdmin['getNoteCnt'];
 
         return $this->actModelFuc($aConfig, $aInput);
     }
-    public function getApiCallCnt()
+    public function getApiCallCnt($regdate)
     {
-        $aInput = array('usn' => 1);
+        if(!$regdate) return false;
+       
+        $aInput = array('regdate' => $regdate);
         $aConfig = $this->queryInfoAdmin['getApiCallCnt'];
 
         return $this->actModelFuc($aConfig, $aInput);

@@ -82,7 +82,7 @@
         <!-- LINE CHART -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">등록중인 글</h3>
+                <h3 class="box-title">등록중인 글 ( 최근 30일 )</h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -102,7 +102,7 @@
     <div class="col-md-6">
         <div class="box box-success">
           <div class="box-header with-border">
-            <h3 class="box-title">맞춤법 & 윤문추천 Count</h3>
+            <h3 class="box-title">맞춤법 & 윤문추천 Count ( 최근 10일 )</h3>
 
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>

@@ -467,20 +467,20 @@ $config['query'] = array(
                  SELECT date_format(regdate, '%Y-%m-%d') as month, count(*) as cnt 
                    FROM eduniety.note
                   WHERE deldate is null
-                    AND n_idx >= ?
+                    AND regdate >= ?
                   GROUP by date_format(regdate, '%Y-%m-%d')"
-            ,'data' => array('n_idx')
-            ,'btype'=> 'i'
+            ,'data' => array('regdate')
+            ,'btype'=> 's'
             ,'null' => array()
         )
         ,'getApiCallCnt' => array(
             'query' => "
                 SELECT api , date_format(regdate, '%Y-%m-%d')as day, count(*) as cnt
                   FROM eduniety.api_call_history
-                 WHERE usn >= ?
+                 WHERE  regdate >= ? 
                  GROUP BY api , date_format(regdate, '%Y-%m-%d')"
-            ,'data' => array('usn')
-            ,'btype'=> 'i'
+            ,'data' => array('regdate')
+            ,'btype'=> 's'
             ,'null' => array()
         )
         ,'getAccountTotalCnt' => array(

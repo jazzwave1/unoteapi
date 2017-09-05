@@ -68,10 +68,13 @@ class UnoteAdmin extends CI_Controller {
         );
         
         $aResult = array(
+
+            // 차트
              'sArticleString' => $this->_getArticleCnt()
             ,'sNoteString'    => $this->_getNoteCnt()
             ,'sApiCallString' => $this->_getApiCallCnt()
-            
+
+            // 위쪽 심플 카운트 및 상태  
             ,'nAccount'       => $this->_getAccountTotalCnt()
             ,'nNote'          => $this->_getNoteTotalCnt()
             ,'sBSCnt'         => $this->_getBeautifySentenceCnt()

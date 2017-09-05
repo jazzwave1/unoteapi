@@ -59,7 +59,11 @@ class Admin_model extends CI_model
     }
     public function getNoteCnt()
     {
-        $aResult = $this->admin_dao->getNoteCnt();    
+        // 최근 30일 데이터만 차트로 나타냄
+        $time = time(); 
+        $regdate = date("Y-m-d",strtotime("-30 day", $time)). " 00:00:00";
+
+        $aResult = $this->admin_dao->getNoteCnt($regdate);
 
         return $this->_setNoteCntString($aResult);
     }
@@ -74,7 +78,11 @@ class Admin_model extends CI_model
     } 
     public function getApiCallCnt()
     {
-        $aResult = $this->admin_dao->getApiCallCnt();    
+        // 최근 10일 데이터만 차트로 나타냄
+        $time = time(); 
+        $regdate = date("Y-m-d",strtotime("-10 day", $time)). " 00:00:00";
+
+        $aResult = $this->admin_dao->getApiCallCnt($regdate);    
         
         return $this->_setApiCallCntString($aResult);
     }   
