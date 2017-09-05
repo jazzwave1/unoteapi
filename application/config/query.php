@@ -483,6 +483,16 @@ $config['query'] = array(
             ,'btype'=> 's'
             ,'null' => array()
         )
+        ,'getApiCallCntTotal' => array(
+            'query' => "
+                SELECT api ,  count(*) as cnt
+                  FROM eduniety.api_call_history
+                 WHERE usn >= ? 
+                 GROUP BY api "
+            ,'data' => array('usn')
+            ,'btype'=> 'i'
+            ,'null' => array()
+        )
         ,'getAccountTotalCnt' => array(
             'query' => "
                 SELECT count(*) as cnt
