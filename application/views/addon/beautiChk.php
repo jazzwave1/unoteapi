@@ -49,15 +49,16 @@ if(isset($aBeauti['data'])){
                                         <?php foreach($aBeauti['data'] as $key=>$val): ?>
                                         <li class="beautiBoxList">
                                             <div class="resultInfo">
-                                                <p class="recommedBtn">
+                                                <div class="result-inner">
+                                                    <p class="recommedBtn">
                                                     <span class="showBtn"><i class="fa fa-eye" aria-hidden="true"></i>표시</span>
-                                                    <span class="hideBtn"><i class="fa fa-eye-slash" aria-hidden="true"></i>끄기</span>
+                                                    <span class="hideBtn hide"><i class="fa fa-eye-slash" aria-hidden="true"></i>끄기</span>
                                                 </p>
-                                                <div class="orignTxt">
+                                                    <div class="orignTxt">
                                                     <p><strong>원문</strong></p>
                                                     <p class="getTxt"><?=$val['sentence']?></p>
                                                 </div>
-                                                <div class="recommedTxt">
+                                                    <div class="recommedTxt">
                                                     <!--<p class="recomTit">윤문 추천 결과</p>-->
                                                     <p class="recomTit"><strong>결과</strong></p>
                                                     <ul>
@@ -65,6 +66,7 @@ if(isset($aBeauti['data'])){
                                                         <li><?=$k+1?>. <?=$v?></li>
                                                         <?php endforeach;?>
                                                     </ul>
+                                                </div>
                                                 </div>
                                             </div>
                                         </li>
@@ -120,17 +122,22 @@ if(isset($aBeauti['data'])){
     $(window).on('resize', responsiveView);
 
     /*표시*/
-    $(".showBtn").on("click", function () {
-        $(".showBtn").removeClass("on");
-        $(this).addClass("on");
-        var text = removeBrTag(oEditor.getIR());
 
+    $(".showBtn").on("click", function () {
+        $(".resultInfo").removeClass("on");
+        $(".hideBtn").addClass("hide");
+        $(".showBtn").removeClass("hide");
+        $(this).parents().parents(".resultInfo").addClass("on");
+        $(this).addClass("hide");
+        $(this).siblings(".hideBtn").removeClass("hide");
+
+        var text = removeBrTag(oEditor.getIR());
         // 이전 선택된 윤문추천 문장 표시 해제
         if($('#pre_line').val()){
             text = repPreHighlightStyle($('#pre_line').val(), text);
         }
 
-        var search = $(this).parent('.recommedBtn').siblings('.orignTxt').children('.getTxt').text();
+        var search = $(this).parents('.recommedBtn').siblings('.orignTxt').children('.getTxt').text();
         text = repHighlightStyle(search, text);
 
         // 이전 윤문추천 문장 저장
@@ -140,10 +147,13 @@ if(isset($aBeauti['data'])){
         oEditor.exec("PASTE_HTML", [text]);
     });
     $(".hideBtn").on("click", function () {
-        $(this).siblings(".showBtn").removeClass("on");
+        $(this).parents().parents(".resultInfo").removeClass("on");
+        $(this).addClass("hide");
+        $(this).siblings(".showBtn").removeClass("hide");
+
         var text = removeBrTag(oEditor.getIR());
 
-        var search = $(this).parent('.recommedBtn').siblings('.orignTxt').children('.getTxt').text();
+        var search = $(this).parents('.recommedBtn').siblings('.orignTxt').children('.getTxt').text();
         text = repPreHighlightStyle(search, text);
 
         oEditor.setIR('');
