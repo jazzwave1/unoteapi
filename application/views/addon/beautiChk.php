@@ -51,7 +51,7 @@ if(is_array($aBeauti['data']) && count($aBeauti['data'])>0){
                                             <div class="resultInfo">
                                                 <p class="recommedBtn">
                                                     <span class="showBtn"><i class="fa fa-eye" aria-hidden="true"></i>표시</span>
-                                                    <span class="hideBtn"><i class="fa fa-eye-slash" aria-hidden="true"></i>표시끄기</span>
+                                                    <span class="hideBtn"><i class="fa fa-eye-slash" aria-hidden="true"></i>끄기</span>
                                                 </p>
                                                 <div class="orignTxt">
                                                     <p><strong>원문</strong></p>
@@ -121,6 +121,8 @@ if(is_array($aBeauti['data']) && count($aBeauti['data'])>0){
 
     /*표시*/
     $(".showBtn").on("click", function () {
+        $(".showBtn").removeClass("on");
+        $(this).addClass("on");
         var text = removeBrTag(oEditor.getIR());
 
         // 이전 선택된 윤문추천 문장 표시 해제
@@ -138,6 +140,7 @@ if(is_array($aBeauti['data']) && count($aBeauti['data'])>0){
         oEditor.exec("PASTE_HTML", [text]);
     });
     $(".hideBtn").on("click", function () {
+        $(this).siblings(".showBtn").removeClass("on");
         var text = removeBrTag(oEditor.getIR());
 
         var search = $(this).parent('.recommedBtn').siblings('.orignTxt').children('.getTxt').text();
