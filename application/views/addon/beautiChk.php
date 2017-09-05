@@ -1,6 +1,6 @@
 <?php
 $aBeautiChk = array();
-if(is_array($aBeauti['data']) && count($aBeauti['data'])>0){
+if(isset($aBeauti['data'])){
     foreach ($aBeauti['data'] as $key => $val) {
         $aBeautiChk[] = $val['sentence'];
     }
