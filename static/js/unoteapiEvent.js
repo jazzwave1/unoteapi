@@ -487,5 +487,14 @@ function delHistoryArticle(q_idx)
 
 
 $(".distriBtn").on("click", function () {
-    $(".preViewBox").toggleClass("on");
+    $(".preViewBox").show();
 });
+$(document).mouseup(function (e) {
+    var container2 = $(".preViewBox");
+    if (!container2.is(e.target) && container2.has(e.target).length === 0){
+        container2.hide();
+    }
+});
+
+
+

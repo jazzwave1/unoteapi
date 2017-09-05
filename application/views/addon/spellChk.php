@@ -120,7 +120,9 @@ if(is_array($data) && count($data)>0){
         var text = removeBrTag(oEditor.getIR());
         
         // 이전 선택된 맞춤법 : Highlight->Underline 표시
-        text = repPreSelectStyle($('#pre_search').val(), text);
+        if($('#pre_search').val()){
+            text = repPreSelectStyle($('#pre_search').val(), text);
+        }
 
         // 맞춤법 선택 : 선택한 부분 Underline->Highlight 표시
         var search = $(this).children('.resultInfo').children('.splWrong').text();

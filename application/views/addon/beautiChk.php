@@ -1,4 +1,13 @@
+<?php
+$aBeautiChk = array();
+if(isset($aBeauti['data'])){
+    foreach ($aBeauti['data'] as $key => $val) {
+        $aBeautiChk[] = $val['sentence'];
+    }
+}
+?>                            
                             <div class="chkTit clearfix">
+
                                 윤문 추천 결과
                                 <span class="closedBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
                             </div>
@@ -14,6 +23,12 @@
                             </div>-->
                             <div class="bsinner scrollStyle">
                                 <div class="beautiChkBox">
+
+                                <?php foreach ($aBeautiChk as $chkText): ?>
+                                <input type="hidden" name="aBeautiChk[]" value="<?=$chkText?>" />
+                                <?php endforeach; ?>
+
+                                <input type="hidden" id="pre_line" name="pre_line" />
                                     <ul>
                                         <!--li class="beautiBoxList">
                                             <div class="resultInfo">
@@ -36,7 +51,7 @@
                                             <div class="resultInfo">
                                                 <p class="recommedBtn">
                                                     <span class="showBtn"><i class="fa fa-eye" aria-hidden="true"></i>표시</span>
-                                                    <span class="hideBtn"><i class="fa fa-eye-slash" aria-hidden="true"></i>표시끄기</span>
+                                                    <span class="hideBtn"><i class="fa fa-eye-slash" aria-hidden="true"></i>끄기</span>
                                                 </p>
                                                 <div class="orignTxt">
                                                     <p><strong>원문</strong></p>
@@ -69,6 +84,16 @@
 
     /*윤문 추천 결과 창 닫기*/
     $(".chkTit .closedBtn").on("click", function () {
+        var text = removeBrTag(oEditor.getIR());
+
+        var aBeautiChk = document.getElementsByName('aBeautiChk[]');
+
+        text = repAllLineStyle(aBeautiChk, text);
+        text = removeStyleScript(text);
+
+        oEditor.setIR('');
+        oEditor.exec("PASTE_HTML", [text]);
+
         $(".addOn-default").show();
         $("#addOnWrap").hide();
     });
@@ -96,9 +121,32 @@
 
     /*표시*/
     $(".showBtn").on("click", function () {
-        alert("준비중");
+        $(".showBtn").removeClass("on");
+        $(this).addClass("on");
+        var text = removeBrTag(oEditor.getIR());
+
+        // 이전 선택된 윤문추천 문장 표시 해제
+        if($('#pre_line').val()){
+            text = repPreHighlightStyle($('#pre_line').val(), text);
+        }
+
+        var search = $(this).parent('.recommedBtn').siblings('.orignTxt').children('.getTxt').text();
+        text = repHighlightStyle(search, text);
+
+        // 이전 윤문추천 문장 저장
+        $('#pre_line').val(search);
+
+        oEditor.setIR('');
+        oEditor.exec("PASTE_HTML", [text]);
     });
     $(".hideBtn").on("click", function () {
-        alert("준비중");
+        $(this).siblings(".showBtn").removeClass("on");
+        var text = removeBrTag(oEditor.getIR());
+
+        var search = $(this).parent('.recommedBtn').siblings('.orignTxt').children('.getTxt').text();
+        text = repPreHighlightStyle(search, text);
+
+        oEditor.setIR('');
+        oEditor.exec("PASTE_HTML", [text]);
     });
 </script>
