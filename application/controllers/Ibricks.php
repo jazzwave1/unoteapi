@@ -206,7 +206,7 @@ class Ibricks extends CI_Controller {
         $aNoteDetailInfo = NoteClass::getNoteDetailInfo($nIdx);
         $chkText = $aNoteDetailInfo['text'];
 
-        $script = '<style>.underlineChk{text-decoration: underline; text-decoration-color:red;color:red;}.highlightChk{background:red; color:#fff;}</style>';
+        $script = '<style>.underlineChk{text-decoration: underline; text-decoration-color:red;color:red;}.highlightChk{background:red; color:#fff;}.highlightLine{background: #fbf7ae;}</style>';
 
         foreach ($aResultJson['data'] as $key => $obj) {
             foreach ($obj->result as $oData) {
@@ -296,6 +296,13 @@ class Ibricks extends CI_Controller {
 
 //        print_r($aResultJson['data']);
         
+        // editor text
+        edu_get_instance('NoteClass');
+        $aNoteDetailInfo = NoteClass::getNoteDetailInfo($nIdx);
+        $chkText = $aNoteDetailInfo['text'];
+
+        $script = '<style>.underlineChk{text-decoration: underline; text-decoration-color:red;color:red;}.highlightChk{background:red; color:#fff;}.highlightLine{background: #fbf7ae;}</style>';
+
         foreach($aResultJson['data'] as $key=>$val)
         {
 //            echo $key." | "."strlen : ". strlen($val->input). "<br>"; 
@@ -339,6 +346,7 @@ class Ibricks extends CI_Controller {
              "code"  => 1
             ,"msg"   => "OK"
             ,"html" => $addonHtml
+            ,"chkText" => $script.$chkText
         );
  
         response_json($aResult);
