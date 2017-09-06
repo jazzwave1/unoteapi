@@ -130,7 +130,9 @@ class Crawling extends CI_Controller{
         $nSNum = ($nPageNum*$this->nPageNum) - 10;
         
         $nENum = ($nPageNum*$this->nPageNum) ;
-        if($nENum <= count($aList)) $nENum = count($aList);
+
+        if($nENum >= count($aList)) $nENum = count($aList);
+        
         foreach($aList as $key=>$val)
         {
             
@@ -139,6 +141,7 @@ class Crawling extends CI_Controller{
                 $aRtn[] = $aList[$key]; 
             }
         }
+        
         return $aRtn; 
     } 
    
