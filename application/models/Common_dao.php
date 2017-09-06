@@ -8,21 +8,30 @@ class Common_dao extends CI_Model
     public function chkParam( $aConfig , $aParam, $aNull=array() )
     {
         $chkParam = true;
-        foreach($aConfig as $key=>$val)
+        $aData = array();
+        if($aParam)
         {
-            if( $aParam[$val]=='' && !in_array($val, $aNull) )
+            foreach($aConfig as $key=>$val)
             {
-                //echo $val;
-                $chkParam = false;
-                break;
+                if( $aParam[$val]=='' && !in_array($val, $aNull) )
+                {
+                    //echo $val;
+                    $chkParam = false;
+                    break;
+                }
+                if($aParam[$val] == '')
+                    $aParam[$val] = NULL;
+                $aData[] = $aParam[$val];
             }
-            if($aParam[$val] == '')
-                $aParam[$val] = NULL;
-            $aData[] = $aParam[$val];
-        }
+        } 
 
         if($chkParam)
+        {
+            if(!$aData) 
+                return true; 
+            
             return $aData;
+        }
         else
             return $chkParam;
     }
@@ -114,7 +123,7 @@ class Common_dao extends CI_Model
     }
     public function actModelFuc($aConfig, $aParam, $rType='object', $rPK=false)
     {
-        if(!$aConfig || !$aParam) return false;
+        if(!$aConfig) return false;
 
         $query = $aConfig['query'];
         $aData = $aConfig['data'];
