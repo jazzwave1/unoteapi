@@ -54,14 +54,11 @@
                     </div>
                     <!--에듀니티계정 로그인-->
                     <div class="eduniLogin">
-                        <form name='fo' method='post' class="loginForm" action='<?=HOSTURL?>/Login/RpcLogin'>
                         <!--<p class="eduni">에듀니티 회원</p>-->
                             <fieldset>
                                 <input id="userId" type="text" name="id" placeholder="에듀니티 아이디">
                                 <!--<input id="userPwd" type="password" name="pwd" placeholder="비밀번호">-->
-
                                 <a class="formBtn" id="bSend"  href="#">로그인</a>
-
                             </fieldset>
                     </div>
                     <!--//에듀니티계정 로그인-->
@@ -77,11 +74,6 @@
                         </ul>
                         <!--div class="findSns"><a href="javascript:;">계정찾기</a></div-->
                     </div>
-
-                            <input type='hidden' name='user_id' id='user_id' >
-                            <input type='hidden' name='site' id='site' >
-                            <input type='hidden' name='accessToken' id='accessToken'>
-                    </form>
 
                     <!--//sns계정 로그인-->
                     <!--에듀니티계정 로그인-->
@@ -120,6 +112,14 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <!--<script type="text/javascript" src="<?/*=SURL*/?>/js/common_.js"></script>-->
     <!--<script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>-->
+
+
+    <form name='fo' method='post' class="loginForm" action='<?=HOSTURL?>/Login/RpcLogin'>
+        <input type='hidden' name='user_id' id='user_id' >
+        <input type='hidden' name='site' id='site' >
+        <input type='hidden' name='accessToken' id='accessToken'>
+    </form>
+
 
 <script>
 
