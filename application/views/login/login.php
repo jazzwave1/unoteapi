@@ -31,6 +31,9 @@
 
 <div id="fb-root"></div>
     <div id="wrap">
+        <div class="bg">
+            <img src="static/images/bg_login2.png">
+        </div>
         <div class="loginWrap">
             <!--header-->
             <!--<div id="header">
@@ -42,69 +45,50 @@
             </div>-->
             <!--//header-->
             <div class="login inner">
-                <div class="tit"><!--글동<i class="fa fa-pencil"></i>--><img src="static/images/logo.png" alt="유노트 로고"></div>
-                <div class="stit">너와 나를 연결하는 노트</div>
-
+                <div class="tit"><!--글동<i class="fa fa-pencil"></i>--><img src="static/images/logo_main.png" alt="유노트 로고"></div>
+               <!-- <div class="stit">너와 나를 연결하는 노트</div>
+-->
                 <div class="loginBox clearfix">
-                    <div class="txt">
-                        <p>로그인</p>
-                        <p>
-                            기존에 사용하시는 계정으로 간단하게 <br>유노트를 시작하세요!
-                        </p>
-                    </div>
-                    <!--에듀니티계정 로그인-->
-                    <div class="eduniLogin">
-                        <!--<p class="eduni">에듀니티 회원</p>-->
+                    <div class="loginEdu">
+                        <div class="txt">
+                            <p><em>에듀니티</em> 계정으로 로그인</p>
+                            <p class="eduLinkWrap">
+                                에듀니티 회원이 아니신가요?<br>
+                                <a class="eduLink" href="https://www.eduniety.net/" >사이트이동</a>
+                            </p>
+                        </div>
+                        <!--에듀니티계정 로그인-->
+                        <div class="eduniLogin">
+                            <!--<p class="eduni">에듀니티 회원</p>-->
                             <fieldset>
                                 <input id="userId" type="text" name="id" placeholder="에듀니티 아이디">
                                 <!--<input id="userPwd" type="password" name="pwd" placeholder="비밀번호">-->
                                 <a class="formBtn" id="bSend"  href="#">로그인</a>
                             </fieldset>
+                        </div>
+                        <!--//에듀니티계정 로그인-->
                     </div>
-                    <!--//에듀니티계정 로그인-->
-                    <div class="lineBg"><span></span>SNS<span></span></div>
-                    <!--sns계정 로그인-->
-                    <div class="snsLogin">
-                        <ul>
-                            <li class="fBtn btn">
-<div scope="public_profile,email,user_posts" onlogin="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-</li>
-                            <li class="nBtn"><a href="javascript:alert('준비중입니다');"><span class="nlogo"><img src="static/images/icon/logo_naver_login.png"></span>Naver으로 로그인</a></li>
-                            <li class="dBtn"><a href="javascript:alert('준비중입니다');"><span class="dlogo"><img src="static/images/icon/logo_daum_login.png"></span>Daum으로 로그인</a></li>
-                        </ul>
-                        <!--div class="findSns"><a href="javascript:;">계정찾기</a></div-->
+                    <div class="loginSns line">
+                        <div class="txt">
+                            <p><em>SNS</em> 계정으로 로그인</p>
+                            <p>
+                                기존에 사용하시는 계정으로 간단하게 <br>유노트를 시작하세요!
+                            </p>
+                        </div>
+                       <!-- <div class="lineBg"><span></span>SNS<span></span></div>-->
+                        <!--sns계정 로그인-->
+                        <div class="snsLogin">
+                            <ul>
+                                <li class="fBtn btn">
+    <div scope="public_profile,email,user_posts" onlogin="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+    </li>
+                                <li class="nBtn"><a href="javascript:alert('준비중입니다');"><span class="nlogo"><img src="static/images/icon/logo_naver_login.png"></span>Naver으로 로그인</a></li>
+                                <li class="dBtn"><a href="javascript:alert('준비중입니다');"><span class="dlogo"><img src="static/images/icon/logo_daum_login.png"></span>Daum으로 로그인</a></li>
+                            </ul>
+                            <!--div class="findSns"><a href="javascript:;">계정찾기</a></div-->
+                        </div>
+                        <!--//sns계정 로그인-->
                     </div>
-
-                    <!--//sns계정 로그인-->
-                    <!--에듀니티계정 로그인-->
-                    <!--<div class="eduniLogin">
-                        <p class="eduni">에듀니티 회원</p>
-                        <form name='fo' method='post' class="loginForm" action='<?/*=HOSTURL*/?>/Login/RpcLogin'>
-
-                            <input type='hidden' name='user_id' id='user_id' >
-                            <input type='hidden' name='site' id='site' >
-                            <input type='hidden' name='accessToken' id='accessToken'>
-
-                            <fieldset>
-                                <input id="userId" type="text" name="id" value="chomerbleu" placeholder="아이디">
-                                <p class="formBtn">
-                                    <a href="#" id="bSend">로그인</a>
-                                </p>
-                                <p class="notice">
-                                    * 아이디를 입력하세요 / * 비밀번호를 입력하세요 / * 입력정보를 확인해주세요
-                                </p>
-                            </fieldset>
-                            <div class="loginChk">
-                                <!--span class="optionLogin">
-                                    <input type="checkbox" name="save" id="saveLogin">
-                                    <label for="saveLogin">로그인 상태 유지</label>
-                                </span-->
-                                <!--span><a href="http://portal.eduniety.net/html/member/account" class="membership">회원가입</a></span>
-                                <span><a href="http://portal.eduniety.net/html/member/find-id" class="findInfo">아이디 찾기</a></span>
-                            </div>
-                        </form>
-                    </div>-->
-                    <!--//에듀니티계정 로그인-->
                 </div>
             </div>
         </div>

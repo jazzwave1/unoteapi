@@ -19,8 +19,20 @@
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
 }
 /*login*/
-.loginWrap {
-    /* Set rules to fill background */
+#wrap{
+    position: relative;
+}
+#wrap .bg{
+    width: 100%;
+    height: 100%;
+}
+#wrap .bg img{
+    width: 100%;
+}
+#wrap .loginWrap {
+    position: absolute;
+    top:0;
+    z-index: 1000;
     min-height: 100%;
     /*min-width: 768px;*/
     /* Set up proportionate scaling */
@@ -30,11 +42,11 @@
     /* position: fixed;
   top: 0;
   left: 0;*/
-    background: url(../images/bg_login3.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
+   /* background: url(../images/bg_login3.jpg) no-repeat center center fixed;*/
+   /* -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover;*/
 }
 .loginWrap #header{background: none;}
 .loginWrap .inner {
@@ -44,10 +56,11 @@
 }
 
 .login .tit {
-    font-family: 'tvN_Bold';
-    font-size: 80px;
-    letter-spacing: 20px
+    font-family: 'Caveat', cursive;
+    font-size: 120px;
+    padding-bottom: 20px;
 }
+
 .login .tit i{
     font-size: 50px;
     
@@ -62,8 +75,11 @@
     padding-bottom: 10px;
     font-size: 14px;
 }
+.login .txt em{
+    color: #2980b9;
+}
 .login .txt p:first-child{
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
 }
 .login .lineBg{
@@ -80,10 +96,27 @@
 }
 
 .loginBox{
-    width: 300px;
+   /* width: 300px;*/
     background: rgba(255,255,255,0.6);
     margin: 0 auto;
-    padding: 40px 30px;
+    padding: 10px;
+   /* padding: 40px 30px;*/
+}
+.loginBox .loginEdu, .loginBox .loginSns{
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px 20px 0;
+
+}
+.loginBox .line{
+    background: url("../images/bg_line_y.png") repeat-y 0 0;
+    padding-left: 30px;
+    margin-left: 10px;
+}
+.loginEdu .eduLinkWrap .eduLink{
+    font-style: italic;
+    font-size: 12px;
+    text-decoration: underline;
 }
 .snsLogin
 {
@@ -181,17 +214,19 @@
     line-height: 50px;
 }
 
-.eduniLogin form fieldset input {
+.eduniLogin  input {
     width: 170px;
     padding: 15px 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    margin-bottom: 5px;
 }
 
 .eduniLogin .formBtn {
     display: inline-block;
     width: 83px;
     color: #fff;
+    font-size: 16px;
     text-align: center;
     padding: 15px 0;
     border-radius: 5px;
