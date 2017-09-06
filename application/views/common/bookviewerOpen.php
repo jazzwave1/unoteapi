@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?=$vdata['title']?></title>
+
 <style>
 
     /* Reset */
@@ -117,6 +126,8 @@
         text-align: right;
     }
 </style>
+</head>
+<body>
 <div class="bookWrap">
     <div class="whiteWrap">
     <div class="bookBg">
@@ -160,3 +171,6 @@
     </div>
     </div>
 </div>
+
+</body>
+</html>
