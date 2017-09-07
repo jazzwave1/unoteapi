@@ -293,7 +293,7 @@ $config['query'] = array(
                          WHERE usn = ?
                            AND deltype is NULL
                            AND category_idx is NULL
-                         ORDER BY t_idx DESC'
+                         ORDER BY t_idx ASC'
             ,'data' => array('usn')
             ,'btype'=> 'i'
             ,'null' => array()
