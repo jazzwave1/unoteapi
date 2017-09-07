@@ -18,8 +18,8 @@
             <div class="hright">
                 <!--userInfo-->
                 <div class="userInfo">
-                    <div class="pic"><img src="<?=SURL?>/images/junghun.jpg"></div>
-                    <div class="name"><a href="#"><span>정훈</span> 님 <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
+                    <div class="pic"><img src="<?=SURL?>/images/lee.jpg"></div>
+                    <div class="name"><a href="#"><span>이기택</span> 님 <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
                 </div>
                 <!--//userInfo-->
                 <!--로그아웃창-->
@@ -27,7 +27,7 @@
                     <div class="userBtn-inner">
                         <ul>
                             <li><a href="/unoteapi/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>로그아웃</a></li>
-                            <li><a href="http://unote.eduniety.net/unoteapi/Policy/privacy" target="_blank"><i class="fa fa-lock" aria-hidden="true"></i>개인정보처리방침</a></li>
+                            <li><a href="/unoteapi/Policy/privacy" target="_blank"><i class="fa fa-lock" aria-hidden="true"></i>개인정보처리방침</a></li>
                         </ul>
                     </div>
                 </div>
