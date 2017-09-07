@@ -141,7 +141,7 @@ if($this->uri->segment(2) == 'Category')
                                     <fieldset>
                                         <input id="facebookToken" type="hidden" name="id" placeholder="토큰">
                                         <p class="log-formBtn">
-                                            <a href="javascript:FBCrawl();">로그인</a>
+                                            <a href="javascript:FBCrawl();">수집 요청</a>
                                         </p>
                                         <p class="log-notice">
                                             <span class="noticeId hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
@@ -166,7 +166,7 @@ if($this->uri->segment(2) == 'Category')
                                         <input id="naverUserId" type="text" name="id" placeholder="아이디" onkeydown="onKeyDown();">
                                         <input id="naverUserPwd" type="password" name="pwd" placeholder="비밀번호" onkeydown="onKeyDown();">
                                         <p class="log-formBtn">
-                                            <a href="javascript:callCrawl();">로그인</a>
+                                            <a href="javascript:callCrawl();">수집 요청</a>
                                         </p>
                                         <p class="log-notice">
                                             <span class="noticeId hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
@@ -194,7 +194,7 @@ if($this->uri->segment(2) == 'Category')
                                         <input id="daumUserId" type="text" name="id" placeholder="아이디" onkeydown="onKeyDown();" disabled>
                                         <input id="daumUserPwd" type="password" name="pwd" placeholder="비밀번호" onkeydown="onKeyDown();" disabled>
                                         <p class="log-formBtn">
-                                            <a href="javascript:callCrawl();">로그인</a>
+                                            <a href="javascript:callCrawl();">수집 요청</a>
                                         </p>
                                         <p class="log-notice">
                                             <span class="noticeId hide"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 아이디를 입력하세요</span>
