@@ -265,7 +265,7 @@ class Ibricks extends CI_Controller {
         $sIdx = $this->input->post('s_idx');
 
         // test code
-        //$nIdx = 26;
+        // $nIdx = 45;
         
         // set api call log --------------------//
         $usn      = $this->oMemberInfo->usn;
@@ -321,10 +321,10 @@ class Ibricks extends CI_Controller {
         foreach($aResultJson['data'] as $key=>$val)
         {
             $aRtn['data'][$cnt]['sentence'] = $val->sentence;
+            $aRtn['data'][$cnt]['input'] = $val->result[0]->input; 
             $aRtn['data'][$cnt]['output'] = $val->result[0]->output; 
             $cnt++;
         }
-
 
         // dummy 추가함  ------------------------------- //
         // if($aRtn)

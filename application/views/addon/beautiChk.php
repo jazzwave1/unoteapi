@@ -3,6 +3,12 @@ $aBeautiChk = array();
 if(isset($aBeauti['data'])){
     foreach ($aBeauti['data'] as $key => $val) {
         $aBeautiChk[] = $val['sentence'];
+
+        // 원문 표시
+        $aBeauti['data'][$key]['chk_sentence'] = $val['sentence'];
+        foreach ($val['input'] as $search) {
+            $aBeauti['data'][$key]['chk_sentence'] = str_replace($search, '<b><u>'.$search.'</u></b>', $aBeauti['data'][$key]['chk_sentence']);
+        }
     }
 }
 ?>                            
@@ -56,7 +62,7 @@ if(isset($aBeauti['data'])){
                                                 </p>
                                                     <div class="orignTxt">
                                                     <p><strong>원문</strong></p>
-                                                    <p class="getTxt"><?=$val['sentence']?></p>
+                                                    <p class="getTxt"><?=$val['chk_sentence']?></p>
                                                 </div>
                                                     <div class="recommedTxt">
                                                     <!--<p class="recomTit">윤문 추천 결과</p>-->
