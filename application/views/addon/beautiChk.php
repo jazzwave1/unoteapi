@@ -7,7 +7,13 @@ if(isset($aBeauti['data'])){
         // 원문 표시
         $aBeauti['data'][$key]['chk_sentence'] = $val['sentence'];
         foreach ($val['input'] as $search) {
-            $aBeauti['data'][$key]['chk_sentence'] = str_replace($search, '<b><u>'.$search.'</u></b>', $aBeauti['data'][$key]['chk_sentence']);
+            $aBeauti['data'][$key]['chk_sentence'] = str_replace($search, '<span class="sentenceChk">'.$search.'</span>', $aBeauti['data'][$key]['chk_sentence']);
+        }
+
+        // 추천 문장 표시
+        $aBeauti['data'][$key]['chk_output'] = $val['output'];
+        foreach ($val['output'] as $k => $output) {
+            $aBeauti['data'][$key]['chk_output'][$k] = str_replace($val['output_key'][0][$k], '<span class="sentenceChk">'.$val['output_key'][0][$k].'</span>', $aBeauti['data'][$key]['chk_output'][$k]);
         }
     }
 }
@@ -51,8 +57,8 @@ if(isset($aBeauti['data'])){
                                                     <div class="recommedTxt">
                                                     <p class="recomTit"><strong>추천</strong></p>
                                                     <ul>
-                                                        <?php foreach($val['output'] as $k=>$v) : ?>
-                                                        <li><?=$k+1?>. <?=$v?></li>
+                                                        <?php foreach($val['chk_output'] as $k=>$v) : ?>
+                                                        <li><i class="fa fa-caret-right" aria-hidden="true"></i> <?=$v?></li>
                                                         <?php endforeach;?>
                                                     </ul>
                                                 </div>

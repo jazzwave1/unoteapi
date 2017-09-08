@@ -206,7 +206,7 @@ class Ibricks extends CI_Controller {
         $aNoteDetailInfo = NoteClass::getNoteDetailInfo($nIdx);
         $chkText = $aNoteDetailInfo['text'];
 
-        $script = '<style>.underlineChk{text-decoration: underline; text-decoration-color:red;color:red;}.highlightChk{background:red; color:#fff;}.highlightLine{background: #fbf7ae;}</style>';
+        $script = '<style>.underlineChk{text-decoration: underline; text-decoration-color:red;color:red;}.highlightChk{background:red; color:#fff;}.highlightLine{background:#2980b9;color:#fff;}</style>';
 
         foreach ($aResultJson['data'] as $key => $obj) {
             foreach ($obj->result as $oData) {
@@ -301,7 +301,7 @@ class Ibricks extends CI_Controller {
         $aNoteDetailInfo = NoteClass::getNoteDetailInfo($nIdx);
         $chkText = $aNoteDetailInfo['text'];
 
-        $script = '<style>.underlineChk{text-decoration: underline; text-decoration-color:red;color:red;}.highlightChk{background:red; color:#fff;}.highlightLine{background: #fbf7ae;}</style>';
+        $script = '<style>.underlineChk{text-decoration: underline; text-decoration-color:red;color:red;}.highlightChk{background:red; color:#fff;}.highlightLine{background:#2980b9;color:#fff;}</style>';
 
         foreach($aResultJson['data'] as $key=>$val)
         {
@@ -323,6 +323,7 @@ class Ibricks extends CI_Controller {
             $aRtn['data'][$cnt]['sentence'] = $val->sentence;
             $aRtn['data'][$cnt]['input'] = $val->result[0]->input; 
             $aRtn['data'][$cnt]['output'] = $val->result[0]->output; 
+            $aRtn['data'][$cnt]['output_key'] = $val->result[0]->output_key; 
             $cnt++;
         }
 
