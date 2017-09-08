@@ -984,6 +984,7 @@ i.fa-star-o.on{
 }
 .c-page_num ul li{
     display: inline-block;
+    font-size: 14px;
 }
 
 .c-page_num ul li a.on{
@@ -994,10 +995,11 @@ i.fa-star-o.on{
     padding: 0 10px;
 }
 .c-page_num ul li.arrow i{
-    color: #eee;
+    font-size: 14px;
+    color: #ccc;
 }
 .c-page_num ul li.arrow i:hover{
-    color: #fdd66d;
+    color: #0d94d0;
 }
 
 
