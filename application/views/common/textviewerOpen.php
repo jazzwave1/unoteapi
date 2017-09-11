@@ -80,7 +80,7 @@
             display: inline-block;
             padding-left: 10px;
             font-weight: bold;
-            font-size: 12px;
+            font-size: 14px;
         }
 
         .openpage .writer .pic img{
@@ -113,7 +113,7 @@
                 width: 100%;
             }
             .openpage{
-                box-shadow: 0px 0px 0px;
+                /*box-shadow: 0px 0px 0px;*/
             }
 
         }
@@ -143,7 +143,7 @@
                                                 <p class="open-tit"><?=$vdata['title']?></p>
                                             </div>
                                             <div class="writer">
-                                                <span class="pic"><img src="<?=SURL?>/images/junghun.jpg"></span><span class="name">정 훈</span>
+                                                <span class="pic"><img src="<?=SURL?>/images/lee.jpg"></span><span class="name">이기택</span>
                                             </div>
                                         </div>
                                     </div>
