@@ -73,6 +73,11 @@ img.img_contents{ padding: 5px 0;}
 .lnbItem .lnbItemList li i{
     padding-right: 5px;
 }
+.lnbItem .lnbItemList li i.fa-folder-open{
+    vertical-align: top;
+    padding-top: 5px;
+}
+
 .lnbItem .lnbItemList li .num{
     position: relative;
     display: inline-block;
