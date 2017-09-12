@@ -106,7 +106,7 @@
         overflow: hidden;
         text-align: justify;
         line-height: 1.8;
-        font-size: 14px;
+        font-size: 12pt;
     }
     .bookBottom .txt img{
         width: 100%;
