@@ -39,8 +39,8 @@ if(is_array($data) && count($data)>0){
                         <!--나라인포테크검사-->
                         <div class="splData">
                             <div class="spld-inner">
-                                <p class="splWrong-data">제공하지 안았다</p>
-                                <p class="splRight-data">제공하지 않았다</p>
+                                <p class="splWrong-data">하지 안았다</p>
+                                <p class="splRight-data">하지 않았다</p>
                                 <div class="detail-data">
                                     <div>
                                         <p class="detail-tit">도움말</p>
@@ -57,18 +57,21 @@ if(is_array($data) && count($data)>0){
                         </div>
                         <div class="splData">
                             <div class="spld-inner">
-                                <p class="splWrong-data">제공하지 안았다</p>
-                                <p class="splRight-data">제공하지 않았다</p>
+                                <p class="splWrong-data">. 결국 리더와</p>
+                                <p class="splRight-data">. 결국, 리더와</p>
                                 <div class="detail-data">
                                     <div>
                                         <p class="detail-tit">도움말</p>
-                                        <p class="detail-txt">'않다'는 부정을 나타내는 보조동사로 앞에 본동사가 와야 하며 이 때 본동사는 보조적 연결어미 '-지'를 수반합니다. '안다'는 '알다' 의 현재 활용형으로 본동사로 쓰입니다.
-                                            그래서 다른 본동사는 거의 필요가 없으며 '안다' 앞에 나타나는 '-지'는 의존 명사 이므로 '-지' 앞에 말과 띄어 씁니다.</p>
+                                        <p class="detail-txt">문장 첫머리의 접속이나 연결을 나타내는 말(접속부사 또는 연결을 나타내는 부사어) 다음에는 반점을 씁니다.</p>
                                     </div>
                                     <div class="detailExp">
                                         (예)
-                                        <p>공부하지 안다.  -> 공부하지 않는다.</p>
-                                        <p>공부한 지 않다. -> 공부한 지 안다.</p>
+                                        <p>결국, …… 다만, ……  그럼에도, …… 먼저, …… 다음으로, …… 바라건대, …….보건대, …… 뿐만 아니라, ……살피건대, …… 생각건대, ……기록에 의하여 살펴보면, …… 아무튼, ……원심판결 이유에 의하면, …… 첫째, ……. 둘째, …… 하지만, …… 한편, ……    </p>
+                                        <br>
+                                        <p>다만, 일반적으로 쓰이는 접속어('그러나, 그러므로, 그리고, 그런데'와 이에 대응하는 '이러나, 이러므로, 이런데') 뒤에는 쓰지 않음이 원칙입니다.</p>
+                                        <br>
+                                        <p><strong>예문)</strong> <em style="font-style: italic">어느 나라 사람이나 먹는 것은 다 같다. 그러나 먹는
+                                                방법과 양식이 다르다. 너는 엄청난 죄를 지었다. 그러므로 법의 심판을 받아 마땅하다. 정직하게 살아라. 그리고 열심히 노력하라.</em></p>
                                     </div>
                                 </div>
                             </div>
