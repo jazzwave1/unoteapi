@@ -35,6 +35,7 @@ class Crawling extends CI_Controller{
 
         // init
         $last_page_num = 0;
+        $pagination = ''; 
         if(!$pagination_num || $pagination_num == 0) $pagination_num = '';
 
     
