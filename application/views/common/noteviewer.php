@@ -20,6 +20,10 @@ $aCategory = $aMenuList['Category']['sub'];
                                     <a href="javascript:;"><i class="fa fa-eraser" aria-hidden="true"></i><!--<span class="toolTip hide"></span>-->노트지움</a>
                                     <!--<div>휴지통</div>-->
                                 </li>
+                                <li class="notePdfBtn" >
+                                    <a href="/unoteapi/pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i><!--<span class="toolTip hide"></span>-->PDF</a>
+                                    <!--<div>휴지통</div>-->
+                                </li>
                             </ul>
                             <div class="distriBtn">
                                 <div class="ellipsisIcon"><img src="../static/images/icon_more.png"></div>
